@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>广东快乐十分走势图表_开奖记录结果、预测、软件下载、直播 - 开奖直播</title>
+<meta name="keywords" content="广东快乐十分走势图表，广东快乐十分开奖记录、广东快乐十分开奖直播">
+<meta name="description" content="官方实时同步广东快乐十分开奖结果、提供走势图分析、在线直播平台、结果预测，软件下载等广东快乐十分彩票服务，方便广大彩民，【开奖直播网】拥有16年彩票分析经验。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/gdkl10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/gdkl10/rightmenu.html">
+<div id="all" class="lobby-record" v-cloak>
+<div class="title">
+<span>开奖记录</span>
+<a href="/m/gdkl10/kaijiang/index.html" class="more">查看全部<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+</div>
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+</tr>
+</thead>
+<tbody>
+<!-- <tr>
+ <td>
+<div class="period">14 期</div>
+<div class="time">11:20</div>
+</td>
+<td>
+<div class="content-box">
+<div class="lottery-num">
+<i class="no-default ">11</i>
+<i class="no-default ">16</i>
+<i class="no-default ">05</i>
+<i class="no-default no-red">19</i>
+<i class="no-default ">13</i>
+<i class="no-default ">06</i>
+<i class="no-default ">10</i>
+<i class="no-default ">12</i>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">92</span>
+<span class="analysis">双</span>
+<span class="analysis highlight">大</span>
+<span class="analysis">尾小</span>
+<span class="analysis">虎</span>
+<span class="analysis highlight">龍</span>
+<span class="analysis">虎</span>
+<span class="analysis highlight">龍</span>
+</div>
+</div>
+</td>
+</tr> -->
+
+
+<tr v-for="item in kjjl">
+<td>
+<div class="period">{{getTerms(item.periods)}}  期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box">
+<div class="lottery-num">
+<i  v-for="num in item.rank" :class="'no-default '">{{num}}</i>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">{{item.sum}}</span>
+<span class="analysis" :class="hasKey(item.sumDs,'单')?'highlight':''">{{item.sumDs}}</span>
+<span class="analysis" :class="hasKey(item.sumDx,'大')?'highlight':''">{{item.sumDx}}</span>
+<span class="analysis" :class="hasKey(item.wDx,'尾大')?'highlight':''">{{item.wDx}}</span>
+<span class="analysis" :class="hasKey(item.lh1,'龙')?'highlight':''">{{item.lh1}}</span>
+<span class="analysis" :class="hasKey(item.lh2,'龙')?'highlight':''">{{item.lh2}}</span>
+<span class="analysis" :class="hasKey(item.lh3,'龙')?'highlight':''">{{item.lh3}}</span>
+<span class="analysis" :class="hasKey(item.lh4,'龙')?'highlight':''">{{item.lh4}}</span>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+            	
+           	},
+            methods: {
+            	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(apikl10.gdklsf_kjjl,function(status,res) {
+            			var data = JSON.parse(res).data;            			
+            			for(item in data){
+            				if(item <10){            					
+                				for(item2 in data[item]){     
+                    				vm.kjjl.push(data[item][item2]);
+                				}	
+            				}            				
+            			}
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

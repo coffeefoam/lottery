@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+ <title>【开奖直播】北京赛车pk10_pk10开奖直播_pc蛋蛋_pc蛋蛋幸运28_北京赛车pk10开奖历史记录 - 开奖直播</title>
+        <meta name="keywords"
+            content="开奖直播,北京赛车pk10开奖直播,北京赛车pk10,pc蛋蛋_pc蛋蛋幸运28,pk10开奖直播,pk10开奖视频,北京赛车,pk10开奖历史,北京赛车开奖记录,pk10官网">
+        <meta name="description"
+            content="开奖直播专业开奖直播平台，自主研发北京赛车pk10开奖直播精准数据采集、基于云的北京赛车pk10专业数据分析。用户可以根据自身的需求，有针对性地查看pk10开奖历史记录选号技巧；开奖直播还提供PC蛋蛋，重庆时时彩，幸运飞艇，幸运农场，广东快乐十分等高频彩种的独家开奖直播视频，精准数据分析，统计，专家推荐计划。">
+        
+            <#include "/common/header.html">
+        <style>
+            .highcharts-legend {
+                display: none !important;
+            }
+            .highcharts-credits {
+                display: none !important;
+            }
+            .btn-spe {
+                width: 90px;
+                height: 30px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                color: #000;
+                text-align: center;
+                margin-right: 9px;
+                cursor: pointer;
+            }
+            .btn-other {
+                background: #d94136;
+                border: 1px solid #d94136 !important;
+                color: #fff !important;
+            }
+            .btn-spe p {
+                font-size: 15px;
+                line-height: 26px;
+                color: inherit;
+            }
+            .trend-chart .chart-content {
+                min-height: 316px !important;
+            }
+            [v-cloak] {
+                opacity: 0 !important;
+            }
+        </style>
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+        <div v-cloak id="all">
+        <nav id="mainNav" class="navbar navbar-default">
+            <#include "/common/nav.html">
+        </nav>
+
+        <section class="today-lottery" data-m="home">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <span>今日开奖</span>
+                        <a class="section-more j-lottery-link"
+                            :href="type+'/kaijiang.html'">查看更多 <strong>+</strong></a>
+                    </div>   
+                </div>
+                <div class="row text-center section-box">
+                    <div class="lottery-list">
+                        <div class="paper-button lottery-list-item " :class="(type==='pk10' ?'active':'')"  data-title="北京赛车PK10">
+                            <a style="color: inherit" @click="change('pk10')">北京赛车PK10</a>
+                        </div>
+                        <div :class="'paper-button lottery-list-item ' + (type==='cqssc' ?'active':'')"   data-title="重庆时时彩" data-periods="120" >
+                            <a style="color: inherit" @click="change('cqssc')">重庆时时彩</a>
+                        </div>
+                        <div class="paper-button lottery-list-item" :class="(type==='gdkl10' ?'active':'')" data-title="广东快乐十分" data-periods="84" data-id="3" data-url="gdkl10">
+                            <a style="color: inherit" @click="change('gdkl10')">广东快乐10分</a>
+                        </div>
+                        <div :class="'paper-button lottery-list-item ' + (type==='xyft' ?'active':'')"  data-title="幸运飞艇"
+                        data-periods="180" data-id="4" data-url="xyft"><a style="color: inherit" @click="change('xyft')">幸运飞艇</a>
+                        </div>
+                         <div :class="'paper-button lottery-list-item ' + (type==='xync' ?'active':'')"  data-title="幸运农场"
+                        data-periods="97" data-id="5" data-url="xync"><a style="color: inherit" @click="change('xync')">幸运农场</a></div>
+                        <!-- <div class="paper-button lottery-list-item"data-title="圣地彩"
+                            data-periods="90" data-id="6" data-url="sdc">圣地彩</div> -->
+                       <div :class="'paper-button lottery-list-item ' + (type==='gd11x5' ?'active':'')"   data-title="广东11选5"
+                        data-periods="84" data-id="7" data-url="gd11x5"><a style="color: inherit" @click="change('gd11x5')">广东11选5</a></div>
+                        <div class="paper-button lottery-list-item hide"
+                            data-title="快乐8" data-periods="179" data-id="8"
+                            data-url="kl8">快乐8</div>
+                        <!-- <div class="paper-button lottery-list-item hide"
+                            data-title="PC蛋蛋" data-periods="179" data-id="9"
+                            data-url="pcdd">PC蛋蛋</div> -->
+                         <div :class="'paper-button lottery-list-item ' + (type==='jsk3' ?'active':'')"   data-title="江苏快3"
+                        data-periods="82" data-id="10" data-url="jsk3"><a style="color: inherit" @click="change('jsk3')">江苏快3</a></div>
+                         <div :class="'paper-button lottery-list-item ' + (type==='xjssc' ?'active':'')"    data-title="新疆时时彩"
+                        data-periods="96" data-id="11" data-url="xjssc"><a style="color: inherit" @click="change('xjssc')">新疆时时彩</a></div>
+                       <div :class="'paper-button lottery-list-item ' + (type==='tjssc' ?'active':'')"  data-title="天津时时彩"
+                        data-periods="84" data-id="12" data-url="tjssc"><a style="color: inherit" @click="change('tjssc')">天津时时彩</a></div>
+                         <div :class="'paper-button lottery-list-item ' + (type==='jx11x5' ?'active':'')"  data-title="江西11选5"
+                        data-periods="84" data-id="13" data-url="jx11x5"><a style="color: inherit" @click="change('jx11x5')">江西11选5</a></div>
+                    </div>
+                    <div class="lottery-content">
+                        <div class="lottery-sort" id="j-lottery-intro">
+
+                            <div class="logo">
+                                <a class="j-lottery-link j-logo"
+                                    :href="type+'/index.html'">
+                                    <img
+                                        :src="'assets/dist/img/lottery-logo/'+type+'.png'"
+                                        class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lottery-info">
+                            <div id="j-lottery-info" style="overflow: hidden;">
+                                <div class="count text-left col-xs-6">
+                                    <span class="icon-word">开</span> 最近开奖：<span class="num">{{gameData.dqqs}}</span>期<span class="time" title=""></span>
+                                </div>
+                                <div class="count text-right col-xs-6">
+                                    <span class="icon-word">剩</span> 每日<span class="num short-period"> {{gameData.mrqs}} </span>期,今日剩余<span class="num short-period"> {{gameData.syqs}} </span>期
+                                </div>
+                                <div v-show="!isFlag" class="lottery-num motion-num text-left col-sm-12" id="j-balls">
+                                        <i 
+                                        v-for="item in paiming"
+                                        :class="item.style">{{item.val}}</i>
+                                </div>
+                                <div v-show="isFlag" class="lottery-num motion-num text-left col-sm-12" id="j-balls">
+                                <div class="lotterying">
+                                    <img src="/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+                                </div>
+                            </div>
+                            </div>
+                            
+                            <div class="lottery-detail col-lg-12">
+                                <div class="title">常用指数：</div>
+                                <div class="content">
+                                    <a class="j-lottery-link"
+                                        :href="type+'/index.html'">开奖首页</a><span
+                                        class="line">|</span>
+                                    <a class="j-lottery-link"
+                                        :href="type+'/zonghe/index.html'">综合路珠</a><span
+                                        class="line">|</span>
+                                    <a class="j-lottery-link"
+                                        :href="type+'/shuangmianluzhu/index.html'">单双大小路珠</a><span
+                                        class="line">|</span>
+                                    <a class="j-lottery-link"
+                                        :href="'zoushitu/'+type+'/index.html'">走势图</a><span
+                                        class="line">|</span>
+                                    <a class="j-lottery-link"
+                                        :href="type+'/shuangmianzoushitu/index.html'">单双大小走势图</a>
+                                </div>
+                            </div>
+                            <div v-show="isCankao" class="lottery-detail col-lg-12">
+                                <div class="title">投注参考：</div>
+                                <div class="content">
+                                    <a class="j-lottery-link"
+                                        :href="type+'/touzhu/index.html'">两面投注参考</a>
+                                </div>
+                            </div>
+                            <div class="lottery-detail col-lg-12">
+                                <div class="title">历史统计：</div>
+                                <div class="content">
+                                    <a class="j-lottery-link"
+                                         :href="type+'/kaijiang/index.html'">历史开奖</a><span v-show="isCankao" class="line">|</span>
+                                    <a v-show="isCankao" class="j-lottery-link"
+                                        :href="type+'/shuangmian/index.html'">单双大小统计</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lottery-right" id="j-lottery-right">
+                            <div class="periods">
+                                    第<span class="num">{{gameData.xqqs}}</span>期
+                                </div>
+                                <div class="next">距离下期开奖剩余</div>
+                                <div class="time" id="j-next-timer"><span class="num">{{minite}}</span> 分 <span class="num">{{seconds}}</span> 秒</div>
+                                <a :href="type+'/shipin/index.html'" class="live">
+                                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                    开奖直播
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        <section class="trend-chart">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <span>走势图表</span>
+                        <a class="section-more j-lottery-link"
+                            href="zoushitu/pk10/index.html">查看更多 <strong>+</strong></a>
+                    </div>
+                </div>
+                <div class="row section-box">
+                    <div class="chart-content col-lg-12" id="j-chart-container">
+                        <div class="head">
+                        </div>
+                        <div class="chart-btn" id="j-chart">
+                        </div>
+                        <div class="chart">
+                            <div style="display: flex;">
+                                <div 
+                                @click="draw(index)"
+                                v-for="(item,index) in num" 
+                                :class="{'btn-spe': true, 'btn-other': index === flag}">
+                                    <p>{{item}}</p>
+                                </div>
+                            </div>
+                            <div id="container" style="padding-top: 10px; width: inherit;  height:240px;"></div>
+                        </div>
+                    </div>  
+
+                </div>
+            </div>
+        </section>
+
+         <section class="lottery-live">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <span>开奖直播</span>
+                        <a class="section-more j-lottery-link"
+                            href="zhibo/index.html">查看更多 <strong>+</strong></a>
+                    </div>
+                </div>
+                <div class="row text-center section-box" id="j-live-container">
+                  
+                  
+                    <a class="col-xs-2 live-each" href="pk10/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/pk10-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="pk10">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">北京赛车PK10</div>
+                    </a>
+                    
+                    
+                    
+                    
+                    <a class="col-xs-2 live-each"
+                        href="shishicai/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/shishicai-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="shishicai">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">重庆时时彩</div>
+                    </a>
+                    <a class="col-xs-2 live-each"
+                        href="gdkl10/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/gdkl10-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="gdkl10">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">广东快乐十分</div>
+                    </a>
+                    <a class="col-xs-2 live-each" href="xyft/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/xyft-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="xyft">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">幸运飞艇</div>
+                    </a>
+                    <a class="col-xs-2 live-each" href="xync/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/xync-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="xync">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">幸运农场</div>
+                    </a>
+                    <a class="col-xs-2 live-each"
+                        href="gd11x5/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/gd11x5-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="gd11x5">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">广东11选5</div>
+                    </a>
+                    <a class="col-xs-2 live-each" href="kl8/shipin/index.html">
+                        <div class="logo">
+                            <img src="assets/dist/img/lottery-logo/kl8-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="kl8">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">快乐8</div>
+                    </a>
+                    <a class="col-xs-2 live-each" href="pcdd/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/pcdd-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="pcdd">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">PC蛋蛋</div>
+                    </a>
+                    <a class="col-xs-2 live-each" href="jsk3/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/jsk3-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="jsk3">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">江苏快3</div>
+                    </a>
+                    <a class="col-xs-2 live-each"
+                        href="xjssc/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/xjssc-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="xjssc">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">新疆时时彩</div>
+                    </a>
+                    <a class="col-xs-2 live-each"
+                        href="tjssc/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/tjssc-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="tjssc">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">天津时时彩</div>
+                    </a>
+                    <a class="col-xs-2 live-each"
+                        href="jx11x5/shipin/index.html">
+                        <div class="logo">
+                            <img
+                                src="assets/dist/img/lottery-logo/jx11x5-live.png"
+                                alt="live">
+                            <div class="word">
+                                <i class="icp-live-each-icon"></i><span>距离下期开奖:
+                                    <span class="time" data-fn="timer"
+                                        data-id="jx11x5">310</span> 秒</span>
+                            </div>
+                        </div>
+                        <div class="name">江西11选5</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="play-skills">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <span>玩法技巧</span>
+                        <a class="section-more j-lottery-link"
+                            href="jiqiao/index.html">查看更多 <strong>+</strong></a>
+                    </div>
+                </div>
+                <div class="row text-center section-box">
+                   
+                   
+                                               <#if categoryList??>
+								<#list categoryList as cat>
+
+
+                    <div class="play-each col-xs-4">
+                        <div class="content">
+                            <div class="name text-left">
+                                ${cat.name!}技巧
+                                <span class="more"><a href="${ctxPath!}/jiqiao/${cat.alias!}/">更多
+                                        <strong>+</strong></a></span>
+                            </div>
+                            <div class="head">
+                                <img src="assets/dist/img/lottery-logo/${cat.alias!}.png"
+                                    class="logo img-responsive" alt="">
+                                <div class="right">
+                                    <a class="title text-left"
+                                        href="${ctxPath!}/jiqiao/${cat.tuijianArtId?c}.html"
+                                        title="${cat.tuijianTitle!}">${cat.tuijianTitle!}</a>
+                                    <div class="detail text-left">${cat.tuijianContent!}</div>
+                                </div>
+                            </div>
+                            
+
+  							<ul class="list text-left">
+  							
+  							<#if cat.artList??>
+	<#list cat.artList as art>
+	<li>
+		<a href="${ctxPath!}/jiqiao/${art.id?c}.html" title="${art.title}" target="newWindow">
+			<span class="spot"></span>
+			<span class="word">${art.title!}</span>
+			<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+		</a>
+	</li>
+	</#list>
+	</#if>	
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    </#list>
+</#if>
+                </div>
+            </div>
+        </section>
+        </div>
+        <#include "/common/foot.html">
+    <script>
+    	var  uri_kaijiang=apipk10.bjsc_zxkj;
+        var uri_zst=apipk10.bjsc_zst;
+        var otherClick;
+        var click;
+        var changeType;
+        var vm = new Vue({
+                el: '#all',
+                data: {
+                    isFlag: false,
+                    num: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
+                    flag: 0,
+                    gameData: {},
+                    paiming: [],
+                    isCankao: true,
+                    minite: '00',
+                    seconds: '00',
+                    reqCount:0,
+                    type:'pk10',
+                    tu_name:'北京赛车PK10号码走势图',
+                    tp:[0, 5, 10] ,
+                    map:[
+                    	{type:"pk10",uri_kaijiang:apipk10.bjsc_zxkj,uri_zst:apipk10.bjsc_zst,tu_name:'北京赛车PK10号码走势图'},
+                    	{type:"gdkl10",uri_kaijiang:apikl10.gdklsf_zxkj,uri_zst:apikl10.gdklsf_zst,tu_name:'广东快乐十分号码走势图'},
+                    	{type:"gd11x5",uri_kaijiang:apigd11x5.gd11x5_zxkj,uri_zst:apigd11x5.gd11x5_zst,tu_name:'广东11选5号码走势图'},
+                    	{type:"cqssc",uri_kaijiang:apicqssc.cqssc_zxkj,uri_zst:apicqssc.cqssc_zst,tu_name:'重庆时时彩号码走势图'},
+                    	{type:"jsk3",uri_kaijiang:apijsk3.jsk3_zxkj,uri_zst:apijsk3.jsk3_zst,tu_name:'江苏快3总和走势图'},
+                    	{type:"jx11x5",uri_kaijiang:apijx11x5.jx11x5_zxkj,uri_zst:apijx11x5.jx11x5_zst,tu_name:'江西11选5号码走势图'},
+                    	{type:"xyft",uri_kaijiang:apixyft.xyft_zxkj,uri_zst:apixyft.xyft_zst,tu_name:'幸运飞艇号码走势图'},
+                    	{type:"xync",uri_kaijiang:apixync.xync_zxkj,uri_zst:apixync.xync_zst,tu_name:'幸运农场号码走势图'},
+                    	{type:"xjssc",uri_kaijiang:apixjssc.xjssc_zxkj,uri_zst:apixjssc.xjssc_zst,tu_name:'新疆时时彩号码走势图'},
+                    	{type:"tjssc",uri_kaijiang:apitjssc.tjssc_zxkj,uri_zst:apitjssc.tjssc_zst,tu_name:'天津时时彩号码走势图'},
+                    	
+                    ],
+                },
+                methods: {
+					//选择不同的采种
+               	 change: function(type) {
+               			changeType = type;
+                        if(type === 'jsk3') {
+                            this.isCankao = false;
+                        } else {
+                            this.isCankao = true;
+                        }
+	               		clearTimeout(otherClick);
+	               		clearInterval(click);
+                        this.type = type;
+                        var map = this.getUri(type);
+                        uri_kaijiang = map.uri_kaijiang;
+                        uri_zst= map.uri_zst;
+                        this.tu_name = map.tu_name;
+                        this.initQiu();
+                    	this.getNewGame();
+                    	this.draw();
+                    },
+                    getUri: function(type){
+                    	for (m in this.map)
+                    	{
+                    	   if(type ===this.map[m].type){
+                    		   return this.map[m];
+                    	   }
+                    	}
+                    	   return "";
+                    },
+                	
+                    newTimer: function() {
+                        
+                    },
+                    initQiu:function(){//初始化球个数
+                    	if(vm.type==='cqssc'||
+                            	vm.type==='tjssc'||vm.type==='xjssc'){
+                    		vm.num=['第一球', '第二球', '第三球', '第四球', '第五球'];
+                    		vm.tp=[0, 5, 10];
+                            	}else if(vm.type==='xync'){//幸运农场
+                            		vm.num=['第一球', '第二球', '第三球', '第四球', '第五球', '第六球', '第七球', '第八球'];
+                            		vm.tp=[0, 10, 20];
+                            	}else if(vm.type==='gdkl10'){//广东快乐十分
+                            		vm.num=['第一球', '第二球', '第三球', '第四球', '第五球', '第六球', '第七球', '第八球'];
+                            		vm.tp=[0, 10, 20];
+                            	}else if(vm.type==='jsk3'){//江苏快3
+                            		vm.num=[];
+                            		vm.tp=[0, 5, 10, 15, 20];
+                            	}else if(vm.type==='xyft'||vm.type==='pk10'){//幸运飞艇 pk10
+                            		vm.num=['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+                            		vm.tp=[0, 5, 10];
+                            	}else if(vm.type==='jx11x5'||vm.type==='gd11x5'){//江西11选5
+                            		vm.num=['第一球', '第二球', '第三球', '第四球', '第五球'];
+                            		vm.tp=[0, 5, 10,15];
+                            	}
+                    },
+                
+                    getNewGame: function() {
+                    	 if (typeof uri_kaijiang === "undefined") { 
+
+                    		//this.uri_kaijiang = apipk10.bjsc_zxkj;
+                    	 }
+             		 	//console.info(uri_kaijiang+"-11111--"+changeType);
+
+                    	 SULX.get(uri_kaijiang,function(std,data) {
+                                var result = JSON.parse(data).data;
+                                //console.info(uri_kaijiang +"---" + result.type);
+                                
+								if(!(uri_kaijiang.indexOf(result.type)>-1)){
+                    		 		return;
+                    		 	}                                                               
+                                
+                                var localTimer = JSON.parse(data).timestamp;
+                                vm.paiming.splice(0); //更新号码存放的数组
+                                var timer = Math.ceil((result.xqkjsj - localTimer)/1000); //设置延迟20s
+                                                                
+                                if(timer === 0||timer < 0) {
+                                	vm.minite = "00";
+                                    vm.seconds = "00";
+                                    vm.isFlag = true;
+										//延时30s,等待开奖,然后在请求最新开奖数据
+				                    	if(vm.reqCount==0){
+				                    	 	var otherClick = setTimeout(function() {
+				                    			vm.reqCount++;
+				                    			vm.$options.methods.getNewGame();                    		
+				     	                    },30000);
+				                    	}else{//30秒后，每隔5秒请求一次数据
+				                    		var otherClick = setTimeout(function() { 
+				                    			vm.reqCount++;
+				                             	vm.$options.methods.getNewGame();
+				     	                    },5000);
+				                    	}	
+                                } else {
+                                    clearTimeout(otherClick);
+                                    vm.reqCount=0;
+                                    vm.$options.methods.draw(); //重绘线图 页面没有可注释
+                                    var min = Math.floor(timer/60);
+                                    var scd = Math.ceil(timer%60);
+                                    clearInterval(click);
+                                    
+                                    click = setInterval(
+                                        function() {
+                                            scd --;
+                                            if((min === 0&&scd === 0)||min <0) {
+                                                vm.isFlag = true;
+                                                clearInterval(click);
+                                                
+                                                vm.$options.methods.getNewGame();
+                                            } else {
+                                                vm.isFlag = false;
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                            vm.minite = min;
+                                            vm.seconds = scd;
+                                            if((min+'').length === 1) {
+                                                vm.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                                vm.seconds = '0'+scd
+                                            }
+                                        }
+                                    ,1000);
+                                }
+                                vm.gameData = result;
+                                for(i=0;i<result.dqhm.length;i++) {//生成样式
+                                	var style_='icp-'+vm.type+'-'+ result.dqhm[i] +'-lg';
+                                	if(vm.type==='cqssc'||vm.type==='gdkl10'||
+                                	vm.type==='tjssc'||vm.type==='jxssc'||vm.type==='xjssc'||vm.type==='gd11x5'||vm.type==='jx11x5'
+                                	){//使用默认图标
+                                		style_='no-default';
+                                	}else if(vm.type==='xyft'){//幸运飞艇使用pk10 的图标
+                                		style_='icp-pk10-'+ result.dqhm[i] +'-lg';
+                                	}else if(vm.type==='xync'){//单独处理幸运农场的图标
+                                		style_='icp-'+vm.type+'-'+ vm.dealXync(result.dqhm[i]) +'-lg';
+                                	}
+                                	 vm.paiming.push({
+                                         style: style_,
+                                         val: result.dqhm[i]
+                                     });
+                                }
+                            }
+                        )
+                    },
+                    dealXync:function(num){
+                    	if(num<10){
+                    		return  ''+'0'+num;
+                    	}
+                    	return num;                    	
+                    }, 
+                    draw: function (index) {
+						if( index == undefined ){
+							index=0;
+						}
+                        this.flag = index;
+                        SULX.get(uri_zst,function(std,data) {
+                            var result = JSON.parse(data).data;
+                            
+                            if(!(uri_zst.indexOf(result.type)>-1)){
+                		 		return;
+                		 	}
+    
+                            var test1 = result['num'+(index+1)];
+                            // console.log(test1)
+                            var timer = [];
+                            var chartData = [];
+                            for(j in test1) {
+                            timer.push(j.substr(j.length-2,2)); //截取key生成期数
+                            chartData.push(Number(test1[j])); //数据必须是number
+                            }
+    
+                            var chart = Highcharts.chart('container', {
+                            chart: {
+                                type: 'spline',
+                                spacingTop: 30
+                                // height: 240,
+                                // width: '1400'
+                            },
+                            title: {
+                                text: vm.tu_name, //tubiao biaoti
+                                align: 'left'
+                            },
+                            xAxis: {
+                                categories: timer
+                            },
+                            yAxis: {
+                                title: '',
+                                tickPositions: vm.tp  //y轴数据
+                                // categories: [0,150,200]
+                            },
+                            tooltip: {
+                                useHTML: true,
+                                headerFormat: '<span style=";">{point.key}期:{point.y}</span>',
+                                backgroundColor: '#666',   // 背景颜色
+                                // borderColor: 'black',         // 边框颜色
+                                borderRadius: 10,             // 边框圆角
+                                borderWidth: 0,
+                                display: 'flex', 
+                                shadow: false,                 
+                                animation: false,      
+                                pointFormatter: function() {
+                                return '<span style=" color: #fff;>期<span>';
+                                },
+                                style: {  
+                                    width: '70px',
+                                    height: '30px',   
+                                            // 文字内容相关样式
+                                    color: "rgba(255,255,255,0.8)",
+                                    fontSize: "12px",
+                                    fontWeight: "blod",
+                                    fontFamily: "Courir new"
+                                }
+                            },
+                            plotOptions: {
+                                spline: {
+                                    dataLabels: {
+                                        // 开启数据标签
+                                        // color: '#666',
+                                        crop: false,
+                                        overflow: 'none',
+                                        verticalAlign: 'bottom',
+                                        enabled: true          
+                                    },
+                                    // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                                    enableMouseTracking: true
+                                }
+                            },
+                            series: [
+                                {
+                                name: '',
+                                color: '#5073a3',
+                                data: chartData
+                                }
+                            ]
+                            
+                            });
+                            }
+                        )
+                        }
+                },
+                mounted: function() {
+                    this.$options.methods.getNewGame();
+                    this.$options.methods.draw();
+                },
+                created: function() {
+ 
+                },
+            })
+        </script>
+        <script src="assets/dist/js/all2.js?123161"></script>
+    </body>
+</html>

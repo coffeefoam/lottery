@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户反馈</title>
+		<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+			<#if shiro.hasPermission("operation:scheduledManager:rebuild")>
+			<div class="col-sm-1 control-label">
+				<input class="form-control" type="text" id="datestr" placeholder="请选择日期" readonly="readonly" style="cursor:pointer;width:100px;">
+			</div>&nbsp;&nbsp;
+			<a class="btn btn-primary" @click="getDataBydate"><i class="fa fa-plus"></i>&nbsp;抽取数据</a>
+			<a class="btn btn-primary" @click="rebuild"><i class="fa fa-plus"></i>&nbsp;生成数据</a>
+			</#if>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>    
+</div>
+<script src="${request.contextPath}/statics/plugins/laydate/laydate.js"></script>
+<script src="${request.contextPath}/statics/js/modules/operation/scheduledManager.js?_${.now?long}"></script>
+<script>
+//执行一个laydate实例
+laydate.render({
+  elem: '#datestr' //指定元素
+});
+</script>
+</body>
+</html>

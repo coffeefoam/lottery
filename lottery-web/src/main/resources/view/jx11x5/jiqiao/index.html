@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江西11选5技巧</title>
+<meta name="keywords" content="江西11选5开奖视频, 江西11选5开奖号码, 江西11选5技巧，江西11选5计划软件">
+<meta name="description" content="江西11选5路珠分析频道专门为江西11选5的玩家提供专业的江西11选5路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/jx11x5/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+<a class="item " href="/jx11x5/">江西11选5</a>
+<a class="item " href="/jx11x5/kaijiang">历史开奖号码</a>
+<a class="item " href="/jx11x5/shipin/">开奖视频</a>
+<a class="item " href="/jx11x5/zonghe/">综合路珠分析</a>
+<a class="item " href="/jx11x5/yilou/">号码遗漏统计</a>
+<a class="item " href="/jx11x5/haomaluzhu/">号码路珠</a>
+<a class="item " href="/jx11x5/longhuluzhu/">龍虎路珠</a>
+<a class="item " href="/jx11x5/shuangmianluzhu/">单双大小路珠</a>
+<a class="item " href="/jx11x5/zongheluzhu/">总和路珠</a>
+<a class="item " href="/jx11x5/shuangmian/">单双大小历史</a>
+<a class="item " href="/jx11x5/haomatongji/">历史号码统计</a>
+<a class="item " href="/jx11x5/touzhu/">两面投注参考</a>
+<a class="item " href="/jx11x5/zoushitu/">横版走势图</a>
+<a class="item " href="/jx11x5/danshuangdaxiaozoushitu">单双大小走势图</a>
+<a class="item active" href="/jx11x5/jiqiao/">江西11选5技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="skill-box">
+<div class="list-left">
+<ol class="breadcrumb">
+<li><a href="/">首页</a></li>
+<li><a href="/jiqiao/">资讯技巧</a></li>
+<li class="active">${category.name!}技巧</li>
+</ol>
+<h4 class="head">${category.name!}</h4>
+<#if artList??>
+<#list artList as art>
+<div class="list">
+<div class="title">
+<a href="${ctxPath!}/jiqiao/${art.id?c}.html" target="newWindow">${art.title!}</a>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</div>
+</#list>
+</#if>
+
+<div class="skill-pager">
+<ul class="page">
+<#if pageNum!=0>
+<#if pageNo != 1>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/1.html" class="" title="首页">首页</a></li>
+</#if>
+<#if pageNo !=1>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${prePageNo?c}.html" class="" title="上一页">上一页</a></li>
+</#if>
+<#list startPageNo..endPageNo as num>
+<#if num == pageNo>
+<li><a href="javascript:;" class="active" title="当前${num?c}页">${num}</a></li>
+<#else>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${num?c}.html" class="" title="当前${num?c}页">${num?c}</a></li>
+</#if>
+</#list>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${nextPageNo?c}.html" class="" title="下一页">下一页</a></li>
+</#if>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${pageNum?c}.html" class="" title="尾页">尾页</a></li>
+</#if>
+</#if>
+</ul>
+</div>
+</div>
+<div class="list-right">
+<ul class="list">
+<#if categoryList??>
+<#list categoryList as cat>
+<li><a href="/${cat.alias!}/jiqiao/" class="<#if cat.id?? && cat.id==catId>active</#if>"><span>></span><span class="name">${cat.name!}</span></a></li>
+</#list>
+</#if>
+</ul>
+</div>
+</div>
+<#include "/common/foot.html">
+</body>
+</html>

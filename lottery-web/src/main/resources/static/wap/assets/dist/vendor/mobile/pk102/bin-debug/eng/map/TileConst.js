@@ -1,0 +1,1 @@
+var __reflect=this&&this.__reflect||function(_,t,e){_.__class__=t,e?e.push(t):e=[t],_.__types__=_.__types__?e.concat(_.__types__):e},game;!function(_){var t=function(){function _(){}return _}();t.MAP_NUM=2,t.DIRECTION=-1,t.UNIT_NUM=10,_.TileConst=t,__reflect(t.prototype,"game.TileConst")}(game||(game={}));

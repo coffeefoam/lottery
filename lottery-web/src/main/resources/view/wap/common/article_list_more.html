@@ -1,0 +1,15 @@
+<#if artList??>
+<#list artList as art>
+<a class="lottery-skill" href="/m/jiqiao/${art.id?c}.html">
+<div class="title">
+<span class="name">${art.title!}</span>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</a>
+</#list>
+</#if>

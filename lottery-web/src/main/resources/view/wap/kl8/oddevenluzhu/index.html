@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京快乐8奇偶盘路珠分析 - 开奖直播</title>
+<meta name="keywords" content="北京快乐8,北京北京快乐8开奖,北京快乐8技巧,北京快乐8走势图">
+<meta name="description" content="北京快乐8频道提供北京快乐8的开奖结果、技巧、走势图和后续的视频直播等等服务。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/kl8/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/kl8/rightmenu.html">
+<div class="menu-title">
+奇偶盘路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+<li>3.所有开奖号码中，单数超过10个时为单盘，双数超过10个时为双盘，单双个数均为10时为和盘。</li>
+</ul>
+</div>
+</div>
+<div id="kl8jolzContainer" v-cloak>
+	<div class="container lobby-record t_1">
+		<div class="table-responsive">
+			<table class="table table-bordered text-right">
+				<tr style="background: #f6f6f6;">
+					<td><span>
+							今日累计：<span class="text-primary">奇（{{jostr["奇"]}}） 偶（{{jostr["偶"]}}） 和（{{jostr["和"]}}) </span>
+						</span> 
+						奇偶盘奇偶
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered text-center table-vertical">
+				<tr valign="top">
+					<td v-for="(item,index) in num " :class="(index%2==0)?'even':'odd'">
+						<span v-for="item2 in item" 
+						:class="{'high-light-red': item2 === '奇','high-light-blue': item2 === '偶','high-light-green': item2 === '和'}">
+						{{item2}} 
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el : '#kl8jolzContainer',
+	data : {
+		jolz:{},
+		jostr:{},
+		num: [],
+	},
+	methods : {
+		getData: function(){
+			SULX.get(apikl8.kl8_jolz,function(std,data) {
+				  vm.jostr = JSON.parse(data).data.jrlj;
+	         	   var data = JSON.parse(data).data;
+	         	   vm.num.splice(0);
+	         	   for(i in data.sxplz){
+	         			vm.num.push(data.sxplz[i])	   
+	         	   }
+			});
+		}
+	},
+	created : function() {
+		this.getData();
+	}
+});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">

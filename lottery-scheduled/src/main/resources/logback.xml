@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<contextName>logback</contextName>
+	<!--定义日志文件的存储地址   勿在 logback的配置中使用相对路径-->
+	<property name="LOG_HOME" value="/home/tomcat/logs/lottery-scheduled" />
+
+	<!-- 控制台输出 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout name="StandardFormat" class="ch.qos.logback.classic.PatternLayout">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+			<pattern>%d{yyyy-MM-dd:HH:mm:ss.SSS} %-5level %class.%method:%line %msg%n</pattern>
+		</layout>
+	</appender>
+	
+	<!-- 日志文件输出 -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/%d{yyyyMMdd}/%d{yyyyMMdd}_%i.log</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10000KB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>30</maxHistory><!-- days -->
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</Pattern>
+		</layout>
+	</appender>
+	
+	<!-- 按照每天生成ERROR日志文件 -->
+    <appender name="ERROR-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      	<prudent>true</prudent>
+          <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+              <FileNamePattern>${LOG_HOME}/%d{yyyyMMdd}/error/error_%d{yyyyMMdd}_%i.log</FileNamePattern>
+              <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                  <maxFileSize>10000KB</maxFileSize>
+              </timeBasedFileNamingAndTriggeringPolicy>
+              <maxHistory>30</maxHistory>
+          </rollingPolicy>
+          <layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</Pattern>
+          </layout>
+		  <filter class="ch.qos.logback.classic.filter.LevelFilter">   
+			<level>ERROR</level>   
+			<onMatch>ACCEPT</onMatch>   
+			<onMismatch>DENY</onMismatch>   
+		  </filter> 
+      </appender>
+      
+	<root level="info">
+	   <appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ERROR-FILE" />
+	</root>
+	
+	
+</configuration>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.modules.lottery.dao.LiuheDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.lottery.modules.lottery.entity.LiuheEntity" id="liuheMap">
+        <result property="id" column="id"/>
+        <result property="time" column="time"/>
+        <result property="periods" column="periods"/>
+        <result property="num1" column="num1"/>
+        <result property="num2" column="num2"/>
+        <result property="num3" column="num3"/>
+        <result property="num4" column="num4"/>
+        <result property="num5" column="num5"/>
+        <result property="num6" column="num6"/>
+        <result property="num7" column="num7"/>
+        <result property="createtime" column="createtime"/>
+        <result property="processtime" column="processtime"/>
+        <result property="starttime" column="starttime"/>
+    </resultMap>
+    
+    <select id="getByTimeAndQishu" parameterType="io.lottery.modules.lottery.entity.LiuheEntity" resultType="io.lottery.modules.lottery.entity.LiuheEntity">
+    	   SELECT * from t_bs_liuhe l
+    	   where l.time = #{time}
+    	   AND l.periods = #{periods}
+    </select>
+    
+    
+    <select id="getTheLastOne" parameterType="io.lottery.modules.lottery.entity.LiuheEntity" resultType="io.lottery.modules.lottery.entity.LiuheEntity">
+			SELECT
+				*
+			FROM
+				t_bs_liuhe l
+			ORDER BY
+				l.id DESC
+			LIMIT 1 	   
+    </select>
+    
+    <select id="getYears"  resultType="string">
+			SELECT
+				DATE_FORMAT(l.time, '%Y') nianfen
+			FROM
+				t_bs_liuhe l
+			GROUP BY
+				DATE_FORMAT(l.time, '%Y')	   
+    </select>
+
+
+</mapper>

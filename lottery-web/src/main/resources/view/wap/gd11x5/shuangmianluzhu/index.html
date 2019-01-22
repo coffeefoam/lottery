@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>广东11选5单双大小路珠分析 - 开奖直播</title>
+<meta name="keywords" content="广东11选5开奖视频, 广东11选5开奖号码, 广东11选5技巧，广东11选5计划软件">
+<meta name="description" content="广东11选5路珠分析频道专门为广东11选5的玩家提供专业的广东11选5路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/gd11x5/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/gd11x5/rightmenu.html">
+<div class="menu-title">
+单双大小路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+</ul>
+</div>
+</div>
+
+<div id="divContainer" v-cloak>
+					
+					<div class="j-records">
+					
+					<div v-for="(item,index) in qiushuList">
+					<div class="container lobby-record" :class="'t_' +(index+1)">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num"+(index+1)+"-da"]}}） 小（{{dxlz["num"+(index+1)+"-xiao"]}}） </span></span>
+					第{{item}}球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item2 in dxlz['num'+(index+1)]" :class="item2.indexOf('小')>-1?'odd':'even'">
+					<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+					{{item3}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record" :class="'t_' +(index+1)">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num"+(index+1)+"-dan"]}}） 双（{{dslz["num"+(index+1)+"-shuang"]}}） </span></span>
+					第{{item}}球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item4 in dslz['num'+(index+1)]" :class="item4.indexOf('双')>-1?'odd':'even'">
+					<span :class="item4.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item5 in item4.split('')">
+					{{item5}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					</div>
+					</div>
+					</div>
+
+</div>
+</div>
+<script type="text/javascript">
+						var vm = new Vue({
+							el:'#divContainer',
+							data:{
+								dslz:{},
+								dxlz:{},
+								qiushuList:["一","二","三","四","五"],
+							},		
+							methods:{
+                                getData: function(){
+									//单双露珠
+									SULX.get(apigd11x5.gd11x5_dslz,function(std,data) {
+											vm.dslz = JSON.parse(data).data;				
+										}
+									);
+									//大小露珠
+									SULX.get(apicqssc.cqssc_dxlz,function(std,data) {
+											vm.dxlz = JSON.parse(data).data;					
+										}
+									);
+                                }
+                            },	
+							created:function(){
+								this.getData();
+							}	
+						});
+					</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html"></html>

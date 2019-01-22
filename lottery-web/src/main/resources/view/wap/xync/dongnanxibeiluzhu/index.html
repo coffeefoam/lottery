@@ -1,0 +1,326 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场东南西北路珠分析 - 开奖直播</title>
+<meta name="keywords" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<meta name="description" content="幸运农场路珠分析频道专门为幸运农场的玩家提供专业的幸运农场路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xync/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xync/rightmenu.html">
+<div class="menu-title">
+东南西北路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当中断连续开出中、发或白时，则另起一列显示结果；</li>
+<li>
+3.<b>東</b>：开出号码为01、05、09、13、17；<b>南</b>：开出号码为02、06、10、14、18；
+<b>西</b>：开出号码为03、07、11、15、19；<b>北</b>：开出号码为04、08、12、16、20。
+</li>
+</ul>
+</div>
+</div>
+<div id="hello" v-cloak>
+<div class="j-records">
+<div class="container lobby-record t_1 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num1-dong"]}}） 南（{{dnxblz["num1-nan"]}}）
+西（{{dnxblz["num1-xi"]}}） 北（{{dnxblz["num1-bei"]}}）
+</span>
+</span>
+第一球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num1']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'" 
+ :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_2 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num2-dong"]}}） 南（{{dnxblz["num2-nan"]}}）
+西（{{dnxblz["num2-xi"]}}） 北（{{dnxblz["num2-bei"]}}）
+</span>
+</span>
+第二球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num2']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_3 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num3-dong"]}}） 南（{{dnxblz["num3-nan"]}}）
+西（{{dnxblz["num3-xi"]}}） 北（{{dnxblz["num3-bei"]}}）
+</span>
+</span>
+第三球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="(item2, key, index) in dnxblz['num3']" :class="key % 2=== 0?'odd':'even'">
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="container lobby-record t_4 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num4-dong"]}}） 南（{{dnxblz["num4-nan"]}}）
+西（{{dnxblz["num4-xi"]}}） 北（{{dnxblz["num4-bei"]}}）
+</span>
+</span>
+第四球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="(item2, key, index) in dnxblz['num4']" :class="key % 2=== 0?'odd':'even'">
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="container lobby-record t_5 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num5-dong"]}}） 南（{{dnxblz["num5-nan"]}}）
+西（{{dnxblz["num5-xi"]}}） 北（{{dnxblz["num5-bei"]}}）
+</span>
+</span>
+第五球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num5']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_6 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num6-dong"]}}） 南（{{dnxblz["num6-nan"]}}）
+西（{{dnxblz["num6-xi"]}}） 北（{{dnxblz["num6-bei"]}}）
+</span>
+</span>
+第六球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num6']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_7 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num7-dong"]}}） 南（{{dnxblz["num7-nan"]}}）
+西（{{dnxblz["num7-xi"]}}） 北（{{dnxblz["num7-bei"]}}）
+</span>
+</span>
+第七球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num7']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+<div class="container lobby-record t_8 ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日累计：<span class="text-primary">
+东（{{dnxblz["num8-dong"]}}） 南（{{dnxblz["num8-nan"]}}）
+西（{{dnxblz["num8-xi"]}}） 北（{{dnxblz["num8-bei"]}}）
+</span>
+</span>
+第八球方位
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+
+<td v-for="(item2, key, index) in dnxblz['num8']" :class="key % 2=== 0?'odd':'even'">
+
+<span :class="item2.indexOf('东') >-1?'high-light-red':'high-light-blue'"  :style="item2.indexOf('北') >-1?'color: #008000;':(item2.indexOf('西') >-1?'color: #2D92C2;':'')"
+
+v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#hello',
+		data:{
+			dnxblz:{},
+		},methods: {
+			 getData:function(){
+				 SULX.get(apixync.xync_dnxblz,function(std,data) {
+	                    vm.dnxblz = JSON.parse(data).data;		
+	                }
+	            );		
+			 },
+		},	 
+		created:function(){	
+			this.$options.methods.getData(); 
+		}	
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

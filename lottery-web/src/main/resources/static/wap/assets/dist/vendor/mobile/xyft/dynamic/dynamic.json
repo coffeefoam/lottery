@@ -1,0 +1,68 @@
+{
+    "comment": "注释：1、loading组和game组的元素分别只出现在loading界面和正式视频界面中 2、可以直接在loading组和game组增删元素，但注意key不能相同  3、需要重复加载到舞台的元素可以用同一个url，但是key不能相同，否则前者的引用会被后者覆盖",
+    "loading": [
+        {
+            "key": "loadingLogo",
+            "url": "dynamic/loadingLogo.png",
+            "property": {
+                "x": "434",
+                "y": "267",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1.43",
+                "scaleY": "1.43"
+            }
+        },
+         {
+            "key": "loadingCompany",
+            "url": "dynamic/loadingCompany.png",
+            "property": {
+                "x": "370",
+                "y": "541",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1.43",
+                "scaleY": "1.43"
+            }
+        }
+    ],
+    "game": [
+        {
+            "key": "gameLogo",
+            "url": "dynamic/gameLogo.png",
+            "property": {
+                "x": "32",
+                "y": "443",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1",
+                "scaleY": "1"
+            }
+        },
+        {
+            "key": "gameURL",
+            "url": "dynamic/gameURL.png",
+            "property": {
+                "x": "35",
+                "y": "50",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1",
+                "scaleY": "1"
+            }
+        },
+        {
+            "key": "seaLogo",
+            "url": "dynamic/seaLogo.png",
+            "property": {
+                "x": "180",
+                "y": "270",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1",
+                "scaleY": "1"
+            }
+        }
+       
+    ]
+}

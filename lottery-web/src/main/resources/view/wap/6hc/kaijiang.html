@@ -1,0 +1,114 @@
+<div v-cloak id="kaijContainer" class="lobby-header" >
+<div class="info" data-m="advertisement">
+<div class="name bottom-menu-icon" id="bottom-menu-icon">
+<span class="word">六合彩</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+</div>
+<a class="live hide" href="/m/6hc/shipin">
+<span class="icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></span>开奖直播
+</a>
+</div>
+<div class="content">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/6hc.png" class="logo" style="display:none;visibility:hidden;margin-top: 8px;width: 54px;margin-left: 0px;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/6hc.png" style="" class="logo"></noscript>
+<div class="title">
+<span style="margin-left: 10px" class="period">第<span style="color:red">{{zxkj["ykqs"]}}</span>期</span>
+<span class="time pull-right" style="margin-right:18px;">下期开奖：
+<span class="num ">{{hour}}:{{minite}}:{{seconds}}</span></span>
+</div>
+<div style="margin-left: 9px" class="lottery-num motion-num">
+	<i style="margin-right: 5px" v-show="timeFlag" class="no-default" v-for="(item,index) in zxkj.dqhm" v-if="index<6" :class="'no-'+zxkj.boserank[index]">{{item}}</i>
+	<i v-show="timeFlag" class="pcdd-plus"><font style="margin-right: 7px; margin-left: 11px;" size="6" color="#B3B3B3">+</font></i>
+    <i style="margin-right: 5px" v-show="timeFlag" class="no-default" v-for="(item,index) in zxkj.dqhm" v-if="index==6" :class="'no-'+zxkj.boserank[index]">{{item}}</i>
+    <br/>
+    <i v-show="timeFlag" style="font-size: 13px;margin-right: 5px;" class="no-default2" v-for="(item,index) in zxkj.sxrank" v-if="index<6">{{item}}</i>
+    <i style=" margin-left: 6px;" v-show="timeFlag" class="pcdd-plus"><font size="6" color="#FFF">+</font></i>  
+    <i v-show="timeFlag" style="font-size: 13px;margin-right: 5px; margin-left: 11px;" class="no-default2" v-for="(item,index) in zxkj.sxrank" v-if="index==6">{{item}}</i>        
+    
+    <p v-show="!timeFlag" class="flash">正在开奖...</p>
+</div>
+</div>
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+</div>
+<script type="text/javascript">
+var kjvm = new Vue({
+    el:'#kaijContainer',
+    data:{
+		zxkj:{},
+		minite: "00",
+        seconds: "00",
+        hour: "00",
+        timeFlag: true,
+        reqCount:0,
+    },
+    methods:{        
+        getNewGame: function() {
+			SULX.get(api6hc.lhc_zxkj,function(std,data) {
+                    var result = JSON.parse(data).data;
+                    kjvm.zxkj = result;
+                    var otherClick;
+                    var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000); //设置延迟20s
+                    if(timer === 0||timer < 0) {
+                         kjvm.timeFlag = false;                        
+                      	//延时30s,等待开奖,然后在请求最新开奖数据
+                       	if(kjvm.reqCount==0){
+                       		otherClick = setTimeout(function() {
+                       			kjvm.reqCount++;
+                       			kjvm.$options.methods.getNewGame();                    		
+        	                    },30000);
+                       	}else{//30秒后，每隔5秒请求一次数据
+                       		otherClick = setTimeout(function() { 
+                       			kjvm.reqCount++;
+                                	kjvm.$options.methods.getNewGame();
+        	                    },5000);
+                       	}                        
+                    } else {
+                        kjvm.timeFlag = true;
+                        try {
+                            vm.$options.methods.getData();
+                        }catch(e){}	
+                        clearTimeout(otherClick);
+                        kjvm.reqCount=0;
+                        var hour= Math.floor(timer/3600);
+                        var min = Math.floor((timer - hour * 60 * 60)/60);
+                        var scd = Math.ceil(timer%60);
+                        var click = setInterval(
+                            function() {
+                            	  kjvm.hour = hour;
+                                kjvm.minite = min;
+                                kjvm.seconds = scd;
+                                if((min+'').length === 1) {
+                                    kjvm.minite = '0'+min     //加个0
+                                }
+                                if((scd+'').length === 1) {
+                                    kjvm.seconds = '0'+scd
+                                }
+                                if((hour+'').length === 1) {
+                                    kjvm.hour = '0'+hour
+                                }
+                                scd --;
+                                if((min === 0&&scd === 0&&hour===0)||min <0||hour<0) {
+                                    clearInterval(click);
+                                    kjvm.$options.methods.getNewGame();
+                                } else {
+                                    if(scd < 0) {
+                                        min --;
+                                        scd = 59;
+                                    }
+                                    if(min < 0){
+                                    	hour--;
+                                    	min = 59;
+                                    }
+                                }
+                            }
+                        ,1000);
+                    }                                	
+            });
+         },        
+    },	
+    created: function() {
+        this.getNewGame();
+    },
+});
+</script>

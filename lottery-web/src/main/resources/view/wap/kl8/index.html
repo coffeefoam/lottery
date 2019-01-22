@@ -1,0 +1,128 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京快乐8,北京快乐8开奖记录、技巧、视频直播 - 开奖直播</title>
+<meta name="keywords" content="北京快乐8,北京快乐8开奖,北京快乐8技巧,北京快乐8走势图">
+<meta name="description" content="北京快乐8频道提供北京快乐8的开奖结果、技巧、走势图和后续的视频直播等等服务。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/kl8/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+
+<#include "/wap/kl8/rightmenu.html">
+<div class="lobby-record">
+<div class="title">
+<span>开奖记录</span>
+<a href="kaijiang/index.html" class="more">查看全部<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+</div>
+<div id="all" v-cloak>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="item in kjjl">
+<td>
+<div class="period">{{getTerms(item.periods)}} 期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box">
+
+
+<div class="lottery-num" style="line-height: 16px;">
+	<template v-for="(item2,indexes) in item.rank">
+	<i v-if="indexes <= 9" :class="'kl8 kl8-sno'">{{item2}}
+	</i>
+	<i v-if="indexes > 9 &&indexes <20" :class="'kl8 kl8-bno'">{{item2}}
+	</i>
+	<br v-if="indexes === 9">
+	</template>
+<br /> </div>
+<div class="lottery-analysis">
+
+<span class="analysis">{{item.fp}}</span>
+<span class="analysis">{{item.zhSum}}</span>
+<span class="analysis" :class="hasKey(item.zhDs,'单')?'highlight':''">{{item.zhDs}}</span>
+<span class="analysis" :class="hasKey(item.zhDx,'大')?'highlight':''">{{item.zhDx}}</span>
+<span class="analysis" :class="hasKey(item.sx,'上')?'highlight':''">{{item.sx}}</span>
+<span class="analysis" :class="hasKey(item.wx,'火')?'highlight':''">{{item.wx}}</span>
+</div>
+</div>
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+            	
+           	},
+            methods: {
+            	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(apikl8.kl8_kjjl,function(status,res) {
+            			var data = JSON.parse(res).data;            			
+            			for(item in data){
+            				if(item <10){            					
+                				for(item2 in data[item]){                					
+                    				vm.kjjl.push(data[item][item2]);
+                				}	
+            				}            				
+            			}
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车PK10推荐计划 - 开奖直播</title>
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+
+<div class="plan plan-pk10" data-m="plan" data-title="北京赛车PK10" data-periods="179" data-id="1" data-url="pk10" data-count="30">
+<div v-cloak id="mainDiv" class="plan-content">
+<div class="row">
+<div class="col-md-6">
+<img class="plan-logo" src="/static/assets/dist/img/lottery-logo/pk101d9d.png?123161" />
+<div class="plan-subhead">
+{{tj["periods"]}}期推荐
+</div>
+<div class="plan-list">
+第{{substring(tj["plan1"],0)}}球:<span>{{substring(tj["plan1"],1)}}</span>
+第{{substring(tj["plan2"],0)}}球:<span>{{substring(tj["plan2"],1)}}</span>
+第{{substring(tj["plan3"],0)}}球:<span>{{substring(tj["plan3"],1)}}</span>
+</div>
+<div class="plan-link">
+<a href="/pk10/shipin/" target="_blank"><i class="icp-live-m icon"></i>开奖直播</a>
+<a href="/pk10/shuangmianluzhu/" target="_blank"><i class="icp-luzhu-m icon"></i>两面路珠</a>
+<a href="/pk10/longhuluzhu/" target="_blank"><i class="icp-luzhu-m icon"></i>龍虎路珠</a>
+</div>
+</div>
+<div class="col-md-6 plan-count">
+<div class="plan-win">
+<div class="plan-chart">
+<span class="win">赢</span>
+<div :class="'pie pie-'+ying_pie">
+<div class="pie-half"></div>
+<div class="pie-circle"></div>
+<div class="pie-dot"></div>
+</div>
+</div>
+<p class="plan-count-info">计划统计</p>
+<p class="win">赢<span class="win-count">{{ying}}</span></p>
+</div>
+<div class="plan-lose">
+<div class="plan-chart">
+<span class="lose">输</span>
+<div :class="'pie pie-'+shu_pie">
+<div class="pie-half"></div>
+<div class="pie-circle"></div>
+<div class="pie-dot"></div>
+</div>
+ </div>
+<p class="plan-count-info">计划统计</p>
+<p class="lose">输<span class="lose-count">{{shu}}</span></p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="plan-period">
+<div class="col-md-6">
+<div class="plan-current">
+当前期:<span class="text-primary ">{{zxkj["dqqs"]}}</span>
+<div class="plan-num">
+<i v-show="timeFlag" 
+v-for="num in zxkj.dqhm" 
+:class="'icp-pk10-'+ num +'-md'"></i>
+ <p  v-show="!timeFlag" class="flash">正在开奖...</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 plan-next">
+下期<span class="text-primary j-next-period"></span>开奖剩余
+<span class="text-primary" id="j-next-timer">{{minite}}:{{seconds}}</span> 
+</div>
+</div>
+<div>
+<div class="plan-table">
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>号码</th>
+<th>推荐1</th>
+<th>推荐2</th>
+<th>推荐3</th>
+<th>结果</th>
+<th>累计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{tj["periods"]}}&nbsp;&nbsp;&nbsp;&nbsp;{{buildHM(tj["starttime"]) }}</td>
+<td class="plan-table-list">
+第{{substring(tj["plan1"],0)}}球:<span>{{substring(tj["plan1"],1)}}</span>
+第{{substring(tj["plan2"],0)}}球:<span>{{substring(tj["plan2"],1)}}</span>
+第{{substring(tj["plan3"],0)}}球:<span>{{substring(tj["plan3"],1)}}</span>
+</td>
+<td colspan="5" class="text-primary">等待开奖验证......</td>
+</tr>
+<tr v-for="(item,index) in dataArr" :class="index%2==0?'odd':'even'">
+<td>{{item["periods"]}}&nbsp;&nbsp;&nbsp;&nbsp;{{buildHM(item["starttime"]) }}</td>
+<td class="table-nums">
+<i :class="'icp-pk10-'+item['num1']+'-sm'  +  (item['isWin'].indexOf('1')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num2']+'-sm' + (item['isWin'].indexOf('2')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num3']+'-sm' + (item['isWin'].indexOf('3')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num4']+'-sm' + (item['isWin'].indexOf('4')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num5']+'-sm' + (item['isWin'].indexOf('5')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num6']+'-sm' + (item['isWin'].indexOf('6')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num7']+'-sm' + (item['isWin'].indexOf('7')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num8']+'-sm' + (item['isWin'].indexOf('8')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num9']+'-sm' + (item['isWin'].indexOf('9')>-1?'' :' num-gray' )"></i>
+<i :class="'icp-pk10-'+item['num10']+'-sm' + (item['isWin'].indexOf('0')>-1?'' :' num-gray' )"></i>
+
+</td>
+<td><span class="recomment-1">第{{substring(item["plan1"],0)}}球：</span><span :class="substring(item['plan1'],2)==='赢' ?'win' :'lose'  ">{{substring(item["plan1"],1)}}</span></td>
+<td><span class="recomment-1">第{{substring(item["plan2"],0)}}球：</span><span :class="substring(item['plan2'],2)==='赢' ?'win' :'lose'  ">{{substring(item["plan2"],1)}}</span></td>
+<td><span class="recomment-1">第{{substring(item["plan3"],0)}}球：</span><span :class="substring(item['plan3'],2)==='赢' ?'win' :'lose'  ">{{substring(item["plan3"],1)}}</span></td>
+<td>
+<span :class="item['result']==='赢'?'win-label':'lose-label'">{{item['result']}}</span>
+</td>
+<td>
+赢<span class="win">{{item['ying']}}</span>&nbsp;&nbsp;输<span class="lose">{{item['shu']}}</span>
+</td>
+</tr>
+<tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+var vm = new Vue({
+	el:'#mainDiv',
+	data:{
+		ying:'0',
+		shu:'0',
+		ying_pie:'10',
+		shu_pie:'10',
+		tjjh:{},//老数据
+		tj:{},//最新推荐
+		dataArr: [],
+		zxkj:{},
+		minite: "00",
+        seconds: "00",
+        timeFlag: true,
+	},methods: {
+		buildHM(time1){//格式化时间
+			if(time1){
+				return formatDate(new Date(time1),"hh:mm");
+			}else{
+				return "";
+			}
+		},
+		substring(str,index){//数组截取单个数据
+			 if (typeof str != "undefined") { 
+				 var array = str.split(',');
+				return array[index];
+			 }else{
+				 return "";
+			 }
+		},
+		getData(){//获取数据			
+			SULX.get(apipk10.bjsc_tjjh,function(std,data) {
+				vm.tjjh = JSON.parse(data).data;				
+				vm.dealData();//处理数据
+			});
+		},getNewGame: function() {
+			SULX.get(apipk10.bjsc_zxkj,function(std,data) {
+                var result = JSON.parse(data).data;
+				var localTimer = JSON.parse(data).timestamp;
+                vm.zxkj =result;
+                //vm.paiming.splice(0); //更新号码存放的数组
+                var timer = Math.ceil((result.xqkjsj - localTimer)/1000); //设置延迟20s
+                if(timer === 0||timer < 0) {
+                    vm.timeFlag = false; 
+                    var otherClick = setTimeout(  //没有请求到数据设置3s一次的请求
+                        function() {
+                            // console.log('正在请求')
+                            vm.$options.methods.getNewGame();
+                        }
+                    ,5000) 
+                } else {
+                    vm.timeFlag = true;
+                    try {
+                        vm.$options.methods.getData();
+                    }catch(e){}	
+                    clearTimeout(otherClick);
+                    //vm.$options.methods.draw(); //重绘线图 页面没有可注释
+                    var min = Math.floor(timer/60);
+                    var scd = Math.ceil(timer%60);
+                    var click = setInterval(
+                        function() {
+                            vm.minite = min;
+                            vm.seconds = scd;
+                            if((min+'').length === 1) {
+                                vm.minite = '0'+min     //加个0
+                            }
+                            if((scd+'').length === 1) {
+                                vm.seconds = '0'+scd
+                            }
+                            scd --;
+                            if((min === 0&&scd === 0)||min <0) {
+                                clearInterval(click);
+                                vm.$options.methods.getNewGame();
+                                // vm.$options.methods.draw(vm.flag);
+                            } else {
+                                if(scd < 0) {
+                                    min --;
+                                    scd = 59;
+                                }
+                            }
+                        }
+                    ,1000)
+                }
+                vm.gameData = result;
+            }
+        )
+    },	
+	dealData(){//处理数据
+    	vm.dataArr=[];
+		    for(i=0;i<this.tjjh.length;i++) {		    	
+                for(j in this.tjjh[i]) {
+                 	var vo = this.tjjh[i][j];
+                		if(i===0){
+                			this.tj=vo;//得到预测的数据
+                		}
+                	else{
+                		if(typeof vo['num1']!= "undefined")//过滤不完整数据
+                		{
+                			vo.isWin='w';
+                			if(vo['plan1'].indexOf('赢')>-1){
+                				var num = this.substring(vo['plan1'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+                			if(vo['plan2'].indexOf('赢')>-1){
+                				var num = this.substring(vo['plan2'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+                			if(vo['plan3'].indexOf('赢')>-1){
+                				var num = this.substring(vo['plan3'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+     
+                			this.dataArr.push(vo);//二维数组
+                    		if(i===1){//得到输赢的统计数据
+                    			this.ying=vo['ying'];
+                    			this.shu=vo['shu'];
+                    			this.ying_pie=	this.ying<10?'10':(parseInt((this.ying%100)/10)+'0');
+                    			this.shu_pie=	this.ying<10?'10':(parseInt((this.shu%100)/10)+'0')
+                    			
+                    		}
+                		}
+                	}
+                }
+            }			
+		}				
+	},
+	mounted(){
+		this.getData();
+		this.getNewGame();
+	},	
+	created(){			
+	
+	}	
+});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

@@ -1,0 +1,280 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场尾数大小路珠分析 - 开奖直播</title>
+<meta name="keywords" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<meta name="description" content="幸运农场路珠分析频道专门为幸运农场的玩家提供专业的幸运农场路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xync/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xync/rightmenu.html">
+<div class="menu-title">
+尾数大小路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+<li>3.尾数大指开出号码的个位大于或等于5为尾大，小于或等于4为尾小。</li>
+</ul>
+</div>
+</div>
+<div id="divContainer" v-cloak>
+<div class="j-records">
+
+<div class="container lobby-record t_1 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num1-da"]}}） 小（{{wsdxlz["num1-xiao"]}}） </span></span>
+第一球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num1']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_2 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num2-da"]}}） 小（{{wsdxlz["num2-xiao"]}}） </span></span>
+第二球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num2']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_3 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num3-da"]}}） 小（{{wsdxlz["num3-xiao"]}}） </span></span>
+第三球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num3']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_4 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num4-da"]}}） 小（{{wsdxlz["num4-xiao"]}}） </span></span>
+第四球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num4']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_5 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num5-da"]}}） 小（{{wsdxlz["num5-xiao"]}}） </span></span>
+第五球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num5']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_6 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num6-da"]}}） 小（{{wsdxlz["num6-xiao"]}}） </span></span>
+第六球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num6']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_7 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num7-da"]}}） 小（{{wsdxlz["num7-xiao"]}}） </span></span>
+第七球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num7']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_8 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num8-da"]}}） 小（{{wsdxlz["num8-xiao"]}}） </span></span>
+第八球尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['num8']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_9 t_wsdx ">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>今日累计：<span class="text-primary"> 大（{{wsdxlz["num-da"]}}） 小（{{wsdxlz["num-xiao"]}}） </span></span>
+总和尾数
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item2 in wsdxlz['total']" :class="item2.indexOf('小')>-1?'odd':'even'">
+<span :class="item2.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item3 in item2.split('')">
+{{item3}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			wsdxlz:{},
+		},	 
+		methods: {
+			 getData:function(){	
+				 SULX.get(apixync.xync_wsdxlz,function(std,data) {
+	                    vm.wsdxlz = JSON.parse(data).data;				
+	                }
+	            );		
+			 },
+		},				 
+		created:function(){			
+			this.$options.methods.getData(); 	
+		}	
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

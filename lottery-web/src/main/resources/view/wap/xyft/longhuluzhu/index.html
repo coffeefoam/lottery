@@ -1,0 +1,174 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运飞艇龙虎路珠分析 - 开奖直播</title>
+<meta name="keywords" content="幸运飞艇,幸运飞艇开奖结果,幸运飞艇投注技巧,幸运飞艇玩法">
+<meta name="description" content="幸运飞艇路珠分析频道专门为幸运飞艇的玩家提供专业的幸运飞艇路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xyft/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xyft/rightmenu.html">
+<div class="menu-title">
+龍虎路珠
+</div>
+ <div id="all" v-cloak>        
+        <div class="j-records">
+            <div class="container lobby-record t_1">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日累计：<span class="text-primary">龍（{{lhData['num1-long']}}） 虎（{{lhData['num1-hu']}}）</span>
+                                    冠军龍虎
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in lhData.num1" :class="{even: item[0] === '龍',odd: item[0] === '虎'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '龍', 'high-light-red': items === '虎' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_2">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日累计：<span class="text-primary">龍（{{lhData['num2-long']}}） 虎（{{lhData['num2-hu']}}）</span>
+                                    亚军龍虎
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in lhData.num2" :class="{even: item[0] === '龍',odd: item[0] === '虎'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '龍', 'high-light-red': items === '虎' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_3">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日累计：<span class="text-primary">龍（{{lhData['num3-long']}}） 虎（{{lhData['num3-hu']}}）</span>
+                                    第三名龍虎
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in lhData.num3" :class="{even: item[0] === '龍',odd: item[0] === '虎'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '龍', 'high-light-red': items === '虎' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_4">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日累计：<span class="text-primary">龍（{{lhData['num4-long']}}） 虎（{{lhData['num4-hu']}}）</span>
+                                    第四名龍虎
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in lhData.num4" :class="{even: item[0] === '龍',odd: item[0] === '虎'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '龍', 'high-light-red': items === '虎' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_5">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日累计：<span class="text-primary">龍（{{lhData['num5-long']}}） 虎（{{lhData['num5-hu']}}）</span>
+                                    第五名龍虎
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in lhData.num5" :class="{even: item[0] === '龍',odd: item[0] === '虎'}">
+                                    <span v-for="items in item" :class="{'high-light-blue': items === '龍', 'high-light-red': items === '虎' }">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+            el: '#all', //el 
+            data: {
+                lhData: {},
+            },
+            methods: { //click事件
+                getData: function() {
+                	SULX.get(apixyft.xyft_lhlz,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.lhData = result;
+                        }
+                    );
+                }
+            },
+            created: function() { 
+                this.getData()
+            },
+        })
+    </script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

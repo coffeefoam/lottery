@@ -1,0 +1,246 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车pk10,北京赛车pk10开奖直播,北京赛车pk10技巧 - 开奖直播</title>
+<meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+<meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div id="all" v-cloak>
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/pk10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/pk10/rightmenu.html">
+<div class="menu-title">
+号码遗漏统计
+</div>
+<div class="container lobby-record" style="background: #fff; border-bottom: 1px dashed #e3e3e3; padding: 10px 0;">
+<div class="lot-search">
+<div id="j-trends-tab" style="margin-bottom: 0;border-bottom: 0;padding-bottom: 0;">
+<div class="btn-group" id="j-trends-nav">
+<a href="javascript:;" class="btn btn-default" :class="typeFlag==1?'btn-danger':''" @click="changeType(1)">位置遗漏</a>
+<a href="javascript:;" class="btn btn-default" :class="typeFlag==2?'btn-danger':''" @click="changeType(2)">号码遗漏</a>
+</div>
+</div>
+</div>
+</div>
+<div class="container number-filter-title">
+<ul v-if="typeFlag==1" class="ball ">
+<li><a href="javascript:;" :class="numFlag==1?'cur':''" @click="changeNumFlag(1)">冠军</a></li>
+<li><a href="javascript:;" :class="numFlag==2?'cur':''" @click="changeNumFlag(2)">亚军</a></li>
+<li><a href="javascript:;" :class="numFlag==3?'cur':''" @click="changeNumFlag(3)">第三名</a></li>
+<li><a href="javascript:;" :class="numFlag==4?'cur':''" @click="changeNumFlag(4)">第四名</a></li>
+<li><a href="javascript:;" :class="numFlag==5?'cur':''" @click="changeNumFlag(5)">第五名</a></li>
+<li><a href="javascript:;" :class="numFlag==6?'cur':''" @click="changeNumFlag(6)">第六名</a></li>
+<li><a href="javascript:;" :class="numFlag==7?'cur':''" @click="changeNumFlag(7)">第七名</a></li>
+<li><a href="javascript:;" :class="numFlag==8?'cur':''" @click="changeNumFlag(8)">第八名</a></li>
+<li><a href="javascript:;" :class="numFlag==9?'cur':''" @click="changeNumFlag(9)">第九名</a></li>
+<li><a href="javascript:;" :class="numFlag==10?'cur':''" @click="changeNumFlag(10)">第十名</a></li>
+</ul>
+<ul v-if="typeFlag==1" class="type ">
+<li><a href="javascript:;" :class="wzTypeFlag=='wzyl_wzlh'?'cur':''" @click="changeWzTypeFlag('wzyl_wzlh')">龙虎</a> </li>
+<li><a href="javascript:;" :class="wzTypeFlag=='wzyl_wzgyhds'?'cur':''" @click="changeWzTypeFlag('wzyl_wzgyhds')">冠亚和单双</a> </li>
+<li><a href="javascript:;" :class="wzTypeFlag=='wzyl_wzgyhdx'?'cur':''" @click="changeWzTypeFlag('wzyl_wzgyhdx')">冠亚和大小</a> </li>
+<li><a href="javascript:;" :class="wzTypeFlag=='wzyl_wzds'?'cur':''" @click="changeWzTypeFlag('wzyl_wzds')">单双</a> </li>
+<li><a href="javascript:;" :class="wzTypeFlag=='wzyl_wzdx'?'cur':''" @click="changeWzTypeFlag('wzyl_wzdx')">大小</a> </li>
+<li><a id="wzTypeFlag_wzyl_wzhm" href="#wzTypeFlag_wzyl_wzhm" :class="wzTypeFlag=='wzyl_wzhm'?'cur':''" @click="changeWzTypeFlag('wzyl_wzhm')">号码</a> </li>
+</ul>
+<ul v-if="typeFlag==2" class="ball" style="border-bottom: 0;">
+<li><a href="javascript:;" :class="hmNumFlag==1?'cur':''" @click="changeHmNumFlag(1)">号码一</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==2?'cur':''" @click="changeHmNumFlag(2)">号码二</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==3?'cur':''" @click="changeHmNumFlag(3)">号码三</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==4?'cur':''" @click="changeHmNumFlag(4)">号码四</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==5?'cur':''" @click="changeHmNumFlag(5)">号码五</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==6?'cur':''" @click="changeHmNumFlag(6)">号码六</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==7?'cur':''" @click="changeHmNumFlag(7)">号码七</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==8?'cur':''" @click="changeHmNumFlag(8)">号码八</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==9?'cur':''" @click="changeHmNumFlag(9)">号码九</a></li>
+<li><a href="javascript:;" :class="hmNumFlag==10?'cur':''" @click="changeHmNumFlag(10)">号码十</a></li>
+</ul>
+</div>
+<div class="container lobby-record">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>号码</th>
+<th>今日出现</th>
+<th>今日遗漏</th>
+<th>本周遗漏</th>
+<th>本月遗漏</th>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="(item,key,index) in tableData" :class="index%2==0?'odd':'even'">
+<td width="119px">
+{{key}}
+</td>
+<td width="119px">
+{{item.jrcx}}
+</td>
+<td width="119px">
+{{item.jryl}}
+</td>
+<td width="119px">
+{{item.bzyl}}
+</td>
+<td width="119px">
+{{item.byyl}}
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	hmyl: [],
+            	wzyl_wzhm: [],
+            	wzyl_wzds:[],
+            	wzyl_wzdx:[],
+            	wzyl_wzgyhds:[],
+            	wzyl_wzgyhdx:[],
+            	wzyl_wzlh:[],
+            	typeFlag: 1,//类型
+            	rankFlag: 1,//排名
+            	tableData:[],
+            	numFlag:1,//第一行位置号码
+            	wzTypeFlag:"wzyl_wzhm",//位置遗漏第二行类型
+            	hmNumFlag:1,
+           	},
+            methods: {
+            	changeType: function(index){
+            		this.typeFlag = index;
+            		if(this.typeFlag==1){
+            			this.changeWzData();
+            		}else{
+            			this.changeHmData();
+            		}
+            	},
+            	changeNumFlag: function(index){
+            		this.numFlag = index;            		
+            		this.changeWzData();
+            	},
+            	changeWzTypeFlag: function(index){
+            		this.wzTypeFlag = index;
+            		this.changeWzData();
+            	},
+            	changeHmNumFlag: function(index){
+            		this.hmNumFlag = index;
+            		this.changeHmData();
+            	},
+            	changeWzData: function(){
+            		//更改显示号码数据
+            		if(vm.wzTypeFlag == 'wzyl_wzhm'){
+            			vm.tableData = vm.wzyl_wzhm["num" + vm.numFlag];
+            		}else if(vm.wzTypeFlag == 'wzyl_wzdx'){
+            			vm.tableData = vm.wzyl_wzdx["num" + vm.numFlag];
+            		}else if(vm.wzTypeFlag == 'wzyl_wzds'){
+            			vm.tableData = vm.wzyl_wzds["num" + vm.numFlag];
+            		}else if(vm.wzTypeFlag == 'wzyl_wzgyhdx'){
+            			vm.tableData = vm.wzyl_wzgyhdx;            			
+            		}else if(vm.wzTypeFlag == 'wzyl_wzgyhds'){
+            			vm.tableData = vm.wzyl_wzgyhds;            			
+            		}else if(vm.wzTypeFlag == 'wzyl_wzlh'){
+            			vm.tableData = vm.wzyl_wzlh;            			
+            		}
+            	},
+            	changeHmData: function(){            		            		
+            		for(item in vm.hmyl){            			
+            			for(item2 in vm.hmyl[item]){            				
+							if(("num"+vm.hmNumFlag)==item2){
+								vm.tableData[item] = vm.hmyl[item][item2];
+            				}
+            			}
+            		}
+            	},
+            	getData: function(){            		
+            		//位置遗漏--号码遗漏
+            		SULX.get(apipk10.bjsc_wzyl_wzhm,function(status,res) {
+            			if(status==200){
+	            			var data = JSON.parse(res).data;  
+	            			vm.wzyl_wzhm = data;
+	                		vm.tableData = vm.wzyl_wzhm["num" + vm.numFlag];	                		
+            			}
+            		});
+            		//位置遗漏--大小遗漏
+            		SULX.get(apipk10.bjsc_wzyl_wzdx,function(status,res) {
+            			if(status==200){
+            				var data = JSON.parse(res).data;  
+                			vm.wzyl_wzdx = data;     
+            			}            			
+            		});            		
+            		//位置遗漏--单双遗漏
+            		SULX.get(apipk10.bjsc_wzyl_wzds,function(status,res) {
+            			if(status==200){
+            				var data = JSON.parse(res).data;  
+                			vm.wzyl_wzds = data;     
+            			}            			
+            		});
+            		//位置遗漏--冠亚和大小
+            		SULX.get(apipk10.bjsc_wzyl_wzgyhdx,function(status,res) {
+            			if(status==200){
+            				var data = JSON.parse(res).data;  
+                			vm.wzyl_wzgyhdx = data;
+            			}            			
+            		});
+            		//位置遗漏--冠亚和单双
+            		SULX.get(apipk10.bjsc_wzyl_wzgyhds,function(status,res) {
+            			if(status==200){
+            				var data = JSON.parse(res).data;  
+                			vm.wzyl_wzgyhds = data;     
+            			}            			
+            		});
+            		//位置遗漏--龙虎
+            		SULX.get(apipk10.bjsc_wzyl_wzlh,function(status,res) {
+            			if(status==200){
+            				var data = JSON.parse(res).data;  
+                			vm.wzyl_wzlh = data;     
+            			}            			
+            		}); 
+            		//号码遗漏数据
+            		SULX.get(apipk10.bjsc_hmyl,function(status,res) {
+            			if(status==200){
+	            			var data = JSON.parse(res).data;  
+	            			vm.hmyl = data; 
+            			}
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

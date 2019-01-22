@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            maximum-scale=1.0, user-scalable=0">
+        <title>广东快乐十分总和路珠分析</title>
+        <meta name="keywords" content="广东快乐十分开奖视频, 广东快乐十分开奖号码,广东快乐十分技巧，广东快乐十分计划软件">
+        <meta name="description" content="广东快乐十分路珠分析频道专门为广东快乐十分的玩家提供专业的广东快乐十分路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+        <#include "/common/header.html">
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+        
+        <nav id="mainNav" class="navbar navbar-default">
+       	    <#include "/common/nav.html">
+       	</nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                    	<#include "/common/menu.html">
+                        <#include "/gdkl10/kaijiang.html">
+                        <div class="lottery-tips" id="j-lottery-tips"
+                            style='display: none'>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            温馨提示：<span class="j-periods"></span>开奖结果未获取,
+                            继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+                        </div>
+                        <div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+                            data-m="advertisement">
+                        </div>
+                        <div class="lottery-list">
+                            <a class="item"href="../index.html">快乐十分</a>
+                            <a class="item"href="../kaijiang/index.html">历史开奖号码</a>
+                            <a class="item"href="../shipin/index.html">开奖视频</a>
+                            <a class="item"href="../zonghe/index.html">综合路珠分析</a>
+                            <a class="item"href="../heshudanshuangluzhu/index.html">合数单双路珠</a>
+                            <a class="item"href="../longhuluzhu/index.html">龍虎路珠</a>
+                            <a class="item active" href="index.html">总和路珠</a>
+                            <a class="item"href="../weishudaxiaoluzhu/index.html">尾数大小路珠</a>
+                            <a class="item"href="../shuangmianluzhu/index.html">单双大小路珠</a>
+                            <a class="item"href="../zhongfabailuzhu/index.html">中发白路珠</a>
+                            <a class="item"href="../dongnanxibeiluzhu/index.html">东南西北路珠</a>
+                            <a class="item"href="../haomaluzhu/index.html">号码路珠</a>
+                            <a class="item"href="../haomatongji/index.html">历史号码统计</a>
+                            <a class="item"href="../shuangmian/index.html">单双大小历史</a>
+                            <a class="item"href="../zoushitu/index.html">横版走势图</a>
+                            <a class="item"href="../shuangmianzoushitu/index.html">单双大小走势图</a>
+                            <a class="item"href="../touzhu/index.html">两面投注参考</a>
+                            <a class="item"href="../jiqiao/index.html">快乐十分技巧</a>
+                            <a class="item"href="../changlongday/index.html">每日长龙</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container number-filter-title" style="padding: 10px 15px;">
+            <div class="dropdown pull-right">
+                <button type="button" class="btn btn-sm btn-default
+                    dropdown-toggle" data-toggle="dropdown">
+                    使用说明<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="left: -218px;">
+                    <li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+                    <li>2.当中断连续开出同一结果时，则另起一列显示结果；</li>
+                    <li>3.总和路珠指8个开出的号码的总和对应的大小、单双，其中总合为85至132为大，36至83为小，和值为84。</li>
+                </ul>
+            </div>
+        </div>
+        <div v-cloak id="all">
+        <div data-job="replace">
+            <div class="container lobby-record t_1">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <a id="stat_1_bs" href="ballstat.html"
+                                    target="_blank"></a>
+                                <span>
+                                    今日累计：<span class="text-primary">大（{{zhData['num-da']}}） 小（{{zhData['num-xiao']}}）
+                                        和（{{zhData['num-he']==undefined?0:zhData['num-he']}}）</span>
+                                </span>
+                                总和大小
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in zhData.xd" :class="{even: item[0] === '小',odd: item[0] === '大'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '小', 'high-light-red': items === '大' ,'high-light-green': items === '和' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_1">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <a id="stat_1_oe" href="ballstat.html"
+                                    target="_blank"></a>
+                                <span>今日累计：<span class="text-primary"> 单（{{zhData['num-dan']}}）
+                                        双（{{zhData['num-shuang']}}） </span></span>
+                                总和单双
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in zhData.ds" :class="{even: item[0] === '单',odd: item[0] === '双'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '单', 'high-light-red': items === '双' ,'high-light-green': items === '和' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_2">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <a id="stat_2_bs" href="ballstat.html"
+                                    target="_blank"></a>
+                                <span>
+                                    今日累计：<span class="text-primary">大（{{zhData['numzhws-da']}}） 小（{{zhData['numzhws-xiao']}}）
+                                    </span>
+                                </span>
+                                总和尾数
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in zhData.zhwsdx" :class="{even: item[0] === '小',odd: item[0] === '大'}">
+                                        <span v-for="items in item" :class="{'high-light-blue': items === '小', 'high-light-red': items === '大' ,'high-light-green': items === '和' }">{{items}}</span>
+                                    </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<#include "/common/foot.html"> 
+<script>
+        var vm = new Vue({
+            el: '#all', //el 
+            data: {
+
+                zhData: {},
+
+            },
+            methods: { //click事件
+                getData: function() {
+                	SULX.get(apikl10.gdklsf_zhlz,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.zhData = result;
+                        }
+                    );
+                }
+            },
+            created: function() { 
+                this.getData();
+            },
+        })
+    </script>
+    </body>
+</html>

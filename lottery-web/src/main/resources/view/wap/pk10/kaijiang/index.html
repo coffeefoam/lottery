@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车pk10开奖记录 - 开奖直播</title>
+<meta name="keywords" content="北京赛车pk10开奖记录, pk10开奖, pk10开奖记录">
+<meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/pk10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/pk10/rightmenu.html">
+
+<div class="menu-title">
+历史开奖
+</div>
+<div id="all" v-cloak class="lobby-record">
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second j-app-numswitch">
+<a href="javascript:void(0);" data-class="" @click="changeType('')" :class="flag==''?'cur':''">显示号码</a>
+<a href="javascript:void(0);" data-class="num-bs" @click="changeType('num-bs')" :class="flag=='num-bs'?'cur':''">显示大小</a>
+<a href="javascript:void(0);" data-class="num-oe" @click="changeType('num-oe')" :class="flag=='num-oe'?'cur':''">显示单双</a>
+</td>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="item in kjjl">
+<td>
+ <div class="period">{{getTerms(item.periods)}} 期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box rn-pk10" :class="flag">
+<div class="lottery-num">
+		<div v-show="flag === ''" class="item-container">
+				<div v-for="num in item.rank" :class="['item-style-sm', 'spe-'+num]">
+					<p>{{num}}</p>
+				</div>
+			</div>
+			<i v-show="flag === 'num-bs'" v-for="num in item.rank" :class="['j-num'+num, 'num-status-'+num]" data-n="4"></i>
+			<i v-show="flag === 'num-oe'" v-for="num in item.rank" :class="['j-num'+num, 'num-status-'+num]" data-n="4"></i>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">{{item.gyhSum}}</span>
+<span class="analysis" :class="item.gyhDx.indexOf('大')>-1?'highlight':''">{{item.gyhDx}}</span>
+<span class="analysis" :class="item.gyhDs.indexOf('单')>-1?'highlight':''">{{item.gyhDs}}</span>
+<span class="analysis" :class="item.lh1.indexOf('龙')>-1?'highlight':''">{{item.lh1}}</span>
+<span class="analysis" :class="item.lh2.indexOf('龙')>-1?'highlight':''">{{item.lh2}}</span>
+<span class="analysis" :class="item.lh3.indexOf('龙')>-1?'highlight':''">{{item.lh3}}</span>
+<span class="analysis" :class="item.lh4.indexOf('龙')>-1?'highlight':''">{{item.lh4}}</span>
+<span class="analysis" :class="item.lh5.indexOf('龙')>-1?'highlight':''">{{item.lh5}}</span>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+            	flag:'',
+           	},
+            methods: {
+            	getData: function(){
+            		SULX.get(apipk10.bjsc_kjjl,function(status,res) {
+            			if(status && status ==200){
+            				var data = JSON.parse(res).data; 
+            				vm.kjjl.splice(0);
+                			for(item in data){            				        					
+                   				for(item2 in data[item]){                					
+                       				vm.kjjl.push(data[item][item2]);
+                   				}	
+                			}
+            			}            			
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+    			changeType: function(index){
+    				vm.flag = index;
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

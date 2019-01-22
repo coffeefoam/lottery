@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>彩世界《新疆时时彩》</title>
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+
+
+
+<meta name="full-screen" content="true" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="screen-orientation" content="true" />
+
+
+<meta name="x5-fullscreen" content="true" />
+<meta name="360-fullscreen" content="true" />
+<style>html, body {
+						-ms-touch-action: none;
+						background: #888888;
+						padding: 0;
+						border: 0;
+						margin: 0;
+						height: 100%;
+				}
+		#preloading{
+			z-index: 1000;
+			position: absolute;
+			text-align: center;
+			top: 40%;
+			left: 40%;
+			width: 20%;
+			height: 20%;
+		}</style>
+
+
+<script egret="lib" src="libs/modules/egret/egret.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/egret/egret.web.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/game/game.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/game/game.web.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/tween/tween.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/res/res.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+<script egret="lib" src="libs/modules/dragonBones/dragonBones.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+
+
+
+
+
+
+<script src="main.min.js" type="5d89f97ffd086ac3df126249-text/javascript"></script>
+
+</head>
+<body>
+<div id="preloading">
+<img id="preImage" />
+</div>
+<div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="GameApplication" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="60" data-content-width="980" data-content-height="630" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9"></div>
+<script type="5d89f97ffd086ac3df126249-text/javascript">
+					InitConfig.res_path="";//资源文件夹的地址,如果此项不为空，必须用"/"结尾
+					InitConfig.req_host="../../../../../index.html";//接口所在域名地址,如果此项不为空，必须用"/"结尾
+
+					InitConfig.isRelease=true;//是否对外发布版本；如果此项为false，运行时将读取本地根目录下的虚拟数据文件localData.json，而不会调用配置的接口
+					InitConfig.isShowVersion=false;//是否显示版本号
+					InitConfig.isPopup=false;//是否允许弹出消息提示框
+
+					var imge = document.getElementById("preImage");//loading元素加载完成前的活动页面提示动画，用于告诉用户：“当前页面没有挂掉，而是正在加载中”
+					imge.src = InitConfig.res_path + "resource/preImage/preloading.gif";
+					if(InitConfig.res_path != "" && InitConfig.res_path.indexOf(document.domain) == -1)
+					{
+						if(egret.Capabilities.os == "Android")
+						{
+							egret.runEgret({renderMode:"canvas"});
+						}
+						else
+						{
+							egret.runEgret({renderMode:"webgl"});
+						}
+					}
+					else
+					{
+						egret.runEgret({renderMode:"webgl"});
+					}
+				</script>
+<script src="../../../../../../ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="5d89f97ffd086ac3df126249-" defer=""></script></body>
+
+</html>

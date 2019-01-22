@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.modules.cms.dao.CmsArticleDataDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.lottery.modules.cms.entity.CmsArticleDataEntity" id="cmsArticleDataMap">
+        <result property="id" column="id"/>
+        <result property="content" column="content"/>
+        <result property="copyfrom" column="copyfrom"/>
+        <result property="relation" column="relation"/>
+        <result property="allowComment" column="allow_comment"/>
+        <result property="articleId" column="article_id"/>
+    </resultMap>
+
+	<delete id="deleteByArtIds" parameterType="java.util.List">
+    	DELETE FROM cms_article_data WHERE article_id in
+    	<foreach collection="list" open="(" close=")" separator="," item="item">
+    		#{item}
+    	</foreach>  
+    </delete>
+
+</mapper>

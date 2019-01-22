@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.modules.cms.dao.CmsConfigDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.lottery.modules.cms.entity.CmsConfigEntity" id="cmsConfigMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="keywords" column="keywords"/>
+        <result property="description" column="description"/>
+        <result property="outHtmlPath" column="out_html_path"/>
+        <result property="ftlPath" column="ftl_path"/>
+        <result property="generateDir" column="generate_dir"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateDate" column="update_date"/>
+    </resultMap>
+
+
+</mapper>

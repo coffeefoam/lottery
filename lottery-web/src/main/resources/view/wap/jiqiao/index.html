@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩选号妙投技巧  新手必看！ </title>
+<meta name="keywords" content="彩票直播">
+<meta name="description" content="提供pk10技巧,时时彩技巧,广东快乐十分技巧,江苏骰宝快3技巧,幸运农场技巧等各种资讯技巧">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="right-menu" id="right-menu">
+<div class="mask"></div>
+<div class="content">
+<a href="/m/jiqiao/pk10" class="link <#if lottory_type=='pk10'>cur</#if>">
+<span class="name">北京赛车PK10</span>
+</a>
+<a href="/m/jiqiao/shishicai" class="link <#if lottory_type=='shishicai'>cur</#if>">
+<span class="name">重庆时时彩</span>
+</a>
+<a href="/m/jiqiao/gdkl10" class="link <#if lottory_type=='gdkl10'>cur</#if>">
+<span class="name">广东快乐十分</span>
+</a>
+<a href="/m/jiqiao/xyft" class="link <#if lottory_type=='xyft'>cur</#if>">
+<span class="name">幸运飞艇</span>
+</a>
+<a href="/m/jiqiao/xync" class="link <#if lottory_type=='xync'>cur</#if>">
+<span class="name">幸运农场</span>
+</a>
+<a href="/m/jiqiao/gd11x5" class="link <#if lottory_type=='gd11x5'>cur</#if>">
+<span class="name">广东11选5</span>
+</a>
+<a href="/m/jiqiao/kl8" class="link <#if lottory_type=='kl8'>cur</#if>">
+<span class="name">快乐8</span>
+</a>
+<a href="/m/jiqiao/jsk3" class="link <#if lottory_type=='jsk3'>cur</#if>">
+<span class="name">江苏快3</span>
+</a>
+<a href="/m/jiqiao/xjssc" class="link <#if lottory_type=='xjssc'>cur</#if>">
+<span class="name">新疆时时彩</span>
+</a>
+<a href="/m/jiqiao/tjssc" class="link <#if lottory_type=='tjssc'>cur</#if>">
+<span class="name">天津时时彩</span>
+</a>
+<a href="/m/jiqiao/jx11x5" class="link <#if lottory_type=='jx11x5'>cur</#if>">
+<span class="name">江西11选5</span>
+</a>
+<a href="/m/jiqiao/zonghe" class="link <#if lottory_type=='zonghe'>cur</#if>">
+<span class="name">综合资讯</span>
+</a>
+</div>
+</div>
+<div class="container-fluid main" data-m="mobile">
+<div class="row">
+<#if artList??>
+<#list artList as art>
+<a class="lottery-skill" href="/m/jiqiao/${art.id?c}.html">
+<div class="title">
+<span class="name">${art.title!}</span>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</a>
+</#list>
+</#if>
+<div class="lottery-load-more j-skill-more " data-lid="${category.alias!}" data-size="6" data-count="${pageNum?c}">
+点击加载更多<i class="fa fa-spinner" aria-hidden="true"></i>
+</div>
+</div>
+</div>
+<#include "/wap/common/foot.html">
+</body>
+</html>

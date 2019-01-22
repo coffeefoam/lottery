@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cms内容系统配置信息</title>
+		<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">			
+			<#if shiro.hasPermission("cms:config:update")>
+            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>			
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">首页标题</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.title" placeholder="首页标题"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">首页关键字</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.keywords" placeholder="关键字"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">首页描述</div>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="4" cols="" v-model="cmsConfig.description" placeholder="首页描述"></textarea>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">输出HTML的文件夹路径</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.outHtmlPath" placeholder="输出HTML的文件夹路径"/>
+                        </div>
+                    </div>					
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">访问文件夹名称</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.generateDir" placeholder="访问文件夹名称"/>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">是否开启代理</div>
+                        <div class="col-sm-10">
+                        	<label class="radio-inline">
+								<input type="radio" value="false" v-model="cmsConfig.proxyEnable"/> 不显示
+							</label>
+							<label class="radio-inline">
+								<input type="radio" value="true" v-model="cmsConfig.proxyEnable"/> 显示
+							</label>
+                        </div>
+                    </div>                    
+                    <div id="proxy_setting" v-show="cmsConfig.proxyEnable">
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">代理IP地址</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.proxyHost" placeholder="代理IP地址"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">代理端口</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.proxyPort" placeholder="代理端口"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">代理账号</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.proxyUsername" placeholder="代理账号"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">代理密码</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsConfig.proxyPassword" placeholder="代理密码"/>
+                        </div>
+                    </div>
+                    </div>					
+			<div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/cms/cmsconfig.js?_${.now?long}"></script>
+</body>
+</html>

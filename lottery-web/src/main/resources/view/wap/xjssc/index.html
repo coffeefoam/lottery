@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>新疆时时彩，时时彩开奖直播，时时彩开奖号码，新疆时时彩技巧，计划软件 - 开奖直播</title>
+<meta name="keywords" content="新疆时时彩开奖视频, 新疆时时彩开奖号码, 新疆时时彩技巧，新疆时时彩计划软件">
+<meta name="description" content="新疆时时彩平台为您提供新疆时时彩开奖号码、时时彩开奖记录、开奖结果等资讯，并为您提供最新时时彩预测，分析，推荐。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xjssc/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/xjssc/rightmenu.html">
+<div class="lobby-record">
+<div class="title">
+<span>开奖记录</span>
+<a href="/m/xjssc/kaijiang/" class="more">查看全部<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+</div>
+<div id="divContainer" v-cloak>
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in keyList">
+<td>
+<div class="period">{{buildPeriod(item)}} 期</div>
+<div class="time">{{buildHM(kjjl[index]["starttime"])}}</div>
+</td>
+<td>
+<div class="content-box">
+<div class="record-num">
+<span v-for="num in kjjl[index].rank" :class="numOrder[num] +' j-num'+ num +' num-status-'+num" :data-n="num">{{num}}</span>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">{{kjjl[index].gyhSum}}</span>
+<span class="analysis" :class="kjjl[index].zhDs.indexOf('单')>-1?'highlight':''">{{kjjl[index].zhDs}}</span>
+<span class="analysis" :class="kjjl[index].zhDx.indexOf('大')>-1?'highlight':''">{{kjjl[index].zhDx}}</span>
+<span class="analysis" :class="kjjl[index].lh1.indexOf('龙')>-1?'highlight':''">{{kjjl[index].lh1}}</span>
+<span class="analysis">{{kjjl[index].qs}}</span>
+<span class="analysis">{{kjjl[index].zs}}</span>
+<span class="analysis">{{kjjl[index].hs}}</span>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			num: ['第一球', '第二球', '第三球', '第四球', '第五球'],
+            flag: 0,
+			kjjl:[],
+			keyList:[],
+			numOrder:{"0":"","1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":""},
+		},	
+		methods:{
+			buildPeriod: function(dateStr){
+				if(dateStr){
+					return parseInt(dateStr.substring(8));
+				}else{
+					return "";
+				}				
+			},
+			buildHM: function(time1){
+				if(time1){
+					return formatDate(new Date(time1),"hh:mm");
+				}else{
+					return "";
+				}
+			},
+			buildNoColor: function(firstArr){
+				//取出最新一期开奖的号码，进行样式排序,排序规则如：最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，
+                //如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，
+                //以便于查看最近一期开出的某号码的历史分布情况。
+				
+                //将原来的样式设置成空值
+                for(item in vm.numOrder){
+                	vm.numOrder[item] ="";
+                }
+                if(firstArr && firstArr.rank && firstArr.rank.length >0){                	
+                	var i =0;
+                	for(index in firstArr.rank){
+                		//如果该号码已经在前面出现过了，则跳过相同的号码样式设置
+                		if(vm.numOrder[firstArr.rank[index] + ""]){
+                			continue;	
+                		}
+                		vm.numOrder[firstArr.rank[index] + ""] = "no" + i;
+                		i++;
+                    }
+                }				
+			},
+			getData: function(){
+				SULX.get(apixjssc.xjssc_kjjl,function(std,data) {
+                    var res2 = JSON.parse(data).data;
+                    var index =0;
+                    vm.keyList.splice(0);
+                    vm.kjjl.splice(0);
+                    for(i in res2){
+                       for(j in res2[i]){
+                    	   if(index >9){
+                    		  break; 
+                    	   }
+                    	   vm.keyList.push(j); 
+                    	   vm.kjjl.push(res2[i][j]);
+                    	   index++;
+                       }                       	                    	
+                    }
+                  	//重新设置号码样式
+                    var firstArr = vm.kjjl[0]; 
+                    vm.buildNoColor(firstArr); 
+                }
+            );
+			},
+		},
+		created:function(){			
+			this.getData();			
+		}	
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

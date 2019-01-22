@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>广东快乐十分单双大小参考 - 开奖直播</title>
+<meta name="keywords" content="广东快乐十分开奖视频, 广东快乐十分开奖号码, 广东快乐十分技巧，广东快乐十分计划软件">
+<meta name="description" content="广东快乐十分路珠分析频道专门为广东快乐十分的玩家提供专业的广东快乐十分路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/gdkl10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/gdkl10/rightmenu.html">
+<div class="menu-title">
+两面投注参考
+</div>
+<div id="all" v-cloak>
+        <div class="container number-filter-title">
+            <a name="mark"></a>
+            <ul class="ball">
+                    <li 
+                    v-for="(item,index) in title"><a 
+                    style="cursor: pointer;"
+                    @click.prevent="changeTable(index)"
+                    :class="{'cur': flag === index}">{{item}}</a>| </li>
+            </ul>
+            <div style="color: #d94136; margin-bottom: 10px;">
+                *以每10期为一组，统计最近30组中单双大小的出现次数。
+            </div>
+        </div>
+        <div>
+            <div class="container lobby-record">
+                <div class="able-responsive">
+                    <table class="table table-bordered table-striped
+                        text-center">
+                        <thead>
+                            <tr>
+                                <th><b>日期</b></th>
+                                <th width="20%"><b>单</b></th>
+                                <th width="20%"><b>双</b></th>
+                                <th width="20%"><b>大</b></th>
+                                <th width="20%"><b>小</b></th>
+                            </tr>
+                        </thead>
+                        <tr v-for="(item,index) in realData">
+                                <td class="text-center" style="padding: 0 3px;">
+                                	{{timer[index]}}	{{item.beginPeriods[9]+item.beginPeriods[10]+ '-' + String(item.endPeriods)[9]+String(item.endPeriods)[10]+ ''}}
+                                </td>
+                                <td>{{item.dan}}</td>
+                                <td>{{item.shuang}}</td>
+                                <td>{{item.da}}</td>
+                                <td>{{item.xiao}}</td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+            el: '#all',
+            data: {
+                flag: 0,
+                title: [
+                    '第一名',
+                    '第二名',
+                    '第三名',
+                    '第四名',
+                    '第五名',
+                    '第六名',
+                    '第七名',
+                    '第八名',
+                ],
+                timer: [],
+                tableData: [],
+                realData: []
+            },
+            methods: {
+                getData: function() {
+                	SULX.get(apikl10.gdklsf_lmtzck,function(std,data) {
+                        vm.realData.splice(0);
+                        var tip = [];
+                        var short = [];
+                        var result = JSON.parse(data).data;
+
+                        for(i=0;i<result.length;i++) {
+                            for(j in result[i]) {
+                                tip.push(j.slice(5,7)+'-'+j.slice(8,10)+'');
+                                short.push(result[i][j])
+                            }
+                        }
+                        vm.timer = tip;
+                        vm.tableData = short;
+                        for(i=0;i<vm.tableData.length;i++) {
+                            vm.realData.push(vm.tableData[i].num1)
+                            }
+                        }
+                    )
+                },
+                changeTable: function(index) {
+                    this.realData.splice(0);
+                    this.flag = index;
+                    var t = 'num'+(index+1);
+                    // console.log(vm.tableData[i][t])
+                    for(i=0;i<vm.tableData.length;i++) {
+                        vm.realData.push(vm.tableData[i][t])
+                    }
+                }
+            },
+            created: function() {
+                this.getData();
+            },
+        })
+    </script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

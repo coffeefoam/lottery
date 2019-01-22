@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江苏快3号码遗漏 - 开奖直播</title>
+<meta name="keywords" content="江苏快3开奖视频, 江苏快3开奖号码, 江苏快3技巧，江苏快3计划软件">
+<meta name="description" content="江苏快3路珠分析频道专门为江苏快3的玩家提供专业的江苏快3路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html">    
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/jsk3/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+<a class="item " href="/jsk3/index.html">江苏快3</a>
+<a class="item " href="/jsk3/kaijiang">历史开奖号码</a>
+<a class="item " href="/jsk3/shipin">开奖视频</a>
+<a class="item  active" href="/jsk3/yilou">号码遗漏统计</a>
+<a class="item " href="/jsk3/haomaluzhu">号码路珠</a>
+<a class="item " href="/jsk3/zongheluzhu">总和路珠</a>
+<a class="item " href="/jsk3/haomatongji">历史号码统计</a>
+<a class="item " href="/jsk3/zoushitu">横版走势图</a>
+<a class="item " href="/jsk3/jiqiao">江苏快3技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div v-cloak id="divContainer">
+<div class="container number-filter-title">
+<a name="mark"></a>
+<ul class="ball">
+<li><a  :class=" type==='zhdaxiao'?'cur':''" @click="change('zhdaxiao')">总和大小</a></li>
+<li><a  :class=" type==='zhdanshuang'?'cur':''"  @click="change('zhdanshuang')">总和单双</a></li>
+<li><a  :class=" type==='zhdianshu'?'cur':''"  @click="change('zhdianshu')">点数</a></li>
+<li><a :class=" type==='duanpai'?'cur':''"  @click="change('duanpai')">短牌</a></li>
+<li><a :class=" type==='changpai'?'cur':''"  @click="change('changpai')">长牌</a></li>
+<li><a  :class=" type==='sanjun'?'cur':''"  @click="change('sanjun')">三军</a></li>
+<li>
+<div class="dropdown">
+<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+使用说明<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li>表格统计了不同条件下号码的出现次数及遗漏（未出现）次数；</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="container lobby-record" data-job="replace">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>号码</th>
+<!-- <th>遗漏输赢</th> -->
+<th>今日出现</th>
+<th>今日遗漏</th>
+<th>本周遗漏</th>
+<th>本月遗漏</th>
+</tr>
+</thead>
+<tr v-for="(index,item) in tdata"   :class="index%2==0?'even':'odd'">
+<td width="119px">
+{{item}}
+</td>
+<!-- <td width="119px">
+<span class="win">
+赢3
+</span>
+</td> -->
+<td width="119px">
+{{index["jrcx"]}}
+</td>
+<td width="119px">
+{{index["jryl"]}}
+ </td>
+<td width="119px">
+{{index["bzyl"]}}
+</td>
+<td width="119px">
+{{index["byyl"]}}
+</td>
+</tr>
+
+</table>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			hmyl:[],
+			tdata:[],
+			type:'zhdaxiao'
+		},	
+		methods:{
+			change(type){
+				this.type=type;
+				vm.tdata=vm.hmyl[type];
+			},getData: function(){
+				//位置遗漏
+				SULX.get(apijsk3.jsk3_hmyl,function(std,data) {
+	                	vm.hmyl = JSON.parse(data).data;
+	                	vm.tdata = vm.hmyl['zhdaxiao'];
+	                }                
+	            );
+			}
+		},
+		created:function(){	
+		this.getData();
+
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

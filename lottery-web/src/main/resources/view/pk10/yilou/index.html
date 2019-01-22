@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+        <title>北京赛车pk10号码遗漏统计</title>
+        <meta name="keywords" content="北京赛车pk10冷热号分析">
+        <meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+        <#include "/common/header.html">
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+        
+        <nav id="mainNav" class="navbar navbar-default">
+        <#include "/common/nav.html">
+        </nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                    	<#include "/common/menu.html">
+                        <#include "/pk10/kaijiang.html">
+                        <div class="lottery-tips" id="j-lottery-tips"
+                            style='display: none'>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            	温馨提示：<span class="j-periods"></span>开奖结果未获取,
+                            	继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+                        </div>
+                        <div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+                            data-m="advertisement">
+                        </div>
+                        <div class="lottery-list">
+                            <a class="item"href="../index.html">北京赛车pk10</a>
+                            <a class="item"href="../kaijiang/index.html">pk10开奖</a>
+                            <a class="item"href="../shipin/index.html">pk10开奖直播</a>
+                            <a class="item active" href="index.html">号码遗漏统计</a>
+                            <a class="item"href="../zonghe/index.html">综合路珠分析</a>
+                            <a class="item"href="../shuangmianluzhu/index.html">单双大小路珠</a>
+                            <a class="item"href="../haomaluzhu/index.html">号码前后路珠</a>
+                            <a class="item"href="../longhuluzhu/index.html">龍虎路珠</a>
+                            <a class="item"href="../longhu/index.html">龍虎历史</a>
+                            <a class="item"href="../guanyaheluzhu/index.html">冠、亚和路珠</a>
+                            <a class="item"href="../guanyahe/index.html">冠亚和历史</a>
+                            <a class="item"href="../guanyaheyilou/index.html">冠亚和遗漏</a>
+                            <a class="item"href="../shuangmian/index.html">单双大小历史</a>
+                            <a class="item"href="../shuangmianzoushitu/index.html">单双大小走势图</a>
+                            <a class="item"href="../touzhu/index.html">两面投注参考</a>
+                            <a class="item"href="../zoushitu/index.html">横版走势图</a>
+                            <a class="item"href="../jiqiao/index.html">pk10技巧</a>
+                            <a class="item"href="../changlongday/index.html">每日长龙</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-cloak id="all">
+        <div class="container dns">
+            <div class="alert alert-warning">
+                如果您访问本网站无故跳转到其他网站，证明您的网络已经被劫持，请修改您的DNS或查看防劫持教程
+                <a href="http://icp.6001ms.com/?name=icp" target="_blank">点击查看防劫持教程</a>
+            </div>
+        </div>
+        <div class="container lobby-record" style="padding-bottom:
+            0;border-bottom: 0;">
+            <div class="lot-search">
+                <div id="j-trends-tab">
+                    <div class="btn-group" id="j-trends-nav">
+                        <a @click.prevent="getData(0)" :class="{'btn-danger': type}" class="btn btn-default">位置遗漏</a>
+                        <a @click.prevent="hmyl(0)" :class="{'btn-danger': !type}" class="btn btn-default">号码遗漏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container number-filter-title">
+
+            <ul v-if="type" class="ball">
+                <li
+                v-for="(item,index) in ranks"
+                :key="index"
+                >
+                    <a 
+                    @click.prevent="changeNum(index)"
+                    style="cursor: pointer;" :class="index === otherFlag?'cur':''">{{item}}</a> | </li>
+                <li>
+                    <div class="dropdown" style="margin-left:-2px;">
+                        <button type="button" class="btn btn-sm btn-default
+                            dropdown-toggle" data-toggle="dropdown">
+                            使用说明<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>表格统计了不同条件下号码的出现次数及遗漏（未出现）次数；</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul v-if="!type" class="ball">
+                    <li
+                    v-for="(item,index) in lv"
+                    :key="index"
+                    >
+                        <a 
+                        @click.prevent="hmyl(index)"
+                        style="cursor: pointer;" :class="index === flag2?'cur':''">{{item}}</a> | </li>
+                    <li>
+                        <div class="dropdown" style="margin-left:-2px;">
+                            <button type="button" class="btn btn-sm btn-default
+                                dropdown-toggle" data-toggle="dropdown">
+                                使用说明<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>表格统计了不同条件下号码的出现次数及遗漏（未出现）次数；</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            <ul v-if="type" class="type">
+                <li  v-for="(item,index) in keyWords">
+                    <a @click.prevent="getData(index)" style="cursor: pointer;" :class="{'cur': index === flag}">{{item}}</a> 
+                </li>
+            </ul>
+            <ul class="ball hide" style="margin-bottom: 0;border-bottom: 0;">
+                <li><a href="1-9.html" class='cur'>号码一</a> | </li>
+                <li><a href="2-9.html" class=''>号码二</a> | </li>
+                <li><a href="3-9.html" class=''>号码三</a> | </li>
+                <li><a href="4-9.html" class=''>号码四</a> | </li>
+                <li><a href="5-9.html" class=''>号码五</a> | </li>
+                <li><a href="6-9.html" class=''>号码六</a> | </li>
+                <li><a href="7-9.html" class=''>号码七</a> | </li>
+                <li><a href="8-9.html" class=''>号码八</a> | </li>
+                <li><a href="9-9.html" class=''>号码九</a> | </li>
+                <li><a href="10-9.html" class=''>号码十</a> </li>
+                <li>
+                    <div class="dropdown" style="margin-left:-2px;">
+                        <button type="button" class="btn btn-sm btn-default
+                            dropdown-toggle" data-toggle="dropdown">
+                            使用说明
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>表格统计了不同条件下号码的出现次数及遗漏（未出现）次数</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container lobby-record" data-job="replace">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>号码</th>
+                            <!-- <th>遗漏输赢</th> -->
+                            <th>今日出现</th>
+                            <th>今日遗漏</th>
+                            <th>本周遗漏</th>
+                            <th>本月遗漏</th>
+                        </tr>
+                    </thead>
+                    <tr v-for="(item,index) in tableData">
+                            <td width="119px">
+                               {{names[index]}} 
+                            </td>
+                            <td width="119px">
+                                {{item.jrcx}}
+                            </td>
+                            <td width="119px">
+                                {{item.jryl}}
+                            </td>
+                            <td width="119px">
+                                {{item.bzyl}}
+                            </td>
+                            <td width="119px">
+                                {{item.byyl}}
+                            </td>
+                        </tr>
+                    
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+<#include "/common/foot.html">
+<script>
+        var vm = new Vue({
+            el: '#all',
+            data: {
+                type: true,
+                flag: 5,
+                flag2: 0,
+                otherFlag: 0,
+                tableData: [],
+                lv: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
+                keyWords: ['龙虎', '冠亚和单双', '冠亚和大小', '单双', '大小', '号码'],
+                ranks: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名',],
+                apiGroup: [
+                    apipk10.bjsc_wzyl_wzlh, 
+                    apipk10.bjsc_wzyl_wzgyhds, 
+                    apipk10.bjsc_wzyl_wzgyhdx, 
+                    apipk10.bjsc_wzyl_wzds, 
+                    apipk10.bjsc_wzyl_wzdx, 
+                    apipk10.bjsc_wzyl_wzhm,
+                    ],
+                names: [],
+            },
+            methods: {
+                hmyl: function(index) {
+                    if(index === undefined) {
+                        index = 0
+                    }
+                    this.type = false;
+                    this.flag2 = index;
+                    this.tableData.splice(0); //apipk10.bjsc_hmyl
+                    SULX.get(apipk10.bjsc_hmyl, function(std,data) {
+                        var result = JSON.parse(data).data[index+1];
+                        vm.names = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名',];
+                            for(i in result) {
+                                vm.tableData.push(result[i])
+                            }
+                        }
+                    )
+                },
+                changeNum: function(index ) {
+                    this.otherFlag = index;
+                    var that = this;
+                    if(this.flag === 0 || this.flag === 1 || this.flag === 2) {
+                            return false
+                    }
+                    this.tableData.splice(0);
+                    this.names.splice(0);
+                    SULX.get(this.apiGroup[this.flag],function(std,data) {
+                        var short = [];
+                            var result = JSON.parse(data).data['num'+[that.otherFlag+1]];
+                            for(i in result) {
+                                that.names.push(i);
+                                that.tableData.push(result[i])
+                            }    
+                        }
+                    )
+                },
+                getData: function(index) {
+                    if(index === undefined) {
+                        index = 5
+                    }
+                    this.type = true;
+                    this.flag = index;
+                    var that = this;
+
+                    SULX.get(this.apiGroup[this.flag],function(std,data) {
+                        if(index === 0 || index === 1 || index === 2) {
+                            var result = JSON.parse(data).data;
+                            vm.tableData.splice(0);
+                            vm.names.splice(0);
+                            for(i in result) {
+                                that.names.push(i);
+                                that.tableData.push(result[i])
+                            }
+                        }
+                         else {
+                            vm.tableData.splice(0);
+                            vm.names.splice(0);
+                            var result = JSON.parse(data).data['num'+[that.otherFlag+1]];
+                                for(i in result) {
+                                    that.names.push(i);
+                                    that.tableData.push(result[i])
+                                }    
+                            }
+                        }
+                    )
+                }
+            },
+            created: function() {
+                this.getData()
+            },
+        })
+    </script>         
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+.lottery-info .last-num {
+    float: left;
+}
+.lottery-info .last-num .each {
+    margin: 0 22px;
+    float: left;
+    width: 47px;
+    text-align: center;
+}
+.text-can {
+    display: flex;
+    margin-left: 20px;
+}
+.text-l-can {
+
+}
+.top-t-can {
+    display: flex;
+}
+.top-t-can p {
+    margin-right: 5px;
+    font-size: 13px;
+    color: #666;
+}
+.top-t-can span {
+    margin-right: 5px;
+    font-size: 13px;
+    color: #14b062;
+}
+.big-can {
+    display: flex;
+}
+.big-can b {
+    margin-right: 5px;
+    line-height: 40px;
+    font-size: 45px;
+    text-align: center;
+    font-weight: 700;
+    color: #d94136;
+}
+.btn-can {
+    height: 60px;
+    margin-left: 50px;
+    padding: 5px 25px 5px 0;
+    border-right: 1px solid #e5e5e5;
+}
+.btn-can ul li {
+    list-style: none;
+}
+.btn-can ul li a {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #d94136;
+}
+
+.r-can {
+    display: flex;
+    margin-left: 30px;
+}
+.de-text-can {
+
+}
+.de-text-can p {
+    margin-top: 8px;
+    line-height: 8px;
+    font-size: 17px;
+    color: #d94136;
+}
+.de-text-can span {
+    margin-top: 6px;
+    display: block;
+    font-size: 12px;
+    color: #8b8b8b
+}
+
+.num-can {
+    
+}
+.num-can ul {
+    display: flex;
+}
+.num-can ul li {
+    padding: 0px 0px 0 30px;
+    text-align: center;
+    list-style: none;
+}
+
+.num-can ul li p {
+    display: inline;
+    color: #4b4b4b;
+    font-size: 13px;
+}
+.num-can ul li span {
+    color: #d94136;
+    font-size: 13px;
+}
+.green-ball {
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    background: url("/static/images/ball-green-lg.png") 100% no-repeat;
+}
+.green-ball p {
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #666;
+}
+.blue-ball {
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    background: url("/static/images/ball-blue-lg.png") 100% no-repeat;
+}
+.blue-ball p {
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #666;
+}
+.red-ball {
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    background: url("/static/images/ball-red-lg.png") 100% no-repeat;
+}
+.red-ball p {
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #666;
+}
+.add {
+    width: 20px;
+    height: 20px;
+    margin: 18px 0 0 0;
+    background: url("/static/assets/dist/img/add.png")
+}

@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车pk10,北京赛车pk10开奖直播,北京赛车pk10技巧 - 开奖直播</title>
+<meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+<meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/pk10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/pk10/rightmenu.html">
+<div class="menu-title">
+冠亚和历史
+</div>
+<div id="all" class="container lobby-record" v-cloak>
+<div class="able-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>日期</th>
+<th>冠亚和大</th>
+<th>冠亚和小</th>
+<th>冠亚和单</th>
+<th>冠亚和双</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in dateArr" :class="index%2==0?'odd':'even'">
+<td>{{buildDate(item)}}</td>
+<td>{{tableData[index]["gyhDa"]}}</td>
+<td>{{tableData[index]["gyhXiao"]}}</td>
+<td>{{tableData[index]["gyhDan"]}}</td>
+<td>{{tableData[index]["gyhShuang"]}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	tableData: [],
+            	dateArr:[],
+           	},
+            methods: {
+            	getData: function(){
+            		SULX.get(apipk10.bjsc_gyhls,function(status,res) {
+            			var data = JSON.parse(res).data;  
+            			vm.dateArr.splice(0);
+            			vm.tableData.splice(0);
+            			for(item in data){
+            				for(item2 in data[item]){
+            					vm.dateArr.push(item2);
+            					vm.tableData.push(data[item][item2]);
+            				}
+            			}            			
+            		});
+            	},
+            	buildDate: function(data){  
+            		if(data){
+            			return formatDate(new Date(data),'MM-dd');
+            		}
+            		return "";
+            	},
+            	
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },            
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

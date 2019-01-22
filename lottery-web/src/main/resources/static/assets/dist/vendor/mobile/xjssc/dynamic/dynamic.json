@@ -1,0 +1,32 @@
+{
+    "comment": "注释：1、loading组和game组的元素分别只出现在loading界面和正式视频界面中 2、可以直接在loading组和game组增删元素 3、需要重复加载到舞台的元素可以用同一个url，但key不能相同  4、所有的key都必须是唯一的，否则key所映射的引用会被覆盖",
+    "loading": [       
+        {
+            "key": "loadingLogo",
+            "url": "dynamic/loadingLogo.png",
+            "property": {
+                "x": "445",
+                "y": "530",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "1",
+                "scaleY": "1"
+            }
+        }
+        
+    ],
+    "game": [
+        {
+            "key": "gameLogo",
+            "url": "dynamic/gameLogo.png",
+            "property": {
+                "x": "10",
+                "y": "560",
+                "rotation": "0",
+                "alpha": "1",
+                "scaleX": "0.8",
+                "scaleY": "0.8"
+            }
+        }
+    ]
+}

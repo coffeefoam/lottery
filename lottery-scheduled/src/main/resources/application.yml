@@ -1,0 +1,40 @@
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 9006
+    servlet:
+      context-path: /
+
+spring:
+    # 环境 dev|test|prod
+    profiles:
+        active: prod
+    rabbitmq: 
+      host: 103.229.145.211
+      port: 5672
+      virtual-host: kjzbhost
+      username: kjzbuser
+      password: S0paQlVTRVI=
+      publisher-confirms: true
+      publisher-returns: true
+      template: 
+            mandatory: true
+#http连接池
+http: 
+    maxTotal: 100
+    defaultMaxPerRoute: 20
+    connectTimeout: 2000
+    connectionRequestTimeout: 2000
+    socketTimeout: 5000
+    staleConnectionCheckEnabled: true
+#常量定义
+myprops:
+    encrypt:
+        key: MlF0dDJMMlFZX01ZdGhoMTIxTFEhUV8h
+    apiplusurl: http://ho.apiplus.net/t262ada14b15ddc84k/index.json
+    dateapiurl: http://ho.apiplus.net/daily.do?token=t262ada14b15ddc84k&code=codevalue&format=json&date=datevalue
+    lhcapi: 
+      lhcapi1680660: https://1680660.com/smallSix/findSmallSixInfo.do
+      lhcapi6hkb: https://www.6hkb.com

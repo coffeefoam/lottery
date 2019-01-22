@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运飞艇龙虎历史分析 - 开奖直播</title>
+<meta name="keywords" content="幸运飞艇,幸运飞艇开奖结果,幸运飞艇投注技巧,幸运飞艇玩法">
+<meta name="description" content="幸运飞艇路珠分析频道专门为幸运飞艇的玩家提供专业的幸运飞艇路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xyft/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xyft/rightmenu.html">
+<div class="menu-title">
+龙虎历史
+</div>
+<div id="all" v-cloak>
+        <div class="container lobby-record">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th width="160" rowspan="2">日期</th>
+                            <th width="200" colspan="2">冠军</th>
+                            <th width="200" colspan="2">亚军</th>
+                            <th width="200" colspan="2">第三名</th>
+                            <th width="200" colspan="2">第四名</th>
+                            <th width="200" colspan="2">第五名</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td></td>
+                        <td width="100">龍</td>
+                        <td width="100">虎</td>
+                        <td width="100">龍</td>
+                        <td width="100">虎</td>
+                        <td width="100">龍</td>
+                        <td width="100">虎</td>
+                        <td width="100">龍</td>
+                        <td width="100">虎</td>
+                        <td width="100">龍</td>
+                        <td width="100">虎</td>
+                    </tr>
+                    <tr v-for="(item,index) in tableData">
+                        <td>{{keyData[index]}}</td>
+                        <td>{{item['num1_龙']}}</td>
+                        <td>{{item['num1_虎']}}</td>
+                        <td>{{item['num2_龙']}}</td>
+                        <td>{{item['num2_虎']}}</td>
+                        <td>{{item['num3_龙']}}</td>
+                        <td>{{item['num3_虎']}}</td>
+                        <td>{{item['num4_龙']}}</td>
+                        <td>{{item['num4_虎']}}</td>
+                        <td>{{item['num5_龙']}}</td>
+                        <td>{{item['num5_虎']}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+<script type="text/javascript">
+   var vm = new Vue({
+       el: '#all', //el 
+       data: {
+           tableData: [],
+           keyData: [],
+       },
+       methods: { //click事件
+           getData: function() {
+           		SULX.get(apixyft.xyft_lhls,function(std,data) {
+                   var result = JSON.parse(data).data;
+                   var tip = [];
+                   var tag = [];
+                   vm.lhData = result;
+                   for(i=0;i<result.length;i++) {
+                       for(j in result[i]) {
+                           tip.push(j);
+                           tag.push(result[i][j]);
+                       }
+                   }
+                   vm.keyData = tip;
+                   vm.tableData = tag;
+                   }
+               );
+           }
+       },
+       created: function() { 
+           this.getData();
+       },
+   })
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

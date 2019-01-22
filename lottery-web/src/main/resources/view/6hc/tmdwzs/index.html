@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+<title>六合彩走势图</title>
+<meta name="keywords" content="pk10北京赛车">
+<meta name="description"
+	content="pk10北京赛车路珠分析频道专门为pk10北京赛车的玩家提供专业的pk10北京赛车路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html">
+<link rel="stylesheet" href="/static/css/6hcbase.css">
+<link rel="stylesheet" href="/static/css/6hczst.css">
+<style>
+    [v-cloak] {
+        opacity: 0 !important;
+    }
+</style>
+</head>
+<body id="page-top" style="min-width: 1200px;">
+
+	<nav id="mainNav" class="navbar navbar-default">
+		<#include "/common/nav.html">
+	</nav>
+	<div class="lobby-head">
+		<div class="container">
+			<div class="row">
+				<div class="content">
+					<#include "/common/menu.html">
+					<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+						<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span
+							class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a
+							href="javascript:location.reload();">手动刷新</a>
+					</div>
+					<div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+						data-m="advertisement"></div>
+					<div style="font-size: 14px" class="lottery-list">
+                        <a class="item" href="index.html">六合开奖</a>
+                        <a class="item" href="shipin">开奖视频</a>
+                        <a class="item" href="chzhfx">出号综合分析</a>
+                        <a class="item" href="tmsxzs">特码生肖走势</a>
+                        <a class="item" href="tmbszs">特码波色走势</a>
+                        <a class="item" href="tmdszs">特码单双走势</a>
+                        <a class="item active" href="tmdwzs">特码段位走势</a>
+                        <a class="item" href="tmtszs">特码头数走势</a>
+                        <a class="item" href="tmwszs">特码尾数走势</a>
+                        <a class="item" href="tmwxzs">特码五行走势</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="margin-bottom: 40px;" v-cloak id="con">
+            <TABLE class="zstable">
+                    <tr >
+                        <td width="70" rowspan="2">期数</td>
+                        <td width="40" rowspan="2">特码</td>
+                        <td colspan="7">特段走势图</td>
+                    </tr>
+                    <tr class="head bold">
+                        <td width="126">第一段(01-07)</td>
+                        <td width="126">第二段(08-14)</td>
+                        <td width="126">第三段(15-21)</td>
+                        <td width="126">第四段(22-28)</td>
+                        <td width="126">第五段(29-35)</td>
+                        <td width="126">第六段(36-42)</td>
+                        <td width="126">第七段(43-49)</td>
+                    </tr>
+                    <tr class="white red bold enfont">
+                        <td>出现次数</td>
+                        <td> </td>
+                        <td v-for="item in dwcs">{{item?item+'次':'00'+'次'}}</td>  </tr>
+                    <!-- <tr title="模拟选号">
+                        <td class="yellow bold">模拟选号</td>
+                        <td class="white"></td>
+                        <td class="yellow enfont" >一</td>
+                        <td class="yellow enfont" >二</td>
+                        <td class="yellow enfont" >三</td>
+                        <td class="yellow enfont" >四</td>
+                        <td class="yellow enfont" >五</td>
+                        <td class="yellow enfont" >六</td>
+                        <td class="yellow enfont" >七</td>
+                    </tr> -->
+                    
+                    
+                 <tr v-for="(item, index) in juti" onMouseOut="this.style.backgroundColor=''" onMouseOver="this.style.backgroundColor='#ffffcc'">
+                <td>{{item.qs}}</td>
+                <td style="background:#ffc;"><span class="[whatColor(item), 'F']">{{item.tm}}</span></td>
+                <td :class="{hui_color: true, Red_boll1: item.yiduanyl === 0}">{{item.yiduanyl?item.yiduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.erduanyl === 0}">{{item.erduanyl?item.erduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.sanduanyl === 0}">{{item.sanduanyl?item.sanduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.siduanyl === 0}">{{item.siduanyl?item.siduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.wuduanyl === 0}">{{item.wuduanyl?item.wuduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.liuduanyl === 0}">{{item.liuduanyl?item.liuduanyl:item.tm}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.qiduanyl === 0}">{{item.qiduanyl?item.qiduanyl:item.tm}}</td>
+                </tr>
+            </TABLE>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el : '#con',
+			data : {
+                dwcs: [],
+                juti: []
+			},
+			methods : {
+                whatColor: function(item) {
+                    if(item.bs === 'red') {
+                        return 'Red_bg'
+                    } else if(item.bs === 'blue') {
+                        return 'Blue_bg'
+                    } else {
+                        return 'Green_bg'
+                    }
+                }, 
+                otherColor: function(item) {
+                    if(item.ys === '红') {
+                        return 'Red'
+                    } else if(item.ys === '蓝') {
+                        return 'Blue'
+                    } else {
+                        return 'Green'
+                    }
+                }, 
+				getData: function(index, timer) {
+                    // this.num.splice(0);
+                    SULX.get(api6hc.lhc_dwzs, function(std, data) {                  
+                        var short = [];
+                        var result = JSON.parse(data).data;
+                        vm.dwcs = result.dwcs;
+                        vm.juti = result.dwzs;
+                        // console.log(result);
+                    })
+				},
+
+			},
+			created : function() {
+				this.getData();
+			},
+		})
+	</script>
+	<#include "/common/foot.html">
+</body>
+</html>

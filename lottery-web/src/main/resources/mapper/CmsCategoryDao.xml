@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.dao.CmsCategoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.lottery.entity.CmsCategoryEntity" id="cmsCategoryMap">
+        <result property="id" column="id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="parentIds" column="parent_ids"/>
+        <result property="module" column="module"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="href" column="href"/>
+        <result property="target" column="target"/>
+        <result property="description" column="description"/>
+        <result property="keywords" column="keywords"/>
+        <result property="sort" column="sort"/>
+        <result property="inMenu" column="in_menu"/>
+        <result property="inList" column="in_list"/>
+        <result property="showModes" column="show_modes"/>
+        <result property="allowComment" column="allow_comment"/>
+        <result property="isAudit" column="is_audit"/>
+        <result property="customListView" column="custom_list_view"/>
+        <result property="customContentView" column="custom_content_view"/>
+        <result property="viewConfig" column="view_config"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="remarks" column="remarks"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="alias" column="alias"/>
+    </resultMap>    
+       
+
+
+
+</mapper>

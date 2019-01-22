@@ -1,0 +1,182 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>六合彩，六合开奖 - 开奖直播</title>
+<meta name="keywords" content="六合彩图纸、大数据分析、特码走势图表、六合快报、六合彩开奖查询">
+<meta name="description" content="六合快报拥有最全的六合彩图纸库，更拥有亚洲最快的开奖直播，最全图库，最快开奖，一切心水分析尽在六合快报！">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+<link rel="stylesheet" href="/static/css/6hczst.css">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<style>
+.F {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 12px;
+}
+.blue_bg {
+    background-color: blue;
+    padding: 3px;
+}
+.red_bg {
+    background-color: red;
+    padding: 3px;
+}
+.green_bg {
+    background-color: green;
+    padding: 3px;
+}
+.blueX {
+    FONT-FAMILY: Arial;
+    BACKGROUND: url(/image/BlueX.png) #ffffff no-repeat center 50%;
+    COLOR: #ffffff;
+}
+.greenX {
+    FONT-FAMILY: Arial;
+    BACKGROUND: url(/image/GreenX.png) #ffffff no-repeat center 50%;
+    COLOR: #ffffff;
+}
+.redX {
+    FONT-FAMILY: Arial;
+    BACKGROUND: url(/image/RedX.png) #ffffff no-repeat center 50%;
+    COLOR: #ffffff;
+}
+</style>
+<div>
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/6hc/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/6hc/rightmenu.html">
+<div class="menu-title">
+出号综合分析
+</div>
+<div class="container lobby-record">
+<div id="all" class="table-responsive" v-cloak>
+<table class="table table-bordered table-condensed text-center">
+<thead>
+<tr>
+<th rowspan="2">期数</th>
+<th rowspan="2">特码</th>
+<th rowspan="2">五行</th>
+<th rowspan="1" colspan="1">金</th>
+<th rowspan="1" colspan="1">木</th>
+<th rowspan="1" colspan="1">水</th>
+<th rowspan="1" colspan="1">火</th>
+<th rowspan="1" colspan="1">土</th>
+
+
+
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+
+
+
+
+<!-- <td>鸡</td>
+<td>狗</td>
+<td>猪</td>
+<td>家禽</td>
+<td>野兽</td> -->
+
+
+</tr>
+<tr>
+<td style="color: #d94136">出现次数</td>
+<td></td>
+<td></td>
+
+<td v-for="item in bscs" style="color: #d94136">{{item+'次'}}</td>
+
+</tr>
+
+<tr v-for="(item,index) in juti" class="even">
+<td>{{item.qs}}</td>
+<td style="background:#ffc;"><span :class="[whatColor(item), 'F']">{{item.tm}}</span></td>
+<td class="Blue">{{item.wx}}</td>
+<!-- <td :class="{hui_color: true, Red_boll1: item.shuyl === 0}">{{item.shuyl?item.shuyl:item.sx}}</td> -->
+<td :class="{hui_color: true, Red_boll1: item.jinyl === 0}">{{item.jinyl?item.jinyl:item.wx}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.muyl === 0}">{{item.muyl?item.muyl:item.wx}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.shuiyl === 0}">{{item.shuiyl?item.shuiyl:item.wx}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.huoyl === 0}">{{item.huoyl?item.huoyl:item.wx}}</td>
+                <td :class="{hui_color: true, Red_boll1: item.tuyl === 0}">{{item.tuyl?item.tuyl:item.wx}}</td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	tableData: [],
+            	dateArr: [], 
+            	hmcs: {},
+                hmzs: [],
+                bscs: [],
+                juti: [],
+            	nums:["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49"],
+           	},
+            methods: {
+                whatColor: function(item) {
+                    if(item.bs === 'red') {
+                        return 'Red_bg'
+                    } else if(item.bs === 'blue') {
+                        return 'Blue_bg'
+                    } else {
+                        return 'Green_bg'
+                    }
+                }, 
+                otherColor: function(item) {
+                    if(item.wx === '红') {
+                        return 'Red'
+                    } else if(item.wx === '蓝') {
+                        return 'Blue'
+                    } else {
+                        return 'Green'
+                    }
+                }, 
+				getData: function(index, timer) {
+                    // this.num.splice(0);
+                    SULX.get(api6hc.lhc_wxzs, function(std, data) {                  
+                        var short = [];
+                        var result = JSON.parse(data).data;
+                        vm.bscs = result.wxcs;
+                        vm.juti = result.wxzs;
+                        console.log(result);
+                    })
+				},
+            	buildDate: function(data){
+            		if(data){            			
+            			if(data){
+                			return formatDate(new Date(data),'MM-dd');
+                		}
+                		return "";
+            		}            		
+            	},            	
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

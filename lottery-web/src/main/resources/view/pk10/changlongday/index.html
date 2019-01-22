@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+<title>广东11选5龙虎路珠分析</title>
+<meta name="keywords" content="pk10北京赛车">
+<meta name="description"
+	content="pk10北京赛车路珠分析频道专门为pk10北京赛车的玩家提供专业的pk10北京赛车路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+
+	<nav id="mainNav" class="navbar navbar-default">
+		<#include "/common/nav.html">
+	</nav>
+	<div class="lobby-head">
+		<div class="container">
+			<div class="row">
+				<div class="content">
+					<#include "/common/menu.html"> <#include "/pk10/kaijiang.html">
+					<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+						<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span
+							class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a
+							href="javascript:location.reload();">手动刷新</a>
+					</div>
+					<div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+						data-m="advertisement"></div>
+					<div class="lottery-list">
+						<a class="item" href="../index.html">北京赛车pk10</a> <a class="item"
+							href="../kaijiang/index.html">pk10开奖</a> <a class="item"
+							href="../shipin/index.html">pk10开奖直播</a> <a class="item"
+							href="../yilou/index.html">号码遗漏统计</a> <a class="item"
+							href="../zonghe/index.html">综合路珠分析</a> <a class="item"
+							href="../shuangmianluzhu/index.html">单双大小路珠</a> <a class="item"
+							href="../haomaluzhu/index.html">号码前后路珠</a> <a class="item"
+							href="../longhuluzhu/index.html">龍虎路珠</a> <a class="item"
+							href="../longhu/index.html">龍虎历史</a> <a class="item"
+							href="../guanyaheluzhu/index.html">冠、亚和路珠</a> <a class="item"
+							href="../guanyahe/index.html">冠亚和历史</a> <a class="item"
+							href="../guanyaheyilou/index.html">冠亚和遗漏</a> <a class="item"
+							href="../shuangmian/index.html">单双大小历史</a> <a class="item"
+							href="../shuangmianzoushitu/index.html">单双大小走势图</a> <a
+							class="item" href="../touzhu/index.html">两面投注参考</a> <a
+							class="item" href="../zoushitu/index.html">横版走势图</a> <a
+							class="item" href="../jiqiao/index.html">pk10技巧</a> <a
+							class="item active" href="index.html">每日长龙</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div v-cloak id="con">
+		<div class="container dns">
+			<div class="alert alert-warning">
+				如果您访问本网站无故跳转到其他网站，证明您的网络已经被劫持，请修改您的DNS或查看防劫持教程 <a
+					href="http://icp.6001ms.com/?name=icp" target="_blank">点击查看防劫持教程</a>
+			</div>
+		</div>
+		<div class="container lobby-record">
+			<div class="lot-search" style="margin-bottom: 0;">
+				<div
+					style="float: left; border-left: 2px solid #d94136; padding-left: 5px; margin-top: 3px;">
+					每日长龙</div>
+					<div class="date" style="text-align:right;">
+						<label for="dateData">选择日期</label>
+						<input type="text" name="dateData" class="search-input"
+							id="dateData" readonly="readonly">
+						<span @click="getData(flag)" class="search-btn">查询</span>
+					</div>
+			</div>
+		</div>
+		<div class="container number-filter-title" style="border-bottom: 0;">
+			<ul class="ball" style="margin-bottom: 0;">
+				<li v-for="(item,index) in levelName"><a
+					style="cursor: pointer;" @click.prevent="getData(index)"
+					:class="{'cur': flag === index}">{{item}}</a> |</li>
+
+			</ul>
+		</div>
+		<div class="container lobby-record" data-job="replace">
+			<div class="table-responsive">
+				<table
+					class="table table-bordered table-striped
+                        text-center">
+					<tr>
+						<th>日期</th>
+						<th colspan="6">{{title}}</th>
+					</tr>
+					<tr>
+						<th width="150px" style="background: #fff;">开出期数/游戏玩法</th>
+						<th style="background: #fff;">大</th>
+						<th style="background: #fff;">小</th>
+						<th style="background: #fff;">单</th>
+						<th style="background: #fff;">双</th>
+						<th style="background: #fff;">龙</th>
+						<th style="background: #fff;">虎</th>
+					</tr>
+                    <tr v-for="(item,index) in keyData">
+                        <td>{{item+'期'}}</td>
+                        <td v-html="todayData[index][item]['大']?todayData[index][item]['大']:'—'">
+                        </td>
+                        <td v-html="todayData[index][item]['小']?todayData[index][item]['小']:'—'">
+                        </td>
+                        <td v-html="todayData[index][item]['单']?todayData[index][item]['单']:'—'">
+                        </td>
+                        <td v-html="todayData[index][item]['双']?todayData[index][item]['双']:'—'">
+                        </td>
+                        <td v-html="todayData[index][item]['龙']?todayData[index][item]['龙']:'—'">
+                        </td>
+                        <td v-html="todayData[index][item]['虎']?todayData[index][item]['虎']:'—'">
+                        </td>
+                    </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el : '#con',
+			data : {
+				flag : 0,
+				levelName : [ '冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名',
+						'第八名', '第九名', '第十名', '冠亚和' ],
+				tableData : [],
+				todayData : [],
+				keyData : [],
+				title : [],
+				showData : null,
+				paiming : [],
+				minite : 0,
+				seconds : 0,
+				dqqs : '',
+				xqqs : '',
+			},
+			methods : {
+				getData : function(index, timer) {
+                    var short = {};
+                    var clock = document.getElementById('dateData').value;
+                    if(clock === '') {
+                        clock = formatDate(new Date(), 'yyyy-MM-dd');
+                    }
+                    if(index === undefined) {
+                        index = 0
+                    }
+					this.flag = index;
+					SULX.get(apipk10.bjsc_mrcl,function(std,data) {
+						var result = JSON.parse(data).data;
+						vm.keyData.splice(0);
+                        vm.title = clock;
+
+                        vm.todayData.splice(0);
+						for (i = 0; i < result.length; i++) {
+                            short = (result[i]);
+                            for(j in result[i]) {
+                                if(j === clock) {
+                                    vm.tableData = (result[i][j]);
+                                }
+                                // vm.tableData.push(result[i][j]);
+                            }
+						}
+                        for(i in vm.tableData['num'+(index+1)]) {
+                            vm.keyData.push(i);
+                            vm.todayData.push(vm.tableData['num'+(index+1)]);
+                        }
+					})
+				},
+
+				changeNum : function(index) {
+					this.flag = index;
+					this.keyData.splice(0);
+					this.todayData.splice(0);
+					for (i in vm.tableData[0]['num' + index]) {
+						vm.keyData.push(i);
+						vm.todayData.push(vm.tableData[0]['num' + index][i]);
+					}
+				},
+			},
+			created : function() {
+				this.getData();
+			},
+		})
+	</script>
+	<#include "/common/foot.html">
+</body>
+</html>

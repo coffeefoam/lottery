@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+<title>DNS防劫持教程</title>
+<link rel="stylesheet" href="/static/css/dns-red825f.css  " type="text/css" />
+<script src="/static/js/vue.min.js"></script>
+</head>
+<body>
+<div id="all" >
+<div class="page-wrap">
+
+<div class="header">
+<div class="wrapper">
+<div class="word fl">
+<div class="header-left">
+<img class="j-shownews" src="/static/images/m-gear9cc1.png?v=1517462054548" alt="">
+</div>
+<span class="text">DNS防劫持教程</span>
+<span class="m-logo" id="mdns">
+<img src="/static/images/m-dns4c8f.png?v=151727054548"> </span>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="notice">
+<div class="wrapper">
+<p class="pc-marquee">
+<i class="icon new-icon"></i>重要公告：如发现登录的网址被劫持了，请您参考以下一种方式解决：①加https://访问 ②DNS 一键设置 ③教程设置
+<a style="cursor: pointer;" @click.prevent="changeBox" class="j-shownews">查看详情></a></p>
+<span class="m-marquee ">
+<marquee direction="left">重要公告：如发现登录的网址被劫持了，请您参考以下一种方式解决：①加https://访问 ②DNS 一键设置 ③教程设置</marquee>
+</span>
+</div>
+</div>
+
+<div class="wrapper relative">
+<div class="top-nav fr">
+<ul>
+<li @click="changeItem(0)" :class="{tab: true, cur: flag === 0}">
+<a :class="{active: flag === 0}">
+<i class="icon set-icon"></i>一键设置</a>
+</li>
+<li @click="changeItem(1)" :class="{tab: true, cur: flag === 1}">
+  <a :class="{active: flag === 1}">
+<i class="icon pc-icon"></i>PC端</a>
+</li>
+<li @click="changeItem(2)" :class="{tab: true, cur: flag === 2}">
+<a>
+<i class="icon android-icon"></i>Android端</a>
+</li>
+<li @click="changeItem(3)" :class="{tab: true, cur: flag === 3}">
+<a  :class="{'no-border-r': true, active: flag === 3}">
+<i class="icon ios-icon"></i>iOS端</a>
+</li>
+</ul>
+</div>
+<div :class="{'slick-box': true, cur: flag === 0}">
+<p class="pc-marquee">※ 您必须连接到网络，才可以更改设备的DNS设置；若需还原DNS设置，点击“
+<a href="/static/tools/recover.bat"> DNS恢复工具下载 </a>”。</p>
+<p class="m-marquee">※ 您必须连接到网络，才可以更改设备的DNS设置。</p>
+<div class="slick-out banner">
+<p class="disblock">
+<img src="/static/images/y019e50.jpg?v=1517467054548" alt="" width="42%">
+</p>
+<img src="/static/images/y029e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/y039e50.jpg?v=1517467054548" alt="" width="42%">
+</div>
+<div class="m-tips">
+<p>温馨提示：使用360工具容易造成劫持，请避免使用!
+<br />推荐浏览器：
+<span>
+<i class="icon google"></i>谷歌</span>
+<span>
+<i class="icon firefox"></i>火狐</span>
+<span>
+<i class="icon ie"></i>IE9+</span>
+</p>
+</div>
+</div>
+
+<div :class="{'slick-box': true, cur: flag === 1}">
+<p>※ 您必须连接到网络，才可以更改设备的DNS设置。</p>
+<div class="slick-out banner">
+<img src="/static/images/pc019e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/pc029e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/pc039e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/pc049e50.jpg?v=1517467054548" alt="" width="42%">
+<p class="disblock">
+<img src="/static/images/pc059e50.jpg?v=1517467054548" alt="" width="42%">
+ </p>
+</div>
+<div class="m-tips">
+<p>温馨提示：使用360工具容易造成劫持，请避免使用!
+<br />推荐浏览器：
+<span>
+<i class="icon google"></i>谷歌</span>
+<span>
+<i class="icon firefox"></i>火狐</span>
+<span>
+<i class="icon ie"></i>IE9+</span>
+</p>
+</div>
+</div>
+
+<div :class="{'slick-box': true, cur: flag === 2}">
+<p>※ 您必须连接到WI-FI网络，才可以更改设备的DNS设置。</p>
+<div class="slick-out banner">
+<img src="/static/images/android019e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/android029e50.jpg?v=1517467054548" alt="" width="42%">
+<p class="disinline">
+<img src="/static/images/android039e50.jpg?v=1517467054548" alt="" width="42%">
+</p>
+<p class="disinline">
+<img src="/static/images/android049e50.jpg?v=1517467054548" alt="" width="40%">
+</p>
+<p class="disinline">
+<img src="/static/images/android059e50.jpg?v=1517467054548" alt="" width="42%">
+</p>
+</div>
+<div class="m-tips">
+<p>温馨提示：使用360工具容易造成劫持，请避免使用!
+<br />推荐浏览器：
+<span>
+<i class="icon google"></i>谷歌</span>
+<span>
+<i class="icon firefox"></i>火狐</span>
+<span>
+<i class="icon ie"></i>IE9+</span>
+</p>
+</div>
+</div>
+
+<div :class="{'slick-box': true, cur: flag === 3}">
+<p>※ 您必须连接到WI-FI网络，才可以更改设备的DNS设置。</p>
+<div class="slick-out banner">
+<img src="/static/images/ios019e50.jpg?v=1517467054548" alt="" width="42%">
+<img src="/static/images/ios029e50.jpg?v=1517467054548" alt="" width="42%">
+<p class="disinline">
+<img src="/static/images/ios039e50.jpg?v=1517467054548" alt="" width="42%">
+</p>
+<p class="disinline">
+<img src="/static/images/ios049e50.jpg?v=1517467054548" alt="" width="40%">
+</p>
+<p class="disinline">
+<img src="/static/images/ios059e50.jpg?v=1517467054548" alt="" width="42%">
+</p>
+<p class="disinline">
+<img src="/static/images/ios069e50.jpg?v=1517467054548" alt="" width="40%">
+</p>
+</div>
+<div class="m-tips">
+<p>温馨提示：使用360工具容易造成劫持，请避免使用!
+<br />推荐浏览器：
+<span>
+<i class="icon google"></i>谷歌</span>
+<span>
+<i class="icon firefox"></i>火狐</span>
+<span>
+<i class="icon ie"></i>IE9+</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div :class="{modal: true, 'j-news': true, hide: !isShow}">
+<div class="modal-wrapper">
+<div class="modal-border"></div>
+<div class="modal-bg"></div>
+<a href="javascript:;" class="icon modal-close j-close"></a>
+<div class="modal-header">
+<p>DNS防劫持教程</p>
+</div>
+<div id="j-news-main" class="modal-content">
+<div class="box">
+<div class="pc-marquee model-line model-left"></div>
+<div class="pc-marquee model-line model-right"></div>
+<h3>如发现登录的网址出现非官方页面!</h3>
+<p>那么就是您登录的网址被劫持了，非常危险，请您参考以下一种方式解决：
+</p>
+</div>
+<div class="list">
+<div class="item">
+<img src="/static/images/browser9e50.png?v=1517467054548" alt="">
+<h5>加http<span class="text-danger">s</span>://访问</h5>
+<p>为收发的信息传输安全，在网站www前加https://</p>
+ <span class="list-line"></span>
+</div>
+<div class="item">
+<img src="/static/images/gear9e50.png?v=1517467054548" alt="">
+<h5>DNS一键设置</h5>
+<p>点击下载
+<a href="/static/tools/recover.bat" class="typename">DNS一键设置</a>，运行软件一劳永逸</p>
+<span class="list-line"></span>
+</div>
+<div class="item">
+<img src="/static/images/course9e50.png?v=1517467054548" alt="">
+<h5>教程设置</h5>
+<p>调整电脑端或移动端设置，锁定DNS服务器地址</p>
+</div>
+</div>
+<p class="statement">温馨提示：使用360工具容易造成劫持，请避免使用，推荐浏览器：
+<span>
+<i class="icon google"></i>谷歌</span>
+<span>
+<i class="icon firefox"></i>火狐</span>
+<span>
+<i class="icon ie"></i>IE9+</span>
+</p>
+</div>
+<div class="modal-handle">
+<button @click="changeBox" class="modal-ok j-close">知道啦</button>
+</div>
+</div>
+</div>
+
+<div class="dns">
+<i class="icon icon-dns"></i>
+<p class="dns-title">推荐
+<span>D</span>
+<span>N</span>
+<span>S</span>
+</p>
+<div class="dns-main">
+<p class="dns-tip">电脑端推荐</p>
+<p class="dns-maincontent">首选DNS 114.114.114.114</p>
+<p class="dns-maincontent">备选DNS 223.5.5.5</p>
+<p class="dns-tip">手机端推荐</p>
+<p class="dns-maincontent">首选DNS 178.79.131.110</p>
+<p class="dns-maincontent">备选DNS 114.114.115.115</p>
+<p class="dns-tip">电脑备用推荐</p>
+<p class="dns-maincontent">首选DNS 119.29.29.29</p>
+<p class="dns-maincontent">备选DNS 1.2.4.8</p>
+</div>
+</div>
+<div class="mdns"></div>
+<div class="mdns-main">
+<p class="mdns-tip">电脑端推荐</p>
+<p class="mdns-maincontent">首选DNS 114.114.114.114</p>
+<p class="mdns-maincontent">备选DNS 223.5.5.5</p>
+<p class="mdns-tip">手机端推荐</p>
+<p class="mdns-maincontent">首选DNS 178.79.131.110</p>
+<p class="mdns-maincontent">备选DNS 114.114.115.115</p>
+<p class="mdns-tip">电脑备用推荐</p>
+<p class="mdns-maincontent">首选DNS 119.29.29.29</p>
+<p class="mdns-maincontent">备选DNS 1.2.4.8</p>
+</div>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#all',
+    data: {
+      flag: 0,
+      isShow: false
+    },
+    methods: {
+      changeItem: function(num) {
+        this.flag = num;
+      },
+      changeBox: function() {
+        this.isShow = !this.isShow
+      }
+    }
+  })
+</script>
+<!-- <script src="/static/js/main9e50.js" type="text/javascript"></script> -->
+<!-- <script type="441cec6e617c9c84313d0a36-text/javascript">
+    require(['dns'], function (DNS) {
+      new DNS();
+    })
+
+  </script> -->
+<!-- <script src="/static/ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="441cec6e617c9c84313d0a36-" defer=""></script></body> -->
+
+</html>

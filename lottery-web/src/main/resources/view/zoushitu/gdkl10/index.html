@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            maximum-scale=1.0, user-scalable=0">
+        <title>广东快乐十分位置走势图</title>
+        <meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+        <meta name="description"
+            content="北京赛车pk10路珠分析频道专门为北京赛车pk10的玩家提供专业的北京赛车pk10彩路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+            <#include "/common/header.html">
+            <style>
+            .web_numBallWidth57 li {
+                width: 34.2px !important;
+            }
+            .web_numBallWidth57 li:last-child {
+                border: none !important;
+            }
+            .web_numTenTable li:last-child {
+                border: none !important;
+            }
+            </style>
+        </head>
+        <body id="page-top" style="min-width: 1200px;">
+            <nav id="mainNav" class="navbar navbar-default">
+                <#include "/common/nav.html">
+                </nav>
+                <div class="lobby-head">
+                    <div class="container">
+                        <div class="row">
+                            <div class="content">
+
+                                <ul class="lottery-menu">
+                                    <li><a href="/zoushitu/pk10/">北京赛车PK10</a></li>
+                                    <li><a href="/zoushitu/shishicai/">重庆时时彩</a></li>
+                                    <li class=active><a href="/zoushitu/gdkl10/">广东快乐十分</a></li>
+                                    <li><a href="/zoushitu/xyft/">幸运飞艇</a></li>
+                                    <li><a href="/zoushitu/xync/">幸运农场</a></li>
+                                    <!-- <li><a href="/zoushitu/sdc/">圣地彩</a></li> -->
+                                    <li><a href="/zoushitu/gd11x5/">广东11选5</a></li>
+                                    <li><a href="/zoushitu/jsk3/">江苏快3</a></li>
+                                    <li><a href="/zoushitu/xjssc/">新疆时时彩</a></li>
+                                    <li><a href="/zoushitu/tjssc/">天津时时彩</a></li>
+                                    <li><a href="/zoushitu/jx11x5/">江西11选5</a></li>
+                                    <li class="nonactive"><a>&nbsp;</a></li>
+                                    <li class="nonactive"><a>&nbsp;</a></li>
+                                    <li class="nonactive"><a>&nbsp;</a></li>
+
+                                </ul>
+
+                                <#include "/gdkl10/kaijiang.html">
+                                <div class="lottery-tips" id="j-lottery-tips"
+                                    style='display: none'>
+                                    <i class="fa fa-volume-up"
+                                        aria-hidden="true"></i> 温馨提示：<span
+                                        class="j-periods"></span>开奖结果未获取,
+                                    继续等待自动更新或 <a
+                                        href="javascript:location.reload();">手动刷新</a>
+                                </div>
+                                <div class="pay-show"
+                                    data-pay="Icp_Pc_Lottery_Top"
+                                    data-m="advertisement">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-cloak id="test">
+                <div class="container trend-container" style="border: 1px solid#e3e3e3;">
+                    <div class="web_dateLineBody" ms-controller="chart">
+                        <div class="btn-group" role="group" id="j-trends-nav">
+                            <a  onclick="javascript: void(0)" role="button" class="btn btn-default btn-danger"
+                               >位置走势图</a>
+                          
+                        </div>
+                        <div class="number-filter-title">
+                            <ul class="list">
+                                <template v-for="(item,index) in ranks">
+                                    <li @click="getData(index)">
+                                        <span :style="{color: index === flag?'#d94136':''}" style="cursor: pointer;">{{item}}</span>
+                                    </li>
+                                    <li>|</li>
+                                </template>
+
+                            </ul>
+                            <div class="right-btns trends-dropdown">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-sm
+                                        btn-default dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        选择期数 <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu"
+                                        style="width: 120px">
+                                        <li @click="getData(flag,40)"><button class="btn btn-link"
+                                                type="button">40期</button></li>
+                                        <li @click="getData(flag,'all')"><button class="btn btn-link"
+                                                type="button"
+                                                >今日所有</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dateLineTable table-responsive">
+                            <table id="" class="table table-bordered text-center
+                                table-condensed">
+                                <tr>
+                                    <td rowspan="2" class="blue1">
+                                        统计类型
+                                    </td>
+                                    <td class="blue web_dateLineBody" width="680">{{mTitle}}</td>
+                                    <td class="blue web_dateLineBody" width="106">回摆(<font
+                                            class="redColor">*</font>)</td>
+                                    <td class="blue web_dateLineBody" width="71">单双</td>
+                                    <td class="blue web_dateLineBody" width="71">大小</td>
+                                </tr>
+                                <tr>
+                                    <td class="huise">
+                                        <div class="web_tableLayer web_numBallWidth57">
+                                            <ul>
+                                                <li v-for="item in fTitle" class="little-width">{{item}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="huise">
+                                        <div class="web_numTenTable
+                                            web_numBallWidth35 fontNormal">
+                                            <ul>
+                                                <li>反向</li>
+                                                <li>重号</li>
+                                                <li style="border: none;">正向</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="huise">
+                                        <div class="web_numTenTable
+                                            web_numBallWidth35 fontNormal">
+                                            <ul>
+                                                <li>单</li>
+                                                <li style="border: none;">双</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="huise">
+                                        <div class="web_numTenTable
+                                            web_numBallWidth35 fontNormal">
+                                            <ul>
+                                                <li>大</li>
+                                                <li style="border: none;">小</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="data-stat">
+                                    <td class="white">总次数</td>
+                                    <td class="white">
+                                        <div class="web_numTenTable web_numBallWidth57">
+                                            <ul>
+                                                <li v-for="(item,index) in 20">{{initData1[index+1]}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="white">
+                                        <div class="web_numTenTable web_numBallWidth35">
+                                            <ul>
+                                                <li>{{initData1.a1fan}}</li>
+                                                <li>{{initData1.a2chong}}</li>
+                                                <li>{{initData1.a3zheng}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="white">
+                                        <div class="web_numTenTable web_numBallWidth35">
+                                            <ul>
+                                                <li>{{initData1.a4dan}}</li>
+                                                <li style="border: none;">{{initData1.a5shuang}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="white">
+                                        <div class="web_numTenTable
+                                            web_numBallWidth35">
+                                            <ul>
+                                                <li>{{initData1.a6da}}</li>
+                                                <li style="border: none;">{{initData1.a7xiao}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr class="data-stat">
+                                    <td class="white">最大遗漏</td>            
+                                    <td class="white">
+                                        <div class="web_numTenTable web_numBallWidth57">
+                                            <ul>
+                                                <li v-for="(item,index) in 20">{{initData2[index+1]}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="white">
+                                        <div class="web_numTenTable
+                                            web_numBallWidth35">
+                                            <ul>
+                                                <li>{{initData2.a1fan}}</li>
+                                                <li>{{initData2.a2chong}}</li>
+                                                <li>{{initData2.a3zheng}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="white">
+                                        <div class="web_numTenTable web_numBallWidth35">
+                                            <ul>
+                                                <li>{{initData2.a4dan}}</li>
+                                                <li style="border: none;">{{initData2.a5shuang}}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                        <td class="white">
+                                            <div class="web_numTenTable
+                                                web_numBallWidth35">
+                                                <ul>
+                                                    <li>{{initData2.a6da}}</li>
+                                                    <li style="border: none;">{{initData2.a7xiao}}</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+        
+                                </tr>
+                            </table>
+                            <!-- <div class="trendChartloading j-loading"
+                                style="text-align: center;padding: 50px;">
+
+                                <p>正在加载中……</p>
+                            </div> -->
+                        </div>
+                        <!-- <div class="alert alert-warning text-primary"
+                            role="alert">
+                            *冷热号走势说明：红球为热号，代表近20期出现频繁的号码；蓝球为冷号，代表近20期未开出过的号码，橙色球为温号，即介于冷热之间的号码。
+                        </div> -->
+                        <div style="margin-top: 18px; display: flex; justify-content: center;">
+                            <table id="container" style="position: relative" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td class="first-td">
+                                      <p style="line-height: 60px;">期号</p>
+                                  </td>
+                                  <td>
+                                    <div class="title-td">
+                                        <p style="font-size: 13px; line-height: 31px;">{{mTitle}}</p>
+                                    </div>
+                                    <div class="content-td">
+                                      <ul>
+                                        <li class="low-height" v-for="item in fTitle"><p style="line-height: 30px;">{{item}}</p></li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="middle-td">
+                                        <p style="font-size: 13px; line-height: 31px;">回摆</p>
+                                    </div>
+                                    <div class="middle-blow">
+                                      <ul>
+                                        <li v-for="item in dTitle"><p>{{item}}</p></li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="little-td">
+                                        <p style="font-size: 13px; line-height: 31px;">单双</p>
+                                    </div>
+                                    <div class="little-blow">
+                                      <ul>
+                                        <li v-for="item in sTitle"><p>{{item}}</p></li>
+                                      </ul>
+                                    </div>
+                                  </td>
+                                  <td>
+                                      <div class="little-td">
+                                        <p style="font-size: 13px; line-height: 31px;">大小</p>
+                                      </div>
+                                      <div class="little-blow">
+                                        <ul>
+                                          <li v-for="item in lTitle"><p>{{item}}</p></li>
+                                        </ul>
+                                      </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="container-div">
+                                            <p style="color: #e3012c">{{Number(keyName[0])+3+'期'}}</p>
+                                    </div>
+                                  </td>
+                                  <td>
+                                      <div class="content-td high-height bg">
+                                          <ul id="gp1">
+                                            <li v-for="(item,index) in fTitle ">
+                                              <div class="circle-num">
+                                                <p @click="showClass1(index)" :class="{'circle-hover': isClass1 === index}" class="noclass">{{item}}</p>
+                                              </div>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="middle-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'blue': list3.fan === '反'}"><p>{{list3.fan}}</p></li>
+                                                <li :class="{'blue': list3.chong === '重'}"><p>{{list3.chong}}</p></li>
+                                                <li :class="{'blue': list3.zheng === '正'}"><p>{{list3.zheng}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="little-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'green': list3.dan === '单'}"><p>{{list3.dan}}</p></li>
+                                            <li :class="{'green': list3.shuang === '双'}"><p>{{list3.shuang}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="little-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'qing': list3.da === '大'}"><p>{{list3.da}}</p></li>
+                                                <li :class="{'qing': list3.xiao === '小'}"><p>{{list3.xiao}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      <div class="container-div">
+                                            <p style="color: #e3012c">{{Number(keyName[0])+2+'期'}}</p>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="content-td high-height bg">
+                                            <ul>
+                                              <li v-for="(item,index) in fTitle ">
+                                                <div id="sss" class="circle-num">
+                                                  <p @click="showClass2(index)" :class="{'circle-hover': isClass2 === index}">{{item}}</p>
+                                                </div>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="middle-blow high-height bg">
+                                            <ul>
+                                                <li :class="{'blue': list2.fan === '反'}"><p>{{list2.fan}}</p></li>
+                                                <li :class="{'blue': list2.chong === '重'}"><p>{{list2.chong}}</p></li>
+                                                <li :class="{'blue': list2.zheng === '正'}"><p>{{list2.zheng}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="little-blow high-height bg">
+                                            <ul>
+                                                <li :class="{'green': list2.dan === '单'}"><p>{{list2.dan}}</p></li>
+                                                <li :class="{'green': list2.shuang === '双'}"><p>{{list2.shuang}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="little-blow high-height bg">
+                                            <ul>
+                                                <li :class="{'qing': list2.da === '大'}"><p>{{list2.da}}</p></li>
+                                                <li :class="{'qing': list2.xiao === '小'}"><p>{{list2.xiao}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      <div class="container-div">
+                                            <p style="color: #e3012c">{{Number(keyName[0])+1+'期'}}</p>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="content-td high-height bg">
+                                            <ul>
+                                              <li v-for="(item,index) in fTitle ">
+                                                <div class="circle-num">
+                                                  <p @click="showClass3(index)" :class="{'circle-hover': isClass3 === index}">{{item}}</p>
+                                                </div>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="middle-blow high-height bg">
+                                            <ul>
+                                              <li :class="{'blue': list1.fan === '反'}"><p>{{list1.fan}}</p></li>
+                                              <li :class="{'blue': list1.chong === '重'}"><p>{{list1.chong}}</p></li>
+                                              <li :class="{'blue': list1.zheng === '正'}"><p>{{list1.zheng}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="little-blow high-height bg">
+                                            <ul>
+                                              <li :class="{'green': list1.dan === '单'}"><p>{{list1.dan}}</p></li>
+                                              <li :class="{'green': list1.shuang === '双'}"><p>{{list1.shuang}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <div class="little-blow high-height bg">
+                                            <ul>
+                                              <li :class="{'qing': list1.da === '大'}"><p>{{list1.da}}</p></li>
+                                              <li :class="{'qing': list1.xiao === '小'}"><p>{{list1.xiao}}</p></li>
+                                            </ul>
+                                          </div>
+                                    </td>
+                                </tr>
+                                <tr v-for="(item,index) in numGroup">
+                                  <td>
+                                      <div class="container-div">
+                                          <p>{{keyName[index]?keyName[index]:''+'期'}}</p>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="content-td high-height bg">
+                                          <ul>
+                                            <li v-for="(items,index) in 20">
+                                                <p :class="{'active1': item[index+1] === 0, 'nocolor': !(item[index+1] === 0)}">{{item[index+1] === 0?(index+1):item[index+1]}}</p>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="middle-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'blue': item.a1fan === '反'}"><p>{{item.a1fan}}</p></li>
+                                            <li :class="{'blue': item.a2chong === '重'}"><p>{{item.a2chong}}</p></li>
+                                            <li :class="{'blue': item.a3zheng === '正'}"><p>{{item.a3zheng}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="little-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'green': item.a4dan === '单'}"><p>{{item.a4dan}}</p></li>
+                                            <li :class="{'green': item.a5shuang === '双'}"><p>{{item.a5shuang}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <div class="little-blow high-height bg">
+                                          <ul>
+                                            <li :class="{'qing': item.a6da === '大'}"><p>{{item.a6da}}</p></li>
+                                            <li :class="{'qing': item.a7xiao === '小'}"><p>{{item.a7xiao}}</p></li>
+                                          </ul>
+                                        </div>
+                                  </td>
+                                </tr>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <#include "/common/foot.html">
+                <script>
+                    var vm = new Vue({
+                      el: '#test',
+                      data: {
+                        ranks: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名'],
+                        // level: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
+                        flag: 0,
+                        initData1: {},
+                        initData2: {},
+                        mTitle: '冠军',
+                        fTitle: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+                        dTitle: ['反向','重号','正向'],
+                        sTitle: ['单','双'],
+                        lTitle: ['大','小'],
+                        numGroup: [],
+                        keyName: [],
+                        isClass1: Number,
+                        isClass2: Number,
+                        isClass3: Number,
+                        ball3: null,
+                        ball2: null,
+                        ball1: null,
+                        varify1: [],
+                        varify2: [],
+                        varify3: [],
+                        list1: {
+                            fan: null,
+                            chong: null,
+                            zheng: null,
+                            dan: null,
+                            shuang: null,
+                            da: null,
+                            xiao: null
+                        },
+                        list2: {
+                            fan: null,
+                            chong: null,
+                            zheng: null,
+                            dan: null,
+                            shuang: null,
+                            da: null,
+                            xiao: null
+                        },
+                        list3: {
+                            fan: null,
+                            chong: null,
+                            zheng: null,
+                            dan: null,
+                            shuang: null,
+                            da: null,
+                            xiao: null
+                        },
+                        first: {}
+                      },
+                      methods: {
+                        getDatas: function(index = 0) {
+                            SULX.get(apikl10.gdklsf_wzzszj, function(std, data) {
+                                var result = JSON.parse(data).data;
+                                vm.initData1 = result['num' + (index+1)][40].zcs;
+                                vm.initData2 = result['num' + (index+1)][40].zdyl;
+                            })
+                            SULX.get(apikl10.gdklsf_wzzsmq, function(std, data) {
+                                    vm.numGroup.splice(0);
+                                    vm.keyName.splice(0);
+                                    var short = [];
+                                    var tip = [];
+                                    var result = JSON.parse(data).data;
+                                    for(p in result[0]) {
+                                        vm.first = result[0][p]['num'+(index+1)][40];
+                                    }
+                                    for(i=0;i<result.length;i++) {
+                                        for(j in result[i]) {
+                                            tip.push(j);
+                                            vm.numGroup.push(result[i][j]['num'+(index+1)][40]);
+                                        }
+                                    }
+                                    vm.keyName = tip;
+                                    console.log(vm.numGroup)
+                                }
+                            )
+                        },
+                        getData: function(index, timer) {
+                            if(index === undefined) {
+                                index = 0
+                            }
+                            if(timer === undefined) {
+                                timer = 40
+                            }
+                            var con = document.getElementById('container');
+                            var arr = document.getElementsByTagName('canvas');
+                            this.flag = index;
+                            this.mTitle = this.ranks[index];
+                            this.isClass1 = this.isClass2 = this.isClass3 = null;
+                            this.ball1 = this.ball2 = this.ball3 = null;
+                            for(k in this.list1) {
+                                this.list1[k] = null;
+                                this.list2[k] = null;
+                                this.list3[k] = null;
+                            }
+                            for(i=0;i<7;i++) {
+                                for(j=0;j<arr.length;j++) {
+                                    con.removeChild(arr[j])
+                                }
+                            }
+                            SULX.get(apikl10.gdklsf_wzzszj, function(std, data) {
+                                var result = JSON.parse(data).data;
+                                vm.initData1 = result['num' + (index+1)][timer].zcs;
+                                vm.initData2 = result['num' + (index+1)][timer].zdyl;
+                            })
+                            SULX.get(apikl10.gdklsf_wzzsmq, function(std, data) {
+                                        vm.numGroup.splice(0);
+                                        vm.keyName.splice(0);
+                                        var short = [];
+                                        var tip = [];
+                                        var result = JSON.parse(data).data;
+                                        for(p in result[0]) {
+                                            vm.first = result[0][p]['num'+(index+1)][40];
+                                        }
+                                        for(i=0;i<result.length;i++) {
+                                            for(j in result[i]) {
+                                                tip.push(j);
+                                                vm.numGroup.push(result[i][j]['num'+(index+1)][40]);
+                                            }
+                                        }
+                                        vm.keyName = tip;
+                                        setTimeout(function() {
+                                            vm.drawLine();
+                                        },600)
+                                    }
+                                )
+                            var con = document.getElementById('container');
+                            var arr = document.getElementsByClassName('spe');
+                            for(j=0;j<7;j++) {
+                                for(i=0;i<arr.length;i++) {
+                                    con.removeChild(arr[i])
+                                }
+                            }
+                        },
+                        drawLine: function() {
+                        function drawLeft(obj) {
+                            var canvas = document.createElement('canvas');
+                            canvas.className = 'spe';
+                            canvas.style.top = obj.selfTop + 'px';
+                            canvas.style.left = obj.selfLeft + 'px';
+                            canvas.width = obj.selfWidth;
+                            canvas.height = obj.selfHeight;
+                            var context = canvas.getContext('2d');
+                            context.beginPath();
+                            context.strokeStyle = '#cd880e';
+                            context.lineCap = 'round';
+                            context.lineWidth = '2';
+                            context.moveTo(0,0);
+                            context.lineTo(obj.selfWidth,obj.selfHeight);
+                            context.stroke();
+                            context.closePath();
+                            document.getElementById('container').appendChild(canvas);
+                        };
+                        function drawRight(obj) {
+                            var canvas = document.createElement('canvas');
+                            canvas.className = 'spe';
+                            canvas.style.top = obj.selfTop + 'px';
+                            canvas.style.left = obj.selfLeft + 'px';
+                            canvas.width = obj.selfWidth;
+                            canvas.height = obj.selfHeight;
+                            var context = canvas.getContext('2d');
+                            context.beginPath();
+                            context.strokeStyle = '#cd880e';
+                            context.lineCap = 'round';
+                            context.lineWidth = '2';
+                            context.moveTo(obj.selfWidth,0);
+                            context.lineTo(0,obj.selfHeight);
+                            context.stroke();
+                            context.closePath();
+                            document.getElementById('container').appendChild(canvas);
+                        };
+                            var arr = document.getElementsByClassName('active1');
+
+                            var short = {}
+                            for(i=0;i<arr.length-1;i++) {
+                                var a =  Number(arr[i+1].innerHTML);
+                                var b = Number(arr[i].innerHTML);
+                                var qu = a - b;
+                                if(qu>0) {
+                                    short.selfLeft = 158 + 35*(b) + 10 ;
+                                    short.selfTop = 143 + 30*(i) + 28 ;
+                                    short.selfWidth = Math.abs(a-b-1)*35 + 28;
+                                    short.selfHeight = 33;
+                                    drawLeft(short)
+                                } else if(qu === 0) {
+                                    short.selfLeft = 154 + 35*(b) + 4 ;
+                                    short.selfTop = 143 + 30*(i) + 28 ;
+                                    short.selfWidth = 2;
+                                    short.selfHeight = 33;
+                                    drawLeft(short)
+                                }
+                                else {
+                                    short.selfLeft = 158 + 35*(a) + 10;
+                                    short.selfTop = 143 + 30*(i) + 28;
+                                    short.selfWidth = Math.abs(b-a-1)*35 + 28;
+                                    short.selfHeight = 23;
+                                    drawRight(short)
+                                }
+                            }
+                        },
+                        drawLeft: function(obj) {
+                          var canvas = document.createElement('canvas');
+                          if(obj.sign === 'sign1') {
+                            canvas.className = 'sign1';
+                          } else if(obj.sign === 'sign2'){
+                            canvas.className = 'sign2'
+                          } else {
+                            canvas.className = 'sign3'
+                          }
+                          canvas.style.top = obj.selfTop + 'px';
+                          canvas.style.left = obj.selfLeft + 'px';
+
+                          canvas.width = obj.selfWidth;
+                          canvas.height = obj.selfHeight;
+                  
+                          var context = canvas.getContext('2d');
+                          context.beginPath();
+                          context.strokeStyle = '#cd880e';
+                          context.lineCap = 'round';
+                          context.lineWidth = '2';
+                          context.moveTo(0,0);
+                          context.lineTo(obj.selfWidth,obj.selfHeight);
+                          context.stroke();
+                          context.closePath();
+                          document.getElementById('container').appendChild(canvas);
+                          },
+                        drawRight: function (obj) {
+                  
+                          var canvas = document.createElement('canvas');
+                          if(obj.sign === 'sign1') {
+                            canvas.className = 'sign1';
+                          } else if(obj.sign === 'sign2'){
+                            canvas.className = 'sign2'
+                          } else {
+                            canvas.className = 'sign3'
+                          }
+                          canvas.style.top = obj.selfTop + 'px';
+                          canvas.style.left = obj.selfLeft + 'px';
+                          canvas.width = obj.selfWidth;
+                          canvas.height = obj.selfHeight;
+                  
+                          var context = canvas.getContext('2d');
+                          context.beginPath();
+                          context.strokeStyle = '#cd880e';
+                          context.lineCap = 'round';
+                          context.lineWidth = '2';
+                          context.moveTo(obj.selfWidth,0);
+                          context.lineTo(0,obj.selfHeight);
+                          context.stroke();
+                          context.closePath();
+                          document.getElementById('container').appendChild(canvas);
+                          },
+                        showClass1: function(index) {
+                        for(i in (this.list3)) {
+                              this.list3[i] = null //还原一次
+                          }
+                          this.ball1 = index + 1;
+                          if(this.ball3 === null || this.ball2 === null) {
+                            return false
+                          } else {
+                            if(this.varify3.indexOf(index) === -1) {
+                            this.varify3.splice(0,1);
+                            this.varify3.push(index);
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign3');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }          
+                            this.isClass1 = index;
+                            var short = {};
+                  
+                            var a =  index+1;
+                            var b = this.ball2;
+                            var qu = a - b;
+                            if(qu>0) {
+                                this.list3.zheng = '正';
+                              if(Object.is(Number(this.list2.chong),NaN)) { //重号列操作
+                                  this.list3.chong = 1
+                              } else {
+                                  this.list3.chong = Number(this.list2.chong) + 1
+                              }
+                              if(Object.is(Number(this.list2.fan),NaN)) { //fan号列操作
+                                  this.list3.fan = 1
+                              } else {
+                                  this.list3.fan = Number(this.list2.fan) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list3.shuang = '双';
+                                  if(Object.is(Number(this.list2.dan), NaN)) {
+                                      this.list3.dan = '1'
+                                  } else {
+                                      this.list3.dan = Number(this.list2.dan) + 1;
+                                  }
+                              } else {
+                                this.list3.dan = '单';
+                                if(Object.is(Number(this.list2.shuang), NaN)) {
+                                      this.list3.shuang = '1'
+                                  } else {
+                                      this.list3.shuang = Number(this.list2.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list3.xiao = '小';
+                                  if(Object.is(Number(this.list2.da), NaN)) {
+                                      this.list3.da = '1'
+                                  } else {
+                                      this.list3.da = Number(this.list2.da) + 1;
+                                  }
+                              } else {
+                                  this.list3.da = '大';
+                                  if(Object.is(Number(this.list2.xiao), NaN)) {
+                                      this.list3.xiao = '1'
+                                  } else {
+                                      this.list3.xiao = Number(this.list2.xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(b) + 10 ;
+                                short.selfTop = 76 ;
+                                short.selfWidth = Math.abs(a-b-1)*35 + 28;
+                                short.selfHeight = 33;
+                              short.sign = 'sign3';
+                              this.$options.methods.drawRight(short)
+                            } else if(qu === 0) {
+                                this.list3.chong = '重'
+                                if(Object.is(Number(this.list2.zheng),NaN)) { //zheng号列操作
+                                  this.list3.zheng = 1
+                              } else {
+                                  this.list3.zheng = Number(this.list2.zheng) + 1
+                              }
+                              if(Object.is(Number(this.list2.fan),NaN)) { //fan号列操作
+                                  this.list3.fan = 1
+                              } else {
+                                  this.list3.fan = Number(this.list2.fan) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list3.shuang = '双';
+                                  if(Object.is(Number(this.list2.dan), NaN)) {
+                                      this.list3.dan = '1'
+                                  } else {
+                                      this.list3.dan = Number(this.list2.dan) + 1;
+                                  }
+                              } else {
+                                this.list3.dan = '单';
+                                if(Object.is(Number(this.list2.shuang), NaN)) {
+                                      this.list3.shuang = '1'
+                                  } else {
+                                      this.list3.shuang = Number(this.list2.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list3.xiao = '小';
+                                  if(Object.is(Number(this.list2.da), NaN)) {
+                                      this.list3.da = '1'
+                                  } else {
+                                      this.list3.da = Number(this.list2.da) + 1;
+                                  }
+                              } else {
+                                  this.list3.da = '大';
+                                  if(Object.is(Number(this.list2.xiao), NaN)) {
+                                      this.list3.xiao = '1'
+                                  } else {
+                                      this.list3.xiao = Number(this.list2.xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 154 + 35*(b) + 4 ;
+                                    short.selfTop = 76;
+                                    short.selfWidth = 2;
+                                    short.selfHeight = 33;
+                              short.sign = 'sign3';
+                              this.$options.methods.drawLeft(short)
+                            }
+                            else {
+                                this.list3.fan = '反';
+                                if(Object.is(Number(this.list2.chong),NaN)) { //重号列操作
+                                  this.list3.chong = 1
+                              } else {
+                                  this.list3.chong = Number(this.list2.chong) + 1
+                              }
+                              if(Object.is(Number(this.list2.zheng),NaN)) { //zheng号列操作
+                                  this.list3.zheng = 1
+                              } else {
+                                  this.list3.zheng = Number(this.list2.zheng) + 1
+                              }
+                              if(a%2 === 0) {
+                                  this.list3.shuang = '双';
+                                  if(Object.is(Number(this.list2.dan), NaN)) {
+                                      this.list3.dan = '1'
+                                  } else {
+                                      this.list3.dan = Number(this.list2.dan) + 1;
+                                  }
+                              } else {
+                                this.list3.dan = '单';
+                                if(Object.is(Number(this.list2.shuang), NaN)) {
+                                      this.list3.shuang = '1'
+                                  } else {
+                                      this.list3.shuang = Number(this.list2.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list3.xiao = '小';
+                                  if(Object.is(Number(this.list2.da), NaN)) {
+                                      this.list3.da = '1'
+                                  } else {
+                                      this.list3.da = Number(this.list2.da) + 1;
+                                  }
+                              } else {
+                                  this.list3.da = '大';
+                                  if(Object.is(Number(this.list2.xiao), NaN)) {
+                                      this.list3.xiao = '1'
+                                  } else {
+                                      this.list3.xiao = Number(this.list2.xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(a) + 10;
+                                short.selfTop = 77;
+                                short.selfWidth = Math.abs(b-a-1)*35 + 28;
+                                short.selfHeight = 23;
+                              short.sign = 'sign3';
+                              this.$options.methods.drawLeft(short)
+                            }
+                          } else {
+                            this.isClass1 = null;
+                            this.varify3.splice(0);
+                            this.ball1 = null;
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign3');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }
+                          }
+                          
+                          }
+                        },
+                        showClass2: function(index) {
+                          for(i in (this.list2)) {
+                              this.list2[i] = null //还原一次
+                          }
+                          if(this.ball3 === null) {
+                            return false
+                          }
+                          if(this.ball2 !== null&&this.ball1 !== null) {
+                            return false
+                          } else {
+                            this.ball2 = index + 1;
+                            if(this.varify2.indexOf(index) === -1) {
+                            this.varify2.splice(0,1);
+                            this.varify2.push(index);
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign2');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }
+                            
+                            this.isClass2 = index;
+                            var short = {};
+                  
+                            var a =  index+1;
+                            var b = this.ball3;
+                            var qu = a - b;
+                            if(qu>0) {
+
+                              this.list2.zheng = '正';
+                              if(Object.is(Number(this.list1.chong),NaN)) { //重号列操作
+                                  this.list2.chong = 1
+                              } else {
+                                  this.list2.chong = Number(this.list1.chong) + 1
+                              }
+                              if(Object.is(Number(this.list1.fan),NaN)) { //fan号列操作
+                                  this.list2.fan = 1
+                              } else {
+                                  this.list2.fan = Number(this.list1.fan) + 1
+                              }
+                              if(a%2 === 0) {
+                                  this.list2.shuang = '双';
+                                  if(Object.is(Number(this.list1.dan), NaN)) {
+                                      this.list2.dan = '1'
+                                  } else {
+                                      this.list2.dan = Number(this.list1.dan) + 1;
+                                  }
+                              } else {
+                                this.list2.dan = '单';
+                                if(Object.is(Number(this.list1.shuang), NaN)) {
+                                      this.list2.shuang = '1'
+                                  } else {
+                                      this.list2.shuang = Number(this.list1.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list2.xiao = '小';
+                                  if(Object.is(Number(this.list1.da), NaN)) {
+                                      this.list2.da = '1'
+                                  } else {
+                                      this.list2.da = Number(this.list1.da) + 1;
+                                  }
+                              } else {
+                                  this.list2.da = '大';
+                                  if(Object.is(Number(this.list1.xiao), NaN)) {
+                                      this.list2.xiao = '1'
+                                  } else {
+                                      this.list2.xiao = Number(this.list1.xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(b) + 10 ;
+                                short.selfTop = 108  ;
+                                short.selfWidth = Math.abs(a-b-1)*35 + 28;
+                                short.selfHeight = 33;
+                              short.sign = 'sign2';
+                              this.$options.methods.drawRight(short)
+                            } else if(qu === 0) {
+                                this.list2.chong = '重'
+                                if(Object.is(Number(this.list1.zheng),NaN)) { //zheng号列操作
+                                  this.list2.zheng = 1
+                              } else {
+                                  this.list2.zheng = Number(this.list1.zheng) + 1
+                              }
+                              if(Object.is(Number(this.list1.fan),NaN)) { //fan号列操作
+                                  this.list2.fan = 1
+                              } else {
+                                  this.list2.fan = Number(this.list1.fan) + 1
+                              }
+                              if(a%2 === 0) {
+                                  this.list2.shuang = '双';
+                                  if(Object.is(Number(this.list1.dan), NaN)) {
+                                      this.list2.dan = '1'
+                                  } else {
+                                      this.list2.dan = Number(this.list1.dan) + 1;
+                                  }
+                              } else {
+                                this.list2.dan = '单';
+                                if(Object.is(Number(this.list1.shuang), NaN)) {
+                                      this.list2.shuang = '1'
+                                  } else {
+                                      this.list2.shuang = Number(this.list1.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list2.xiao = '小';
+                                  if(Object.is(Number(this.list1.da), NaN)) {
+                                      this.list2.da = '1'
+                                  } else {
+                                      this.list2.da = Number(this.list1.da) + 1;
+                                  }
+                              } else {
+                                  this.list2.da = '大';
+                                  if(Object.is(Number(this.list1.xiao), NaN)) {
+                                      this.list2.xiao = '1'
+                                  } else {
+                                      this.list2.xiao = Number(this.list1.xiao) + 1;
+                                  }
+                              }
+                              
+                              short.selfLeft = 154 + 35*(b) + 4 ;
+                                    short.selfTop = 112;
+                                    short.selfWidth = 2;
+                                    short.selfHeight = 33;
+                              short.sign = 'sign2';
+                              this.$options.methods.drawLeft(short)
+                            }
+                            else {
+                                this.list2.fan = '反';
+                                if(Object.is(Number(this.list1.chong),NaN)) { //重号列操作
+                                  this.list2.chong = 1
+                              } else {
+                                  this.list2.chong = Number(this.list1.chong) + 1
+                              }
+                              if(Object.is(Number(this.list1.zheng),NaN)) { //zheng号列操作
+                                  this.list2.zheng = 1
+                              } else {
+                                  this.list2.zheng = Number(this.list1.zheng) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list2.shuang = '双';
+                                  if(Object.is(Number(this.list1.dan), NaN)) {
+                                      this.list2.dan = '1'
+                                  } else {
+                                      this.list2.dan = Number(this.list1.dan) + 1;
+                                  }
+                              } else {
+                                this.list2.dan = '单';
+                                if(Object.is(Number(this.list1.shuang), NaN)) {
+                                      this.list2.shuang = '1'
+                                  } else {
+                                      this.list2.shuang = Number(this.list1.shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list2.xiao = '小';
+                                  if(Object.is(Number(this.list1.da), NaN)) {
+                                      this.list2.da = '1'
+                                  } else {
+                                      this.list2.da = Number(this.list1.da) + 1;
+                                  }
+                              } else {
+                                  this.list2.da = '大';
+                                  if(Object.is(Number(this.list1.xiao), NaN)) {
+                                      this.list2.xiao = '1'
+                                  } else {
+                                      this.list2.xiao = Number(this.list1.xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(a) + 10;
+                                short.selfTop = 107;
+                                short.selfWidth = Math.abs(b-a-1)*35 + 28;
+                                short.selfHeight = 23;
+                              short.sign = 'sign2';
+                              this.$options.methods.drawLeft(short)
+                          
+                            }
+                            
+                          } else {
+                            this.isClass2 = null;
+                            this.ball2 = null;
+                            this.varify2.splice(0);
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign2');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }
+                          }        
+                          }
+                        },
+                        showClass3: function(index) {
+                          for(i in (this.list1)) {
+                              this.list1[i] = null //还原一次
+                          }
+                          if(this.ball1 !== null || this.ball2 !== null) {
+                            return false
+                          }
+                          this.ball3 = index+1;
+                          if(this.varify1.indexOf(index) === -1) {
+                            this.varify1.splice(0,1);
+                            this.varify1.push(index);
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign1');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }          
+                            this.isClass3 = index;
+                            var arr = document.getElementsByClassName('active1')[0];
+                            var short = {};
+                  
+                            var a =  index+1;
+                            var b = Number(arr.innerHTML);
+                            var qu = a - b;
+                            if(qu>0) {
+                              this.list1.zheng = '正';
+                              if(Object.is(Number(this.first.a2chong),NaN)) { //重号列操作
+                                  this.list1.chong = 1
+                              } else {
+                                  this.list1.chong = Number(this.first.a2chong) + 1
+                              }
+                              if(Object.is(Number(this.first.a1fan),NaN)) { //fan号列操作
+                                  this.list1.fan = 1
+                              } else {
+                                  this.list1.fan = Number(this.first.a1fan) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list1.shuang = '双';
+                                  if(Object.is(Number(this.first.a4dan), NaN)) {
+                                      this.list1.dan = '1'
+                                  } else {
+                                      this.list1.dan = Number(this.first.a4dan) + 1;
+                                  }
+                              } else {
+                                this.list1.dan = '单';
+                                if(Object.is(Number(this.first.a5shuang), NaN)) {
+                                      this.list1.shuang = '1'
+                                  } else {
+                                      this.list1.shuang = Number(this.first.a5shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list1.xiao = '小';
+                                  if(Object.is(Number(this.first.a6da), NaN)) {
+                                      this.list1.da = '1'
+                                  } else {
+                                      this.list1.da = Number(this.first.a6da) + 1;
+                                  }
+                              } else {
+                                  this.list1.da = '大';
+                                  if(Object.is(Number(this.first.a7xiao), NaN)) {
+                                      this.list1.xiao = '1'
+                                  } else {
+                                      this.list1.xiao = Number(this.first.a7xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(b) + 10 ;
+                                short.selfTop = 137  ;
+                                short.selfWidth = Math.abs(a-b-1)*35 + 28;
+                                short.selfHeight = 33;
+                              short.sign = 'sign1';
+                              this.$options.methods.drawRight(short)
+                            } else if(qu === 0) {
+                                if(Object.is(Number(this.first.a3zheng),NaN)) { //zheng号列操作
+                                  this.list1.zheng = 1
+                              } else {
+                                  this.list1.zheng = Number(this.first.a3zheng) + 1
+                              }
+                              if(Object.is(Number(this.first.a1fan),NaN)) { //fan号列操作
+                                  this.list1.fan = 1
+                              } else {
+                                  this.list1.fan = Number(this.first.a1fan) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list1.shuang = '双';
+                                  if(Object.is(Number(this.first.a4dan), NaN)) {
+                                      this.list1.dan = '1'
+                                  } else {
+                                      this.list1.dan = Number(this.first.a4dan) + 1;
+                                  }
+                              } else {
+                                this.list1.dan = '单';
+                                if(Object.is(Number(this.first.a5shuang), NaN)) {
+                                      this.list1.shuang = '1'
+                                  } else {
+                                      this.list1.shuang = Number(this.first.a5shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list1.xiao = '小';
+                                  if(Object.is(Number(this.first.a6da), NaN)) {
+                                      this.list1.da = '1'
+                                  } else {
+                                      this.list1.da = Number(this.first.a6da) + 1;
+                                  }
+                              } else {
+                                  this.list1.da = '大';
+                                  if(Object.is(Number(this.first.a7xiao), NaN)) {
+                                      this.list1.xiao = '1'
+                                  } else {
+                                      this.list1.xiao = Number(this.first.a7xiao) + 1;
+                                  }
+                              }
+                              this.list1.chong = '重';
+                              short.selfLeft = 154 + 35*(b) + 4 ;
+                                    short.selfTop = 130;
+                                    short.selfWidth = 2;
+                                    short.selfHeight = 33;
+                              short.sign = 'sign1';
+                              this.$options.methods.drawLeft(short)
+                            }
+                            else {
+                              this.list1.fan = '反';
+                              if(Object.is(Number(this.first.a2chong),NaN)) { //重号列操作
+                                  this.list1.chong = 1
+                              } else {
+                                  this.list1.chong = Number(this.first.a2chong) + 1
+                              }
+                              if(Object.is(Number(this.first.a3zheng),NaN)) { //zheng号列操作
+                                  this.list1.zheng = 1
+                              } else {
+                                  this.list1.zheng = Number(this.first.a3zheng) + 1
+                              }
+                              if(a%2 === 1) {
+                                  this.list1.shuang = '双';
+                                  if(Object.is(Number(this.first.a4dan), NaN)) {
+                                      this.list1.dan = '1'
+                                  } else {
+                                      this.list1.dan = Number(this.first.a4dan) + 1;
+                                  }
+                              } else {
+                                this.list1.dan = '单';
+                                if(Object.is(Number(this.first.a5shuang), NaN)) {
+                                      this.list1.shuang = '1'
+                                  } else {
+                                      this.list1.shuang = Number(this.first.a5shuang) + 1;
+                                  }
+                              }
+                              if(index<5) {
+                                  this.list1.xiao = '小';
+                                  if(Object.is(Number(this.first.a6da), NaN)) {
+                                      this.list1.da = '1'
+                                  } else {
+                                      this.list1.da = Number(this.first.a6da) + 1;
+                                  }
+                              } else {
+                                  this.list1.da = '大';
+                                  if(Object.is(Number(this.first.a7xiao), NaN)) {
+                                      this.list1.xiao = '1'
+                                  } else {
+                                      this.list1.xiao = Number(this.first.a7xiao) + 1;
+                                  }
+                              }
+                              short.selfLeft = 158 + 35*(a) + 10;
+                                short.selfTop = 137;
+                                short.selfWidth = Math.abs(b-a-1)*35 + 28;
+                                short.selfHeight = 23;
+                              short.sign = 'sign1';
+                              this.$options.methods.drawLeft(short)
+                          
+                            }
+                          } else {
+                            this.isClass3 = null;
+                            this.ball3 = null;
+                            this.varify1.splice(0);
+                            var t = document.getElementById('container');
+                            var p = document.getElementsByClassName('sign1');
+                            for(i=0;i<p.length;i++) {
+                              t.removeChild(p[i])
+                            }
+                          }
+                        },
+                      },
+                      created: function() {
+                        this.getDatas();
+                      },
+                      mounted: function() {
+                        setTimeout(function() {
+                            vm.drawLine();
+                        },1000)
+                      },
+                    })
+                  </script>
+        </body>
+        </html>

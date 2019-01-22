@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>【幸运飞艇开奖视频直播_幸运飞艇开奖视频】-皇家彩世界</title>
+<meta name="keywords" content="幸运飞艇开奖视频直播,幸运飞艇开奖视频" />
+<meta name="description" content="幸运飞艇开奖视频直播专栏为幸运飞艇的玩家提供专业的幸运飞艇开奖视频,这里有专业的开奖数据统计、开奖直播视频以及独家的免费参考、淘宝模式,不必担心因为没有时时彩技巧而产生困扰,为您一站解决购彩的烦恼." />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand"> 
+
+
+<meta name="full-screen" content="true" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="screen-orientation" content="true" />
+
+<meta name="x5-fullscreen" content="true" />
+<meta name="360-fullscreen" content="true" />
+<style type="text/css">
+   html, body {
+            -ms-touch-action: none;
+            /*background: #888888;*/
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+   #preloading{
+			z-index: 1000;
+			position: absolute;
+			text-align: center;
+			top: 40%;
+			left: 40%;
+			width: 20%;
+			height: 20%;
+		}
+    .mask {
+      display: none;
+    }
+    @media (min-width: 550px) and (orientation : landscape) {
+      .mask {
+        display: block;
+        height: 640px;
+      }
+    }
+    </style>
+</head>
+<body>
+
+
+<script egret="lib" src="../libs/index.js" type="91f0f7e374938d38a54df7cd-text/javascript"></script>
+
+
+
+<script src="main.min.js" type="91f0f7e374938d38a54df7cd-text/javascript"></script>
+
+<div id="preloading">
+<img id="preImage" />
+</div>
+
+<div class="mask" style="width: 100%; height: 100%;position: absolute;top: 0;left: 0;z-index: 9999; background: transparent;"></div>
+<div style=" margin: auto;width: 100%; height: 100%;" class="egret-player" data-entry-class="GameApplication" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="60" data-content-width="980" data-content-height="630" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9">
+</div>
+<script type="91f0f7e374938d38a54df7cd-text/javascript">
+    InitConfig.res_path = "";//资源文件夹的地址,如果此项不为空，必须用"/"结尾
+    InitConfig.req_host = "";//接口所在域名地址,如果此项不为空，必须用"/"结尾
+    InitConfig.isRelease = false;//是否对外发布版本
+    InitConfig.isShowVersion = false;//是否显示版本号
+    InitConfig.isPopup = true;//是否允许弹出消息提示框
+    var imge = document.getElementById("preImage");
+
+    //loading元素加载完成前的活动页面提示动画，用于告诉用户：“当前页面没有挂掉，而是正在加载中”
+    imge.src = InitConfig.res_path + "resource/preImage/preloading.gif";
+    if (InitConfig.res_path != "" && InitConfig.res_path.indexOf(document.domain) == -1) {
+        if (egret.Capabilities.os == "Android") {
+            egret.runEgret({ renderMode: "canvas" });
+        }
+        else {
+            egret.runEgret({ renderMode: "webgl" });
+        }
+    }
+    else {
+        egret.runEgret({ renderMode: "webgl" });
+    }
+</script>
+<script src="../../../../../../ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="91f0f7e374938d38a54df7cd-" defer=""></script></body>
+
+</html>

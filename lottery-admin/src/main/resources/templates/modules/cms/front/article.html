@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>${art.title!}</title>
+<meta name="keywords" content="${art.keywords!}">
+<meta name="description" content="${art.description!}">
+
+<!-- 引入头部文件 -->
+<#include "header.html">
+
+<div class="skill-box">
+<div class="detail-left">
+<ol class="breadcrumb">
+<li><a href="/">首页</a></li>
+<li><a href="${ctxPath!}/jiqiao/index.html">资讯技巧</a></li>
+<li><a href="${ctxPath!}/jiqiao/list/${category.id?c}-1.html">${category.name!}</a></li>
+<li class="active">${art.title!}</li>
+</ol>
+<div class="title"><h1>${art.title!}</h1></div>
+<div class="desc">
+<span><#if art.createDate??>${art.createDate?string('yyyy-MM-dd')}</#if></span> &nbsp;
+<span>阅读：<span id="article-hits">${art.hits!}</span></span> &nbsp; 
+<span>来源：<#if art.articleData??>${art.articleData.copyfrom!"网络"}</#if></span>
+<script src="${ctxPath!}/statics/assets/dist/js/jquery.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+	url: "/other/cmsArtData?id=${art.id?c}",	
+	type: 'GET',  
+	dataType: "json",
+	success: function (r) {
+		if(r && r.code == 0){
+			$("#article-hits").html(r.hits);
+		}										
+	}
+});
+</script>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+<#if art.keywords??>
+<div class="labels">
+<span>标签：</span>
+<a href="${ctxPath!}/jiqiao/index.html" class="item">${art.keywords!}</a>
+</div>
+</#if>
+
+</div>
+<div class="bottom">
+<div class="links">
+<div class="pre-next">
+上一篇：
+<#if preArt??>
+<a href="${ctxPath!}/jiqiao/article/${preArt.id?c}.html" target="newWindow" title="${preArt.title!}">${preArt.title!}</a>
+<#else>
+没有了
+</#if>
+</div>
+<div class="pre-next">
+下一篇：
+<#if nextArt??>
+<a href="${ctxPath!}/jiqiao/article/${nextArt.id?c}.html" target="newWindow" title="${nextArt.title!}">${nextArt.title!}</a>
+<#else>
+没有了
+</#if>
+</div>
+</div>
+<a class="back" href="${ctxPath!}/jiqiao/list/${category.id?c}-1.html">返回上一级</a>
+</div>
+
+</div>
+
+<div class="detail-right">
+<div class="item">
+
+<div class="name">
+<i class="icp-skill-hot"></i>热门技巧
+<a class="more" href="${ctxPath!}/jiqiao/list/${category.id?c}-1.html">更多 <strong>+</strong></a>
+<span class="line"></span>
+</div>
+
+<ul class="list">
+<#if remenList??>
+<#list remenList as art>
+<li>
+<a href="${ctxPath!}/jiqiao/article/${art.id?c}.html" target="newWindow" title="${art.title!}">
+<span class="spot"></span>
+<span class="word">${art.title!}</span>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</a>
+</li>
+</#list>
+</#if>
+</ul>
+</div>
+
+<div class="item">
+<div class="name">
+<i class="icp-skill-hot"></i>推荐技巧
+<a class="more" href="${ctxPath!}/jiqiao/list/${category.id?c}-1.html">更多 <strong>+</strong></a>
+<span class="line"></span>
+</div>
+<ul class="list">
+<#if tuijianList??>
+<#list tuijianList as art>
+<li>
+<a href="${ctxPath!}/jiqiao/article/${art.id?c}.html" target="newWindow" title="${art.title!}">
+<span class="spot"></span>
+<span class="word">${art.title!}</span>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</a>
+</li>
+</#list>
+</#if>
+
+</ul>
+</div>
+</div>
+</div>
+
+<!-- 引入尾部文件 -->
+<#include "footer.html">

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>长龙统计</title>
+<meta name="keywords">
+<meta name="description">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="long" data-m="changlong">
+<div class="long-side j-lotlist">
+<div class="filter-btns">
+<button class="btn btn-select paper-button" data-c="1"><i class="icp-select"></i>全选</button>
+<button class="btn btn-cancel paper-button" data-c="0"><i class="icp-cancel"></i>取消</button>
+</div>
+<h3 class="subtitle">热门彩种<span class="line"></span></h3>
+<b class="item" data-lot="bjsc"><i class="icp-checkbox icp-checked"></i>北京赛车PK10</b>
+<b class="item" data-lot="xyft"><i class="icp-checkbox icp-checked"></i>幸运飞艇</b>
+<b class="item" data-lot="gd11x5"><i class="icp-checkbox icp-checked"></i>广东11选5</b>
+<b class="item" data-lot="jx11x5"><i class="icp-checkbox "></i>江西11选5</b>
+<h3 class="subtitle">时时彩<span class="line"></span></h3>
+<b class="item" data-lot="gdklsf"><i class="icp-checkbox icp-checked"></i>广东快乐十分</b>
+<b class="item" data-lot="xync"><i class="icp-checkbox icp-checked"></i>幸运农场</b>
+<b class="item" data-lot="cqssc"><i class="icp-checkbox icp-checked"></i>重庆时时彩</b>
+<b class="item" data-lot="tjssc"><i class="icp-checkbox "></i>天津时时彩</b>
+<b class="item" data-lot="xjssc"><i class="icp-checkbox "></i>新疆时时彩</b>
+</div>
+<div class="long-content">
+<div class="tips">
+<p><span class="text-primary">注：</span> ab：是指“大小大小大小”“单双单双单双”“龙虎龙虎龙虎”此种属性的排列形态（包含反向），表格从此形态形成5期时开始统计。</p>
+<p>abb：是指“大小小大小小”“单双双单双双”“龙虎虎龙虎虎”，此种属性的排列形态（包含反向）表格从此形态形成5期时开始统计。</p>
+<p>aabb：是指“大大小小”“单单双双”“龙龙虎虎”此中属性的排列形态（包含反向），表格从此形态形成5期时开始统计。</p>
+<p>举例说明第5期,如：大小小大小小，红色属性出现的那期即是第5期。</p>
+</div>
+<div class="tab">
+<button class="tab-btn active" data-type="0">连续开出</button>
+<!-- <button class="tab-btn" data-type="1">连续未开</button> -->
+<div class="tab-right">
+只显示
+<select class="sel">
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+</select>
+期及以上的长龙
+</div>
+</div>
+<div class="table-responsive">
+<div class="long-list">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>彩种</th>
+<th>位置</th>
+<th class="j-th-type" style="width: 20%;">连续开出期数</th>
+<th style="width: 15%;">路珠</th>
+</tr>
+</thead>
+<tbody class="j-longlist">
+<tr></tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<#include "/common/foot.html">
+</body>
+</html>

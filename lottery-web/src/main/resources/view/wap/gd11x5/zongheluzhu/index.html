@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>广东11选5总和路珠分析 - 开奖直播</title>
+<meta name="keywords" content="广东11选5开奖视频, 广东11选5开奖号码, 广东11选5技巧，广东11选5计划软件">
+<meta name="description" content="广东11选5路珠分析频道专门为广东11选5的玩家提供专业的广东11选5路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/gd11x5/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/gd11x5/rightmenu.html">
+<div class="menu-title">
+总和路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当中断连续开出的同一结果时，则另起一列显示结果；</li>
+<li>3.总和路珠指5个开出的号码的总和对应的大小、单双，其中大于30为大，小于30为小,等于30为和。</li>
+</ul>
+</div>
+</div>
+
+<div id="divContainer" v-cloak>
+			<div class="container lobby-record t_1">
+				<div class="table-responsive">
+					<table class="table table-bordered text-right">
+						<tr style="background: #f6f6f6;">
+							<td><a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+								<span>今日累计：<span class="text-primary">
+										大（{{zhlz["num-da"]}}） 小（{{zhlz["num-xiao"]}}） 和（{{zhlz["num-he"]}}） </span></span> 总和大小</td>
+						</tr>
+					</table>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+						<tr valign="top">
+							<td v-for="item in zhlz['xd']"
+								:class="item.indexOf('小')>-1?'even':'odd'"><span
+								:class="item.indexOf('小')>-1?'high-light-blue':'high-light-red'"
+								v-for="item2 in item.split('')"> {{item2}} </span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="container lobby-record t_1">
+				<div class="table-responsive">
+					<table class="table table-bordered text-right">
+						<tr style="background: #f6f6f6;">
+							<td><a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+								<span>今日累计：<span class="text-primary">
+										单（{{zhlz["num-dan"]}}） 双（{{zhlz["num-shuang"]}}） </span></span> 总和单双</td>
+						</tr>
+					</table>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+						<tr valign="top">
+							<td v-for="item in zhlz['ds']"
+								:class="item.indexOf('双')>-1?'even':'odd'"><span
+								:class="item.indexOf('双')>-1?'high-light-blue':'high-light-red'"
+								v-for="item2 in item.split('')"> {{item2}} </span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el : '#divContainer',
+			data : {
+				zhlz : {},
+			},
+			methods : {
+				getData: function(){
+					//总和露珠
+					SULX.get(apigd11x5.gd11x5_zhlz,function(std,data) {
+						vm.zhlz = JSON.parse(data).data;
+					});
+				}
+			},
+			created : function() {
+				this.getData();
+			}
+		});
+	</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

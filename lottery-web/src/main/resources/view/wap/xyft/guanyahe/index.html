@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运飞艇冠亚和历史统计 - 开奖直播</title>
+<meta name="keywords" content="幸运飞艇, 幸运飞艇开奖直播, 幸运飞艇技巧">
+<meta name="description" content="幸运飞艇路珠分析频道专门为幸运飞艇的玩家提供专业的幸运飞艇彩路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+<body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xyft/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xyft/rightmenu.html">
+<div class="menu-title">
+冠亚和历史
+</div>
+ <div id="all" v-cloak>
+        <div class="container lobby-record">
+            <div class="able-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>冠亚和大</th>
+                            <th>冠亚和小</th>
+                            <th>冠亚和单</th>
+                            <th>冠亚和双</th>
+                        </tr>
+                    </thead>
+                    <tr v-for="(item,index) in tableData">
+                        <td>{{keyData[index]}}</td>
+                        <td>{{item.gyhDa}}</td>
+                        <td>{{item.gyhXiao}}</td>
+                        <td>{{item.gyhDan}}</td>
+                        <td>{{item.gyhShuang}}</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#all', //el 
+        data: {
+            tableData: [],
+            keyData: [],
+        },
+        methods: { //click事件
+            getData: function() {
+            	SULX.get(apixyft.xyft_gyhls,function(std,data) {
+                    var result =JSON.parse(data).data;
+                    var tip = [];
+                    var tag = [];
+                    vm.lhData = result;
+                    tip.splice(0);
+                    tag.splice(0);
+                    for(i=0;i<result.length;i++) {
+                        for(j in result[i]) {
+                            tip.push(j);
+                            tag.push(result[i][j]);
+                        }
+                    }
+                    vm.keyData = tip;
+                    vm.tableData = tag;
+                    }
+                );
+            }
+        },
+        created: function() { 
+            this.getData();
+        },
+    })
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

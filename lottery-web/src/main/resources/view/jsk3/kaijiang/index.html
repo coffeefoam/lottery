@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江苏快3开奖号码</title>
+<meta name="keywords" content="江苏快3基本走势,江苏快3现场开奖视频">
+<meta name="description" content="江苏快3频道提供江苏快3开奖信息,开奖历史走势图,投注实用技巧,实时视频直播,好实用的软件,独家技术提供准确率高的投注参考。">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/jsk3/kaijiang.html">
+
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+<a class="item " href="/jsk3/index.html">江苏快3</a>
+<a class="item  active" href="/jsk3/kaijiang">历史开奖号码</a>
+<a class="item " href="/jsk3/shipin">开奖视频</a>
+<a class="item " href="/jsk3/yilou">号码遗漏统计</a>
+<a class="item " href="/jsk3/haomaluzhu">号码路珠</a>
+<a class="item " href="/jsk3/zongheluzhu">总和路珠</a>
+<a class="item  " href="/jsk3/haomatongji">历史号码统计</a>
+<a class="item " href="/jsk3/zoushitu">横版走势图</a>
+<a class="item " href="/jsk3/jiqiao">江苏快3技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div v-cloak id="divContainer" class="container lobby-record">
+<div class="lot-search">
+<div class="date">
+<label for="dateData">选择日期</label>
+<input type="text" name="dateData" class="search-input" id="dateData" readonly="readonly">
+<span class="search-btn" @click="search">查询</span>
+</div>
+</div>
+<div data-job="replace">
+<table class="table table-bordered table-striped text-center j-numslist">
+<thead>
+<tr>
+<th class="time">时间</th>
+<th width="30%">开奖号码</th>
+<th colspan="2" class="total">总和</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in dataArr" :class="index%2==0?'odd':'even'">
+<td>
+<span>{{item}}</span>
+<span class="time"></span>
+</td>
+<td>
+<div class="record-num">
+<i  v-for="item2 in lsjl[index][item]['rank']"  
+:class="'j-num1 no'+item2+' icp-jsk3-'+item2+'-sm'">
+</i>
+</div>
+</td>
+<td><span>{{lsjl[index][item]['zhSum']}}</span></td>
+<td>
+<span :class="lsjl[index][item]['zhDx']==='大'?'highlight':''">{{lsjl[index][item]['zhDx']}}</span>
+</td>
+</tr>
+<tbody>
+</table>
+</div>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el:'#divContainer',
+	data:{
+		lsjl:[],
+		dataArr: [],
+	},	 
+	methods: {
+		getData: function(dateData){
+			var url = apijsk3.jsk3_kjjl;
+			if(dateData){
+				if(url.indexOf("?")>0){
+					url += "&date=" + dateData;
+				}else{
+					url += "?date=" + dateData;
+				}
+			}
+			
+			SULX.get(url,function(std,data) {
+				vm.lsjl = JSON.parse(data).data;
+				//that.lsjl.reverse();
+	            for(i=0;i<vm.lsjl.length;i++) {
+	                for(j in vm.lsjl[i]) {
+	                	vm.dataArr.push(j);
+	                }
+	            }
+	        });			
+		},
+		search: function(){
+			var dateData = document.getElementById("dateData").value;
+			console.info(dateData);
+			if(dateData){
+				vm.dataArr.splice(0);
+				vm.lsjl.splice(0);
+				vm.getData(dateData);									
+			}else{
+				$("#dateData").focus();
+			}
+		},
+		
+	},
+	created:function(){			
+		this.getData();
+	}	
+});	
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

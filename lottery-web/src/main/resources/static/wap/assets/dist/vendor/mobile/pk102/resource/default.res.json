@@ -1,0 +1,206 @@
+{
+	"groups": [
+		{
+			"keys": "ball_png,bar_png,line_png,loadingbg_png",
+			"name": "preload"
+		},
+		{
+			"keys": "gameConfig_json,webLogo_png,urlConfig_json,TrackBG1_jpg,TrackBG2_jpg,carAnim_ske_json,carAnim_tex_json,carAnim_tex_png,carSkin_ske_json,carSkin_tex_png,carSkin_tex_json,beijing_png,start_tex_json,start_tex_png,startLine_png,end_tex_png,end_tex_json,endBg_png,SoundHail_mp3,Soundzhong_mp3,Soundwin_mp3,SoundCountDown_mp3,SoundCountDownmin_mp3,SoundGo_mp3,SoundReady_mp3,chart_json,startBg_jpg,start_ske_json,end_ske_json,Map_png,distanceLine_png,ui_json",
+			"name": "run"
+		}
+	],
+	"resources": [
+		{
+			"url": "preloading.gif",
+			"type": "image",
+			"name": "preloading_gif"
+		},
+		{
+			"url": "config/gameConfig.json",
+			"type": "json",
+			"name": "gameConfig_json"
+		},
+		{
+			"url": "assets/ui/loading/ball.png",
+			"type": "image",
+			"name": "ball_png"
+		},
+		{
+			"url": "assets/ui/loading/bar.png",
+			"type": "image",
+			"name": "bar_png"
+		},
+		{
+			"url": "assets/ui/loading/line.png",
+			"type": "image",
+			"name": "line_png"
+		},
+		{
+			"url": "assets/ui/loading/loadingbg.png",
+			"type": "image",
+			"name": "loadingbg_png"
+		},
+		{
+			"url": "assets/ui/webLogo.png",
+			"type": "image",
+			"name": "webLogo_png"
+		},
+		{
+			"url": "config/urlConfig.json",
+			"type": "json",
+			"name": "urlConfig_json"
+		},
+		{
+			"url": "assets/map/TrackBG1.jpg",
+			"type": "image",
+			"name": "TrackBG1_jpg"
+		},
+		{
+			"url": "assets/map/TrackBG2.jpg",
+			"type": "image",
+			"name": "TrackBG2_jpg"
+		},
+		{
+			"url": "assets/car/carAnim_ske.json",
+			"type": "json",
+			"name": "carAnim_ske_json"
+		},
+		{
+			"url": "assets/car/carAnim_tex.json",
+			"type": "json",
+			"name": "carAnim_tex_json"
+		},
+		{
+			"url": "assets/car/carAnim_tex.png",
+			"type": "image",
+			"name": "carAnim_tex_png"
+		},
+		{
+			"url": "assets/car/carSkin_ske.json",
+			"type": "json",
+			"name": "carSkin_ske_json"
+		},
+		{
+			"url": "assets/car/carSkin_tex.png",
+			"type": "image",
+			"name": "carSkin_tex_png"
+		},
+		{
+			"url": "assets/car/carSkin_tex.json",
+			"type": "json",
+			"name": "carSkin_tex_json"
+		},
+		{
+			"url": "assets/ui/beijing.png",
+			"type": "image",
+			"name": "beijing_png"
+		},
+		{
+			"url": "assets/anim/start_tex.json",
+			"type": "json",
+			"name": "start_tex_json"
+		},
+		{
+			"url": "assets/anim/start_tex.png",
+			"type": "image",
+			"name": "start_tex_png"
+		},
+		{
+			"url": "assets/map/startLine.png",
+			"type": "image",
+			"name": "startLine_png"
+		},
+		{
+			"url": "assets/anim/end_tex.png",
+			"type": "image",
+			"name": "end_tex_png"
+		},
+		{
+			"url": "assets/anim/end_tex.json",
+			"type": "json",
+			"name": "end_tex_json"
+		},
+		{
+			"url": "assets/anim/endBg.png",
+			"type": "image",
+			"name": "endBg_png"
+		},
+		{
+			"url": "sound/SoundHail.mp3",
+			"type": "sound",
+			"name": "SoundHail_mp3"
+		},
+		{
+			"url": "sound/Soundzhong.mp3",
+			"type": "sound",
+			"name": "Soundzhong_mp3"
+		},
+		{
+			"url": "sound/Soundwin.mp3",
+			"type": "sound",
+			"name": "Soundwin_mp3"
+		},
+		{
+			"url": "sound/SoundCountDown.mp3",
+			"type": "sound",
+			"name": "SoundCountDown_mp3"
+		},
+		{
+			"url": "sound/SoundCountDownmin.mp3",
+			"type": "sound",
+			"name": "SoundCountDownmin_mp3"
+		},
+		{
+			"url": "sound/SoundGo.mp3",
+			"type": "sound",
+			"name": "SoundGo_mp3"
+		},
+		{
+			"url": "sound/SoundReady.mp3",
+			"type": "sound",
+			"name": "SoundReady_mp3"
+		},
+		{
+			"url": "assets/ui/chart.json",
+			"type": "sheet",
+			"name": "chart_json",
+			"subkeys": "bluePoint,borderN,borderS,car10_0,car10_1,car1_0,car1_1,car2_0,car2_1,car3_0,car3_1,car4_0,car4_1,car5_0,car5_1,car6_0,car6_1,car7_0,car7_1,car8_0,car8_1,car9_0,car9_1,light,redPoint,tip"
+		},
+		{
+			"url": "assets/anim/startBg.jpg",
+			"type": "image",
+			"name": "startBg_jpg"
+		},
+		{
+			"url": "assets/anim/start_ske.json",
+			"type": "json",
+			"name": "start_ske_json"
+		},
+		{
+			"url": "assets/anim/end_ske.json",
+			"type": "json",
+			"name": "end_ske_json"
+		},
+		{
+			"url": "sound/SoundBGM.mp3",
+			"type": "sound",
+			"name": "SoundBGM_mp3"
+		},
+		{
+			"url": "assets/map/Map.png",
+			"type": "image",
+			"name": "Map_png"
+		},
+		{
+			"url": "assets/map/distanceLine.png",
+			"type": "image",
+			"name": "distanceLine_png"
+		},
+		{
+			"url": "assets/ui/ui.json",
+			"type": "sheet",
+			"name": "ui_json",
+			"subkeys": "blue,blue2,btbg,btnbg,cd1,cd10,cd2,cd3,cd4,cd5,cd6,cd7,cd8,cd9,cdGO,flagL,flagR,greenLight,icon,lightbg,logo,mn1,mn2,mnbg,nb,num1,num10,num2,num3,num4,num5,num6,num7,num8,num9,offs1,offs2,oldV,ons1,ons2,redLight,sd1,sd2,sd3,tiao,tj1,tj2,tj3,topbg"
+		}
+	]
+}

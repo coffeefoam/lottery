@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩计划 - 开奖直播</title>
+<#include "/wap/common/header.html"></head>
+<body>
+<#include "/wap/common/nav_tjjh.html">
+<#include "/wap/common/cssjs.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div id="mainDiv"  class="main m-plan" data-m="plan" data-title="重庆时时彩" data-periods="120" data-id="2" data-url="shishicai" data-count="30" data-mobile="1" v-cloak>
+<div class="container-fluid">
+<div class="row plan-banner" style="border: none;">
+<img data-cfsrc="/static/wap/assets/dist/img/m-plan-cqssc.png" alt="北京赛车" style="display:none;visibility:hidden;"><noscript><img src="/static/wap/assets/dist/img/m-plan-cqssc.png" alt="重庆时时彩"></noscript>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="plan-menu">
+<span>{{getTerms(zxkj["xqqs"]) }}期推荐</span>
+<span id="bottom-menu-icon">重庆时时彩<i class="fa fa-caret-down" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div>
+<div class="row">
+<div class="col-xs-12 plan-list">
+<p class="col-xs-4">第{{substring(tj["plan1"],0)}}球: <span>{{substring(tj["plan1"],1)}}</span></p>
+<p class="col-xs-4">第{{substring(tj["plan2"],0)}}球: <span>{{substring(tj["plan2"],1)}}</span></p>
+<p class="col-xs-4">第{{substring(tj["plan3"],0)}}球: <span>{{substring(tj["plan3"],1)}}</span></p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 plan-link">
+<a class="col-xs-4" href="/m/shishicai/shipin" target="_blank"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+<a class="col-xs-4" href="/m/shishicai/shuangmianluzhu" target="_blank"><i class="iconfont icon-biaoge"></i>两面路珠</a>
+<a class="col-xs-4" href="/m/shishicai/longhuluzhu" target="_blank"><i class="iconfont icon-biaoge"></i>龍虎路珠</a>
+</div>
+</div>
+<div class="row">
+<div class="plan-count">
+<div class="plan-win">
+<div class="plan-chart">
+<span class="win">赢</span>
+<div :class="'pie pie-'+ying_pie">
+<div class="pie-half"></div>
+<div class="pie-circle"></div>
+<div class="pie-dot"></div>
+</div>
+</div>
+<p>计划统计</p>
+<p class="win">赢<span class="win-count">{{ying}}</span></p>
+</div>
+<div class="plan-lose">
+<div class="plan-chart">
+<span class="lose">输</span>
+<div :class="'pie pie-'+shu_pie">
+<div class="pie-half"></div>
+<div class="pie-circle"></div>
+<div class="pie-dot"></div>
+</div>
+</div>
+<p>计划统计</p>
+<p class="lose">输<span class="lose-count">{{shu}}</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="row relative">
+<div class="col-xs-12">
+<div class="plan-current">
+当前期:<span class="text-primary ">{{getTerms(zxkj["xqqs"]) -1 }}</span>
+</div>
+</div>
+<div class="col-xs-12 plan-next">
+下期<span class="text-primary ">{{getTerms(zxkj["xqqs"]) }}</span>
+开奖剩余<span class="text-primary" >{{minite}}:{{seconds}}</span>
+</div>
+</div>
+<div class="row">
+<div class="plan-num">
+<i v-show="timeFlag" 
+v-for="num in zxkj.dqhm" 
+class="no-default">{{num}}</i>
+ <p  v-show="!timeFlag" class="flash">正在开奖...</p>
+</div>
+</div>
+</div>
+<div>
+<table class="plan-table">
+<thead>
+<tr>
+<th>时间</th>
+<th>号码</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in dataArr" >
+<td>
+<div>{{getTerms(item["periods"])}} 期</div>
+<div style="color: #999;">{{buildHM(tj["starttime"]) }}</div>
+</td>
+<td>
+<div class="table-nums text-left">
+<span :class="item['isWin'].indexOf('1')>-1?'' :' num-gray'">{{item['num1']}}</span>
+<span :class="item['isWin'].indexOf('2')>-1?'' :' num-gray' ">{{item['num2']}}</span>
+<span :class="item['isWin'].indexOf('3')>-1?'' :' num-gray' ">{{item['num3']}}</span>
+<span :class="item['isWin'].indexOf('4')>-1?'' :' num-gray' ">{{item['num4']}}</span>
+<span :class="item['isWin'].indexOf('5')>-1?'' :' num-gray' ">{{item['num5']}}</span>
+</div>
+<div class="table-text text-left">
+<p class="recomment-label"><span class="recomment-1">第{{substring(item["plan1"],0)}}球:</span><span :class="substring(item['plan1'],2)==='赢' ?'win' :'lose' ">{{substring(item["plan1"],1)}}</span>&nbsp;</p>
+<p class="recomment-label"><span class="recomment-1">第{{substring(item["plan2"],0)}}球:</span><span :class="substring(item['plan2'],2)==='赢' ?'win' :'lose' ">{{substring(item["plan2"],1)}}</span>&nbsp;</p>
+<p class="recomment-label"><span class="recomment-1">第{{substring(item["plan3"],0)}}球:</span><span :class="substring(item['plan3'],2)==='赢' ?'win' :'lose' ">{{substring(item["plan3"],1)}}</span></p>
+</div>
+</td>
+<td>
+<div>
+<span :class="item['result'].indexOf('赢')>-1?'win-label':'lose-label'">{{item['result']}}</span>
+</div>
+<div>赢<span class="win">{{item['ying']}}</span>&nbsp;输<span class="lose">{{item['shu']}}</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="bottom-menu" id="bottom-menu">
+<div class="mask"></div>
+<div class="content">
+<a href="/m/numberplan/pk10plan/index.html" class="link">北京赛车PK10<i class="fa fa-check" aria-hidden="true"></i></a>
+<a href="/m/numberplan/xyftplan/index.html" class="link">幸运飞艇<i class="fa fa-check" aria-hidden="true"></i></a>
+<a href="/m/numberplan/cqsscplan/index.html" class="link cur">重庆时时彩<i class="fa fa-check" aria-hidden="true"></i></a>
+</div>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el:'#mainDiv',
+	data:{
+		ying:'0',
+		shu:'0',
+		ying_pie:'0',
+		shu_pie:'0',
+		tjjh:{},//老数据
+		tj:{},//最新推荐
+		dataArr: [],
+		zxkj:{},
+		minite: "00",
+        seconds: "00",
+        timeFlag: true,
+	},methods: {
+		buildHM(time1){//格式化时间
+			if(time1){
+				return formatDate(new Date(time1),"hh:mm");
+			}else{
+				return "";
+			}
+		},
+		 getTerms:function(str){
+	            if(str){
+	                str = str + "";
+	                str = str.substring(str.length -3);
+	                return parseInt(str);
+	            }else{
+	                return "";
+	            }						
+	        },
+		substring(str,index){//数组截取单个数据
+			 if (typeof str != "undefined") { 
+				 var array = str.split(',');
+				return array[index];
+			 }else{
+				 return "";
+			 }
+		},
+		getData(){//获取数据
+			SULX.get(apicqssc.cqssc_tjjh,function(std,data) {
+				vm.tjjh = JSON.parse(data).data;
+				
+				vm.dealData();//处理数据
+			}
+	            );		
+			
+		},getNewGame: function() {
+			SULX.get(apicqssc.cqssc_zxkj,function(std,data) {
+                var result = JSON.parse(data).data;
+                vm.zxkj =result;
+                //vm.paiming.splice(0); //更新号码存放的数组
+                var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                if(timer === 0||timer < 0) {
+                    vm.timeFlag = false; 
+                    var otherClick = setTimeout(  //没有请求到数据设置3s一次的请求
+                        function() {
+                            // console.log('正在请求')
+                            vm.$options.methods.getNewGame();
+                        }
+                    ,5000) 
+                } else {
+                    vm.timeFlag = true;
+                    try {
+                        vm.$options.methods.getData();
+                    }catch(e){}	
+                    clearTimeout(otherClick);
+                    //vm.$options.methods.draw(); //重绘线图 页面没有可注释
+                    var min = Math.floor(timer/60);
+                    var scd = Math.ceil(timer%60);
+                    var click = setInterval(
+                        function() {
+                            vm.minite = min;
+                            vm.seconds = scd;
+                            if((min+'').length === 1) {
+                                vm.minite = '0'+min     //加个0
+                            }
+                            if((scd+'').length === 1) {
+                                vm.seconds = '0'+scd
+                            }
+                            scd --;
+                            if((min === 0&&scd === 0)||min <0) {
+                                clearInterval(click);
+                                vm.$options.methods.getNewGame();
+                                // vm.$options.methods.draw(vm.flag);
+                            } else {
+                                if(scd < 0) {
+                                    min --;
+                                    scd = 59;
+                                }
+                            }
+                        }
+                    ,1000)
+                }
+                vm.gameData = result;
+            }
+        )
+    },	
+	dealData(){//处理数据
+    		vm.dataArr=[];
+		    for(i=0;i<this.tjjh.length;i++) {
+		   
+                for(j in this.tjjh[i]) {
+                 	var vo = this.tjjh[i][j];
+                		if(i===0){
+                			this.tj=vo;//得到预测的数据
+                		}
+                	else{
+                		if(typeof vo['num1']!= "undefined")//过滤不完整数据
+                		{
+                			vo.isWin='w';
+                			if(vo['plan1'].indexOf('赢')>-1){
+                				var num = this.substring(vo['plan1'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+                			if(vo['plan2'].indexOf('赢')>-1){
+                				var num = this.substring(vo['plan2'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+                			if(vo['plan3'].indexOf('赢')>-1){
+                				var  num = this.substring(vo['plan3'],0);
+                				if(num==10)num=0
+                				vo.isWin=vo.isWin+num;
+                			}
+     
+                			this.dataArr.push(vo);//二维数组
+                    		if(i===1){//得到输赢的统计数据
+                    			this.ying=vo['ying'];
+                    			this.shu=vo['shu'];
+                    			this.ying_pie=	this.ying<10?'10':(parseInt((this.ying%100)/10)+'0');
+                    			this.shu_pie=	this.ying<10?'10':(parseInt((this.shu%100)/10)+'0')
+                    			
+                    		}
+                		}
+                	}
+                }
+            }
+		}
+	},
+	mounted(){
+		this.getData();
+		this.getNewGame();
+	},	
+	created(){			
+	
+	}	
+});
+</script>
+<#include "/wap/common/foot.html">
+</body>
+</html>

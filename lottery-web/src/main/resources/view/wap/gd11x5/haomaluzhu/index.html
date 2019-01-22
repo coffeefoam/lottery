@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>广东11选5号码路珠分析 - 开奖直播</title>
+<meta name="keywords" content="广东11选5开奖视频, 广东11选5开奖号码, 广东11选5技巧，广东11选5计划软件">
+<meta name="description" content="广东11选5路珠分析频道专门为广东11选5的玩家提供专业的广东11选5路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/gd11x5/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/gd11x5/rightmenu.html">
+<div class="menu-title">
+号码路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+<li>3.“X”表示历史对应的某一期未出现该号码，“√”表示历史对应的某一期未出现了该号码。</li>
+</ul>
+</div>
+</div>
+<div id="divContainer" v-cloak>	
+		<div class="j-records">
+			<div v-for="index in haomaList" class="container lobby-record"
+				:class="'t_' + (index+1)">
+				<div class="table-responsive">
+					<table class="table table-bordered text-right">
+						<tr style="background: #f6f6f6;">
+							<td><span> 今日号码累计：<span class="text-primary">总来（{{hmlz["num"
+										+ index + "-gou"]}}） 没来（{{hmlz["num" + index + "-cha"]}}）</span>
+									号码{{index}}
+							</span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+						<tr valign="top">
+
+							<td v-for="item in hmlz['num' + index ]"
+								:class="item.indexOf('√')>-1?'odd':'even'"><span
+								:class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'"
+								v-for="item2 in item.split('')"> {{item2}} </span></td>
+
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el : '#divContainer',
+		data : {
+			haomaList : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
+			hmlz : {},
+		},
+		methods : {
+			getData: function() {
+				SULX.get(apigd11x5.gd11x5_hmlz,function(std,data) {
+					vm.hmlz = JSON.parse(data).data;
+				});
+			}
+		},
+		created : function() {
+			this.getData();
+		}
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

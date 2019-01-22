@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+        <title>广东快乐十分走势图表_开奖记录结果、预测、软件下载、直播</title>
+        <meta name="keywords" content="广东快乐十分走势图表，广东快乐十分开奖记录、广东快乐十分开奖直播">
+        <meta name="description"  content="官方实时同步广东快乐十分开奖结果、提供走势图分析、在线直播平台、结果预测，软件下载等广东快乐十分彩票服务，方便广大彩民，【开奖直播网】拥有16年彩票分析经验。">
+        <#include "/common/header.html">
+        <style>
+                .highcharts-legend {
+                    display: none !important;
+                }
+                .highcharts-credits {
+                    display: none !important;
+                }
+                .btn-spe {
+                    width: 90px;
+                    height: 30px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    color: #000;
+                    text-align: center;
+                    margin-right: 9px;
+                    cursor: pointer;
+                }
+                .btn-other {
+                    background: #d94136;
+                    border: 1px solid #d94136 !important;
+                    color: #fff !important;
+                }
+                .btn-spe p {
+                    font-size: 15px;
+                    line-height: 26px;
+                    color: inherit;
+                }
+                .lobby-chart .go-live img.play {
+                    top: 70px !important;
+                    left: 0px !important;
+                }
+        </style>
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+        
+        <nav id="mainNav" class="navbar navbar-default">
+            <#include "/common/nav.html">
+        </nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                        <#include "/common/menu.html">
+                        <#include "/gdkl10/kaijiang.html">
+                        <div class="lottery-tips" id="j-lottery-tips"
+                            style='display: none'>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            温馨提示：<span class="j-periods"></span>开奖结果未获取,
+                            继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+                        </div>
+                        <div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+                            data-m="advertisement">
+                        </div>
+                        <div class="lottery-list">
+                            <a class="item active" href="index.html">快乐十分</a>
+                            <a class="item" href="kaijiang/index.html">历史开奖号码</a>
+                            <a class="item" href="shipin/index.html">开奖视频</a>
+                            <a class="item" href="zonghe/index.html">综合路珠分析</a>
+                            <a class="item" href="heshudanshuangluzhu/index.html">合数单双路珠</a>
+                            <a class="item" href="longhuluzhu/index.html">龍虎路珠</a>
+                            <a class="item" href="zongheluzhu/index.html">总和路珠</a>
+                            <a class="item" href="weishudaxiaoluzhu/index.html">尾数大小路珠</a>
+                            <a class="item" href="shuangmianluzhu/index.html">单双大小路珠</a>
+                            <a class="item" href="zhongfabailuzhu/index.html">中发白路珠</a>
+                            <a class="item" href="dongnanxibeiluzhu/index.html">东南西北路珠</a>
+                            <a class="item" href="haomaluzhu/index.html">号码路珠</a>
+                            <a class="item" href="haomatongji/index.html">历史号码统计</a>
+                            <a class="item" href="shuangmian/index.html">单双大小历史</a>
+                            <a class="item" href="zoushitu/index.html">横版走势图</a>
+                            <a class="item"
+                                href="shuangmianzoushitu/index.html">单双大小走势图</a>
+                            <a class="item" href="touzhu/index.html">两面投注参考</a>
+                            <a class="item" href="jiqiao/index.html">快乐十分技巧</a>
+                            <a class="item" href="changlongday/index.html">每日长龙</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-cloak id="alls">
+        <div style="height: 347px;" class="container lobby-chart">
+            <div class="row" id="j-chart-container">
+                <div class="col-xs-8">
+                    <div class="head"></div>
+                    <div class="chart-btn" id="j-chart">
+                        <a href="/zoushitu/gdkl10/" style="float: right">查看全部走势图>></a>
+                    </div>
+                    <div class="chart">
+                        <div style="display: flex;">
+                                <div 
+                                @click="getData(index)"
+                                v-for="(item,index) in num" 
+                                :class="{'btn-spe': true, 'btn-other': index === flag}">
+                                    <p>{{item}}</p>
+                                </div>
+                            </div>
+                            <div id="container" style="margin-top: 30px; width: inherit;  height:200px;"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 text-center">
+                        <a href="/gdkl10/shipin/" class="go-live">    
+                            <img src="/static/assets/dist/img/lottery-logo/gdkl10-live.png" alt="" class="play j-play">
+                        </a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px" class="container lobby-record">
+            <div class="title">
+                <span>广东快乐十分开奖记录</span><a href="kaijiang/index.html">查看全部>></a>
+            </div>
+            <div data-job="replace">
+                <table class="table table-bordered table-striped text-center
+                    j-numslist">
+                    <thead>
+                        <tr>
+                            <th class="time">时间</th>
+                            <th style="width: 40%;">
+                                开奖号码
+                                <span class="help">
+                                    <i class="fa fa-question-circle"
+                                        aria-hidden="true"></i>
+                                    <div class="tips">
+                                        最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，以便于查看最近一期开出的某号码的历史分布情况。
+                                        <span class="arrow"></span>
+                                        <span class="arrow-bg"></span>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="zh" colspan="4">总和</th>
+                            <th class="lh" colspan="4">1~4龍虎</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item,index) in tableData">
+                                <td>
+                                    <span>{{timer[index]}}</span>
+                                    <span class="time">{{click[index]}}</span>
+                                </td>
+                                <td class="nums">
+                                    <div class="record-num">
+                                        <span 
+                                        v-for="items in item.rank"
+                                        :class="lotteryNumStyle(items)"
+                                        >{{items}}</span>
+                                    </div>
+                                </td>
+                                <td><span>{{item.sum}}</span></td>
+                                <td>
+                                    <span class="highlight">{{item.sumDs}}</span>
+                                </td>
+                                <td>
+                                    <span class="highlight">{{item.sumDx}}</span>
+                                </td>
+                                <td>
+                                    <span>{{item.wDx}}</span>
+                                </td>
+                                <td>
+                                    <span>{{item.lh1}}</span>
+                                </td>
+                                <td>
+                                    <span class="highlight">{{item.lh2}}</span>
+                                </td>
+                                <td>
+                                    <span class="highlight">{{item.lh3}}</span>
+                                </td>
+                                <td>
+                                    <span class="highlight">{{item.lh4}}</span>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		<#include "/common/jiqiao.html">
+        </div>
+<#include "/common/foot.html">
+    <script>
+            var vm = new Vue({
+                el: '#alls',
+                data: {
+                    tableData: [],
+                    timer: [],
+                    click: [],
+                    num: ['第一名', '第二名', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名'],
+                    flag: 0,
+                },
+                methods: {
+                    getData: function (index) {
+                        this.draw(index);
+                    	SULX.get(apikl10.gdklsf_cllk,function(std,data) {
+                            var result = JSON.parse(data).data;
+                            vm.tableData = result;
+                        });
+	                    SULX.get(apikl10.gdklsf_kjjl,function(std,data) {
+	                            var result = JSON.parse(data).data;
+	                            var short = [];
+	                            var pill = [];
+	                            var tag = [];
+	                            for(i=0;i<result.length;i++) {
+	                                for(j in result[i]) {
+	                                    var tip = j.slice(0,8) + '-' + j.slice(9,11);
+	                                    tag.push(result[i][j]);
+	                                    short.push(tip);
+	                                    pill.push(formatDate(new Date(result[i][j].starttime), 'hh:mm'));
+	                                }
+	                            }
+	                            vm.timer = short.splice(0,10);
+	                            vm.tableData = tag.splice(0,10);
+	                            vm.click = pill;
+	                        }
+	                    )
+                    },
+                    lotteryNumStyle: function (items) {
+                    	var a = "j-num"+items;
+                    	var b ;
+                    	var c ;
+                    	if(items == 1 ){ var b =" no5" ;}
+                    	if(items == 2 ){ var b =" no7" ;}
+                    	if(items == 3 ){ var b =" no6" ;}
+                    	if(items == 6 ){ var b =" no4" ;}
+                    	if(items == 8 ){ var b =" no1" ;}
+                    	if(items == 10 ){ var b =" no3" ;}
+                    	if(items == 13 ){ var b =" no2" ;}
+                    	if(items == 17 ){ var b =" no0" ;}
+						return c = a+b;
+                    },
+                    draw: function(index) {
+                            if( index == undefined ){
+                                index=0;
+                            }
+                            this.flag = index;
+                            SULX.get(apikl10.gdklsf_zst,function(std,data) {
+                            var result = JSON.parse(data).data;
+
+                            var test1 = result['num'+(index+1)];
+                            var timer = [];
+                            var chartData = [];
+                            for(j in test1) {
+                            timer.push(j.substr(j.length-2,2)); //截取key生成期数
+                            chartData.push(Number(test1[j])); //数据必须是number
+                            }
+
+                            var chart = Highcharts.chart('container', {
+                            chart: {
+                                type: 'spline',
+                                height: '215'
+                                // width: '1400'
+                            },
+                            title: {
+                                text: '广东快乐十分走势图', //tubiao biaoti
+                                align: 'left'
+                            },
+                            xAxis: {
+                                categories: timer
+                            },
+                            yAxis: {
+                                title: '',
+                                tickPositions: [0, 5, 10, 15, 20]  //y轴数据
+                                // categories: [0,150,200]
+                            },
+                            tooltip: {
+                                useHTML: true,
+                                headerFormat: '<span style=";">{point.key}期:{point.y}</span>',
+                                backgroundColor: '#666',   // 背景颜色
+                                // borderColor: 'black',         // 边框颜色
+                                borderRadius: 10,             // 边框圆角
+                                borderWidth: 0,
+                                display: 'flex', 
+                                shadow: false,                 
+                                animation: false,      
+                                pointFormatter: function() {
+                                return '<span style=" color: #fff;>期<span>';
+                                },
+                                style: {  
+                                    width: '70px',
+                                    height: '30px',   
+                                            // 文字内容相关样式
+                                    color: "rgba(255,255,255,0.8)",
+                                    fontSize: "12px",
+                                    fontWeight: "blod",
+                                    fontFamily: "Courir new"
+                                }
+                            },
+                            plotOptions: {
+                                spline: {
+                                    dataLabels: {
+                                        // 开启数据标签
+                                        // color: '#666',
+                                        crop: false,
+                                        overflow: 'none',
+                                        verticalAlign: 'bottom',
+                                        enabled: true          
+                                    },
+                                    // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                                    enableMouseTracking: true
+                                }
+                            },
+                            series: [
+                                {
+                                name: '',
+                                color: '#5073a3',
+                                data: chartData
+                                }
+                            ]
+                            
+                            });
+                            }
+                        )
+                    }
+                },
+                created: function() {
+                    this.getData(0);
+                },
+            })
+        </script>
+    </body>
+
+</html>

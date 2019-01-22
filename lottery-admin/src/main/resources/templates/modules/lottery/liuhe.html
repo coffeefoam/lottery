@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>六合彩开奖数据</title>
+		<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+			<#if shiro.hasPermission("lottery:liuhe:save")>
+            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("lottery:liuhe:update")>
+            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("lottery:liuhe:delete")>
+            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+			<#if shiro.hasPermission("lottery:liuhe:save")>
+            <a class="btn btn-primary" @click="caiji"><i class="fa fa-plus"></i>&nbsp;采集数据</a>
+			</#if>
+			<#if shiro.hasPermission("lottery:liuhe:save")>
+            <a class="btn btn-primary" @click=genKjjl><i class="fa fa-plus"></i>&nbsp;生成数据</a>
+			</#if>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+														                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.time" placeholder=""/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">期数</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.periods" placeholder="期数"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num1" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num2" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num3" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num4" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num5" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">平码1</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num6" placeholder="平码1"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">特码</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.num7" placeholder="特码"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">创建时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.createtime" placeholder="创建时间"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">加工时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.processtime" placeholder="加工时间"/>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">开奖时间</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="liuhe.starttime" placeholder="开奖时间"/>
+                        </div>
+                    </div>
+							            <div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="spiderContent-div" style="display: none;padding:10px;">
+	<div class="form-group">
+       <div class="col-sm-2 control-label">栏目地址：</div>
+       <div class="col-sm-10">
+           <textarea id="spiderUrl" class="form-control" name="url" rows="6" placeholder="请输入栏目URL地址"></textarea>
+       </div>
+   </div>		
+</div>
+<script src="${request.contextPath}/statics/js/modules/lottery/liuhe.js?_${.now?long}"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运飞艇号码路珠分析 - 开奖直播</title>
+<meta name="keywords" content="幸运飞艇,幸运飞艇开奖结果,幸运飞艇投注技巧,幸运飞艇玩法">
+<meta name="description" content="幸运飞艇路珠分析频道专门为幸运飞艇的玩家提供专业的幸运飞艇路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xyft/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xyft/rightmenu.html">
+<div class="menu-title">
+号码前后路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+<li>3.“前”表示号码开出在前5名，“后”表示号码开出在后5名。</li>
+</ul>
+</div>
+</div>
+<div id="all" v-cloak>
+        <div class="container number-filter-title" style="padding: 10px 15px;">
+        </div>
+        <div class="j-records">
+            <div class="container lobby-record t_1">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num1['num_1_q']}}）
+                                        后（{{num1['num_1_h']}}）</span>
+                                    号码1
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in tableData.num_1" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_2">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num2['num_2_q']}}）
+                                        后（{{num2['num_2_h']}}）</span>
+                                    号码2
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in tableData.num_2" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_3">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num3['num_3_q']}}）
+                                        后（{{num3['num_3_h']}}）</span>
+                                    号码3
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in tableData.num_3" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_4">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num4['num_4_q']}}）
+                                        后（{{num4['num_4_h']}}）</span>
+                                    号码4
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_4" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_5">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num5['num_5_q']}}）
+                                        后（{{num5['num_5_h']}}）</span>
+                                    号码5
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_5" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_6">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num6['num_6_q']}}）
+                                        后（{{num6['num_6_h']}}）</span>
+                                    号码6
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_6" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_7">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num7['num_7_q']}}）
+                                        后（{{num7['num_7_h']}}）</span>
+                                    号码7
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_7" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_8">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num8['num_8_q']}}）
+                                        后（{{num8['num_8_h']}}）</span>
+                                    号码8
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_8" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_9">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num9['num_9_q']}}）
+                                        后（{{num9['num_9_h']}}）</span>
+                                    号码9
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_9" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record t_10">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <span>
+                                    今日号码累计：<span class="text-primary">前（{{num10['num_10_q']}}）
+                                        后（{{num10['num_10_h']}}）</span>
+                                    号码10
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                                <td v-for="item in tableData.num_10" :class="{'even': item[0] === '前', 'odd': item[0] === '后'}"> <!---->
+                                    <span  v-for="items in item" :class="{'high-light-red': items === '前', 'high-light-blue': items === '后'}">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+            el: '#all', //el 
+            data: {
+                tableData: {},
+                numData: {},
+                num1: {},
+                num2: {},
+                num3: {},
+                num4: {},
+                num5: {},
+                num6: {},
+                num7: {},
+                num8: {},
+                num9: {},
+                num10: {},
+            },
+            methods: { //click事件
+                getData: function() {
+                	SULX.get(apixyft.xyft_hmqhlz,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        // console.log(result)
+                        vm.tableData = result.sxplz;
+                        vm.num1 = result.jrlj.num_1;
+                        vm.num2 = result.jrlj.num_2;
+                        vm.num3 = result.jrlj.num_3;
+                        vm.num4 = result.jrlj.num_4;
+                        vm.num5 = result.jrlj.num_5;
+                        vm.num6 = result.jrlj.num_6;
+                        vm.num7 = result.jrlj.num_7;
+                        vm.num8 = result.jrlj.num_8;
+                        vm.num9 = result.jrlj.num_9;
+                        vm.num10 = result.jrlj.num_10;
+                        }
+                    );
+                }
+            },
+            created: function() { 
+                this.getData()
+            },
+        })
+    </script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

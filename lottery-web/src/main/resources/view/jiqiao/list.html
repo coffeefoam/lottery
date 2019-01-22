@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>${category.name!}</title>
+<meta name="keywords" content="${category.keywords!}">
+<meta name="description" content="${category.description!}">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="skill-box">
+<div class="list-left">
+<ol class="breadcrumb">
+<li><a href="${ctxPath!}/">首页</a></li>
+<li><a href="${ctxPath!}/jiqiao/">资讯技巧</a></li>
+<li class="active">${category.name!}</li>
+</ol>
+<h4 class="head">${category.name!}</h4>
+<#if artList??>
+<#list artList as art>
+<div class="list">
+<div class="title">
+<a href="${ctxPath!}/jiqiao/${art.id?c}.html" target="newWindow">${art.title!}</a>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</div>
+</#list>
+</#if>
+
+<div class="skill-pager">
+<ul class="page">
+<#if pageNum!=0>
+<#if pageNo != 1>
+<li><a href="${ctxPath!}/jiqiao/${category.alias!}/1.html" class="" title="首页">首页</a></li>
+</#if>
+<#if pageNo !=1>
+<li><a href="${ctxPath!}/jiqiao/${category.alias!}/${prePageNo?c}.html" class="" title="上一页">上一页</a></li>
+</#if>
+<#list startPageNo..endPageNo as num>
+<#if num == pageNo>
+<li><a href="javascript:;" class="active" title="当前${num?c}页">${num}</a></li>
+<#else>
+<li><a href="${ctxPath!}/jiqiao/${category.alias!}/${num?c}.html" class="" title="当前${num?c}页">${num?c}</a></li>
+</#if>
+</#list>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/jiqiao/${category.alias!}/${nextPageNo?c}.html" class="" title="下一页">下一页</a></li>
+</#if>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/jiqiao/${category.alias!}/${pageNum?c}.html" class="" title="尾页">尾页</a></li>
+</#if>
+</#if>
+</ul>
+</div>
+</div>
+<div class="list-right">
+<ul class="list">
+<#if categoryList??>
+<#list categoryList as cat>
+<li><a href="${ctxPath!}/jiqiao/${cat.alias!}/" class="<#if cat.id?? && cat.id==catId>active</#if>"><span>></span><span class="name">${cat.name!}</span></a></li>
+</#list>
+</#if>
+</ul>
+</div>
+</div>
+
+<#include "/common/foot.html">
+</body>
+</html>

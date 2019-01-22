@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>栏目表</title>
+	<#include "/header.html">
+<link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
+<script src="${request.contextPath}/statics/libs/bootstrap-table.min.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+			<#if shiro.hasPermission("cms:category:save")>
+            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("cms:category:update")>
+            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("cms:category:delete")>
+            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>	
+			<!-- <#if shiro.hasPermission("cms:category:update")>
+            <a class="btn btn-primary" @click="viewAll"><i class="fa fa-camera-retro"></i>&nbsp;预览资讯首页</a>
+			</#if> -->
+			<#if shiro.hasPermission("cms:category:update")>
+            <a class="btn btn-primary" @click="getSpiderStatus"><i class="fa fa-camera-retro"></i>&nbsp;查询采集状态</a>
+			</#if>						
+        </div>
+        <table id="categoryTable" data-mobile-responsive="true" data-click-to-select="true">
+        	<thead>
+			<tr>
+				<th data-field="selectItem" data-checkbox="true"></th>
+			</tr>
+			</thead>
+        </table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">父级栏目</div>
+                        <div class="col-sm-10">                        	
+                            <input type="text" class="form-control" v-model="cmsCategory.parentName"  @click="categoryTree" readonly="readonly" placeholder="请选择父级栏目" style="cursor:pointer;"/>
+                        </div>
+                    </div>					
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">栏目名称</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.name" placeholder="栏目名称"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">栏目英文名</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.alias" placeholder="栏目英文名称"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">栏目模块类型</div>
+                        <div class="col-sm-10">
+                        	<select class="form-control" v-model="cmsCategory.module" >
+							  	<option v-for="module in cmsModuleList" :value="module.code">{{module.value}}</option>							  
+							</select>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">栏目图片</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.image" placeholder="栏目图片"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">链接</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.href" placeholder="链接"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">目标</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.target" placeholder="目标"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">描述</div>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="4" cols="" v-model="cmsCategory.description" placeholder="描述"></textarea>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">关键字</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.keywords" placeholder="关键字"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">排序（升序）</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="cmsCategory.sort" placeholder="排序（升序）"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">导航是否显示</div>
+                        <div class="col-sm-10">
+                        	<label class="radio-inline">
+								<input type="radio" name="inMenu" value="0" v-model="cmsCategory.inMenu"/> 隐藏
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inMenu" value="1" v-model="cmsCategory.inMenu"/> 显示
+							</label>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">栏目列表显示</div>
+                        <div class="col-sm-10">                        	
+                            <label class="radio-inline">
+								<input type="radio" name="inList" value="0" v-model="cmsCategory.inList"/> 隐藏
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inList" value="1" v-model="cmsCategory.inList"/> 显示
+							</label>
+                        </div>
+                    </div>					
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">是否允许评论</div>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+								<input type="radio" name="allowComment" value="0" v-model="cmsCategory.allowComment"/> 允许
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="allowComment" value="1" v-model="cmsCategory.allowComment"/> 不允许
+							</label>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">是否需要审核</div>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+								<input type="radio" name="isAudit" value="0" v-model="cmsCategory.isAudit"/> 需要
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="isAudit" value="1" v-model="cmsCategory.isAudit"/> 不需要
+							</label>
+                        </div>
+                    </div>																		
+					<div class="form-group">
+                        <div class="col-sm-2 control-label">备注信息</div>
+                        <div class="col-sm-10">
+                        	<textarea class="form-control" rows="4" cols="" v-model="cmsCategory.remarks" placeholder="备注信息"></textarea>
+                        </div>
+                    </div>					
+					<div class="form-group">
+		                <div class="col-sm-2 control-label"></div>
+		                <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+		                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+		            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 选择菜单 -->
+<div id="categoryLayer" style="display: none;padding:10px;">
+	<ul id="categoryTree" class="ztree"></ul>
+</div>
+<div id="spiderContent-div" style="display: none;padding:10px;">
+	<div class="form-group">
+       <div class="col-sm-2 control-label">栏目地址：</div>
+       <div class="col-sm-10">
+           <textarea id="spiderUrl" class="form-control" name="url" rows="6" placeholder="请输入栏目URL地址"></textarea>
+       </div>
+   </div>		
+</div>
+<script src="${request.contextPath}/statics/js/modules/cms/cmscategory.js?_${.now?long}"></script>
+</body>
+</html>

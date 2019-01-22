@@ -1,0 +1,80 @@
+<#include "/tjssc/head.html">
+
+<div v-cloak id="divContainer">
+<div class="container lobby-record" data-job="replace">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<tr class="head" style="height: 30px;">
+<th width="130">日期</th>
+<th width="50">0</th>
+<th width="50">1</th>
+<th width="50">2</th>
+<th width="50">3</th>
+<th width="50">4</th>
+<th width="50">5</th>
+<th width="50">6</th>
+<th width="50">7</th>
+<th width="50">8</th>
+<th width="50">9</th>
+<th width="50">单</th>
+<th width="50">双</th>
+<th width="50">大</th>
+<th width="50">小</th>
+<th width="50">龙</th>
+<th width="50">虎</th>
+<th width="50">平</th>
+</tr>
+<tr v-for="(item,index) in dateArr" :class="index%2==0?'odd':'even'">
+<td>{{item}}</td>
+<td>{{lshmtj[index][item]["num0"]}}</td>
+<td>{{lshmtj[index][item]["num1"]}}</td>
+<td>{{lshmtj[index][item]["num2"]}}</td>
+<td>{{lshmtj[index][item]["num3"]}}</td>
+<td>{{lshmtj[index][item]["num4"]}}</td>
+<td>{{lshmtj[index][item]["num5"]}}</td>
+<td>{{lshmtj[index][item]["num6"]}}</td>
+<td>{{lshmtj[index][item]["num7"]}}</td>
+ <td>{{lshmtj[index][item]["num8"]}}</td>
+<td>{{lshmtj[index][item]["num9"]}}</td>
+<td>{{lshmtj[index][item]["dan"]}}</td>
+<td>{{lshmtj[index][item]["shuang"]}}</td>
+<td>{{lshmtj[index][item]["da"]}}</td>
+<td>{{lshmtj[index][item]["xiao"]}}</td>
+<td>{{lshmtj[index][item]["long"]}}</td>
+<td>{{lshmtj[index][item]["hu"]}}</td>
+<td>{{lshmtj[index][item]["lfping"]}}</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			lshmtj:{},
+			dateArr: [],
+			thList:["num0","num1","num2","num3","num4","num5","num6","num7","num8","num9","dan","shuang","da","xiao","long","hu","lfping"],
+		},	
+		methods: {
+			getData: function() {
+				SULX.get(apitjssc.tjssc_lshmtj,function(std,data) {
+					vm.lshmtj = JSON.parse(data).data;
+					vm.lshmtj;
+					for(i=0;i<vm.lshmtj.length;i++) {
+						for(j in vm.lshmtj[i]) {
+							vm.dateArr.push(j);
+						}
+					}
+				});	
+			}
+		},	
+		created: function() {			
+			this.getData();
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

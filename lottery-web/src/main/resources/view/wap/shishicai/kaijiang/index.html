@@ -1,0 +1,142 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩开奖号码 - 开奖直播</title>
+<meta name="keywords" content="重庆时时彩开奖号码,时时彩开奖号码">
+<meta name="description" content="重庆时时彩开奖号码、时时彩开奖记录、开奖结果。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/shishicai/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/shishicai/rightmenu.html"> 
+
+<div class="menu-title">
+历史开奖
+</div>
+<div id="all" v-cloak class="lobby-record">
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second j-app-numswitch">
+<a href="javascript:void(0);" data-class="" @click="changeType('')" :class="flag==''?'cur':''">显示号码</a>
+<a href="javascript:void(0);" data-class="num-bs" @click="changeType('num-bs')" :class="flag=='num-bs'?'cur':''">显示大小</a>
+<a href="javascript:void(0);" data-class="num-oe" @click="changeType('num-oe')" :class="flag=='num-oe'?'cur':''">显示单双</a>
+</td>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="item in kjjl">
+<td>
+<div class="period">{{getTerms(item.periods)}} 期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box rn-shishicai" style="opacity: 1;" :class="flag">
+<div class="record-num rn-shishicai">
+<span v-for="num in item.rank" :class="numOrder[num] +' j-num'+ num +' num-status-' + num" :data-n="num">{{num}}</span>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">{{item.gyhSum}}</span>
+<span class="analysis" :class="item.zhDs.indexOf('单')>-1?'highlight':''">{{item.zhDs}}</span>
+<span class="analysis" :class="item.zhDx.indexOf('大')>-1?'highlight':''">{{item.zhDx}}</span>
+<span class="analysis" :class="item.lh1.indexOf('龙')>-1?'highlight':''">{{item.lh1}}</span>
+<span class="analysis">{{item.qs}}</span>
+<span class="analysis">{{item.zs}}</span>
+<span class="analysis">{{item.hs}}</span>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+    			numOrder:{"0":"","1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":""},
+				flag:"",
+           	},
+            methods: {
+            	changeType: function(v){
+            		vm.flag =v;
+            	},
+            	getData: function(){
+            		SULX.get(apicqssc.cqssc_kjjl,function(status,res) {
+            			var data = JSON.parse(res).data;     
+            			vm.kjjl.splice(0);
+            			for(item in data){
+            				if(item <10){            					
+                				for(item2 in data[item]){                					
+                    				vm.kjjl.push(data[item][item2]);
+                				}	
+            				}            				
+            			}
+            			//重新设置号码样式
+                        var firstArr = vm.kjjl[0];
+            			vm.buildNoColor(firstArr); 
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+    			buildNoColor: function(firstArr){
+    				//取出最新一期开奖的号码，进行样式排序,排序规则如：最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，
+                    //如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，
+                    //以便于查看最近一期开出的某号码的历史分布情况。
+    				
+                    //将原来的样式设置成空值
+                    for(item in vm.numOrder){
+                    	vm.numOrder[item] ="";
+                    }
+                    if(firstArr && firstArr.rank && firstArr.rank.length >0){                	
+                    	var i =0;
+                    	for(index in firstArr.rank){
+                    		//如果该号码已经在前面出现过了，则跳过相同的号码样式设置
+                    		if(vm.numOrder[firstArr.rank[index] + ""]){
+                    			continue;	
+                    		}
+                    		vm.numOrder[firstArr.rank[index] + ""] = "no" + i;
+                    		i++;
+                        }
+                    }				
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData();         		
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

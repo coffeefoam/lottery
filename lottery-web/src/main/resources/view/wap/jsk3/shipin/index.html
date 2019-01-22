@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江苏快3开奖结果,江苏快3开奖直播 - 开奖直播</title>
+<meta name="keywords" content="江苏快3,江苏快3开奖,江苏快3技巧,江苏快3走势图">
+<meta name="description" content="江苏快3开奖结果为江苏快3的玩家提供专业的江苏快3走势图,这里有专业的开奖数据统计、开奖直播视频以及独家的免费参考,不必担心因为没有江苏快3技巧而产生困扰,为您一站解决购彩的烦恼">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/jsk3/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/jsk3/rightmenu.html">
+<iframe src="/assets/dist/vendor/mobile/jsk3/live.html" frameborder="0" width="100%" class="mobile-video"></iframe>
+</div>
+</div>
+
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+            	
+           	},
+            methods: {
+            	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(apijsk3.jsk3_kjjl,function(status,res) {
+            			var data = JSON.parse(res).data;            			
+            			for(item in data){
+            				if(item <10){            					
+                				for(item2 in data[item]){                					
+                    				vm.kjjl.push(data[item][item2]);
+                				}	
+            				}            				
+            			}
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+
+
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">

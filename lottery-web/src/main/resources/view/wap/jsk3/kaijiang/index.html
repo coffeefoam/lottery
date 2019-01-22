@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江苏快3开奖号码 - 开奖直播</title>
+<meta name="keywords" content="江苏快3基本走势,江苏快3现场开奖视频">
+<meta name="description" content="江苏快3频道提供江苏快3开奖信息,开奖历史走势图,投注实用技巧,实时视频直播,好实用的软件,独家技术提供准确率高的投注参考。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+ <#include "/wap/jsk3/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/jsk3/rightmenu.html">
+<div class="menu-title">
+历史开奖
+</div>
+<div id="all" class="lobby-record" v-cloak>
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+<td class="second">总和</td>
+</tr>
+</thead>
+<tbody>
+<tr v-for="item in kjjl">
+<td>
+<div class="period">{{getTerms(item.periods)}}  期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box">
+<div class="lottery-num">
+<i  v-for="num in item.rank" :class="'icp-jsk3-'+num+'-sm'">{{num}}</i>
+</div>
+</div>
+</td>
+<td>
+<div class="lottery-analysis">
+<span class="analysis">{{item.zhSum}}</span>
+<span :class="item.zhDx==='大'?'highlight':''">{{item.zhDx}}</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],
+            	
+           	},
+            methods: {
+               	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(apijsk3.jsk3_kjjl,function(status,res) {
+            			if(status && status ==200){
+            				var data = JSON.parse(res).data;            			
+                			for(item in data){            				        					
+                   				for(item2 in data[item]){                					
+                       				vm.kjjl.push(data[item][item2]);
+                   				}	
+                			}
+            			}            			
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return parseInt(item.substring(item.length -3));
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+</body>
+</html>

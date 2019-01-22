@@ -1,0 +1,89 @@
+<html><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩，时时彩开奖直播，时时彩开奖号码，重庆时时彩技巧，计划软件 - 开奖直播</title>
+<meta name="keywords" content="重庆时时彩开奖视频, 重庆时时彩开奖号码, 重庆时时彩技巧，重庆时时彩计划软件">
+<meta name="description" content="重庆时时彩平台为您提供重庆时时彩开奖号码、时时彩开奖记录、开奖结果等资讯，并为您提供最新时时彩预测，分析，推荐。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/shishicai/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/shishicai/rightmenu.html">
+<div class="menu-title">
+龍虎路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当中断连续开出的同一结果时，则另起一列显示结果；</li>
+<li>3.龙虎说明：”第一球“号码大于“第五球”号码视为【龙】中奖、反之小于视为【虎】中奖。</li>
+</ul>
+</div>
+</div>
+<div id="divContainer" v-cloak>
+<div>
+<div class="container lobby-record t_1">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tbody>
+<tr style="background: #fff;">
+<td>
+<span>
+今日累计：<span class="text-primary">龍（{{lhlz["num1-long"]}}） 虎（{{lhlz["num1-hu"]}}） 和（{{lhlz["num1-he"]}}） </span>
+龍虎
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tbody>
+<tr valign="top">
+<td v-for="item in lhlz['num1']" :class="item.indexOf('虎')>-1?'even':'odd'">
+<span :class="item.indexOf('虎')>-1?'high-light-blue':item.indexOf('龍')>-1?'high-light-red':'high-light-green'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			lhlz:{},
+		},
+		methods:{
+			getData: function(){
+				SULX.get(apicqssc.cqssc_lhlz,function(std,data) {
+                    vm.lhlz = JSON.parse(data).data;			
+                });	
+			}
+		},
+		created:function(){		
+			this.getData();		
+		},
+		
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

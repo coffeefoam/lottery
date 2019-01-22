@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江西11选5,江西11选5开奖直播,江西11选5技巧 - 开奖直播</title>
+<meta name="keywords" content="江西11选5, kl8开奖直播, 江西11选5技巧">
+<meta name="description" content="江西11选5频道提供江西11选5专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/jx11x5/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/jx11x5/rightmenu.html">
+<div class="menu-title">
+玩法技巧
+</div>
+<div class="container-fluid" data-m="mobile">
+<div class="row">
+<#if artList??>
+<#list artList as art>
+<a class="lottery-skill" href="/m/jiqiao/${art.id?c}.html">
+<div class="title">
+<span class="name">${art.title!}</span>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</a>
+</#list>
+</#if>
+
+<div class="lottery-load-more j-skill-more " data-lid="${category.alias!}" data-size="6" data-count="${pageNum?c}">
+点击加载更多<i class="fa fa-spinner" aria-hidden="true"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+
+</body>
+</html>

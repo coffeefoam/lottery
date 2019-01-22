@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京快乐8总和路珠分析</title>
+<meta name="keywords" content="北京快乐8,北京北京快乐8开奖,北京快乐8技巧,北京快乐8走势图">
+<meta name="description" content="北京快乐8频道提供北京快乐8的开奖结果、技巧、走势图和后续的视频直播等等服务。">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head ">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/kl8/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+	<a class="item " href="/kl8/">快乐8</a>
+	<a class="item " href="/kl8/kaijiang/">历史开奖号码</a>
+	<a class="item " href="/kl8/zongheluzhu/">总和路珠</a>
+	<a class="item active" href="/kl8/qiouluzhu/">奇偶盘路珠</a>
+	<a class="item " href="/kl8/shangxialuzhu/">上下盘路珠</a>
+	<a class="item " href="/kl8/shipin/">开奖视频</a>
+	<a class="item " href="/kl8/jiqiao/">快乐8技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div v-cloak id="kl8jolzContainer">
+<div class="container number-filter-title" style="padding: 10px 15px;">
+	<div class="dropdown pull-right">
+		<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+			使用说明<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" style="left: -218px;">
+			<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+			<li>2.当长龙中断时，则另起一列显示结果；</li>
+			<li>3.所有开奖号码中，单数超过10个时为单盘，双数超过10个时为双盘，单双个数均为10时为和盘。</li>
+		</ul>
+	</div>
+</div>
+<div data-job="replace">
+	<div class="container lobby-record t_1">
+		<div class="table-responsive">
+			<table class="table table-bordered text-right">
+				<tr style="background: #f6f6f6;">
+					<td><span>
+							今日累计：<span class="text-primary">奇（{{jostr["奇"]}}） 偶（{{jostr["偶"]}}） 和（{{jostr["和"]}}) </span>
+						</span> 
+						奇偶盘奇偶
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-bordered text-center table-vertical">
+				<tr valign="top">
+					<td v-for="(item,index) in num " :class="(index%2==0)?'even':'odd'">
+						<span v-for="item2 in item" 
+						:class="{'high-light-red': item2 === '奇','high-light-blue': item2 === '偶','high-light-green': item2 === '和'}">
+						{{item2}} 
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+var vm = new Vue({
+	el : '#kl8jolzContainer',
+	data : {
+		jolz:{},
+		jostr:{},
+		num: [],
+	},
+	methods : {
+		getData: function(){
+			SULX.get(apikl8.kl8_jolz,function(std,data) {
+				  vm.jostr = JSON.parse(data).data.jrlj;
+	         	   var data = JSON.parse(data).data;
+	         	   vm.num.splice(0);
+	         	   for(i in data.sxplz){
+	         			vm.num.push(data.sxplz[i])	   
+	         	   }
+			});
+		}
+	},
+	created : function() {
+		this.getData();
+	}
+});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

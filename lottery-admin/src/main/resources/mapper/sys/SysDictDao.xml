@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.modules.sys.dao.SysDictDao">	
+
+	<select id="findList" resultType="io.lottery.modules.sys.entity.SysDictEntity">
+		SELECT 
+			* 
+		FROM sys_dict 
+		WHERE del_flag = '0' 
+		<if test="type != null and type != ''">
+			AND type = #{type}
+		</if>		
+		ORDER BY type, order_num DESC
+	</select>
+	
+
+
+</mapper>

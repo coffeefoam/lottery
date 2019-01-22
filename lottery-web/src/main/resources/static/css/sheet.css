@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .table-style {
+    width: 1186px;
+  }
+  .first-td {
+    width: 180px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+  }
+  .title-td {
+    width: 700px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: #f1f1f1;
+  }
+  .content-td {
+    width: 700px;
+    height: 28px;
+    background: #fbfbfb;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .content-td ul {
+    width: 100%;
+    display: flex; 
+  }
+  .content-td ul li {
+    width: 9.9%;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+    list-style: none;
+    border-right: 1px solid #ccc;
+  }
+  .content-td ul li:last-child {
+    border: none;
+  }
+  .content-td ul li p {
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .middle-td {
+    width: 110px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: #f1f1f1;
+  }
+  .middle-blow {
+    width: 110px;
+    height: 28px;
+    background: #fbfbfb;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .middle-blow ul {
+    width: 100%;
+    display: flex;
+  }
+  .middle-blow ul li {
+    width: 33.33%;
+    height: 28px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    list-style: none;
+    border-right: 1px solid #ccc;
+  }
+  .blue {
+    background: #588dc8;
+    color: #fff;
+  }
+  .green {
+    background: #56b07c;
+    color: #fff;
+  }
+  .qing {
+    background: #61b1da;
+    color: #fff;
+  }
+  .middle-blow ul li:last-child {
+    border: none;
+  }
+  .middle-blow ul li p {
+    font-size: 13px;
+    line-height: 28px;
+    color: inherit;
+  }
+  .little-td {
+    width: 70px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    background: #f1f1f1;
+  }
+  .little-blow {
+    width: 70px;
+    height: 28px;
+    background: #fbfbfb;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .little-blow ul {
+    width: 100%;
+    display: flex;
+  }
+  .little-blow ul li {
+    width: 50%;
+    height: 28px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    list-style: none;
+    border-right: 1px solid #ccc;
+  }
+  .little-blow ul li:last-child {
+    border: none;
+  }
+  .little-blow ul li p {
+    font-size: 13px;
+    line-height: 28px;
+  }
+  .container-div {
+    width: 180px;
+    height: 30px;
+    text-align: center;
+    background: #fff !important;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  .container-div p {
+    font-size: 13px;
+    line-height: 28px;
+    color: #333;
+  }
+  .circle-num {
+    padding-top: 5.5px;
+  }
+  .circle-num p {
+    width: 19px;
+    height: 19px;
+    margin: auto;
+    font-size: 12px;
+    line-height: 16.5px !important;
+    border: 1.5px solid #999;
+    border-radius: 50%;
+    background: #f1f1f1;
+    text-align: center;
+    cursor: pointer;
+  }
+  .circle-num p:hover {
+    background: #e3012c !important;
+    border:1.5px solid #e3012c !important;
+    color: #fff;
+  }
+  .circle-hover {
+    background: #e3012c !important;
+    border:1.5px solid #e3012c !important;
+    color: #fff;
+  }
+  .bg {
+    background: #fff !important;
+  }
+  .nocolor {
+    color: #aaa;
+  }
+  #container {
+    position: relative !important;
+  }
+  #addcanvas  {
+    position: absolute;
+    background: #ccc;
+  }
+  canvas {
+    position: absolute;
+    /* background: #ccc; */
+  }
+  .active1 {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19.5px !important;
+    border-radius: 50%;
+    background: #ec5a16;
+    text-align: center;
+    cursor: pointer;
+  }
+  .low-height {
+    height: 28px !important;
+  }
+  .high-height {
+    height: 30px !important;
+  }
+  .cold {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19.5px !important;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: #1e73d3 !important;
+  }
+  .hot {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19.5px !important;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: #e3012c !important;
+  }

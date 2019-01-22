@@ -1,0 +1,130 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车pk10,北京赛车pk10开奖直播,北京赛车pk10技巧 - 开奖直播</title>
+<meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+<meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div id="all" v-cloak>
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/pk10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/pk10/rightmenu.html">
+<div class="menu-title">
+两面投注参考
+</div>
+<div class="container number-filter-title">
+<a name="mark"></a>
+<ul class="ball">
+<li><a href="javascript:;" :class="numFlag==1?'cur':''" @click="changeNum(1)">冠军</a></li>
+<li><a href="javascript:;" :class="numFlag==2?'cur':''" @click="changeNum(2)">亚军</a></li>
+<li><a href="javascript:;" :class="numFlag==3?'cur':''" @click="changeNum(3)">第三名</a></li>
+<li><a href="javascript:;" :class="numFlag==4?'cur':''" @click="changeNum(4)">第四名</a></li>
+<li><a href="javascript:;" :class="numFlag==5?'cur':''" @click="changeNum(5)">第五名</a></li>
+<li><a href="javascript:;" :class="numFlag==6?'cur':''" @click="changeNum(6)">第六名</a></li>
+<li><a href="javascript:;" :class="numFlag==7?'cur':''" @click="changeNum(7)">第七名</a></li>
+<li><a href="javascript:;" :class="numFlag==8?'cur':''" @click="changeNum(8)">第八名</a></li>
+<li><a href="javascript:;" :class="numFlag==9?'cur':''" @click="changeNum(9)">第九名</a></li>
+<li><a href="javascript:;" :class="numFlag==10?'cur':''" @click="changeNum(10)">第十名</a></li>
+</ul>
+<div style="color: #d94136; margin-bottom: 10px;">
+*以每10期为一组，统计最近20组中单双大小的出现次数。
+</div>
+</div>
+<div>
+<div class="container lobby-record">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th><b>日期</b></th>
+<th width="20%"><b>单</b></th>
+<th width="20%"><b>双</b></th>
+<th width="20%"><b>大</b></th>
+<th width="20%"><b>小</b></th>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="(item,index) in tableData" :class="index%2==0?'odd':'even'">
+<td class="text-center" style="padding: 0 3px;">
+{{buildDate(item.time)}} {{buildTerms(item)}} 
+</td>
+<td>{{item["dan"]}}</td>
+<td>{{item["shuang"]}}</td>
+<td>{{item["da"]}}</td>
+<td>{{item["xiao"]}}</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	lmtzck:[],
+            	numFlag:1,
+            	tableData:[],
+           	},
+            methods: {
+            	getData: function(){
+            		SULX.get(apipk10.bjsc_lmtzck,function(status,res) {
+            			vm.lmtzck = JSON.parse(res).data; 
+            			 //首次组装数据
+            			 vm.tableData.splice(0);
+	               		 for(item in vm.lmtzck){
+	               			 for(item2 in vm.lmtzck[item]){
+	               				var obj = vm.lmtzck[item][item2]["num" + vm.numFlag];
+	               				vm.tableData.push(obj);
+	               			 }            			
+	               		 }
+            		});
+            	},
+            	buildDate: function(t){
+            		return formatDate(new Date(t),"MM-dd");            		            		
+            	},
+            	buildTerms: function(item){
+            		var begin = item.beginPeriods;
+            		var end = item.endPeriods +"";
+            		return begin.substring(3) +"-"+ end.substring(3);           		            		
+            	},
+            	changeNum: function(index){
+            		if(this.tableData && this.tableData.length >0){
+            			this.tableData.splice(0);
+            		}            		 
+            		this.numFlag = index; 
+            		 //组装数据
+            		 for(item in this.lmtzck){
+            			 for(item2 in this.lmtzck[item]){
+            				var obj = this.lmtzck[item][item2]["num" + this.numFlag];
+            				this.tableData.push(obj);
+            			 }            			
+            		 }
+            	},
+            },
+        	created: function() {
+        		this.$options.methods.getData();        		 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

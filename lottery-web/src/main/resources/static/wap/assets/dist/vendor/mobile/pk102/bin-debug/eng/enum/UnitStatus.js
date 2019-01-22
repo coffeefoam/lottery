@@ -1,0 +1,1 @@
+var game;!function(a){var t;!function(a){a[a.standby=1]="standby",a[a.move=2]="move",a[a.accelerate=3]="accelerate"}(t=a.UnitStatus||(a.UnitStatus={}))}(game||(game={}));

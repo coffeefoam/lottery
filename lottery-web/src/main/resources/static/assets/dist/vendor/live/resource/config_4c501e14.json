@@ -1,0 +1,47 @@
+﻿{
+  "isDebug": false,
+  "display_version": false,
+  "awardLines": [
+    "/marksix"
+  ],
+  "toolBarUrl": [
+    "/6hc",
+    "/6hc/chzhfx",
+    "/6hc/tmsxzs"
+  ],
+  "zodiacPath": "/chart/GetMarkSixNumbers",
+  "adPath": "http://ad.1396c.com/service/adjs",
+  "debug_awardData": {
+    "id": 26,
+    "nextid": 27,
+    "year": 2017,
+    "day": "3月7日",
+    "time": "21点30分",
+    "week": "星期二",
+    "type": 5,
+    "info": "",
+    "ma": [
+      2,
+      "猴",
+      "red",
+      23,
+      "猪",
+      "red",
+      26,
+      "猴",
+      "blue",
+      9,
+      "牛",
+      "blue",
+      41,
+      "蛇",
+      "blue",
+      42,
+      "龙",
+      "blue",
+      48,
+      "狗",
+      "blue"
+    ]
+  }
+}

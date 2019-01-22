@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京赛车pk10,北京赛车pk10开奖直播,北京赛车pk10技巧 - 开奖直播</title>
+<meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+<meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/pk10/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top"></div>
+<#include "/wap/pk10/rightmenu.html">
+<div class="menu-title">
+龍虎历史
+</div>
+
+<div id="all" v-cloak>
+<div class="container lobby-record">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th width="160">日期</th>
+<th width="200" colspan="2">冠军</th>
+<th width="200" colspan="2">亚军</th>
+<th width="200" colspan="2">第三名</th>
+<th width="200" colspan="2">第四名</th>
+<th width="200" colspan="2">第五名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td width="100">龍</td>
+<td width="100">虎</td>
+<td width="100">龍</td>
+<td width="100">虎</td>
+<td width="100">龍</td>
+<td width="100">虎</td>
+<td width="100">龍</td>
+<td width="100">虎</td>
+<td width="100">龍</td>
+<td width="100">虎</td>
+</tr>
+<tr v-for="(item,index) in lhls" :class="index%2==0?'odd':'even'">
+<td>{{buildKey(item)}}</td>
+<td>{{buildData(item)["num1_龙"]}}</td>
+<td>{{buildData(item)["num1_虎"]}}</td>
+<td>{{buildData(item)["num2_龙"]}}</td>
+<td>{{buildData(item)["num2_虎"]}}</td>
+<td>{{buildData(item)["num3_龙"]}}</td>
+<td>{{buildData(item)["num3_虎"]}}</td>
+<td>{{buildData(item)["num4_龙"]}}</td>
+<td>{{buildData(item)["num4_虎"]}}</td>
+<td>{{buildData(item)["num5_龙"]}}</td>
+<td>{{buildData(item)["num5_虎"]}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	lhls: [],            	
+           	},
+            methods: {
+            	getData: function(){
+            		SULX.get(apipk10.bjsc_lhls,function(status,res) {
+            			var data = JSON.parse(res).data;            			
+            			vm.lhls = data;
+            		});
+            	}, 
+            	buildData: function(data){            		
+            		for(item in data){
+            			return data[item];
+            		}
+            	},
+            	buildKey: function(data){ 
+            		var key = undefined;
+            		for(item in data){
+            			key = item;
+            		}
+            		return formatDate(new Date(key),"MM-dd");
+            	},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

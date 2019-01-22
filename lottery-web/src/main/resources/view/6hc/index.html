@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+        <title>六合彩走势图表_开奖记录结果、预测、软件下载、直播</title>
+        <meta name="keywords" content="广东快乐十分走势图表，广东快乐十分开奖记录、广东快乐十分开奖直播">
+        <meta name="description"  content="官方实时同步广东快乐十分开奖结果、提供走势图分析、在线直播平台、结果预测，软件下载等广东快乐十分彩票服务，方便广大彩民，【开奖直播网】拥有16年彩票分析经验。">
+        <#include "/common/header.html">
+        <link rel="stylesheet" href="/static/css/6hc.css">
+        <link rel="stylesheet" href="/static/css/6hca.css">
+        <link rel="stylesheet" href="/static/css/6hcb.css">
+        <script src="/static/js/6hca.js"></script>
+        <script src="/static/js/jquery.min.js"></script>
+        <style>
+            	[v-cloak] {
+                    opacity: 0 !important;
+                }
+                .highcharts-legend {
+                    display: none !important;
+                }
+                .highcharts-credits {
+                    display: none !important;
+                }
+                .btn-spe {
+                    width: 90px;
+                    height: 30px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    color: #000;
+                    text-align: center;
+                    margin-right: 9px;
+                    cursor: pointer;
+                }
+                .btn-other {
+                    background: #d94136;
+                    border: 1px solid #d94136 !important;
+                    color: #fff !important;
+                }
+                .btn-spe p {
+                    font-size: 15px;
+                    line-height: 26px;
+                    color: inherit;
+                }
+                .lobby-chart .go-live img.play {
+                    top: 70px !important;
+                    left: 0px !important;
+                }
+        </style>
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+        <div v-cloak id="alls">
+        <nav id="mainNav" class="navbar navbar-default">
+            <#include "/common/nav.html">
+        </nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                        <#include "/common/menu.html">
+                        <div style="padding-bottom: 0px; display: flex" class="lottery-result">
+                                <div class="text-can">
+                                    <div class="text-l-can">
+                                        <div class="top-t-can">
+                                            <p>{{'距'+timer}}</p>
+                                            <span>{{getWeeknd(tableData.xqkjsj)}}</span>
+                                            <span style="color: #d94136">{{tableData.xqqs}}</span>
+                                            <p>期开奖剩余</p>
+                                        </div>
+                                        <div class="big-can">
+                                            <b>{{hours}}</b>
+                                            <b>{{':'+minite}}</b>
+                                            <b>{{':'+seconds}}</b>
+                                        </div>
+                                    </div>
+                                    <div class="btn-can">
+                                        <ul>
+                                            <li>
+                                                <a href="/6hc/shipin">开奖直播</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="r-can">
+                                    <div class="de-text-can">
+                                        <p>{{tableData.dqqs?tableData.dqqs+'期':00+'期'}}</p>
+                                        <span>开奖日期：</span>
+                                        <span>{{tableData.dqkjsj}}</span>
+                                    </div>
+                                    <div class="num-can">
+                                        <ul>
+                                            <li>
+                                                <div :class="boserank[0]+'-ball'">
+                                                    <p>{{num[0]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[0]+'/'}}</p>
+                                                <span>{{wuxing[0]}}</span>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[1]+'-ball'">
+                                                    <p>{{num[1]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[1]+'/'}}</p>
+                                                <span>{{wuxing[1]}}</span>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[2]+'-ball'">
+                                                    <p>{{num[2]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[2]+'/'}}</p>
+                                                <span>{{wuxing[2]}}</span>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[3]+'-ball'">
+                                                    <p>{{num[3]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[3]+'/'}}</p>
+                                                <span>{{wuxing[3]}}</span>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[4]+'-ball'">
+                                                    <p>{{num[4]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[4]+'/'}}</p>
+                                                <span>{{wuxing[4]}}</span>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[5]+'-ball'">
+                                                    <p>{{num[5]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[5]+'/'}}</p>
+                                                <span>{{wuxing[5]}}</span>
+                                            </li>
+                                            <li>
+                                                <div class="add"></div>
+                                            </li>
+                                            <li>
+                                                <div :class="boserank[6]+'-ball'">
+                                                    <p>{{num[6]}}</p>
+                                                </div>
+                                                <p>{{shengxiao[6]+'/'}}</p>
+                                                <span>{{wuxing[6]}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div style="border-bottom: 1px solid #e5e5e5; padding-top: 15px;" class="lottery-list">
+                        <a class="item active" href="index.html">六合开奖</a>
+                        <a class="item" href="/6hc/shipin">开奖视频</a>
+                        <a class="item" href="/6hc/chzhfx">出号综合分析</a>
+                        <a class="item" href="/6hc/tmsxzs">特码生肖走势</a>
+                        <a class="item" href="/6hc/tmbszs">特码波色走势</a>
+                        <a class="item" href="/6hc/tmdszs">特码单双走势</a>
+                        <a class="item" href="/6hc/tmdwzs">特码段位走势</a>
+                        <a class="item" href="/6hc/tmbszs">特码头数走势</a>
+                        <a class="item" href="/6hc/tmwszs">特码尾数走势</a>
+                        <a class="item" href="/6hc/tmwxzs">特码五行走势</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+			<div class="BigBox">
+				<div class="box">
+					<div class="box_l">
+						<span class="year">年份</span>
+						<ul class="years_list"><li class="active">2018</li><li>2017</li><li>2016</li><li
+								class="">2015</li><li>2014</li><li>2013</li><li>2012</li><li>2011</li><li>2010</li><li>2009</li><li>2008</li><li>2007</li><li>2006</li><li>2005</li><li>2004</li><li>2003</li><li>2002</li><li>2001</li><li>2000</li><li>1999</li><li>1998</li><li>1997</li><li>1996</li><li>1995</li><li>1994</li><li>1993</li><li>1992</li><li>1991</li><li>1990</li><li>1989</li><li>1988</li><li>1987</li><li>1986</li><li>1985</li><li>1984</li><li>1983</li><li>1982</li><li>1981</li><li>1980</li><li>1979</li><li>1978</li><li>1977</li><li>1976</li></ul>
+					</div>
+					<div class="box_r">
+						<div class="listhead"><span>2018年开奖记录</span></div>
+						<div class="listbox">
+							<div class="hmfb">
+								<h1>号码分布</h1>
+								<ul class="xzhm">
+									<li class="title">选择号码 ：</li>
+									<li class="first_li aone"><i></i>
+										<a href="#zhmaOne">正码一</a>
+									</li>
+									<li class="atwo"><i></i>
+										<a href="#zhmaTwo">正码二</a>
+									</li>
+									<li class="athree"><i></i>
+										<a href="#zhmaThree">正码三</a>
+									</li>
+									<li class="afour"><i></i>
+										<a href="#zhmaFour">正码四</a>
+									</li>
+									<li class="afive"><i></i>
+										<a href="#zhmaFive">正码五</a>
+									</li>
+									<li class="asix"><i></i>
+										<a href="#zhmaSix">正码六</a>
+									</li>
+									<li class="aseven"><i></i>
+										<a href="#zhmaSeven">特码</a>
+									</li>
+								</ul>
+								<ul class="xzsx">
+									<li class="title">选择属性 ：</li>
+									<li lang="1" class="first_li">
+										<a href="#zoo" class="checked">生肖</a>
+									</li>
+									<li lang="2">
+										<a href="#fiveElement">五行</a>
+									</li>
+									<li lang="3">
+										<a href="#homeOrbeast">家禽野兽</a>
+									</li>
+									<li lang="4">
+										<a href="#boyOrgirl">男女生肖</a>
+									</li>
+									<li lang="5">
+										<a href="#topOrbottom">天地生肖</a>
+									</li>
+									<li lang="6">
+										<a href="#fourSeasons">四季生肖</a>
+									</li>
+									<li lang="7">
+										<a href="#qinqsh">琴棋书画</a>
+									</li>
+									<li lang="8">
+										<a href="#threeColor">三色生肖</a>
+									</li>
+								</ul>
+								<ul class="xztj">
+									<li class="title">选择条件 ：</li>
+									<div class="zoo">
+										<!--生肖-->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">鼠</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">牛</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">虎</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">兔</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">龙</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">蛇</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">马</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">羊</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">猴</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">鸡</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">狗</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">猪</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="fiveElement">
+										<!--五行-->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">金</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">木</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">水</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">火</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">土</a>
+											</li>
+
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="homeOrbeast">
+										<!--家禽野兽-->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">家禽</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">野兽</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="boyOrgirl">
+										<!--男女生肖 -->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">男肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">女肖</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="topOrbottom">
+										<!--天地生肖 -->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">天肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">地肖</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="fourSeasons">
+										<!--四季生肖 -->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">春肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">夏肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">秋肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">冬肖</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="qinqsh">
+										<!--琴棋书画 -->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">琴肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">棋肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">书肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">画肖</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+									<div class="threeColor">
+										<!--三色生肖 -->
+										<ul>
+											<li class="first_li"><i></i>
+												<a href="javascript:void(0)">红肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">蓝肖</a>
+											</li>
+											<li><i></i>
+												<a href="javascript:void(0)">绿肖</a>
+											</li>
+											<li><input type="button" name="" id="" value="还原" class="return"></li>
+										</ul>
+									</div>
+								</ul>
+							</div>
+							<div class="hmfbTable" id="hmfbTable">
+
+								<div class="hisNUm_box box-title">
+									<ul>
+										<li class="Time_box">日期/期数</li>
+										<li class="hisNum_detail">正码</li>
+										<li class="temaNum">特码</li>
+										<li class="zonghe">
+											<ul class="in_ul">
+												<li style="width:100%">总和</li>
+												<li>总数</li>
+												<li>单双</li>
+												<li>大小</li>
+												<li>七色波</li>
+											</ul>
+										</li>
+										<li class="tema_box">
+											<ul class="in_ul">
+												<li>特码</li>
+												<li>单双</li>
+												<li>大小</li>
+												<li>合单双</li>
+												<li>合大小</li>
+												<li>尾大小</li>
+											</ul>
+										</li>
+
+									</ul>
+								</div>
+								<div class="hisNUm_box number_box"><ul><li class="Time_box"><span>2018-09-11</span><span>103期</span></li><li
+											class="hisNum_detail"><ul><li class="One"data-text="鸡"
+													style="opacity: 1;"><span class="green">38</span> <span>鸡</span></li><li
+													class="Two"data-text="虎" style="opacity: 1;"><span class="red">45</span>
+													<span>虎</span></li><li class="Three"data-text="鼠" style="opacity:
+													1;"><span class="blue">47</span> <span>鼠</span></li><li class="Four"data-text="龙"
+													style="opacity: 1;"><span class="blue">31</span> <span>龙</span></li><li
+													class="Five"data-text="狗" style="opacity: 1;"><span class="green">49</span>
+													<span>狗</span></li><li class="Six"data-text="猪" style="opacity:
+													1;"><span class="blue">36</span> <span>猪</span></li></ul></li><li
+											class="temaNum Seven"data-text="狗" style="opacity: 1;"><span
+												class="blue">37</span> <span>狗</span></li><li class="Daxia_dansh
+											dansh_">283</li><li class="Daxia_dansh">单</li><li class="Daxia_dansh"
+											style="color: rgb(248, 34, 60);">大</li><li class="Daxia_dansh"
+											style="color: rgb(0, 147, 232);">蓝</li><li class="Daxia_dansh">单</li><li
+											class="Daxia_dansh" style="color: rgb(248, 34, 60);">大</li><li
+											class="Daxia_dansh" style="color: rgb(248, 34, 60);">合双</li><li
+											class="Daxia_dansh" style="color: rgb(248, 34, 60);">合大</li><li
+											class="Daxia_dansh" style="color: rgb(248, 34, 60);">尾大</li></ul></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+        </div>
+<#include "/common/foot.html">
+    <script>
+            var vm = new Vue({
+                el: '#alls',
+                data: {
+                    tableData: [],
+                    timer: null,
+                    click: [],
+                    num: [],
+                    shengxiao: [],
+                    wuxing: [],
+                    flag: 0,
+                    hours: '00',
+                    minite: '00',
+                    seconds: '00',
+                    boserank:[],
+                },
+                methods: {
+                    getWeeknd: function(time) {
+                        var wknd = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+                        var index = new Date(time).getDay();
+                        return wknd[index]
+                    },
+                    getData: function() {
+                        SULX.get(api6hc.lhc_zxkj, function(std, data) {
+                            var reselt = JSON.parse(data).data;
+                            vm.timer = formatDate(new Date(reselt.xqkjsj), 'yyyy-MM-dd');
+                            vm.tableData = reselt;
+                            vm.num = reselt.dqhm;
+                            vm.shengxiao = reselt.sxrank;
+                            vm.wuxing = reselt.wxrank;
+                            vm.boserank = reselt.boserank;
+                        })
+                    },
+                    getNewGame: function() {
+                        SULX.get(api6hc.lhc_zxkj, function(std,data) {
+                                var result = JSON.parse(data).data;
+                                var localTimer = JSON.parse(data).timestamp;
+                                var timer = Math.ceil((result.xqkjsj - localTimer)/1000); 
+                                var otherClick;
+                                if(timer === 0||timer < 0) {                                                                     
+                                    //延时30s,等待开奖,然后在请求最新开奖数据                 		
+ 
+                                        otherClick = setTimeout(function() { 
+                                            
+                                            vm.$options.methods.getNewGame();
+                                        },5000);
+                           
+                                } else {
+                                    vm.timeFlag = true;
+                                    try {
+                                        vm.$options.methods.getData();
+                                    }catch(e){}	
+                                    clearTimeout(otherClick);
+                                    var hours = Math.floor(timer/3600);
+                                    var min = Math.ceil((timer%3600)/60);
+                                    var scd = Math.ceil(timer%60);
+                                    
+                                    var click = setInterval(
+                                        function() {
+
+                                            scd --;
+                                            if((hours === 0&&min === 0&&scd === 0)||hours < 0) {
+
+                                                clearInterval(click);
+                                                vm.$options.methods.getNewGame();
+                                                // vm.$options.methods.draw(vm.flag);
+                                            } else {
+                                                if(min < 0) {
+                                                    hours --;
+                                                    min = 59;
+                                                }
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                            vm.hours = hours;
+                                            vm.minite = min;
+                                            vm.seconds = scd;
+                                            if((hours+'').length === 1) {
+                                                vm.hours = '0'+ hours     //加个0
+                                            }
+                                            if((min+'').length === 1) {
+                                                vm.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                                vm.seconds = '0'+scd
+                                            }
+                                        }
+                                    ,1000)
+                                }
+                                try {
+                                    vm.gameData = result;
+                                }catch(e){}	
+                            }
+                        )
+                    }
+                },
+                created: function() {
+                    this.getData();
+                    this.getNewGame();
+                },
+            })
+        </script>
+        <script src="/static/js/config.js"></script>
+        <script src="/static/js/6hchistory.js"></script>
+        <script src="/static/js/GA.js"></script>
+    </body>
+
+</html>

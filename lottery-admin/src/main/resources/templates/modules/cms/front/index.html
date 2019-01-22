@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>${config.title!}</title>
+<meta name="keywords" content="${config.keywords!}">
+<meta name="description" content="${config.description!}">
+
+<!-- 引入头部文件 -->
+<#include "header.html">
+<div class="skill-box">
+<!-- 一个栏目 -->
+<#if categoryList??>
+<#list categoryList as cat>
+<div class="lottery-each">
+<div class="name">
+	${cat.name!}
+	<a class="more" href="${ctxPath!}/jiqiao/list/${cat.id?c}-1.html">更多 <strong>+</strong></a>
+	<span class="line"></span>
+</div>
+<div class="head">
+	<div class="title"><a href="${ctxPath!}/jiqiao/article/${cat.tuijianArtId?c}.html">${cat.tuijianTitle!}</a></div>
+	<div class="desc">${cat.tuijianContent!}</div>
+</div>
+<ul class="list">
+	<#if cat.artList??>
+	<#list cat.artList as art>
+	<li>
+		<a href="${ctxPath!}/jiqiao/article/${art.id?c}.html" title="${art.title}" target="newWindow">
+			<span class="spot"></span>
+			<span class="word">${art.title!}</span>
+			<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+		</a>
+	</li>
+	</#list>
+	</#if>	
+</ul>
+</div>
+</#list>
+</#if>
+</div>
+
+<!-- 引入尾部文件 -->
+<#include "footer.html">

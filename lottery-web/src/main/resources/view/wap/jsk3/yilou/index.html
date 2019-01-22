@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>江苏快3号码遗漏 - 开奖直播</title>
+<meta name="keywords" content="江苏快3开奖视频, 江苏快3开奖号码, 江苏快3技巧，江苏快3计划软件">
+<meta name="description" content="江苏快3路珠分析频道专门为江苏快3的玩家提供专业的江苏快3路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+ <#include "/wap/jsk3/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/jsk3/rightmenu.html">
+<div class="menu-title">
+号码遗漏统计
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格统计了不同条件下号码的出现次数及遗漏（未出现）次数；</li>
+<li>2.输代表截止当前未出现的总次数，赢代表截止当前连续出现的总次数；</li>
+<li>3.点击向上或向下的三角标识，可按对应标签的出现次数排序。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="divContainer" v-cloak>
+<!-- 
+<div class="container number-filter-title">
+<a name="mark"></a>
+<ul class="ball">
+<li><a  :class="type==='zhdaxiao'?'cur':''" @click="change('zhdaxiao')">总和大小</a></li>
+<li><a  :class="type==='zhdanshuang'?'cur':''"  @click="change('zhdanshuang')">总和单双</a></li>
+<li><a  :class="type==='zhdianshu'?'cur':''"  @click="change('zhdianshu')">点数</a></li>
+<li><a :class="type==='duanpai'?'cur':''"  @click="change('duanpai')">短牌</a></li>
+<li><a :class="type==='changpai'?'cur':''"  @click="change('changpai')">长牌</a></li>
+<li><a  :class="type==='sanjun'?'cur':''"  @click="change('sanjun')">三军</a></li>
+<li>
+<div class="dropdown">
+<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+使用说明<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格统计了不同条件下号码的出现次数及遗漏（未出现）次数；</li>
+<li>2.输代表截止当前未出现的总次数，赢代表截止当前连续出现的总次数；</li>
+</ul>
+</div>
+</li>
+</ul>
+</div> -->
+
+<div class="container number-filter-title">
+<a name="mark"></a>
+<ul class="ball">
+<li><a href="javascript:;" :class="type==='zhdaxiao'?'cur':''" @click="change('zhdaxiao')">总和大小</a></li>
+<li><a href="javascript:;" :class="type==='zhdanshuang'?'cur':''" @click="change('zhdanshuang')">总和单双</a></li>
+<li><a href="javascript:;" :class="type==='zhdianshu'?'cur':''" @click="change('zhdianshu')">点数</a></li>
+<li><a href="javascript:;" :class="type==='duanpai'?'cur':''" @click="change('duanpai')">短牌</a></li>
+<li><a href="javascript:;" :class="type==='changpai'?'cur':''" @click="change('changpai')">长牌</a></li>
+<li><a href="javascript:;" :class="type==='sanjun'?'cur':''" @click="change('sanjun')">三军</a></li>
+</ul>
+</div>
+<div class="container lobby-record">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>号码</th>
+<!-- <th>遗漏输赢</th> -->
+<th>今日出现</th>
+<th>今日遗漏</th>
+<th>本周遗漏</th>
+<th>本月遗漏</th>
+</tr>
+</thead>
+<tr v-for="(index,item) in tdata"   :class="index%2==0?'even':'odd'">
+<td width="119px">
+{{item}}
+</td>
+<!-- <td width="119px">
+<span class="win">
+赢3
+</span>
+</td> -->
+<td width="119px">
+{{index["jrcx"]}}
+</td>
+<td width="119px">
+{{index["jryl"]}}
+ </td>
+<td width="119px">
+{{index["bzyl"]}}
+</td>
+<td width="119px">
+{{index["byyl"]}}
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			hmyl:[],
+			tdata:[],
+			type:'sanjun'
+		},	
+		methods:{
+			change(type){
+				this.type=type;
+				vm.tdata=vm.hmyl[type];
+			},
+			getData: function(){
+				//位置遗漏
+				SULX.get(apijsk3.jsk3_hmyl,function(std,data) {
+	                	vm.hmyl = JSON.parse(data).data;
+	                	vm.tdata = vm.hmyl['sanjun'];
+	                }                
+	            );
+
+			}
+		},
+		created:function(){	
+			this.getData();
+		}	
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

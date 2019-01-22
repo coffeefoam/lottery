@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+        <title>北京赛车pk10单双大小参考</title>
+        <meta name="keywords" content="北京赛车pk10, pk10开奖直播, 北京赛车pk10技巧">
+        <meta name="description" content="北京赛车pk10频道提供北京赛车pk10专业的最新开奖,开奖数据历史,开奖直播视频,投注技巧,遗漏,走势图，全力为彩民提供所有需要的数据。">
+        <#include "/common/header.html">       
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+               
+        <nav id="mainNav" class="navbar navbar-default">
+        <#include "/common/nav.html">
+        </nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                        <#include "/common/menu.html">
+                        <#include "/pk10/kaijiang.html">
+                        <div class="lottery-tips" id="j-lottery-tips"
+                            style='display: none'>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            温馨提示：<span class="j-periods"></span>开奖结果未获取,
+                            继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+                        </div>
+                        <div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+                            data-m="advertisement">
+                        </div>
+                        <div class="lottery-list">
+                            <a class="item"href="../index.html">北京赛车pk10</a>
+                            <a class="item"href="../kaijiang/index.html">pk10开奖</a>
+                            <a class="item"href="../shipin/index.html">pk10开奖直播</a>
+                            <a class="item"href="../yilou/index.html">号码遗漏统计</a>
+                            <a class="item"href="../zonghe/index.html">综合路珠分析</a>
+                            <a class="item"href="../shuangmianluzhu/index.html">单双大小路珠</a>
+                            <a class="item"href="../haomaluzhu/index.html">号码前后路珠</a>
+                            <a class="item"href="../longhuluzhu/index.html">龍虎路珠</a>
+                            <a class="item"href="../longhu/index.html">龍虎历史</a>
+                            <a class="item"href="../guanyaheluzhu/index.html">冠、亚和路珠</a>
+                            <a class="item"href="../guanyahe/index.html">冠亚和历史</a>
+                            <a class="item"href="../guanyaheyilou/index.html">冠亚和遗漏</a>
+                            <a class="item"href="../shuangmian/index.html">单双大小历史</a>
+                            <a class="item"href="../shuangmianzoushitu/index.html">单双大小走势图</a>
+                            <a class="item active" href="index.html">两面投注参考</a>
+                            <a class="item"href="../zoushitu/index.html">横版走势图</a>
+                            <a class="item"href="../jiqiao/index.html">pk10技巧</a>
+                            <a class="item"href="../changlongday/index.html">每日长龙</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-cloak id="all"> 
+        <div class="container dns">
+            <div class="alert alert-warning">
+                如果您访问本网站无故跳转到其他网站，证明您的网络已经被劫持，请修改您的DNS或查看防劫持教程
+                <a href="http://icp.6001ms.com/?name=icp" target="_blank">点击查看防劫持教程</a>
+            </div>
+        </div>
+        <div class="container number-filter-title">
+            <a name="mark"></a>
+            <ul class="ball">
+                <li 
+                v-for="(item,index) in title"><a 
+                style="cursor: pointer;"
+                @click.prevent="changeTable(index)"
+                :class="{cur: flag === index}">{{item}}</a>| </li>
+            </ul>
+            <div style="color: #d94136; margin-bottom: 10px;">
+                *以每10期为一组，统计最近20组中单双大小的出现次数。
+            </div>
+        </div>
+        <div data-job="replace">
+            <div class="container lobby-record">
+                <div class="able-responsive">
+                    <table class="table table-bordered table-striped
+                        text-center">
+                        <thead>
+                            <tr>
+                                <th><b>日期</b></th>
+                                <th width="20%"><b>单</b></th>
+                                <th width="20%"><b>双</b></th>
+                                <th width="20%"><b>大</b></th>
+                                <th width="20%"><b>小</b></th>
+                            </tr>
+                        </thead>
+                        <tr v-for="(item,index) in realData">
+                            <td class="text-center">
+                                <table class="table table-condensed"
+                                    style="width: 80%; margin: 0 auto;
+                                    background: transparent;">
+                                    <tr>
+                                        <td style="border: 0; text-align:
+                                            left;">{{timer[index]}}</td>
+                                        <td style="border: 0; text-align:
+                                            right;"><span>{{item.beginPeriods+ '-' + item.endPeriods+ '期'}}</span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>{{item.dan}}</td>
+                            <td>{{item.shuang}}</td>
+                            <td>{{item.da}}</td>
+                            <td>{{item.xiao}}</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+<#include "/common/foot.html">
+    <script>
+        var vm = new Vue({
+            el: '#all',
+            data: {
+                flag: 0,
+                title: [
+                    '冠军',
+                    '亚军',
+                    '第三名',
+                    '第四名',
+                    '第五名',
+                    '第六名',
+                    '第七名',
+                    '第八名',
+                    '第九名',
+                    '第十名 '
+                ],
+                timer: [],
+                tableData: [],
+                realData: [],
+                gameData: {},
+                paiming: [],
+                minite: 0,
+                seconds: 0,
+                dqqs: '',
+                xqqs: '',
+                timeFlag: true, //
+                numFlag: true, //两个flag控制开奖时的“开奖中。。。”提示
+            },
+            methods: {
+                changeTable(index) {
+                    this.realData.splice(0);
+                    this.flag = index;
+                    var t = 'num'+(index+1);
+                    // console.log(vm.tableData[i][t])
+                    for(i=0;i<vm.tableData.length;i++) {
+                        vm.realData.push(vm.tableData[i][t])
+                    }
+                },
+                getNewGame: function() {
+                	SULX.get(apipk10.bjsc_zxkj,function(std,data) {    
+                                var result = JSON.parse(data).data;
+                                vm.dqqs = result.dqqs.substr(result.dqqs.length-2,2);
+                                
+                                vm.xqqs = Number(result.dqqs.substr(result.dqqs.length-2,2)) + 1;
+                                vm.paiming.splice(0);
+                                var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20);
+                                if(timer === 0||timer < 0) {
+                                    vm.timeFlag = false;
+                                    vm.numFlag = false;
+                                    var otherClick = setTimeout(
+                                        function() {
+                                            // console.log('正在请求')
+                                            vm.$options.methods.getNewGame();
+                                        }
+                                    ,3000)
+                                } else {
+                                    clearTimeout(otherClick);
+                                    vm.timeFlag = true;
+                                    vm.numFlag = true;
+                                    vm.getData();
+                                    // vm.$options.methods.draw();
+                                    var min = Math.floor(timer/60);
+                                    var scd = Math.ceil(timer%60);
+
+                                    var click = setInterval(
+                                        function() {
+                                            vm.minite = min;
+                                            vm.seconds = scd;
+                                            if((min+'').length === 1) {
+                                                vm.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                                vm.seconds = '0'+scd
+                                            }
+                                            scd --;
+
+                                            if((min === 0&&scd === 0)||min <0) {
+                                                clearInterval(click);
+                                                vm.timeFlag = false;
+                                                vm.numFlag = false;
+                                                vm.$options.methods.getNewGame();
+                                                // vm.$options.methods.draw(vm.flag);
+                                            } else {
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                        }
+                                    ,1000)
+                                }
+                                vm.gameData = result;
+                                for(i=0;i<result.dqhm.length;i++) {
+                                    switch(result.dqhm[i]) {
+                                        case 1: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 1 +'-md',
+                                                val: 1
+                                            });
+                                            break;
+                                        case 2: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 2 +'-md',
+                                                val: 2
+                                            });
+                                            break;
+                                        case 3: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 3 +'-md',
+                                                val: 3
+                                            });
+                                            break;
+                                        case 4: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 4 +'-md',
+                                                val: 4
+                                            });
+                                            break;
+                                        case 5: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 5 +'-md',
+                                                val: 5
+                                            });
+                                            break;
+                                        case 6: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 6 +'-md',
+                                                val: 6
+                                            });
+                                            break;
+                                        case 7: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 7 +'-md',
+                                                val: 7
+                                            });
+                                            break;
+                                        case 8: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 8 +'-md',
+                                                val: 8
+                                            });
+                                            break;
+                                        case 9: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 9 +'-md',
+                                                val: 9
+                                            });
+                                            break;
+                                        case 10: 
+                                            vm.paiming.push({
+                                                style: 'icp-pk10-'+ 10 +'-md',
+                                                val: 10
+                                            });
+                                            break;
+                                    }
+                                }
+                            }
+                        )
+                    },
+                getData: function() {
+                	SULX.get(apipk10.bjsc_lmtzck,function(std,data) {
+                        var tip = [];
+                        var short = [];
+                        var result = JSON.parse(data).data;
+                        vm.realData.splice(0);
+                        // short.splice(0);
+                        for(i=0;i<result.length;i++) {
+                            for(j in result[i]) {
+                                tip.push(j.slice(5,7)+'月'+j.slice(8,10)+'日');
+                                short.push(result[i][j])
+                            }
+                        }
+                        vm.timer = tip;
+                        vm.tableData = short;
+                        for(i=0;i<vm.tableData.length;i++) {
+                            vm.realData.push(vm.tableData[i].num1)
+                        }
+                        
+                    }
+                )
+                }
+            },
+            created: function() {
+                this.getData();
+            },
+        })
+    </script>
+    
+</body>
+</html>

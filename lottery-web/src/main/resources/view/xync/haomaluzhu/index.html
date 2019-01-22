@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场号码路珠分析</title>
+<meta name="keywords" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<meta name="description" content="幸运农场路珠分析频道专门为幸运农场的玩家提供专业的幸运农场路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html"> 
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/xync/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-tips hide">
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：51开奖结果未获取, 继续等待自动更新或 <a href="#">手动刷新</a>
+</div>
+<div class="lottery-list">
+<a class="item " href="/xync/index.html">幸运农场</a>
+<a class="item " href="/xync/kaijiang">历史开奖号码</a>
+<a class="item " href="/xync/shipin">开奖直播</a>
+<a class="item " href="/xync/zonghe">综合路珠分析</a>
+<a class="item " href="/xync/heshudanshuangluzhu">合数单双路珠</a>
+<a class="item " href="/xync/longhuluzhu">龍虎路珠</a>
+<a class="item " href="/xync/zongheluzhu">总和路珠</a>
+<a class="item " href="/xync/weishudaxiaoluzhu">尾数大小路珠</a>
+<a class="item " href="/xync/shuangmianluzhu">单双大小路珠</a>
+<a class="item " href="/xync/zhongfabailuzhu">中发白路珠</a>
+<a class="item " href="/xync/dongnanxibeiluzhu">东南西北路珠</a>
+<a class="item active" href="/xync/haomaluzhu">号码路珠</a>
+<a class="item " href="/xync/haomatongji">历史号码统计</a>
+<a class="item " href="/xync/shuangmian">单双大小历史</a>
+<a class="item " href="/xync/shuangmianzoushitu">单双大小走势图</a>
+<a class="item " href="/xync/zoushitu">横版走势图</a>
+<a class="item " href="/xync/touzhu">两面投注参考</a>
+<a class="item " href="/xync/jiqiao">幸运农场技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container number-filter-title" style="padding: 10px 15px;">
+<ul class="list list-many j-checklist" id="ball-choose" data-name="xync_hmlz">
+<li data-c="1">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码1</label>
+</span>
+</li>
+<li data-c="2">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码2</label>
+</span>
+</li>
+<li data-c="3">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码3</label>
+</span>
+</li>
+<li data-c="4">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码4</label>
+</span>
+</li>
+<li data-c="5">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码5</label>
+</span>
+</li>
+<li data-c="6">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码6</label>
+</span>
+</li>
+<li data-c="7">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码7</label>
+</span>
+</li>
+<li data-c="8">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码8</label>
+</span>
+</li>
+<li data-c="9">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码9</label>
+</span>
+</li>
+<li data-c="10">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码10</label>
+</span>
+</li>
+<li data-c="11">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码11</label>
+</span>
+</li>
+<li data-c="12">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码12</label>
+</span>
+</li>
+<li data-c="13">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码13</label>
+</span>
+</li>
+<li data-c="14">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码14</label>
+</span>
+</li>
+<li data-c="15">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码15</label>
+</span>
+</li>
+<li data-c="16">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码16</label>
+</span>
+</li>
+<li data-c="17">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码17</label>
+</span>
+</li>
+<li data-c="18">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码18</label>
+</span>
+</li>
+<li data-c="19">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码19</label>
+</span>
+</li>
+<li data-c="20">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>号码20</label>
+</span>
+</li>
+</ul>
+<div class="right-btns">
+<span class="all-ball j-checkall" data-index="0">全选</span>
+<span class="clear-ball j-checkclear" data-index="0">清空</span>
+</div>
+<div class="dropdown" style="float: right; margin-right: 10px;">
+<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+使用说明<span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果；</li>
+<li>3.“X”表示历史对应的某一期未出现该号码，“√”表示历史对应的某一期未出现了该号码。</li>
+</ul>
+</div>
+</div>
+<div id="divContainer" v-cloak>
+<div data-job="replace" class="j-records">
+
+
+
+<div class="container lobby-record t_1">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num1-gou"]}}） 没来（{{hmlz["num1-cha"]}}）</span>
+号码1
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num1' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+<div class="container lobby-record t_2">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num2-gou"]}}） 没来（{{hmlz["num2-cha"]}}）</span>
+号码2
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num2' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_3">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num3-gou"]}}） 没来（{{hmlz["num3-cha"]}}）</span>
+号码3
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num3' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_4">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num4-gou"]}}） 没来（{{hmlz["num4-cha"]}}）</span>
+号码4
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num2' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+<div class="container lobby-record t_5">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num5-gou"]}}） 没来（{{hmlz["num5-cha"]}}）</span>
+号码5
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num5' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_6">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num6-gou"]}}） 没来（{{hmlz["num6-cha"]}}）</span>
+号码6
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num6' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_7">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num7-gou"]}}） 没来（{{hmlz["num7-cha"]}}）</span>
+号码7
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num7' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_8">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num8-gou"]}}） 没来（{{hmlz["num8-cha"]}}）</span>
+号码8
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num8' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_9">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num9-gou"]}}） 没来（{{hmlz["num9-cha"]}}）</span>
+号码9
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num9' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+<div class="container lobby-record t_10">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num10-gou"]}}） 没来（{{hmlz["num10-cha"]}}）</span>
+号码10
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num10' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_11">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num11-gou"]}}） 没来（{{hmlz["num11-cha"]}}）</span>
+号码11
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num11' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_12">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num12-gou"]}}） 没来（{{hmlz["num12-cha"]}}）</span>
+号码12
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num12' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_13">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num13-gou"]}}） 没来（{{hmlz["num13-cha"]}}）</span>
+号码13
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num13' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container lobby-record t_14">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num14-gou"]}}） 没来（{{hmlz["num14-cha"]}}）</span>
+号码14
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num14' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_15">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num15-gou"]}}） 没来（{{hmlz["num15-cha"]}}）</span>
+号码15
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num15' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<div class="container lobby-record t_16">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num16-gou"]}}） 没来（{{hmlz["num16-cha"]}}）</span>
+号码16
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num16' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_17">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num17-gou"]}}） 没来（{{hmlz["num17-cha"]}}）</span>
+号码17
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num17' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+
+<div class="container lobby-record t_18">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num18-gou"]}}） 没来（{{hmlz["num18-cha"]}}）</span>
+号码18
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num18' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_19">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num19-gou"]}}） 没来（{{hmlz["num19-cha"]}}）</span>
+号码19
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num19' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="container lobby-record t_20">
+<div class="table-responsive">
+<table class="table table-bordered text-right">
+<tr style="background: #f6f6f6;">
+<td>
+<span>
+今日号码累计：<span class="text-primary">总来（{{hmlz["num20-gou"]}}） 没来（{{hmlz["num20-cha"]}}）</span>
+号码20
+</span>
+</td>
+</tr>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered text-center table-vertical">
+<tr valign="top">
+<td v-for="item in hmlz['num20' ]" :class="item.indexOf('√')>-1?'odd':'even'"  >
+<span :class="item.indexOf('√')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+{{item2}}
+</span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			hmlz:{},
+		},	
+		methods:{
+			getData: function(){
+			//单双露珠
+			SULX.get(apixync.xync_hmlz,function(std,data) {
+                    vm.hmlz = JSON.parse(data).data;				
+                }
+            );
+			}
+		},
+		created:function(){			
+		this.getData();
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

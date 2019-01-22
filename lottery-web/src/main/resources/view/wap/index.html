@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>【开奖直播】彩票开奖专业网站</title>
+<meta name="keywords" content="开奖直播,北京赛车pk10开奖直播,北京赛车pk10,pc蛋蛋_pc蛋蛋幸运28,pk10开奖直播,pk10开奖视频,北京赛车,pk10开奖历史,北京赛车开奖记录,pk10官网">
+<meta name="description" content="开奖直播专业开奖直播平台，自主研发北京赛车pk10开奖直播精准数据采集、基于云的北京赛车pk10专业数据分析。用户可以根据自身的需求，有针对性地查看pk10开奖历史记录选号技巧；开奖直播还提供PC蛋蛋，重庆时时彩，幸运飞艇，幸运农场，广东快乐十分等高频彩种的独家开奖直播视频，精准数据分析，统计，专家推荐计划。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/cssjs.html">
+<style>
+    .no-green {
+        background: #3bb45b !important;
+    }
+    .masker {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .masker img {
+        width: 30px;
+        height: 30px;
+        margin-top: 50%;
+        }
+</style>
+</head>
+<body>
+        
+<nav class="navbar nav-mobile-header" data-m="mobile">
+<a href="index.html">
+<script type="text/javascript">
+//<![CDATA[
+window.__mirage2 = {petok:"4a05e25f4926b93013f4b33ace357f079be0fcc1-1533526043-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="/static/wap/assets/dist/js/mirage2.min.js"></script>
+<img data-cfsrc="/static/assets/dist/img/logo.png" class="logo" alt="开奖直播" style="display:none;visibility:hidden;">
+<noscript><img src="/static/assets/dist/img/logo.png" class="logo" alt="开奖直播"></noscript>
+</a>
+<div class="left-menu-icon" id="left-menu-icon">
+<i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+</nav>
+<#include "/wap/common/leftmenu.html">
+
+<div v-cloak id="all" class="container-fluid main" data-m="advertisement">
+<div class="row">
+<div class="pay-show has-margin" data-pay="Icp_M_Lottery_Top"></div>
+<div class="lottery-index">
+<a class="head" href="/m/pk10/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/pk10.png" class="logo" alt="pk10" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/pk10.png" class="logo" alt="pk10"></noscript>
+<span class="name">北京赛车PK10</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{pk10.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{pk10.minite}}:{{pk10.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+    <div v-show="pk10.timeFlag" class="item-container">
+        <div v-for="num in pk10.zxkj.dqhm" :class="['item-style', 'spe-'+num]">
+            <p>{{num}}</p>
+        </div>
+    </div>
+<div v-show="!pk10.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/pk10/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/pk10/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/pk10/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="shishicai/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/shishicai.png" class="logo" alt="shishicai" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wapassets/dist/img/lottery-logo/shishicai.png" class="logo" alt="shishicai"></noscript>
+<span class="name">重庆时时彩</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{cqssc.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{cqssc.minite}}:{{cqssc.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="cqssc.timeFlag" v-for="num in cqssc.zxkj.dqhm" class="no-default">{{num}}</i>
+<div v-show="!cqssc.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/shishicai/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/shishicai/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/shishicai/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="gdkl10/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/gdkl10.png" class="logo" alt="gdkl10" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/gdkl10.png" class="logo" alt="gdkl10"></noscript>
+<span class="name">广东快乐十分</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{gdkl10.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{gdkl10.minite}}:{{gdkl10.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="gdkl10.timeFlag" v-for="num in gdkl10.zxkj.dqhm" class="no-default" :class="num>=20?'no-red':''">{{num}}</i>
+<div v-show="!gdkl10.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/gdkl10/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/gdkl10/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/xyft/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/xyft.png" class="logo" alt="xyft" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/xyft.png" class="logo" alt="xyft"></noscript>
+<span class="name">幸运飞艇</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{xyft.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{xyft.minite}}:{{xyft.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+    <div v-show="xyft.timeFlag" class="item-container">
+        <div v-for="num in xyft.zxkj.dqhm" :class="['item-style', 'spe-'+num]">
+            <p>{{num}}</p>
+        </div>
+    </div>
+<div v-show="!xyft.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/xyft/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/xyft/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/xyft/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+
+<div class="lottery-index">
+<a class="head" href="/m/gd11x5/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/gd11x5.png" class="logo" alt="gd11x5" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/gd11x5.png" class="logo" alt="gd11x5"></noscript>
+<span class="name">广东11选5</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{gd11x5.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{gd11x5.minite}}:{{gd11x5.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="gd11x5.timeFlag" v-for="num in gd11x5.zxkj.dqhm" class="no-default">{{num}}</i>
+<div v-show="!gd11x5.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/gd11x5/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/gd11x5/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/kl8/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/kl8.png" class="logo" alt="kl8" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/kl8.png" class="logo" alt="kl8"></noscript>
+<span class="name">快乐8</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+ <span class="period">第<span class="num">{{kl8.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{kl8.minite}}:{{kl8.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num lottery-num-kl8">
+<i v-show="kl8.timeFlag" v-for="num in kl8.num1" class="kl8" :class="num>40?'kl8-bno':'kl8-sno'">{{num}}</i>
+<br v-show="kl8.timeFlag"/>
+<i v-show="kl8.timeFlag" v-for="num in kl8.num2" class="kl8" :class="num>40?'kl8-bno':'kl8-sno'">{{num}}</i>
+<div v-show="!kl8.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/kl8/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/kl8/zongheluzhu/index.html"><i class="iconfont icon-biaoge"></i>总和路珠</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/xync/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/xync.png" class="logo" alt="xync" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/xync.png" class="logo" alt="xync"></noscript>
+<span class="name">幸运农场</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{xync.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{xync.minite}}:{{xync.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="xync.timeFlag" v-for="num in xync.zxkj.dqhm" :class="'icp-xync-'+ buildXyncNum(num) +'-md'">{{num}}</i>
+<div v-show="!xync.timeFlag" class="lotterying">
+    <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/xync/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/xync/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/xync/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/pcdd/">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/pcdd.png" class="logo" alt="pcdd" src="/static/wap/assets/dist/img/lottery-logo/pcdd.png">
+<span class="name">PC蛋蛋</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" src="/static/wap/assets/dist/img/arrow-right.png">
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{pcdd.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{pcdd.minite}}:{{pcdd.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="pcdd.timeFlag" class="pcdd-plus">{{pcdd.nums[0]}}</i>
+<i v-show="pcdd.timeFlag" class="pcdd-plus">+</i>
+<i v-show="pcdd.timeFlag" class="pcdd-plus">{{pcdd.nums[1]}}</i>
+<i v-show="pcdd.timeFlag" class="pcdd-plus">+</i>
+<i v-show="pcdd.timeFlag" class="pcdd-plus">{{pcdd.nums[2]}}</i>
+<i v-show="pcdd.timeFlag" class="pcdd-plus">=</i>
+<i v-show="pcdd.timeFlag" class="pcdd-ball" :class="'pcdd-ball-' + pcdd.sum">{{pcdd.sum}}</i>
+<div v-show="!pcdd.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/pcdd/kaijiang/"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/pcdd/zongheluzhu/"><i class="iconfont icon-biaoge"></i>总和路珠</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/jsk3/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/jsk3.png" class="logo" alt="jsk3" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/jsk3.png" class="logo" alt="jsk3"></noscript>
+<span class="name">江苏快3</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{jsk3.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{jsk3.minite}}:{{jsk3.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="jsk3.timeFlag" v-for="num in jsk3.zxkj.dqhm" :class="'icp-jsk3-'+ num +'-sm'">{{num}}</i>
+<div v-show="!jsk3.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/jsk3/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/jsk3/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/jsk3/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/xjssc/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/xjssc.png" class="logo" alt="xjssc" style="display:none;visibility:hidden;">
+<noscript><img src="assets/dist/img/lottery-logo/xjssc.png" class="logo" alt="xjssc"></noscript>
+<span class="name">新疆时时彩</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{xjssc.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{xjssc.minite}}:{{xjssc.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="xjssc.timeFlag" v-for="num in xjssc.zxkj.dqhm" class="no-default">{{num}}</i>
+<div v-show="!xjssc.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/xjssc/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/xjssc/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+<a class="item col-xs-4" href="/m/xjssc/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="/m/tjssc/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/tjssc.png" class="logo" alt="tjssc" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/tjssc.png" class="logo" alt="tjssc"></noscript>
+<span class="name">天津时时彩</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{tjssc.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{tjssc.minite}}:{{tjssc.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="tjssc.timeFlag" v-for="num in tjssc.zxkj.dqhm" class="no-default">{{num}}</i>
+<div v-show="!tjssc.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="tjssc/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="tjssc/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+</div>
+</div>
+</div>
+<div class="lottery-index">
+<a class="head" href="jx11x5/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/jx11x5.png" class="logo" alt="jx11x5" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/jx11x5.png" class="logo" alt="jx11x5"></noscript>
+<span class="name">江西11选5</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{jx11x5.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{jx11x5.minite}}:{{jx11x5.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num ">
+<i v-show="jx11x5.timeFlag" v-for="num in jx11x5.zxkj.dqhm" class="no-default">{{num}}</i>
+<div v-show="!jx11x5.timeFlag" class="lotterying">
+  <img src="/static/wap/assets/dist/img/lottery-loading.gif" class="loading">正在开奖中...
+</div>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/jx11x5/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/jx11x5/zoushitu/index.html"><i class="iconfont icon-stats1stats2"></i>走势图表</a>
+</div>
+</div>
+</div>
+
+<div class="lottery-index">
+<a class="head" href="6hc/index.html">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/6hc.png" class="logo" alt="6hc" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/lottery-logo/6hc.png" class="logo" alt="6hc"></noscript>
+<span class="name">六合彩</span>
+<img data-cfsrc="/static/wap/assets/dist/img/arrow-right.png" class="arrow" style="display:none;visibility:hidden;">
+<noscript><img src="/static/wap/assets/dist/img/arrow-right.png" class="arrow"></noscript>
+</a>
+<div class="content">
+<div class="title">
+<span class="period">第<span class="num">{{lhc.dqqs}}</span>期</span>
+<span class="time">下期开奖：<span class="num j-next-timer">{{lhc.hour}}:{{lhc.minite}}:{{lhc.seconds}}</span></span>
+</div>
+<div class="lottery-num motion-num">
+<i v-show="lhc.timeFlag" class="no-default" v-for="(item,index) in lhc.zxkj.dqhm" v-if="index<6" :class="'no-'+lhc.zxkj.boserank[index]">{{item}}</i>
+<i v-show="lhc.timeFlag" class="no-default" style="background-color: #fff;margin-top:-3px;"><font size="6" color="#B3B3B3">+</font></i>
+<i v-show="lhc.timeFlag" class="no-default" v-for="(item,index) in lhc.zxkj.dqhm" v-if="index==6" :class="'no-'+lhc.zxkj.boserank[index]">{{item}}</i>
+<br/>
+<p v-show="!lhc.timeFlag" class="flash">正在开奖...</p>
+</div>
+<div class="lottery-list text-center">
+<a class="item col-xs-4" href="/m/6hc/kaijiang/index.html"><i class="iconfont icon-lishishuju"></i>历史开奖</a>
+<a class="item col-xs-4" href="/m/6hc/chzhfx/index.html"><i class="iconfont icon-stats1stats2"></i>综合分析</a>
+<a class="item col-xs-4" href="/m/6hc/shipin/index.html"><i class="iconfont icon-shipinzhibo"></i>开奖直播</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="add-home" id="add-home">
+<div class="add-home-content">
+<img class="logo" data-cfsrc="/static/wap/assets/dist/img/touch-icon-144.png" alt="" style="display:none;visibility:hidden;">
+<noscript><img class="logo" src="/static/wap/assets/dist/img/touch-icon-144.png" alt=""></noscript>
+<p>先点击<img class="icon" data-cfsrc="/static/wap/assets/dist/img/touch-icon-144.png" alt="" style="display:none;visibility:hidden;">
+<noscript><img class="icon" src="/static/wap/assets/dist/img/add-home-icon.png" alt=""></noscript></p>
+<p>再"添加到主屏幕"</p>
+<i class="fa fa-times" aria-hidden="true" id="hide-add-home"></i>
+<em></em>
+</div>
+</div>
+<#include "/wap/common/feedback.html">
+</div>
+<#include "/wap/common/foot.html">
+
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	pk10:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+            		dqqs: null,
+            		xqqs: null,
+            		reqCount:0,            		
+            	},
+            	cqssc:{
+            		zxkj:{},		
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	gdkl10:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    maxNum:-1,
+                    dqqs: null,
+            	},
+            	xyft:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	xync:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	gd11x5:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	kl8:{
+            		zxkj:{},
+            		num1:[],
+            		num2:[],
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	pcdd:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    nums: [],
+                    dqqs: null,
+                    sum:0,
+            	},
+            	jsk3:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	xjssc:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	tjssc:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	},
+            	jx11x5:{
+            		zxkj:{},
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+				},
+				lhc:{
+					zxkj:{},
+					hour: '00',
+            		minite: "00",
+                    seconds: "00",
+                    timeFlag: true,
+                    reqCount:0,
+                    dqqs: null,
+            	}
+           	},
+            methods: {
+            	hasKey:function(key){
+            		if(typeof key != "undefined" ){
+            			if(key.indexOf(key)>0){
+            				return true
+            			}else{
+            				return false;
+            			}            			
+            		}
+            	},
+            	getJx11x5Data: function(){
+            		SULX.get(apijx11x5.jx11x5_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.jx11x5.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.jx11x5.dqqs = parseInt(terms.substring(terms.length-2));
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.jx11x5.timeFlag = false;
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                        	if(vm.jx11x5.reqCount==0){
+                        		otherClick = setTimeout(function() {
+                        			vm.jx11x5.reqCount++;
+                        			vm.$options.methods.getJx11x5Data();                    		
+         	                    },30000);
+                        	}else{//30秒后，每隔5秒请求一次数据
+                        		otherClick = setTimeout(function() { 
+                        			vm.jx11x5.reqCount++;
+                                 	vm.$options.methods.getJx11x5Data();
+         	                    },5000);
+                        	}                                  
+                            
+                        } else {
+                        	vm.jx11x5.timeFlag = true;                           	
+                            clearTimeout(otherClick);
+                            vm.jx11x5.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getJx11x5Data();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                    vm.jx11x5.minite = min;
+                                	vm.jx11x5.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.jx11x5.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.jx11x5.seconds = '0'+scd
+                                    }
+                                }
+                            ,1000);
+                        }                        	
+                    });
+            	},
+            	getTjsscData: function(){
+            		SULX.get(apitjssc.tjssc_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.tjssc.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.tjssc.dqqs = parseInt(terms.substring(terms.length-3));
+                        var otherClick;                        
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.tjssc.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                           	if(vm.lhc.reqCount==0){
+                           		otherClick = setTimeout(function() {
+                           			vm.tjssc.reqCount++;
+                           			vm.$options.methods.getTjsscData();                    		
+            	                },30000);
+                           	}else{//30秒后，每隔5秒请求一次数据
+                           		otherClick = setTimeout(function() { 
+                           			vm.tjssc.reqCount++;
+                                   	vm.$options.methods.getTjsscData();
+           	                    },5000);
+                           	}
+                            
+                        } else {
+                        	vm.tjssc.timeFlag = true;                            
+                            clearTimeout(otherClick);
+                            vm.tjssc.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getTjsscData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                    vm.tjssc.minite = min;
+                                	vm.tjssc.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.tjssc.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.tjssc.seconds = '0'+scd
+                                    }
+                                }
+                            ,1000);
+                        }                        
+                    });
+            	},
+            	getXjsscData: function(){
+            		SULX.get(apixjssc.xjssc_zxkj,function(std,data) {
+    					var result = JSON.parse(data).data;
+                        var localTimer = JSON.parse(data).timestamp;
+    					vm.xjssc.zxkj =result;
+    					var terms = "" + result.dqqs;
+                        vm.xjssc.dqqs = parseInt(terms.substring(terms.length-3));
+    					var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - localTimer)/1000); 
+                        if(timer === 0||timer < 0) {                        
+                        	vm.xjssc.timeFlag = false;                        
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                           	if(vm.xjssc.reqCount==0){
+                           		otherClick = setTimeout(function() {
+                           			vm.xjssc.reqCount++;
+                           			vm.$options.methods.getXjsscData();                    		
+            	                },30000);
+                           	}else{//30秒后，每隔5秒请求一次数据
+                           		otherClick = setTimeout(function() { 
+                           			vm.xjssc.reqCount++;
+                                   	vm.$options.methods.getXjsscData();
+           	                    },5000);
+                           	}                        
+                            
+                        } else {
+                        	vm.xjssc.timeFlag = true;                            	
+                            clearTimeout(otherClick);
+                            vm.xjssc.reqCount=0;                            
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                                
+                            var click = setInterval(
+                                function() {
+                                	vm.xjssc.minite = min;
+                                	vm.xjssc.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.xjssc.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.xjssc.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+    									vm.$options.methods.getXjsscData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }
+                    });
+            	},
+            	getJsk3Data: function(){
+            		SULX.get(apijsk3.jsk3_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.jsk3.zxkj = result;                        
+                        var terms = "" + result.dqqs;
+                        vm.jsk3.dqqs = parseInt(terms.substring(terms.length-3));
+                        var otherClick;
+                        
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000);
+                        if(timer === 0||timer < 0) {
+                        	vm.jsk3.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                        	if(vm.jsk3.reqCount==0){
+                        		otherClick = setTimeout(function() {
+                        			vm.jsk3.reqCount++;
+                        			vm.$options.methods.getJsk3Data();                    		
+         	                    },30000);
+                        	}else{//30秒后，每隔5秒请求一次数据
+                        		otherClick = setTimeout(function() { 
+                        			vm.jsk3.reqCount++;
+                                 	vm.$options.methods.getJsk3Data();
+         	                    },5000);
+                        	}
+                        } else {
+                        	vm.jsk3.timeFlag = true;                            	
+                            clearTimeout(otherClick);
+                            vm.jsk3.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	vm.jsk3.minite = min;
+                                	vm.jsk3.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.jsk3.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.jsk3.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getJsk3Data();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }                        	
+                    });
+            	},
+            	getPk10Data: function() {
+						SULX.get(apipk10.bjsc_zxkj,function(std,data) {
+								var result = JSON.parse(data).data;
+								var localTimer = JSON.parse(data).timestamp;
+								vm.pk10.dqqs = result.dqqs;
+								var otherClick;
+								vm.pk10.xqqs = result.xqqs;
+								vm.pk10.zxkj =result;
+                                var timer = Math.ceil((result.xqkjsj - localTimer)/1000); 
+                                if(timer === 0||timer < 0) {									
+                                	vm.pk10.timeFlag = false; 
+									//延时30s,等待开奖,然后在请求最新开奖数据
+			                       	if(vm.pk10.reqCount==0){
+			                       		otherClick = setTimeout(function() {
+			                       			vm.pk10.reqCount++;
+			                       			vm.$options.methods.getPk10Data();                    		
+			        	                },30000);
+			                       	}else{//30秒后，每隔5秒请求一次数据
+			                       		otherClick = setTimeout(function() { 
+			                       			vm.pk10.reqCount++;
+		                                	vm.$options.methods.getPk10Data();
+		        	                    },5000);
+			                       	}
+                                    
+                                } else {										
+                                    clearTimeout(otherClick);
+                                    vm.pk10.reqCount=0;                                   
+                                    vm.pk10.timeFlag = true; 
+									var min = Math.floor(timer/60);
+									var scd = Math.ceil(timer%60);									
+                                    var click = setInterval(function() {
+                                        	vm.pk10.minite = min;
+                                        	vm.pk10.seconds = scd;
+                                            if((min+'').length === 1) {
+                                            	vm.pk10.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                            	vm.pk10.seconds = '0'+scd
+                                            }
+                                            scd --;
+                                            if((min === 0&&scd === 0)||min <0) {
+                                                clearInterval(click);
+												vm.$options.methods.getPk10Data();
+                                            } else {
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                 },1000);
+                            }
+                      });
+            	},
+            	getCqsscData: function(){
+            		SULX.get(apicqssc.cqssc_zxkj,function(std,data) {
+    					var result = JSON.parse(data).data;
+                        var localTimer = JSON.parse(data).timestamp;
+                        vm.cqssc.zxkj =result;                        
+                        vm.cqssc.dqqs = parseInt(result.dqqs.substring(result.dqqs.length -3));
+    					var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - localTimer)/1000); 
+                        if(timer === 0||timer < 0) {                        
+                        	vm.cqssc.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                           	if(vm.cqssc.reqCount==0){
+                           		otherClick = setTimeout(function() {
+                           			vm.cqssc.reqCount++;
+                           			vm.$options.methods.getCqsscData();                    		
+           	                    },30000);
+                           	}else{//30秒后，每隔5秒请求一次数据
+                           		otherClick = setTimeout(function() { 
+                           			vm.cqssc.reqCount++;
+                                   	vm.$options.methods.getCqsscData();
+           	                    },5000);
+                           	}
+                        } else {
+                        	vm.cqssc.timeFlag = true;                        					
+                            clearTimeout(otherClick);
+                            vm.cqssc.reqCount=0;                            
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);                                
+                            var click = setInterval(
+                                function() {
+                                	vm.cqssc.minite = min;
+                                	vm.cqssc.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.cqssc.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.cqssc.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+    									vm.$options.methods.getCqsscData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min--;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }
+                    });
+            	},
+            	getGdkl10Data: function(){
+            		SULX.get(apikl10.gdklsf_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.gdkl10.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.gdkl10.dqqs = parseInt(terms.substring(terms.length-3));
+                        
+                        //获取最大的数字
+                        /* var arr = result.dqhm;                        
+                        function cmp(a,b){return a-b;};
+                        arr = arr.sort(cmp);
+                        vm.gdkl10.maxNum=arr[7];  */  
+                        
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.gdkl10.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                        	if(vm.gdkl10.reqCount==0){
+                        		otherClick = setTimeout(function() {
+                        			vm.gdkl10.reqCount++;
+                        			vm.$options.methods.getGdkl10Data();                    		
+         	                    },30000);
+                        	}else{//30秒后，每隔5秒请求一次数据
+                        		otherClick = setTimeout(function() { 
+                        			vm.gdkl10.reqCount++;
+                                 	vm.$options.methods.getGdkl10Data();
+         	                    },5000);
+                        	}                                    
+                            
+                        } else {
+                        	vm.gdkl10.timeFlag = true;                            	
+                            clearTimeout(otherClick);
+                            vm.gdkl10.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	vm.gdkl10.minite = min;
+                                	vm.gdkl10.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.gdkl10.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.gdkl10.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getGdkl10Data();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }                        
+                    });
+            	},
+            	getXyftData: function(){
+            		SULX.get(apixyft.xyft_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.xyft.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.xyft.dqqs = parseInt(terms.substring(terms.length-3));
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.xyft.timeFlag = false;                                    
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                           	if(vm.xyft.reqCount==0){
+                           		otherClick = setTimeout(function() {
+                           			vm.xyft.reqCount++;
+                           			vm.$options.methods.getXyftData();                    		
+           	                    },30000);
+                           	}else{//30秒后，每隔5秒请求一次数据
+                           		otherClick = setTimeout(function() { 
+                           			vm.xyft.reqCount++;
+                                   	vm.$options.methods.getXyftData();
+           	                    },5000);
+                           	}                            
+                        } else {
+                        	vm.xyft.timeFlag = true;                            
+                            clearTimeout(otherClick);
+                            vm.xyft.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getXyftData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+									}
+									vm.xyft.minite = min;
+                                	vm.xyft.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.xyft.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.xyft.seconds = '0'+scd
+                                    }
+                                }
+                            ,1000);
+                        }                        	
+                    });
+            	},
+            	getXyncData: function(){
+            		SULX.get(apixync.xync_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.xync.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.xync.dqqs = parseInt(terms.substring(terms.length-3));
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.xync.timeFlag = false;                            
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                           	if(vm.xync.reqCount==0){
+                           		otherClick = setTimeout(function() {
+                           			vm.xync.reqCount++;
+                           			vm.$options.methods.getXyncData();                    		
+            	                },30000);
+                           	}else{//30秒后，每隔5秒请求一次数据
+                           		otherClick = setTimeout(function() { 
+                           			vm.xync.reqCount++;
+                                   	vm.$options.methods.getXyncData();
+           	                    },5000);
+                           	}                            
+                        } else {
+                        	vm.xync.timeFlag = true;                            
+                            clearTimeout(otherClick);
+                            vm.xync.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	vm.xync.minite = min;
+                                	vm.xync.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.xync.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.xync.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getXyncData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }                        	
+                    });
+            	},
+            	getGd11x5Data: function(){
+            		SULX.get(apigd11x5.gd11x5_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.gd11x5.zxkj = result;
+                        var terms = "" + result.dqqs;
+                        vm.gd11x5.dqqs = parseInt(terms.substring(terms.length-2));
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.gd11x5.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+                        	if(vm.gd11x5.reqCount==0){
+                        		otherClick = setTimeout(function() {
+                        			vm.gd11x5.reqCount++;
+                        			vm.$options.methods.getGd11x5Data();                    		
+         	                    },30000);
+                        	}else{//30秒后，每隔5秒请求一次数据
+                        		otherClick = setTimeout(function() { 
+                        			vm.gd11x5.reqCount++;
+                                 	vm.$options.methods.getGd11x5Data();
+         	                    },5000);
+                        	}                            
+                        } else {
+                        	vm.gd11x5.timeFlag = true;                            
+                            clearTimeout(otherClick);
+                            vm.gd11x5.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	vm.gd11x5.minite = min;
+                                	vm.gd11x5.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.gd11x5.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.gd11x5.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getGd11x5Data();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }                        
+                    });
+            	},
+            	getKl8Data: function(){
+	            	SULX.get(apikl8.kl8_zxkj,function(std,data) {
+	                        var result = JSON.parse(data).data;
+	                        vm.kl8.zxkj =result;
+	                        //循环换行
+	                        vm.kl8.num1.splice(0);
+	                        vm.kl8.num2.splice(0);
+	                        for(var i=0;i<result.dqhm.length;i++){
+	                        	if(i<10){
+	                        		vm.kl8.num1.push(result.dqhm[i]);
+	                        	}else{
+	                        		if(result.dqhm[i]){
+	                        			vm.kl8.num2.push(result.dqhm[i]);
+	                        		}	                        		
+	                        	}
+	                        }	                        
+	                        
+	                        vm.kl8.dqqs = result.dqqs;
+	                        var otherClick;
+	                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+	                        if(timer === 0||timer < 0) {
+	                        	vm.kl8.timeFlag = false; 
+	                          	//延时30s,等待开奖,然后在请求最新开奖数据
+	 	                       	if(vm.kl8.reqCount==0){
+	 	                       		otherClick = setTimeout(function() {
+	 	                       			vm.kl8.reqCount++;
+ 	                       				vm.$options.methods.getKl8Data();                    		
+ 	        	                    },30000);
+	 	                       	}else{//30秒后，每隔5秒请求一次数据
+	 	                       		otherClick = setTimeout(function() { 
+	 	                       			vm.kl8.reqCount++;
+ 	                                	vm.$options.methods.getKl8Data();
+ 	        	                    },5000);
+	 	                       	}
+	                        } else {
+	                        	vm.kl8.timeFlag = true;	                            	
+	                            clearTimeout(otherClick);
+	                            vm.kl8.reqCount=0;
+	                            //vm.lhc.$options.methods.draw(); //重绘线图 页面没有可注释
+	                            var min = Math.floor(timer/60);
+	                            var scd = Math.ceil(timer%60);
+	                            var click = setInterval(
+	                                function() {
+	                                	vm.kl8.minite = min;
+	                                	vm.kl8.seconds = scd;
+	                                    if((min+'').length === 1) {
+	                                    	vm.kl8.minite = '0'+min     //加个0
+	                                    }
+	                                    if((scd+'').length === 1) {
+	                                    	vm.kl8.seconds = '0'+scd
+	                                    }
+	                                    scd --;
+	                                    if((min === 0&&scd === 0)||min <0) {
+	                                        clearInterval(click);
+	                                        vm.$options.methods.getKl8Data();
+	                                    } else {
+	                                        if(scd < 0) {
+	                                            min --;
+	                                            scd = 59;
+	                                        }
+	                                    }
+	                                }
+	                            ,1000);
+	                        }	                        
+	            	});
+            	},
+            	getPcddData: function(){
+            		SULX.get(apipcdd.pcdd_zxkj,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.pcdd.zxkj =result;
+                        vm.pcdd.nums = result.dqhm;                          
+                        vm.pcdd.sum = result.dqhm[0]+result.dqhm[1]+result.dqhm[2];
+                        
+                        vm.pcdd.dqqs = result.dqqs;
+                        var otherClick;
+                        var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                        if(timer === 0||timer < 0) {
+                        	vm.pcdd.timeFlag = false; 
+                          	//延时30s,等待开奖,然后在请求最新开奖数据
+ 	                       	if(vm.pcdd.reqCount==0){
+ 	                       		otherClick = setTimeout(function() {
+ 	                       			vm.pcdd.reqCount++;
+ 	                       			vm.$options.methods.getPcddData();                    		
+ 	        	                },30000);
+ 	                       	}else{//30秒后，每隔5秒请求一次数据
+ 	                       		otherClick = setTimeout(function() { 
+ 	                       			vm.pcdd.reqCount++;
+                                	vm.$options.methods.getPcddData();
+        	                    },5000);
+ 	                       	}                           
+                            
+                        } else {
+                        	vm.pcdd.timeFlag = true;                            
+                            clearTimeout(otherClick);
+                            vm.pcdd.reqCount=0;
+                            var min = Math.floor(timer/60);
+                            var scd = Math.ceil(timer%60);
+                            var click = setInterval(
+                                function() {
+                                	vm.pcdd.minite = min;
+                                	vm.pcdd.seconds = scd;
+                                    if((min+'').length === 1) {
+                                    	vm.pcdd.minite = '0'+min     //加个0
+                                    }
+                                    if((scd+'').length === 1) {
+                                    	vm.pcdd.seconds = '0'+scd
+                                    }
+                                    scd --;
+                                    if((min === 0&&scd === 0)||min <0) {
+                                        clearInterval(click);
+                                        vm.$options.methods.getPcddData();
+                                    } else {
+                                        if(scd < 0) {
+                                            min --;
+                                            scd = 59;
+                                        }
+                                    }
+                                }
+                            ,1000);
+                        }                        	
+            		});
+				},
+				get6hcData: function() {
+			SULX.get(api6hc.lhc_zxkj,function(std,data) {
+                    var result = JSON.parse(data).data;
+					vm.lhc.zxkj = result;
+					vm.lhc.dqqs = result.dqqs;
+                    var otherClick;
+                    var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000); //设置延迟20s
+                    if(timer === 0||timer < 0) {
+                         vm.lhc.timeFlag = false;                        
+                      	//延时30s,等待开奖,然后在请求最新开奖数据
+                       	if(vm.lhc.reqCount==0){
+                       		otherClick = setTimeout(function() {
+                       			vm.lhc.reqCount++;
+                       			vm.lhc.$options.methods.get6hcData();                    		
+        	                    },30000);
+                       	}else{//30秒后，每隔5秒请求一次数据
+                       		otherClick = setTimeout(function() { 
+                       			vm.lhc.reqCount++;
+                                	vm.$options.methods.get6hcData();
+        	                    },5000);
+                       	}                        
+                    } else {
+                        vm.lhc.timeFlag = true;
+                        clearTimeout(otherClick);
+                        vm.lhc.reqCount=0;
+                        var hour= Math.floor(timer/3600);
+                        var min = Math.floor((timer - hour * 60 * 60)/60);
+                        var scd = Math.ceil(timer%60);
+                        var click = setInterval(
+                            function() {
+                            	  vm.lhc.hour = hour;
+                                vm.lhc.minite = min;
+                                vm.lhc.seconds = scd;
+                                if((min+'').length === 1) {
+                                    vm.lhc.minite = '0'+min     //加个0
+                                }
+                                if((scd+'').length === 1) {
+                                    vm.lhc.seconds = '0'+scd
+                                }
+                                if((hour+'').length === 1) {
+                                    vm.lhc.hour = '0'+hour
+                                }
+                                scd --;
+                                if((min === 0&&scd === 0&&hour===0)||min <0||hour<0) {
+                                    clearInterval(click);
+                                    vm.$options.methods.get6hcData();
+                                } else {
+                                    if(scd < 0) {
+                                        min --;
+                                        scd = 59;
+                                    }
+                                    if(min < 0){
+                                    	hour--;
+                                    	min = 59;
+                                    }
+                                }
+                            }
+                        ,1000);
+                    }                                	
+            });
+         },   
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+    			buildXyncNum: function(num){
+    				var str = num + "";
+    				if(str && str.length==1){
+    					return "0"+num;
+    				}else{
+    					return num;
+    				}
+    			},
+    			
+            },
+        	created: function() {
+        		this.$options.methods.getPk10Data();
+        		this.$options.methods.getCqsscData(); 
+        		this.$options.methods.getGdkl10Data();
+        		this.$options.methods.getXyftData();
+        		this.$options.methods.getXyncData();
+        		this.$options.methods.getGd11x5Data();
+        		this.$options.methods.getKl8Data();
+        		this.$options.methods.getPcddData();
+        		this.$options.methods.getJsk3Data();
+        		this.$options.methods.getXjsscData();
+        		this.$options.methods.getTjsscData();        		
+				this.$options.methods.getJx11x5Data();
+				this.$options.methods.get6hcData();
+            },
+        });
+</script>
+</body>
+</html>

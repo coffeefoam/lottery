@@ -1,0 +1,306 @@
+<#include "/tjssc/head.html">
+
+<div v-cloak id="divContainer">
+<div class="container lobby-record">
+<div class="lot-search">
+<ul class="list j-checklist" data-name="ssc_panel">
+
+<li data-c="1">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>今日号码统计</label>
+</span>
+</li>
+
+<li data-c="2">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>双号提醒</label>
+</span>
+</li>
+
+<li data-c="4">
+<i class="icp-checkbox icp-checked"></i>
+<span class="ckb-txt">
+<label>查看号码分布</label>
+</span>
+</li>
+
+</ul>
+<div class="date">
+<label for="dateData">选择日期</label>
+<input type="text" name="dateData" class="search-input" id="dateData" readonly>
+<span class="search-btn" @click="search">查询</span>
+</div>
+</div>
+<div data-job="replace" class="j-records">
+
+<div class="tongji t_1" style="">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center table-condensed">
+<tr class="head text-left">
+<td colspan="17">今日号码统计</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>单</td>
+<td>双</td>
+<td>大</td>
+<td>小</td>
+<td>龙</td>
+<td>虎</td>
+<td>平</td>
+</tr>
+<tr>
+<td>{{jrhmtj["num0"]}}</td>
+<td>{{jrhmtj["num1"]}}</td>
+<td>{{jrhmtj["num2"]}}</td>
+<td>{{jrhmtj["num3"]}}</td>
+<td>{{jrhmtj["num4"]}}</td>
+<td>{{jrhmtj["num5"]}}</td>
+<td>{{jrhmtj["num6"]}}</td>
+<td>{{jrhmtj["num7"]}}</td>
+<td>{{jrhmtj["num8"]}}</td>
+<td>{{jrhmtj["num9"]}}</td>
+<td>{{jrhmtj["dan"]}}</td>
+<td>{{jrhmtj["shuang"]}}</td>
+<td>{{jrhmtj["da"]}}</td>
+<td>{{jrhmtj["xiao"]}}</td>
+<td>{{jrhmtj["long"]}}</td>
+<td>{{jrhmtj["hu"]}}</td>
+<td>{{jrhmtj["lfping"]}}</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="tixing t_2" style="">
+<div class="head">双号提醒</div>
+<ul class="list">
+<li>
+<span>本期双号</span>
+<span>今日开出双号期数</span>
+<span>下期重复开出期数</span>
+<span>当前重复开出遗漏</span>
+<span>今日最大遗漏</span>
+</li>
+<li>
+<span>{{quchuDouhao(shtx["bqsh"])}}</span>
+<span>{{shtx["jrkcshqs"]}}</span>
+<span>{{shtx["xqcfkcqs"]}}</span>
+<span>{{shtx["dqcfkcyl"]}}</span>
+<span>{{shtx["jrzdyl"]}}</span>
+</li>
+</ul>
+</div>
+
+<div class="fenbu t_4" style="" data-begin="0" data-last="9" data-count="10">
+<div class="each">
+<span class="name">查看号码分布：</span>
+<div class="list j-checknums">
+<b class="item" data-c="0"><i class="icp-checkbox"></i>号0</b>
+<b class="item" data-c="1"><i class="icp-checkbox"></i>号1</b>
+<b class="item" data-c="2"><i class="icp-checkbox"></i>号2</b>
+<b class="item" data-c="3"><i class="icp-checkbox"></i>号3</b>
+<b class="item" data-c="4"><i class="icp-checkbox"></i>号4</b>
+<b class="item" data-c="5"><i class="icp-checkbox"></i>号5</b>
+<b class="item" data-c="6"><i class="icp-checkbox"></i>号6</b>
+<b class="item" data-c="7"><i class="icp-checkbox"></i>号7</b>
+<b class="item" data-c="8"><i class="icp-checkbox"></i>号8</b>
+<b class="item" data-c="9"><i class="icp-checkbox"></i>号9</b>
+<b class="item-btn" data-c="-1"><button type="button" class="btn btn-xs btn-default">还原</button></b>
+</div>
+</div>
+<div class="each">
+<span class="name">大小单双分布：</span>
+<div class="list j-checknums">
+<b class="item" data-c="b"><i class="icp-checkbox"></i>大</b>
+<b class="item item-small" data-c="s"><i class="icp-checkbox"></i>小</b>
+<i class="line">|</i>
+<b class="item" data-c="o"><i class="icp-checkbox"></i>单</b>
+<b class="item" data-c="e"><i class="icp-checkbox"></i>双</b>
+<b class="item-btn" data-c="-1"><button type="button" class="btn btn-xs btn-default">还原</button></b>
+</div>
+</div>
+</div>
+<table class="table table-bordered table-striped text-center j-numslist">
+<thead>
+<tr>
+<th class="time">时间</th>
+<th class="num j-numswitch">
+<a href="javascript:void(0);" class="cur">显示号码</a>
+<a href="javascript:void(0);" data-class="num-bs">显示大小</a>
+<a href="javascript:void(0);" data-class="num-oe">显示单双</a>
+</th>
+<th colspan="3" class="total">总和</th>
+<th class="lh">龙虎</th>
+<th class="qs">前三</th>
+<th class="zs">中三</th>
+<th class="hs">后三</th>
+</tr>
+</thead>
+<tbody>
+
+<tr v-for="(item,index) in keyList">
+<td>
+<span>{{buildDate(item)}}</span>
+<span class="time">{{buildHM(kjjl[index]["starttime"])}}</span>
+</td>
+<td class="record-num rn-shishicai">
+<span v-for="item2 in kjjl[index]['rank']" :class="numOrder[item2] +' j-num' +item2 +' num-status-' +item2" :data-n="item2">{{item2}}</span>
+</td>
+<td><span>{{kjjl[index]["gyhSum"]}}</span></td>
+<td>
+<span :class="kjjl[index]['zhDs'].indexOf('单')>-1?'highlight':''">{{kjjl[index]["zhDs"]}}</span>
+</td>
+<td>
+<span :class="kjjl[index]['zhDx'].indexOf('大')>-1?'highlight':''">{{kjjl[index]["zhDx"]}}</span>
+</td>
+<td>
+<span :class="kjjl[index]['lh1'].indexOf('龙')>-1?'highlight':(kjjl[index]['lh1'].indexOf('和')>-1?'high-light-green':'')">{{kjjl[index]["lh1"]}}</span>
+</td>
+<td>
+{{kjjl[index]["qs"]}}
+</td>
+<td>
+{{kjjl[index]["zs"]}}
+</td>
+<td>
+{{kjjl[index]["hs"]}}
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			jrhmtj:{},
+			shtx:{},
+			kjjl:[],
+			keyList:[],
+			numOrder:{"0":"","1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":""},
+		},
+		methods:{
+			buildDate: function(dateStr){
+				if(dateStr){
+					var str1 = dateStr.substring(0,8);
+					var str2 = dateStr.substring(8);					
+					return str1 + "-" + str2;
+				}else{
+					return "";
+				}				
+			},
+			buildHM: function(time1){
+				if(time1){
+					return formatDate(new Date(time1),"hh:mm");
+				}else{
+					return "";
+				}
+			},
+			buildNoColor:function(firstArr){
+				//取出最新一期开奖的号码，进行样式排序,排序规则如：最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，
+                //如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，
+                //以便于查看最近一期开出的某号码的历史分布情况。
+				
+                //将原来的样式设置成空值
+                for(item in vm.numOrder){
+                	vm.numOrder[item] ="";
+                }
+                if(firstArr && firstArr.rank && firstArr.rank.length >0){                	
+                	var i =0;
+                	for(index in firstArr.rank){
+                		//如果该号码已经在前面出现过了，则跳过相同的号码样式设置
+                		if(vm.numOrder[firstArr.rank[index] + ""]){
+                			continue;	
+                		}
+                		vm.numOrder[firstArr.rank[index] + ""] = "no" + i;
+                		i++;
+                    }
+                }				
+			},
+			quchuDouhao: function(str){
+				if(str){
+					if(str.endWith(",")){
+						return str.substring(0,str.lastIndexOf(","));
+					}else{
+						return str;
+					}
+				}else{
+					return "无";
+				}				
+			},
+			search: function(){				
+				var dateData = document.getElementById("dateData").value;
+				if(dateData){
+					vm.kjjl.splice(0);
+					vm.keyList.splice(0);
+					var url = apicqssc.cqssc_kjjl;
+					if(url.indexOf("?")>0){
+						url += "&date=" + dateData;
+					}else{
+						url += "?date=" + dateData;
+					}
+					//开奖记录按日期查询
+					SULX.get(url,function(std,data) {
+						var res2 = JSON.parse(data).data;
+		                for(i in res2){
+		                   for(j in res2[i]){
+		                	   vm.keyList.push(j); 
+		                	   vm.kjjl.push(res2[i][j]);
+		                   }                       	                    	
+		                }
+		                //重新设置号码样式
+		                var firstArr = vm.kjjl[0]; 
+		                vm.buildNoColor(firstArr);
+		            });
+				}else{
+					$("#dateData").focus();
+				}	
+			},
+			getData: function(){
+				//今日号码统计
+				SULX.get(apitjssc.tjssc_jrhmtj,function(std,data) {
+	                vm.jrhmtj = JSON.parse(data).data;
+	            });
+				//双号提醒
+				SULX.get(apitjssc.tjssc_shtx,function(std,data) {
+	                vm.shtx = JSON.parse(data).data;
+	            });			
+				//开奖记录
+				SULX.get(apitjssc.tjssc_kjjl,function(std,data) {
+					var res2 = JSON.parse(data).data;
+					vm.keyList.splice(0);
+					vm.kjjl.splice(0);
+	                for(i in res2){
+	                   for(j in res2[i]){
+	                	   vm.keyList.push(j); 
+	                	   vm.kjjl.push(res2[i][j]);
+	                   }                       	                    	
+	                }
+	                //重新设置号码样式
+	                var firstArr = vm.kjjl[0]; 
+	                vm.buildNoColor(firstArr);                
+	            });
+			}
+		},
+		created:function(){	
+			this.getData();						
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

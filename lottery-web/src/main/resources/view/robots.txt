@@ -1,0 +1,9 @@
+# robots.txt generated at http://tool.chinaz.com/robots/ 
+User-agent: *
+Disallow: 
+Disallow: /bin/
+Disallow: /api/
+Disallow: /appapi/
+Disallow: /feedback/
+Disallow: /gen/
+Disallow: /other/

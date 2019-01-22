@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩选号妙投技巧  新手必看！</title>
+<meta name="keywords" content="${art.keywords!}">
+<meta name="description" content="${art.description!}">
+<#include "/wap/common/header.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav_tjjh.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main" data-m="mobile">
+<div class="row">
+<div class="skill-detail">
+<div class="title"><h1>${art.title!}</h1></div>
+<div class="desc">
+<span><#if art.createDate??>${art.createDate?string('yyyy-MM-dd')}</#if></span>
+<span>阅读：${art.hits!}</span>
+<span>来源：<#if art.articleData??>${art.articleData.copyfrom!"网络"}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+<div class="links">
+<div class="pre-next">
+<#if preArt??>
+<a href="${ctxPath!}/m/jiqiao/${preArt.id?c}.html"  title="${preArt.title!}">< 上一篇</a>
+<#else>
+没有了
+</#if>
+</div>
+<div class="pre-next">
+<#if nextArt??>
+<a href="${ctxPath!}/m/jiqiao/${nextArt.id?c}.html"  title="${nextArt.title!}">下一篇 ></a>
+<#else>
+没有了
+</#if>
+</div>
+</div>
+</div>
+</div>
+</div>
+<#include "/wap/common/foot.html">
+</body>
+</html>

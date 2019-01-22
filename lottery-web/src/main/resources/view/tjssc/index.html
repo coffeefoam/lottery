@@ -1,0 +1,302 @@
+<#include "/tjssc/head.html">
+
+ <style>
+        .highcharts-legend {
+            display: none !important;
+        }
+        .highcharts-credits {
+            display: none !important;
+        }
+        .btn-spe {
+            width: 90px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: #000;
+            text-align: center;
+            margin-right: 9px;
+            cursor: pointer;
+        }
+        .btn-other {
+            background: #d94136;
+            border: 1px solid #d94136 !important;
+            color: #fff !important;
+        }
+        .btn-spe p {
+            font-size: 15px;
+            line-height: 26px;
+            color: inherit;
+        }
+        .lobby-chart .go-live img.play {
+            top: 70px !important;
+            left: 0px !important;
+        }
+        .lobby-chart .head a {
+		    float: right;
+		    font-size: 14px;
+		    color: #999;
+		    font-weight: normal;
+		}
+</style>
+  
+<div id="divContainer">
+
+
+<div style="height: 347px;" class="container lobby-chart">
+    <div class="row" id="j-chart-container">
+        <div class="col-xs-8">
+            <div class="head">
+            <div class="chart-btn" id="j-chart">
+                <a href="/tjssc/zoushitu/" style="float: right">查看全部走势图>></a>
+            </div>
+            </div>
+            <div class="chart">
+                <div style="display: flex;">
+                        <div 
+                        @click="draw(index)"
+                        v-for="(item,index) in num" 
+                        :class="{'btn-spe': true, 'btn-other': index === flag}">
+                            <p>{{item}}</p>
+                        </div>
+                    </div>
+                    <div id="container" style="margin-top: 30px; width: inherit;  height:200px;"></div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-center">
+              <a href="/tjssc/shipin/" class="go-live">    
+                  <img src="/static/assets/dist/img/lottery-logo/tjssc-live.png" alt="" class="play j-play">
+              </a>
+        </div>
+    </div>
+</div>
+ 
+
+
+<div class="container lobby-record">
+<div class="title">
+<span>天津时时彩开奖记录</span><a href="/tjssc/kaijiang">查看全部>></a>
+</div>
+<div data-job="replace">
+<table class="table table-bordered table-striped text-center j-numslist">
+<thead>
+<tr>
+<th class="time">时间</th>
+<th width="30%">
+开奖号码
+<span class="help">
+<i class="fa fa-question-circle" aria-hidden="true"></i>
+<div class="tips">
+最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，以便于查看最近一期开出的某号码的历史分布情况。
+<span class="arrow"></span>
+<span class="arrow-bg"></span>
+</div>
+</span>
+</th>
+<th colspan="3" class="total">总和</th>
+<th class="lh">龙虎</th>
+<th class="qs">前三</th>
+<th class="zs">中三</th>
+<th class="hs">后三</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in keyList">
+<td>
+<span>{{buildDate(item)}}</span>
+<span class="time">{{buildHM(kjjl[index]["starttime"])}}</span>
+</td>
+<td>
+<div class="record-num">
+<span v-for="item2 in kjjl[index]['rank']" :class="numOrder[item2] + ' j-num' +item2 +' num-status-' +item2" :data-n="item2">{{item2}}</span>
+</div>
+</td>
+<td><span>{{kjjl[index]["gyhSum"]}}</span></td>
+<td>
+<span :class="kjjl[index]['zhDs'].indexOf('单')>-1?'highlight':''">{{kjjl[index]["zhDs"]}}</span>
+</td>
+<td>
+<span :class="kjjl[index]['zhDx'].indexOf('大')>-1?'highlight':''">{{kjjl[index]["zhDx"]}}</span>
+</td>
+<td>
+<span :class="kjjl[index]['lh1'].indexOf('龙')>-1?'highlight':(kjjl[index]['lh1'].indexOf('和')>-1?'high-light-green':'')">{{kjjl[index]["lh1"]}}</span>
+</td>
+<td>
+{{kjjl[index]["qs"]}}
+</td>
+<td>
+{{kjjl[index]["zs"]}}
+</td>
+<td>
+{{kjjl[index]["hs"]}}
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<#include "/common/jiqiao.html">
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			kjjl:[],
+			keyList:[],
+			numOrder:{"0":"","1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":""},
+			timer: [],
+            num: ['第一球', '第二球', '第三球', '第四球', '第五球'],
+            flag: 0,
+		},	
+		methods:{
+			buildDate: function(dateStr){
+				if(dateStr){
+					var str1 = dateStr.substring(0,8);
+					var str2 = dateStr.substring(8);					
+					return str1 + "-" + str2;
+				}else{
+					return "";
+				}				
+			},
+			buildHM: function(time1){
+				if(time1){
+					return formatDate(new Date(time1),"hh:mm");
+				}else{
+					return "";
+				}
+			},
+			buildNoColor: function(firstArr){
+				//取出最新一期开奖的号码，进行样式排序,排序规则如：最近一期的开奖号码以不同颜色区分显示。往期历史开奖号码中，
+                //如出现与最近一期相同的开奖号码，则该号码以与最近一期开奖号码相同的颜色显示，
+                //以便于查看最近一期开出的某号码的历史分布情况。
+				
+                //将原来的样式设置成空值
+                for(item in vm.numOrder){
+                	vm.numOrder[item] ="";
+                }
+                if(firstArr && firstArr.rank && firstArr.rank.length >0){                	
+                	var i =0;
+                	for(index in firstArr.rank){
+                		//如果该号码已经在前面出现过了，则跳过相同的号码样式设置
+                		if(vm.numOrder[firstArr.rank[index] + ""]){
+                			continue;	
+                		}
+                		vm.numOrder[firstArr.rank[index] + ""] = "no" + i;
+                		i++;
+                    }
+                }				
+			},
+			getData: function(){
+				//走势图
+				this.$options.methods.draw(0);
+				SULX.get(apitjssc.tjssc_kjjl,function(std,data) {
+	                    var res2 = JSON.parse(data).data;
+	                    var index =0;
+	                    for(i in res2){
+	                       for(j in res2[i]){
+	                    	   if(index >9){
+	                    		  break; 
+	                    	   }
+	                    	   vm.keyList.push(j); 
+	                    	   vm.kjjl.push(res2[i][j]);
+	                    	   index++;
+	                       }                       	                    	
+	                    }
+	                  	//重新设置号码样式
+	                    var firstArr = vm.kjjl[0]; 
+	                    vm.buildNoColor(firstArr); 
+	                }
+	            );
+			},
+			draw: function (index) {
+				if( index == undefined ){
+					index=0;
+				}
+                this.flag = index;
+                SULX.get(apitjssc.tjssc_zst,function(std,data) {
+                    var result = JSON.parse(data).data;
+
+                    var test1 = result['num'+(index+1)];
+                    // console.log(test1)
+                    var timer = [];
+                    var chartData = [];
+                    for(j in test1) {
+                    timer.push(j.substr(j.length-2,2)); //截取key生成期数
+                    chartData.push(Number(test1[j])); //数据必须是number
+                    }
+
+                    var chart = Highcharts.chart('container', {
+                    chart: {
+                        type: 'spline',
+                        height: '215'
+                        // width: '1400'
+                    },
+                    title: {
+                        text: '天津时时彩号码走势图', //tubiao biaoti
+                        align: 'left'
+                    },
+                    xAxis: {
+                        categories: timer
+                    },
+                    yAxis: {
+                        title: '',
+                        tickPositions: [0, 5, 10]  //y轴数据
+                        // categories: [0,150,200]
+                    },
+                    tooltip: {
+                        useHTML: true,
+                        headerFormat: '<span style=";">{point.key}期:{point.y}</span>',
+                        backgroundColor: '#666',   // 背景颜色
+                        // borderColor: 'black',         // 边框颜色
+                        borderRadius: 10,             // 边框圆角
+                        borderWidth: 0,
+                        display: 'flex', 
+                        shadow: false,                 
+                        animation: false,      
+                        pointFormatter: function() {
+                        return '<span style=" color: #fff;>期<span>';
+                        },
+                        style: {  
+                            width: '70px',
+                            height: '30px',   
+                                    // 文字内容相关样式
+                            color: "rgba(255,255,255,0.8)",
+                            fontSize: "12px",
+                            fontWeight: "blod",
+                            fontFamily: "Courir new"
+                        }
+                    },
+                    plotOptions: {
+                        spline: {
+                            dataLabels: {
+                                // 开启数据标签
+                                // color: '#666',
+                                crop: false,
+                                overflow: 'none',
+                                verticalAlign: 'bottom',
+                                enabled: true          
+                            },
+                            // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                            enableMouseTracking: true
+                        }
+                    },
+                    series: [
+                        {
+                        name: '',
+                        color: '#5073a3',
+                        data: chartData
+                        }
+                    ]
+                    
+                    });
+                    }
+                );
+                },
+		},
+		created:function(){
+			this.getData();			
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

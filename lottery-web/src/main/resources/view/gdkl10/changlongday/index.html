@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">   
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+        <title>开奖直播</title>
+        <meta name="keywords" content="开奖直播">
+        <meta name="description" content="开奖直播">
+        <#include "/common/header.html">
+    </head>
+    <body id="page-top" style="min-width: 1200px;">
+
+        <nav id="mainNav" class="navbar navbar-default">
+       	    <#include "/common/nav.html">
+       	</nav>
+        <div class="lobby-head">
+            <div class="container">
+                <div class="row">
+                    <div class="content">
+                    	<#include "/common/menu.html">
+                        <#include "/gdkl10/kaijiang.html">
+                        <div class="lottery-tips" id="j-lottery-tips"
+                            style='display: none'>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            温馨提示：<span class="j-periods"></span>开奖结果未获取,
+                            继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+                        </div>
+                        <div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+                            data-m="advertisement">
+                        </div>
+                        <div class="lottery-list">
+                            <a class="item"href="../index.html">快乐十分</a>
+                            <a class="item"href="../kaijiang/index.html">历史开奖号码</a>
+                            <a class="item"href="../shipin/index.html">开奖视频</a>
+                            <a class="item"href="../zonghe/index.html">综合路珠分析</a>
+                            <a class="item"href="../heshudanshuangluzhu/index.html">合数单双路珠</a>
+                            <a class="item"href="../longhuluzhu/index.html">龍虎路珠</a>
+                            <a class="item"href="../zongheluzhu/index.html">总和路珠</a>
+                            <a class="item"href="../weishudaxiaoluzhu/index.html">尾数大小路珠</a>
+                            <a class="item"href="../shuangmianluzhu/index.html">单双大小路珠</a>
+                            <a class="item"href="../zhongfabailuzhu/index.html">中发白路珠</a>
+                            <a class="item"href="../dongnanxibeiluzhu/index.html">东南西北路珠</a>
+                            <a class="item"href="../haomaluzhu/index.html">号码路珠</a>
+                            <a class="item"href="../haomatongji/index.html">历史号码统计</a>
+                            <a class="item"href="../shuangmian/index.html">单双大小历史</a>
+                            <a class="item"href="../zoushitu/index.html">横版走势图</a>
+                            <a class="item"href="../shuangmianzoushitu/index.html">单双大小走势图</a>
+                            <a class="item"href="../touzhu/index.html">两面投注参考</a>
+                            <a class="item"href="../jiqiao/index.html">快乐十分技巧</a>
+                            <a class="item active" href="index.html">每日长龙</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-cloak id="all">
+        <div class="container lobby-record">
+            <div class="lot-search" style="margin-bottom: 0;">
+                <div style="float: left; border-left: 2px solid #d94136;
+                    padding-left: 5px; margin-top: 3px;">
+                    每日长龙
+                </div>
+                <div class="date" style="text-align:right;">
+                    <label for="dateData">选择日期</label>
+                    <input type="text" name="dateData" class="search-input"
+                        id="dateData" readonly="readonly">
+                    <span class="search-btn">查询</span>
+                </div>
+            </div>
+        </div>
+        <div class="container number-filter-title" style="border-bottom: 0;">
+            <ul class="ball" style="margin-bottom: 0;">
+                    <li  v-for="(item,index) in levelName">
+                            <a style="cursor: pointer;" @click.prevent="changeNum(index)" :class="{'cur': flag === index}">{{item}}</a>
+                            |
+                        </li>
+            </ul>
+        </div>
+
+        <div class="container lobby-record" data-job="replace">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <tr>
+                        <th>日期</th>
+                        <th colspan="10">{{title}}</th>
+                    </tr>
+                    <tr>
+                        <th width="150px" style="background: #fff;">开出期数/游戏玩法</th>
+                        <th style="background: #fff;">
+                            大
+                        </th>
+                        <th style="background: #fff;">
+                            小
+                        </th>
+                        <th style="background: #fff;">
+                            单
+                        </th>
+                        <th style="background: #fff;">
+                            双
+                        </th>
+                        <th style="background: #fff;">
+                            尾大
+                        </th>
+                        <th style="background: #fff;">
+                            尾小
+                        </th>
+                        <th style="background: #fff;">
+                            合单
+                        </th>
+                        <th style="background: #fff;">
+                            合双
+                        </th>
+                        <th style="background: #fff;">
+                            龙
+                        </th>
+                        <th style="background: #fff;">
+                            虎
+                        </th>
+                    </tr>
+                    <tr v-for="(item,index) in keyData">
+                            <td>{{(index+1)+'期'}}</td>
+                            <td v-html="todayData[index]['大']?todayData[index]['大']:'—'">
+                                {{todayData[index]['大']}}
+                            </td>
+                            <td v-html="todayData[index]['小']?todayData[index]['小']:'—'">
+                                {{todayData[index]['小']}}    
+                            </td>
+                            <td v-html="todayData[index]['单']?todayData[index]['单']:'—'">
+                                {{todayData[index]['单']}}
+                            </td>
+                            <td v-html="todayData[index]['双']?todayData[index]['双']:'—'">
+                                {{todayData[index]['双']}}
+                            </td>
+                            <td v-html="todayData[index]['尾大']?todayData[index]['尾大']:'—'">
+                                {{todayData[index]['尾大']}}
+                            </td>
+                            <td v-html="todayData[index]['尾小']?todayData[index]['尾小']:'—'">
+                                {{todayData[index]['尾小']}}
+                            </td>
+                            <td v-html="todayData[index]['合单']?todayData[index]['合单']:'—'">
+                                    {{todayData[index]['合单']}}
+                            </td>
+                            <td v-html="todayData[index]['合双']?todayData[index]['合双']:'—'">
+                                    {{todayData[index]['合双']}}
+                            </td>
+                            <td v-html="todayData[index]['龙']?todayData[index]['龙']:'—'">
+                                    {{todayData[index]['龙']}}
+                            </td>
+                            <td v-html="todayData[index]['虎']?todayData[index]['虎']:'—'">
+                                {{todayData[index]['虎']}}
+                            </td>
+                        </tr>
+                    
+                </table>
+        </div>
+        </div>
+        </div>
+<#include "/common/foot.html">
+
+<script>
+        var vm = new Vue({
+            el: '#all',
+            data: {
+                flag: 0,
+                levelName: [
+                    '第一名','第二名','第三名','第四名','第五名','第六名','第七名','第八名','总和'
+                ],
+                tableData: [],
+                todayData: [],
+                keyData: [],
+                title: '',
+                showData: null
+            },
+            methods: {
+                getData: function(index) {
+					if( index == undefined ){
+						index=0;
+					}
+                	SULX.get(apikl10.gdklsf_mrcl,function(std,data) {
+                        vm.tableData.splice(0);
+                        vm.keyData.splice(0);
+                        vm.todayData.splice(0);
+                        var result = JSON.parse(data).data;
+                        console.log(result)
+                        for(i=0;i<result.length;i++) {
+                            for(j in result[i]) {
+                                vm.title = j;
+                                vm.tableData.push(result[i][j]);
+                            }
+                        }
+                        for(i in vm.tableData[0].num1) {
+                            vm.keyData.push(i);
+                            vm.todayData.push(vm.tableData[0].num1[i]);
+                        }
+                        }
+                    )
+                },
+                changeNum: function(index) {
+                    this.flag = index;
+                    this.keyData.splice(0);
+                    this.todayData.splice(0);
+                    for(i in vm.tableData[0]['num'+(index+1)]) {
+                        vm.keyData.push(i);
+                        vm.todayData.push(vm.tableData[0]['num'+(index+1)][i]);
+                    }
+                }
+            },
+            created: function() {
+                this.getData()
+            },
+        })
+</script>
+</body>
+</html>

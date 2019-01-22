@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场,幸运农场开奖结果,幸运农场历史走势图表及技巧玩法 - 开奖直播</title>
+<meta name="keywords" content="幸运农场频道提供幸运农场历史走势图表,最新的开奖结果,实用的玩法技巧,完整的历史数据,免费提供软件及投注预测。">
+<meta name="description" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<#include "/common/header.html">
+ <style>
+        .highcharts-legend {
+            display: none !important;
+        }
+        .highcharts-credits {
+            display: none !important;
+        }
+        .btn-spe {
+            width: 90px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: #000;
+            text-align: center;
+            margin-right: 9px;
+            cursor: pointer;
+        }
+        .btn-other {
+            background: #d94136;
+            border: 1px solid #d94136 !important;
+            color: #fff !important;
+        }
+        .btn-spe p {
+            font-size: 15px;
+            line-height: 26px;
+            color: inherit;
+        }
+        .lobby-chart .go-live img.play {
+            top: 70px !important;
+            left: 0px !important;
+        }
+        .lobby-chart .head a {
+		    float: right;
+		    font-size: 14px;
+		    color: #999;
+		    font-weight: normal;
+		}
+</style>
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/xync/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-tips hide">
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：51开奖结果未获取, 继续等待自动更新或 <a href="#">手动刷新</a>
+</div>
+<div class="lottery-list">
+<a class="item active" href="/xync">幸运农场</a>
+<a class="item " href="/xync/kaijiang">历史开奖号码</a>
+<a class="item " href="/xync/shipin">开奖直播</a>
+<a class="item " href="/xync/zonghe">综合路珠分析</a>
+<a class="item " href="/xync/heshudanshuangluzhu">合数单双路珠</a>
+<a class="item " href="/xync/longhuluzhu">龍虎路珠</a>
+<a class="item " href="/xync/zongheluzhu">总和路珠</a>
+<a class="item " href="/xync/weishudaxiaoluzhu">尾数大小路珠</a>
+<a class="item " href="/xync/shuangmianluzhu">单双大小路珠</a>
+<a class="item " href="/xync/zhongfabailuzhu">中发白路珠</a>
+<a class="item " href="/xync/dongnanxibeiluzhu">东南西北路珠</a>
+<a class="item " href="/xync/haomaluzhu">号码路珠</a>
+<a class="item " href="/xync/haomatongji">历史号码统计</a>
+<a class="item " href="/xync/shuangmian">单双大小历史</a>
+<a class="item " href="/xync/shuangmianzoushitu">单双大小走势图</a>
+<a class="item " href="/xync/zoushitu">横版走势图</a>
+<a class="item " href="/xync/touzhu">两面投注参考</a>
+<a class="item " href="/xync/jiqiao">幸运农场技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="divContainer"  v-cloak>
+<div  style="height: 347px;" class="container lobby-chart">
+    <div class="row" id="j-chart-container">
+        <div class="col-xs-8">
+            <div class="head">
+            <div class="chart-btn" id="j-chart">
+                <a href="/xync/zoushitu/" style="float: right">查看全部走势图>></a>
+            </div>
+            </div>
+            <div class="chart">
+                <div style="display: flex;">
+                        <div 
+                        @click="draw(index)"
+                        v-for="(item,index) in num" 
+                        :class="{'btn-spe': true, 'btn-other': index === flag}">
+                            <p>{{item}}</p>
+                        </div>
+                    </div>
+                    <div id="container" style="margin-top: 30px; padding-top: 20px; width: inherit;  height:200px;"></div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-center">
+              <a href="/xync/shipin/" class="go-live">    
+                  <img src="/static/assets/dist/img/lottery-logo/xync-live.png" alt="" class="play j-play">
+              </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div  class="container lobby-record">
+<div class="title">
+<span>幸运农场开奖记录</span><a href="kaijiang/index.html">查看全部>></a>
+</div>
+<div data-job="replace">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center j-numslist">
+<thead>
+<tr>
+<th class="time">时间</th>
+<th style="width: 40%;">开奖号码</th>
+<th colspan="4">总和</th>
+<th>龍虎</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(item,index) in keyList">
+<td>
+<span>{{buildDate(item)}}</span>
+<span class="time">{{buildHM(kjjl[index]["starttime"])}}</span>
+</td>
+<td>
+<div class="record-num" style="line-height: 24px;">
+
+<i v-for="item2 in kjjl[index]['rank']" 
+:class="'j-num'+(item2<10?'0'+item2:item2)+' icp-xync-'+(item2<10?'0'+item2:item2)+'-md'">
+
+</i>
+</div>
+</td>
+<td><span>{{kjjl[index]["gyhSum"]}}</span></td>
+<td>
+<span>{{kjjl[index]["zhDs"]}}</span>
+</td>
+<td>
+<span>{{kjjl[index]["zhDx"]}}</span>
+</td>
+<td>
+<span class="highlight">{{kjjl[index]["wDx"]}}</span>
+</td>
+<td>
+<span class="highlight">{{kjjl[index]["lh1"]}}</span>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<#include "/common/jiqiao.html">
+<script type="text/javascript">
+var vm = new Vue({
+	el:'#divContainer',
+	data:{
+		kjjl:[],
+		keyList:[],
+		num: ['第一球', '第二球', '第三球', '第四球', '第五球', '第六球', '第七球', '第八球'],
+        flag: 0,
+	},	
+	methods:{
+		buildDate: function(dateStr){
+			if(dateStr){
+				var str1 = dateStr.substring(0,8);
+				var str2 = dateStr.substring(8);					
+				return str1 + "-" + str2;
+			}else{
+				return "";
+			}				
+		},
+		buildHM:function(time1){
+			if(time1){
+				return formatDate(new Date(time1),"hh:mm");
+			}else{
+				return "";
+			}
+		},getData: function(){
+			SULX.get(apixync.xync_kjjl,function(std,data) {
+	               var res2 = JSON.parse(data).data;
+	               vm.keyList=[];
+	               vm.kjjl=[];
+	                for(i in res2  ){
+	                	 if(i>9)
+	                	   {
+	                	   break;
+	                	   }
+	                   for(j in res2[i] ){
+	                	   vm.keyList.push(j); 
+	                	   vm.kjjl.push(res2[i][j]);
+	                   }  
+	                  
+	                }
+	                
+	                
+	            });
+		},
+        draw:function(index){
+            this.flag = index;
+            SULX.get(apixync.xync_zst,function(std,data) {
+                var result = JSON.parse(data).data;              
+                var test1 = result['num'+(index+1)];
+                
+                //对数据进行排序
+                var keyArr = [];
+                for(key in test1){
+                	keyArr.push(key);
+                }
+                keyArr.sort(function(a,b){
+                	return a - b;
+                });
+                
+                var timer = [];
+                var chartData = [];
+                for(i in keyArr) {
+                	var j = keyArr[i];
+                    timer.push(j.substr(j.length-2,2)); //截取key生成期数
+                    chartData.push(Number(test1[j])); //数据必须是number
+                }
+
+                var chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'spline',
+                    height: '215',
+                    spacingTop: 20
+                },
+                title: {
+                    text: '', //tubiao biaoti
+                    align: 'left'
+                },
+                xAxis: {
+                    categories: timer
+                },
+                yAxis: {
+                    title: '',
+                    tickPositions: [0, 5, 10, 15, 20],  //y轴数据
+                    // // categories: [0,150,200]
+                    // labels: {
+                    //     formatter: function() {
+                    //         if(this.value === 21) {
+                    //             this.value = 20
+                    //         } else {
+                    //             this.value = this.value
+                    //         }
+                    //     }
+                    // }
+                },
+                tooltip: {
+                    useHTML: true,
+                    headerFormat: '<span style=";">{point.key}期:{point.y}</span>',
+                    backgroundColor: '#666',   // 背景颜色
+                    // borderColor: 'black',         // 边框颜色
+                    borderRadius: 10,             // 边框圆角
+                    borderWidth: 0,
+                    display: 'flex', 
+                    shadow: false,                 
+                    animation: false,      
+                    pointFormatter: function() {
+                    return '<span style=" color: #fff;>期<span>';
+                    },
+                    style: {  
+                        width: '70px',
+                        height: '30px',   
+                                // 文字内容相关样式
+                        color: "rgba(255,255,255,0.8)",
+                        fontSize: "12px",
+                        fontWeight: "blod",
+                        fontFamily: "Courir new"
+                    }
+                },
+                plotOptions: {
+                    spline: {
+                        dataLabels: {
+                            // 开启数据标签
+                            // color: '#666',
+                            crop: false,
+                            overflow: 'none',
+                            verticalAlign: 'bottom',
+                            enabled: true          
+                        },
+                        // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                        enableMouseTracking: true
+                    }
+                },
+                series: [
+                    {
+                    name: '',
+                    color: '#5073a3',
+                    data: chartData
+                    }
+                ]
+                
+                });                    
+            });
+            }
+	},
+	created: function() {		
+		  this.$options.methods.draw(0);
+		  this.$options.methods.getData();
+	}	
+});
+</script>
+
+<#include "/common/foot.html">
+</body>
+</html>

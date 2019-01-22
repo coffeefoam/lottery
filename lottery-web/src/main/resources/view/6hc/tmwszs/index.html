@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+<title>六合彩走势图</title>
+<meta name="keywords" content="pk10北京赛车">
+<meta name="description"
+	content="pk10北京赛车路珠分析频道专门为pk10北京赛车的玩家提供专业的pk10北京赛车路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/common/header.html">
+<link rel="stylesheet" href="/static/css/6hcbase.css">
+<link rel="stylesheet" href="/static/css/6hczst.css">
+<style>
+    [v-cloak] {
+        opacity: 0 !important;
+    }
+</style>
+</head>
+<body id="page-top" style="min-width: 1200px;">
+
+	<nav id="mainNav" class="navbar navbar-default">
+		<#include "/common/nav.html">
+	</nav>
+	<div class="lobby-head">
+		<div class="container">
+			<div class="row">
+				<div class="content">
+					<#include "/common/menu.html">
+					<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+						<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span
+							class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a
+							href="javascript:location.reload();">手动刷新</a>
+					</div>
+					<div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+						data-m="advertisement"></div>
+					<div style="font-size: 14px" class="lottery-list">
+                        <a class="item" href="index.html">六合开奖</a>
+                        <a class="item" href="shipin">开奖视频</a>
+                        <a class="item" href="chzhfx">出号综合分析</a>
+                        <a class="item" href="tmsxzs">特码生肖走势</a>
+                        <a class="item" href="tmbszs">特码波色走势</a>
+                        <a class="item" href="tmdszs">特码单双走势</a>
+                        <a class="item" href="tmdwzs">特码段位走势</a>
+                        <a class="item" href="tmtszs">特码头数走势</a>
+                        <a class="item active" href="tmwszs">特码尾数走势</a>
+                        <a class="item" href="tmwxzs">特码五行走势</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="margin-bottom: 40px;" v-cloak id="con">
+            <TABLE class="zstable">
+                    <tr style="background:#efefef;">
+                        <td width="70" rowspan="2">期数</td>
+                        <td width="40" rowspan="2">特码</td>
+                        <td colspan="10">尾数走势</td>
+                        <td colspan="2">尾数大小</td>
+                    </tr>
+                    <tr style="background:#f9f9f9;">
+                        <td style="width:72px;">0尾</td>
+                        <td style="width:72px;">1尾</td>
+                        <td style="width:72px;">2尾</td>
+                        <td style="width:72px;">3尾</td>
+                        <td style="width:72px;">4尾</td>
+                        <td style="width:72px;">5尾</td>
+                        <td style="width:72px;">6尾</td>
+                        <td style="width:72px;">7尾</td>
+                        <td style="width:72px;">8尾</td>
+                        <td style="width:72px;">9尾</td>
+                        <td style="width:72px;">小(0-4)</td>
+                        <td style="width:72px;">大(5-9)</td>
+                    </tr>
+                    <tr style="background:#ffc;" class="red bold">
+                        <td>出现次数</td>
+                        <td> </td>
+                        <td v-for="item in tscs">{{item?item+'次':'00'+'次'}}</td>
+                    </tr>    
+    
+    
+                    <tr v-for="(item, index) in juti" onMouseOut="this.style.backgroundColor=''"
+                        onMouseOver="this.style.backgroundColor='#ffffcc'">
+                        <td>{{item.qs}}</td>
+                        <td style="background:#ffc;"><span :class="[whatColor(item), 'F']">{{item.tm}}</span></td>
+                        <td :class="{hui_color: true, Red_boll1: item.lingweiyl === 0}">{{item.lingweiyl?item.lingweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.yiweiyl === 0}">{{item.yiweiyl?item.yiweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.erweiyl === 0}">{{item.erweiyl?item.erweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.sanweiyl === 0}">{{item.sanweiyl?item.sanweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.siweiyl === 0}">{{item.siweiyl?item.siweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.wuweiyl === 0}">{{item.wuweiyl?item.wuweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.liuweiyl === 0}">{{item.liuweiyl?item.liuweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.qiweiyl === 0}">{{item.qiweiyl?item.qiweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.baweiyl === 0}">{{item.baweiyl?item.baweiyl:item.tm}}</td>
+                        <td :class="{hui_color: true, Red_boll1: item.jiuweiyl === 0}">{{item.jiuweiyl?item.jiuweiyl:item.tm}}</td>
+
+                        <td :class="{hui_color: true, Blue_boll1: item.weixiaoyl === 0}">{{item.weixiaoyl?item.weixiaoyl:item.twdx}}</td>
+                        <td :class="{hui_color: true, Blue_boll1: item.weidayl === 0}">{{item.weidayl?item.weidayl:item.twdx}}</td>
+                    </tr>
+            </TABLE>
+	</div>
+
+	<script>
+		var vm = new Vue({
+			el : '#con',
+			data : {
+                tscs: [],
+                juti: []
+			},
+			methods : {
+                whatColor: function(item) {
+                    if(item.bs === 'red') {
+                        return 'Red_bg'
+                    } else if(item.bs === 'blue') {
+                        return 'Blue_bg'
+                    } else {
+                        return 'Green_bg'
+                    }
+                }, 
+                otherColor: function(item) {
+                    if(item.ys === '红') {
+                        return 'Red'
+                    } else if(item.ys === '蓝') {
+                        return 'Blue'
+                    } else {
+                        return 'Green'
+                    }
+                }, 
+				getData: function(index, timer) {
+                    // this.num.splice(0);
+                    SULX.get(api6hc.lhc_wszs, function(std, data) {                  
+                        var short = [];
+                        var result = JSON.parse(data).data;
+                        vm.tscs = result.wscs;
+                        vm.juti = result.wszs;
+                        console.log(result);
+                    })
+				},
+			},
+			created : function() {
+				this.getData();
+			},
+		})
+	</script>
+	<#include "/common/foot.html">
+</body>
+</html>

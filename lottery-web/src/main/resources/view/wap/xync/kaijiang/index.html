@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场开奖号码 - 开奖直播</title>
+<meta name="keywords" content="幸运农场频道提供幸运农场历史走势图表,最新的开奖结果,实用的玩法技巧,完整的历史数据,免费提供软件及投注预测。">
+<meta name="description" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xync/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xync/rightmenu.html">
+<div class="menu-title" >
+历史开奖
+</div>
+<div id="all" class="lobby-record" v-cloak>
+<div>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+</tr>
+</thead>
+<tbody>
+<tr v-for="item in kjjl">
+<td>
+<div class="period">{{getTerms(item.periods)}} 期</div>
+<div class="time">{{buildHM(item.starttime)}}</div>
+</td>
+<td>
+<div class="content-box">
+<div class="lottery-num">
+<i v-for="num in item.rank" :class="'icp-xync-'+num+'-sm'" :data-n="num"></i>
+</div>
+<div class="lottery-analysis">
+<span class="analysis">{{item.gyhSum}}</span>
+<span class="analysis" :class="hasKey(item.zhDs,'单')?'highlight':''">{{item.zhDs}}</span>
+<span class="analysis" :class="hasKey(item.zhDx,'大')?'highlight':''">{{item.zhDx}}</span>
+<span class="analysis" :class="hasKey(item.wDx,'尾大')?'highlight':''">{{item.wDx}}</span>
+<span class="analysis" :class="hasKey(item.lh1,'龙')?'highlight':''">{{item.lh1}}</span>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],            	
+           	},
+            methods: {
+               	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(apixync.xync_kjjl,function(status,res) {
+            			if(status && status ==200){
+            				var data = JSON.parse(res).data;
+            				vm.kjjl.splice(0);
+                			for(item in data){            				        					
+                   				for(item2 in data[item]){                					
+                       				vm.kjjl.push(data[item][item2]);
+                   				}	
+                			}
+            			}            			
+            		});
+            	},
+            	getTerms: function(item){
+            		if(item){
+            			return item.substring(item.length -3);
+            		}
+            		return "";
+            	},
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"hh:mm");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

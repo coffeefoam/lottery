@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>新疆时时彩号码遗漏统计 - 开奖直播</title>
+<meta name="keywords" content="新疆时时彩冷热号分析，新疆时时彩计划软件">
+<meta name="description" content="新疆时时彩平台为您提供新疆时时彩开奖号码彩冷热号分析，新疆时时彩计划软件。">
+<#include "/common/header.html">    
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<#include "/xjssc/kaijiang.html">
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+<a class="item " href="/xjssc">新疆时时彩</a>
+<a class="item " href="/xjssc/kaijiang">历史开奖号码</a>
+<a class="item " href="/xjssc/shipin">开奖视频</a>
+<a class="item " href="/xjssc/zonghe">综合路珠分析</a>
+<a class="item active" href="/xjssc/yilou">号码遗漏统计</a>
+<a class="item " href="/xjssc/haomaluzhu">号码路珠</a>
+<a class="item " href="/xjssc/longhuluzhu">龍虎路珠</a>
+<a class="item " href="/xjssc/shuangmianluzhu">单双大小路珠</a>
+<a class="item " href="/xjssc/zongheluzhu">总和路珠</a>
+<a class="item " href="/xjssc/shuangmian">单双大小历史</a>
+<a class="item " href="/xjssc/haomatongji">历史号码统计</a>
+<a class="item " href="/xjssc/touzhu">两面投注参考</a>
+<a class="item " href="/xjssc/zoushitu">横版走势图</a>
+<a class="item " href="/xjssc/shuangmianzoushitu">单双大小走势图</a>
+<a class="item " href="/xjssc/jiqiao">新疆时时彩技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div v-cloak id="divContainer">
+<div class="container lobby-record" style="padding-bottom: 0;border-bottom: 0;">
+<div class="lot-search">
+<div id="j-trends-tab">
+<div class="btn-group" id="j-trends-nav">
+<a style="cursor:pointer;" class="btn btn-default" @click="showButton(1)" :class="showType==1?'btn-danger':''">位置遗漏</a>
+<a style="cursor:pointer;" class="btn btn-default " @click="showButton(2)" :class="showType==2?'btn-danger':''">号码遗漏</a>
+</div>
+</div>
+</div>
+</div>
+<div class="container number-filter-title">
+<ul v-show="showType==1" class="ball ">
+<li v-for="(value,key,index) in ballNumList"><a style="cursor:pointer;" :class="index==curBallIndex?'cur':''" @click="setBallByIndex(index)">{{value}}</a> | </li>
+<li>
+<div class="dropdown">
+<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+使用说明 <span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格统计了不同条件下号码的出现次数及遗漏（未出现）次数</li>
+<!-- <li>2.输代表截止当前未出现的总次数，赢代表截止当前连续出现的总次数</li> -->
+</ul>
+</div>
+</li>
+</ul>
+<ul v-show="showType==1" class="type ">
+<li v-for="(value,key,index) in typeList"><a style="cursor:pointer;" :class="index==curTypeIndex?'cur':''" @click="setTypeByIndex(index)">{{value}}</a> </li>
+</ul>
+
+<ul v-show="showType==2" class="ball" style="margin-bottom: 0;border-bottom: 0;">
+<li v-for="(item,index) in numList"><a style="cursor:pointer;" :class="index==curNumIndex?'cur':''" @click="setCurNumIndex(index)">号码{{item}}</a> | </li>
+<li>
+<div class="dropdown">
+<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+使用说明 <span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格统计了不同条件下号码的出现次数及遗漏（未出现）次数</li>
+<!-- <li>2.输代表截止当前未出现的总次数，赢代表截止当前连续出现的总次数</li> -->
+</ul>
+</div>
+</li>
+</ul>
+
+</div>
+<div class="container lobby-record" data-job="replace">
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th>号码</th>
+<th>今日出现</th>
+<th>今日遗漏</th>
+<th>本周遗漏</th>
+<th>本月遗漏</th>
+</tr>
+</thead>
+<tr v-for="(value,key) in tableData" class="odd">
+<td width="119px">
+{{key}}
+</td>
+<td width="119px">
+{{value["jrcx"]}}
+</td>
+<td width="119px">
+{{value["jryl"]}}
+</td>
+<td width="119px">
+{{value["bzyl"]}}
+</td>
+<td width="119px">
+{{value["byyl"]}}
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			hmyl:[],
+			ballNumList:{"num1":"第一球","num2":"第二球","num3":"第三球","num4":"第四球","num5":"第五球"},
+			typeList:{"wzzhdx":"总和大小","wzzhds":"总和单双","wzlh":"龙虎","wzdx":"大小","wzds":"单双","wzhm":"号码"},
+			tableData:{},
+			curBallIndex:0,
+			curTypeIndex:5,
+			curBallKey:"num1",
+			curTypeKey:"wzhm",
+			wzyl:[],
+			numList:["0","1","2","3","4","5","6","7","8","9"],
+			curNumIndex:0,
+			showType:1,			
+		},	
+		methods:{
+			getData: function() {
+				//位置遗漏
+				SULX.get(apixjssc.xjssc_wzyl,function(std,data) {
+						vm.hmyl = JSON.parse(data).data;
+						//初始化数据
+						vm.tableData = vm.hmyl[vm.curTypeKey][vm.curBallKey];
+					}                
+				);
+				//号码遗漏 
+				SULX.get(apixjssc.xjssc_hmyl,function(std,data) {
+						vm.wzyl = JSON.parse(data).data;        	
+					}                
+				);
+			},
+			setBallByIndex: function(index){
+				vm.curBallIndex = index;
+				var i=0;
+				for(item in vm.ballNumList){
+					if(index == i){
+						vm.curBallKey = item;
+						break;
+					}
+					i++;
+				}
+				//点击切换数据
+				if(vm.curTypeKey=="wzhm"||vm.curTypeKey=="wzds"||vm.curTypeKey=="wzdx"){
+					vm.tableData = vm.hmyl[vm.curTypeKey][vm.curBallKey];
+				}else{
+					vm.tableData = vm.hmyl[vm.curTypeKey];
+				}
+			},
+			setTypeByIndex: function(index){
+				vm.curTypeIndex = index;
+				var i=0;
+				for(item in vm.typeList){
+					if(index == i){
+						vm.curTypeKey = item;
+						break;
+					}
+					i++;
+				}
+				if(vm.curTypeKey=="wzhm"||vm.curTypeKey=="wzds"||vm.curTypeKey=="wzdx"){
+					vm.tableData = vm.hmyl[vm.curTypeKey][vm.curBallKey];
+				}else{
+					vm.tableData = vm.hmyl[vm.curTypeKey];
+				}				
+			},
+			showButton: function(index){				
+				vm.showType=index;
+				if(index==1){
+					//展示位置数据
+					if(vm.curTypeKey=="wzhm"||vm.curTypeKey=="wzds"||vm.curTypeKey=="wzdx"){
+						vm.tableData = vm.hmyl[vm.curTypeKey][vm.curBallKey];
+					}else{
+						vm.tableData = vm.hmyl[vm.curTypeKey];
+					}
+					
+				}else{					
+					//组装数据
+					this.buildData();
+				}
+			},
+			setCurNumIndex: function(index){
+				vm.curNumIndex = index;		
+				//组装数据
+				this.buildData();
+			},
+			buildData: function(){
+				//展示号码数据
+				vm.tableData = vm.wzyl[vm.curNumIndex+""];
+				//组装展示数据,将map中的key替换成中文
+				if(vm.tableData){
+					var data = {};
+					for(item in vm.tableData){
+						data[vm.ballNumList[item]] = vm.tableData[item];
+					}
+					vm.tableData = data;
+				}
+			}
+		},
+		created:function(){	
+			this.getData();
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运飞艇冠亚和路珠分析 - 开奖直播</title>
+<meta name="keywords" content="幸运飞艇,幸运飞艇开奖结果,幸运飞艇投注技巧,幸运飞艇玩法">
+<meta name="description" content="幸运飞艇路珠分析频道专门为幸运飞艇的玩家提供专业的幸运飞艇路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html"><body>
+<#include "/wap/common/nav.html">
+
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xyft/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xyft/rightmenu.html">
+<div class="menu-title">
+冠、亚和路珠
+<div class="dropdown pull-right">
+<i class="fa fa-question-circle-o dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+<ul class="dropdown-menu" role="menu">
+<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+<li>2.当长龙中断时，则另起一列显示结果</li>
+<li><b>冠亚和单双</b>：“冠亚和值”爲单视为投注“单”的注单视为中奖，爲双视为投注“双”的注单视为中奖，其余视为不中奖；</li>
+<li><b>冠亚和大小</b>：“冠亚和值”大于11时投注“大”的注单视为中奖，小于或等于11时投注“小”的注单视为中奖，其余视为不中奖；</li>
+<li><b>冠亚和指定</b>：“冠亚和值”可能出现的结果爲3～19， 投中对应“冠亚和值”数字的视为中奖，其余视为不中奖。</li>
+</ul>
+</div>
+</div>
+   <div id="all" v-cloak>
+        <div>
+            <div class="container lobby-record">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <a id="stat_1_bs" href="ballstat.html"
+                                    target="_blank"></a>
+                                <span>今日累计：<span class="text-primary"> 大（{{tableData['num-da']}}）
+                                        小（{{tableData['num-xiao']}}） </span></span>
+                                冠亞和大小
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in tableData.dx" :class="{even: item[0] === '大',odd: item[0] === '小'}">
+                                    <span v-for="items in item" :class="{'high-light-blue': items === '大', 'high-light-red': items === '小' }">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container lobby-record">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-right">
+                        <tr style="background: #f6f6f6;">
+                            <td>
+                                <a id="stat_1_oe" href="ballstat.html"
+                                    target="_blank"></a>
+                                <span>今日累计：<span class="text-primary"> 单（{{tableData['num-dan']}}）
+                                        双（{{tableData['num-shuang']}}） </span></span>
+                                冠亞和单双
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center
+                        table-vertical">
+                        <tr valign="top">
+                            <td v-for="item in tableData.ds" :class="{even: item[0] === '单',odd: item[0] === '双'}">
+                                    <span v-for="items in item" :class="{'high-light-blue': items === '单', 'high-light-red': items === '双' }">{{items}}</span>
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+            el: '#all', //el 
+            data: {
+                tableData: [],
+                keyData: [],
+            },
+            methods: { //click事件
+            getData: function() {
+            	SULX.get(apixyft.xyft_gyhlz,function(std,data) {
+                        var result = JSON.parse(data).data;
+                        vm.tableData = result;
+                        }
+                    );
+                }
+            },
+            created: function() { 
+                this.getData();
+            },
+        })
+    </script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

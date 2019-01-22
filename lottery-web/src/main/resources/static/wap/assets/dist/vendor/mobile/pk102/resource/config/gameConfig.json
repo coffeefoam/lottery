@@ -1,0 +1,22 @@
+{
+"simulateSec":10,
+"simulateEnable":30,
+"carGoDelayMS":800,
+"endLineOffSet":9,
+"endLinePosOffset":30,
+"showEndLineDelay":1800,
+"camera":{"sprintAddSpeed":0.1, "speedOffset":0.065},
+"AI":{"accelerate":0.6, "startSpeed":"20","durationTime":"2-4_3-6_2-4", "speed":"22-27_29-32_35-40"},
+"unit":{"startPoint":1000, "unitAndBorderDistance":150, "startY":175, "space":35, "scale":0.4, "startScale":0.7, "stepScale":0.03,
+"list":[{"name":"car1", "number":1},
+{"name":"car2", "number":2},
+{"name":"car3", "number":3},
+{"name":"car4", "number":4},
+{"name":"car5", "number":5},
+{"name":"car6", "number":6},
+{"name":"car7", "number":7},
+{"name":"car8", "number":8},
+{"name":"car9", "number":9},
+{"name":"car10", "number":10}
+]}
+}

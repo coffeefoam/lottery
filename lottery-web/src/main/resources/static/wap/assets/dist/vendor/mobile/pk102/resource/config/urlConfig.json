@@ -1,0 +1,19 @@
+{
+  "data0": {
+    "awardData": "/pk10/ajax?ajaxHandler=GetPk10AwardData",
+    "analysisData": "/pk10/ajax?ajaxHandler=GetPk10AnalysisData",
+    "betData": "/pk10/ajax?ajaxHandler=GetPk10BetData"
+  },
+  "data1": {
+    "awardData": "/icpapi/GetMShiPinInfo?lotteryid=1&dtype=jsonp",
+    "analysisData": "/pk10/ajax?ajaxHandler=GetPk10AnalysisData",
+    "betData": "/pk10/ajax?ajaxHandler=GetPk10BetData"
+  },
+  "homePage": "https://www.1398x.com",
+  "history": "/pk10/kaijiang",
+  "luzhu": "/pk10/luzhubigorsmall",
+  "freeRefer": "/pk10/betgame",
+  "numberCount": "/pk10/yilou",
+  "guanya": "/pk10/guanyahestat",
+  "oldVer": "/mobile/pk10/?utm=n_pk10"
+}

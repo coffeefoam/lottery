@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>北京快乐8技巧</title>
+<meta name="keywords" content="北京快乐8,北京北京快乐8开奖,北京快乐8技巧,北京快乐8走势图">
+<meta name="description" content="北京快乐8频道提供北京快乐8的开奖结果、技巧、走势图和后续的视频直播等等服务。">
+<#include "/common/header.html">
+</head>
+<body id="page-top" style="min-width: 1200px;">
+<nav id="mainNav" class="navbar navbar-default">
+<#include "/common/nav.html">
+</nav>
+<div class="lobby-head">
+<div class="container">
+<div class="row">
+<div class="content">
+<#include "/common/menu.html">
+<div class="lottery-result" data-m="lobby" data-title="快乐8" data-periods="179" data-id="8" data-url="kl8" data-count="30">
+<div class="content-box" id="j-lottery-intro">
+<div class="logo">
+<img src="/static/assets/dist/img/lottery-logo/kl8.png" alt="kl8">
+</div>
+<div class="result" id="j-lottery-info">
+<div>最新开奖：<span class="total"></span>期 &nbsp; 每日<span class="daily"></span>期，今日剩余<span class="daily"></span>期</div>
+<div class="lottery-num"></div>
+<div class="lottery-load" style="height: 24px;"></div>
+</div>
+<div class="btns">
+<a href="/kl8/shipin/" class="video">开奖视频</a>
+<a href="" class="try" id="i-am-feeling-lucky">试试手气</a>
+</div>
+<div class="time" id="j-lottery-right">
+<div class="left">
+<div class="first">第<span></span>期</div>
+<div>距离下期开奖剩余</div>
+</div>
+ <div class="right">
+<span class="num">00</span><span class="word">分</span><span class="num">00</span><span class="word">秒</span>
+</div>
+ 
+</div>
+<div class="links">
+<a href="/kl8/kaijiang/"><i class="fa fa-file-text-o" aria-hidden="true"></i>开奖结果</a>
+<a href="#feedBack" class="default" data-toggle="modal"><i class="fa fa-comments-o" aria-hidden="true"></i>用户反馈</a>
+</div>
+</div>
+</div>
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="pay-show" data-pay="Icp_Pc_Lottery_Top" data-m="advertisement">
+</div>
+<div class="lottery-list">
+<a class="item " href="/kl8/">快乐8</a>
+<a class="item " href="/kl8/kaijiang/">历史开奖号码</a>
+<a class="item " href="/kl8/zongheluzhu/">总和路珠</a>
+<a class="item " href="/kl8/oddevenluzhu/">奇偶盘路珠</a>
+<a class="item " href="/kl8/shangxialuzhu/">上下盘路珠</a>
+<a class="item " href="/kl8/shipin/">开奖视频</a>
+<a class="item active" href="/kl8/jiqiao/">快乐8技巧</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="skill-box">
+<div class="list-left">
+<ol class="breadcrumb">
+<li><a href="/">首页</a></li>
+<li><a href="/jiqiao/">资讯技巧</a></li>
+<li class="active">${category.name!}技巧</li>
+</ol>
+<h4 class="head">${category.name!}</h4>
+<#if artList??>
+<#list artList as art>
+<div class="list">
+<div class="title">
+<a href="${ctxPath!}/jiqiao/${art.id?c}.html" target="newWindow">${art.title!}</a>
+<span class="time"><#if art.createDate??>${art.createDate?string('MM-dd')}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</div>
+</#list>
+</#if>
+
+<div class="skill-pager">
+<ul class="page">
+<#if pageNum!=0>
+<#if pageNo != 1>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/1.html" class="" title="首页">首页</a></li>
+</#if>
+<#if pageNo !=1>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${prePageNo?c}.html" class="" title="上一页">上一页</a></li>
+</#if>
+<#list startPageNo..endPageNo as num>
+<#if num == pageNo>
+<li><a href="javascript:;" class="active" title="当前${num?c}页">${num}</a></li>
+<#else>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${num?c}.html" class="" title="当前${num?c}页">${num?c}</a></li>
+</#if>
+</#list>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${nextPageNo?c}.html" class="" title="下一页">下一页</a></li>
+</#if>
+<#if pageNo != pageNum>
+<li><a href="${ctxPath!}/${category.alias!}/jiqiao/${pageNum?c}.html" class="" title="尾页">尾页</a></li>
+</#if>
+</#if>
+</ul>
+</div>
+</div>
+<div class="list-right">
+<ul class="list">
+<#if categoryList??>
+<#list categoryList as cat>
+<li><a href="/${cat.alias!}/jiqiao/" class="<#if cat.id?? && cat.id==catId>active</#if>"><span>></span><span class="name">${cat.name!}</span></a></li>
+</#list>
+</#if>
+</ul>
+</div>
+</div>
+<#include "/common/foot.html">
+</body>
+</html>

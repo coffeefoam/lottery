@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0">
+		<title>广东11选5龙虎路珠分析</title>
+		<meta name="keywords" content="江西时时彩开奖视频, 江西时时彩开奖号码, 江西时时彩技巧，江西时时彩计划软件">
+		<meta name="description" content="江西时时彩路珠分析频道专门为江西时时彩的玩家提供专业的江西时时彩路珠分析.这里有专业的开奖数据统计、开奖直播视频。">
+		<#include "/common/header.html">
+	</head>
+		<body id="page-top" style="min-width: 1200px;">
+			<nav id="mainNav" class="navbar navbar-default">
+				<#include "/common/nav.html">
+			</nav>
+				<div class="lobby-head">
+					<div class="container">
+						<div class="row">
+							<div class="content">
+							 <#include "/common/menu.html">
+							 <#include "../kaijiang.html">
+								<div class="lottery-tips" id="j-lottery-tips" style="display: none">
+									<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span
+										class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a
+										href="javascript:location.reload();">手动刷新</a>
+								</div>
+								<div class="pay-show" data-pay="Icp_Pc_Lottery_Top"
+									data-m="advertisement">
+								</div>
+								<div class="lottery-list">
+									<a class="item" href="/gd11x5">广东11选5</a>
+									<a class="item" href="/gd11x5/kaijiang">历史开奖号码</a>
+									<a class="item" href="/gd11x5/shipin">开奖视频</a>
+									<a class="item" href="/gd11x5/zonghe">综合路珠分析</a>
+									<a class="item" href="/gd11x5/yilou">号码遗漏统计</a>
+									<a class="item" href="/gd11x5/haomaluzhu">号码路珠</a>
+									<a class="item" href="/gd11x5/longhuluzhu">龍虎路珠</a>
+									<a class="item active" href="/gd11x5/shuangmianluzhu">单双大小路珠</a>
+									<a class="item" href="/gd11x5/zongheluzhu">总和路珠</a>
+									<a class="item" href="/gd11x5/shuangmian">单双大小历史</a>
+									<a class="item" href="/gd11x5/haomatongji">历史号码统计</a>
+									<a class="item" href="/gd11x5/touzhu">两面投注参考</a>
+									<a class="item" href="/gd11x5/zoushitu/">横版走势图</a>
+									<a class="item" href="/gd11x5/danshuangdaxiaozoushitu">单双大小走势图</a>
+									<a class="item" href="/gd11x5/jiqiao">广东11选5技巧</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div v-cloak id="divContainer">
+					<div class="container number-filter-title" style="padding: 10px 15px;">
+					<ul class="list j-checklist" id="ball-choose" data-name="ssc_smlz">
+					
+					<li v-for="(item,index) in qiushuList" :data-c="index+1">
+					<i class="icp-checkbox icp-checked"></i>
+					<span class="ckb-txt">
+					<label>第{{item}}球</label>
+					</span>
+					</li>
+					
+					 <div class="dropdown">
+					<button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+					使用说明<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+					<li>1.表格需从左向右浏览，右侧一列为最新结果；</li>
+					<li>2.当长龙中断时，则另起一列显示结果；</li>
+					<li>3.开奖结果为单数时，则“单”中奖，开奖结果为双数时，则“双”中奖，开奖结果为0-4时，则“小”中奖，开奖结果为5-9时，则“大”中奖。</li>
+					</ul>
+					</div>
+					</ul>
+					<div class="right-btns">
+					<span class="all-ball j-checkall" data-index="0">全选</span>
+					<span class="clear-ball j-checkclear" data-index="0">清空</span>
+					</div>
+					</div>
+					<div data-job="replace" class="j-records">
+					
+					<!-- 第一球 -->
+					<div class="container lobby-record t_1">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num1-da"]}}） 小（{{dxlz["num1-xiao"]}}） </span></span>
+					第一球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dxlz['num1']" :class="item.indexOf('小')>-1?'odd':'even'">
+					<span :class="item.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record t_1">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num1-dan"]}}） 双（{{dslz["num1-shuang"]}}） </span></span>
+					第一球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dslz['num1']" :class="item.indexOf('双')>-1?'odd':'even'">
+					<span :class="item.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					<!-- 第二球 -->
+					<div class="container lobby-record t_2">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num2-da"]}}） 小（{{dxlz["num2-xiao"]}}） </span></span>
+					第二球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dxlz['num2']" :class="item.indexOf('小')>-1?'odd':'even'">
+					<span :class="item.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record t_2">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num2-dan"]}}） 双（{{dslz["num2-shuang"]}}） </span></span>
+					第二球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dslz['num2']" :class="item.indexOf('双')>-1?'odd':'even'">
+					<span :class="item.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					<!-- 第三球 -->
+					<div class="container lobby-record t_3">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num3-da"]}}） 小（{{dxlz["num3-xiao"]}}） </span></span>
+					第三球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dxlz['num3']" :class="item.indexOf('小')>-1?'odd':'even'">
+					<span :class="item.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record t_3">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num3-dan"]}}） 双（{{dslz["num3-shuang"]}}） </span></span>
+					第三球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dslz['num3']" :class="item.indexOf('双')>-1?'odd':'even'">
+					<span :class="item.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					<!-- 第四球 -->
+					<div class="container lobby-record t_4">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num4-da"]}}） 小（{{dxlz["num4-xiao"]}}） </span></span>
+					第四球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dxlz['num4']" :class="item.indexOf('小')>-1?'odd':'even'">
+					<span :class="item.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record t_4">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num4-dan"]}}） 双（{{dslz["num4-shuang"]}}） </span></span>
+					第四球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dslz['num4']" :class="item.indexOf('双')>-1?'odd':'even'">
+					<span :class="item.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					<!-- 第五球 -->
+					<div class="container lobby-record t_5">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_bs" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 大（{{dxlz["num5-da"]}}） 小（{{dxlz["num5-xiao"]}}） </span></span>
+					第五球大小
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dxlz['num5']" :class="item.indexOf('小')>-1?'odd':'even'">
+					<span :class="item.indexOf('大')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					<div class="container lobby-record t_5">
+					<div class="table-responsive">
+					<table class="table table-bordered text-right">
+					<tr style="background: #f6f6f6;">
+					<td>
+					<a id="stat_1_oe" href="./ballstat" target="_blank"></a>
+					<span>今日累计：<span class="text-primary"> 单（{{dslz["num5-dan"]}}） 双（{{dslz["num4-shuang"]}}） </span></span>
+					第五球单双
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div class="table-responsive">
+					<table class="table table-bordered text-center table-vertical">
+					<tr valign="top">
+					<td v-for="item in dslz['num5']" :class="item.indexOf('双')>-1?'odd':'even'">
+					<span :class="item.indexOf('单')>-1?'high-light-red':'high-light-blue'" v-for="item2 in item.split('')">
+					{{item2}}
+					</span>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+					
+					</div>
+					</div>
+					
+					<script type="text/javascript">
+						var vm = new Vue({
+							el:'#divContainer',
+							data:{
+								dslz:{},
+								dxlz:{},
+								qiushuList:["一","二","三","四","五"],
+							},		
+							created:function(){
+								//单双露珠
+								SULX.get(apigd11x5.gd11x5_dslz,function(std,data) {
+										vm.dslz = JSON.parse(data).data;			
+									}
+								);
+								//大小露珠
+								SULX.get(apigd11x5.gd11x5_dxlz,function(std,data) {
+										vm.dxlz = JSON.parse(data).data;		
+									}
+								);
+							}	
+						});
+					</script>
+					
+
+
+
+				<#include "/common/foot.html">
+				</body>
+			</html>

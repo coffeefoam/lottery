@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>六合彩，六合开奖 - 开奖直播</title>
+<meta name="keywords" content="六合彩图纸、大数据分析、特码走势图表、六合快报、六合彩开奖查询">
+<meta name="description" content="六合快报拥有最全的六合彩图纸库，更拥有亚洲最快的开奖直播，最全图库，最快开奖，一切心水分析尽在六合快报！">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+<style>
+	.main .lobby-record .table tr .lottery-num .no-default {
+		margin-right: 10px !important;
+	}
+	.main .lobby-record .table tr .lottery-num .no-default2 {
+		margin-right: 10px !important;
+	}
+	.main .pcdd-plus {
+		line-height: 22px;
+		margin: 0 11px 0 0;
+	}
+	.main .lobby-record .table tr td div {
+		font-size: 13px;
+	}
+	.main .lobby-record .table tr .content-box {
+		display: inline-block;
+		margin: 0 auto;
+		text-align: left;
+		padding-left: 13px;
+	}
+</style>
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/6hc/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/6hc/rightmenu.html">
+<div class="menu-title">
+历史开奖
+</div>
+<div id="all" class="lobby-record" v-cloak>
+<table class="table text-center j-numslist">
+<thead>
+<tr>
+<td class="first">时间</td>
+<td class="second">开奖号码</td>
+</tr>
+</thead>
+<tbody>
+<tr v-for="item in kjjl">
+<td>
+<div>{{formatDate(new Date(item.starttime), 'MM-dd')}}</div>
+<div class="period">{{item.periods}}期</div>
+</td>
+<td>
+<div class="content-box">
+<div class="lottery-num">
+	<i class="no-default" v-for="(item2,index) in item.rank" v-if="index<6" :class="'no-'+item.boserank[index]">{{item2}}</i>
+	<i class="pcdd-plus"><font size="6" color="#B3B3B3">+</font></i>
+    <i class="no-default" v-for="(item2,index) in item.rank" v-if="index==6" :class="'no-'+item.boserank[index]">{{item2}}</i>
+</div><br/>
+<div class="lottery-num">
+    <i class="no-default2" v-for="(item2,index) in item.sxrank" v-if="index<6">{{item2}}</i>
+    <i class="pcdd-plus"><font size="6" color="#FFF">+</font></i>  
+    <i class="no-default2" v-for="(item2,index) in item.sxrank" v-if="index==6">{{item2}}</i>	
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+        var vm = new Vue({
+        	el: '#all',
+            data: {
+            	kjjl:[],            	
+           	},
+            methods: {
+            	hasKey:function(str,key){
+            		if(typeof key != "undefined" ){
+            			if(str.indexOf(key)>-1){
+            				return true
+            			}else{
+            				return false;
+            			}
+            		}
+            	},
+            	getData: function(){
+            		SULX.get(api6hc.waplhc_kjjl,function(status,res) {
+            			var data = JSON.parse(res).data;
+            			vm.kjjl = data;            			
+            		});
+            	},            	
+            	buildHM: function(time1){
+    				if(time1){
+    					return formatDate(new Date(time1),"yyyy");
+    				}else{
+    					return "";
+    				}
+    			},
+            },
+        	created: function() {
+        		this.$options.methods.getData(); 
+            },
+        });
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

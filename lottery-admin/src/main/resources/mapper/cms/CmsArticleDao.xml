@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.lottery.modules.cms.dao.CmsArticleDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.lottery.modules.cms.entity.CmsArticleEntity" id="cmsArticleMap">
+        <result property="id" column="id"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="title" column="title"/>
+        <result property="link" column="link"/>
+        <result property="color" column="color"/>
+        <result property="image" column="image"/>
+        <result property="keywords" column="keywords"/>
+        <result property="description" column="description"/>
+        <result property="weight" column="weight"/>
+        <result property="weightDate" column="weight_date"/>
+        <result property="hits" column="hits"/>
+        <result property="posid" column="posid"/>
+        <result property="customContentView" column="custom_content_view"/>
+        <result property="viewConfig" column="view_config"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="remarks" column="remarks"/>
+        <result property="delFlag" column="del_flag"/>
+    </resultMap>
+    
+    <select id="findList" parameterType="io.lottery.modules.cms.entity.CmsArticleEntity" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	select  * from cms_article a
+    	<where>
+    		<if test="categoryId !=null and categoryId !=''">
+    			AND category_id = #{categoryId}
+    		</if>
+    	</where>
+    	order by a.create_date desc    	
+    </select>
+    
+    <select id="findByCatId" parameterType="io.lottery.modules.cms.entity.CmsArticleEntity" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	select  * from cms_article a
+    	<where>
+    		<if test="cid !=null and cid !=''">
+    			AND category_id = #{cid}
+    		</if>
+    	</where>    	 
+    	order by a.hits,a.create_date desc 
+    	limit ${startNum},${num}   	
+    </select>
+    
+    <select id="findRemenList" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	select  * from cms_article a
+    	<where>
+    		<if test="categoryId !=null and categoryId !=''">
+    			AND category_id = #{categoryId}
+    		</if>
+    	</where>
+    	order by a.hits desc  
+    	limit 0,${num}  	
+    </select>
+    
+    
+    <select id="findTuijianList" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	select  * from cms_article a
+    	<where>
+    		<if test="categoryId !=null and categoryId !=''">
+    			AND category_id = #{categoryId}
+    		</if>
+    	</where>
+    	order by a.create_date desc  
+    	limit 0,${num} 	
+    </select>
+    
+	<select id="selectNext" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	SELECT
+			*
+		FROM
+			cms_article
+		WHERE
+			id = (
+				SELECT
+					min(id)
+				FROM
+					cms_article
+				WHERE
+					id &gt; #{id}
+					AND category_id = #{catId}
+			)    	 	
+    </select>
+    
+    <select id="selectPre" resultType="io.lottery.modules.cms.entity.CmsArticleEntity">
+    	SELECT
+			*
+		FROM
+			cms_article
+		WHERE
+			id = (
+				SELECT
+					max(id)
+				FROM
+					cms_article
+				WHERE
+					id &lt; #{id}
+					AND category_id = #{catId}
+			)    	 	
+    </select>
+    
+    <update id="count">
+    	UPDATE cms_article SET hits=hits +1 WHERE id= #{id} 
+    </update>
+    
+    <select id="selectCountById" resultType="java.lang.Long">
+    	SELECT hits FROM cms_article WHERE id=#{id}
+    </select>
+    
+    <select id="countByTitle" resultType="boolean">
+    	SELECT count(1) cnt FROM cms_article WHERE title = #{title}
+    </select>
+    
+    <select id="countTotal" resultType="long">
+    	SELECT count(1) cnt FROM cms_article
+    </select>
+    
+   <select id="getArtIdListByCid" resultType="string">
+    	SELECT
+			id
+		FROM
+			cms_article a
+		WHERE
+			a.category_id = #{cid}
+    </select>
+
+</mapper>

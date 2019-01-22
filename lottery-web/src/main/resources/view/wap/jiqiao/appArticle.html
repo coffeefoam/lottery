@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>重庆时时彩选号妙投技巧  新手必看！</title>
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="applicable-device" content="pc,mobile">
+<meta name="baidu-site-verification" content="7E1b8PAoBV" />
+<meta name="sogou_site_verification" content="RlmKjhLsQK" />
+<meta name="shenma-site-verification" content="ce694aef3486ac117dbc9b81d25cd1a4_1498096300">
+<meta name="360-site-verification" content="875721eee3661e719c3b57f39aa8c9fe" />
+<link rel="shortcut icon" href="/static/wap/assets/dist/img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/static/wap/assets/dist/img/touch-icon-57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/static/wap/assets/dist/img/touch-icon-72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/static/wap/assets/dist/img/touch-icon-114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/static/wap/assets/dist/img/touch-icon-144.png" />
+<link href="/static/wap/assets/dist/vendor/bootstrap-datetime-picker/bootstrap-datetimepicker.css?${.now?long?c}" rel="stylesheet">
+<link href="/static/wap/assets/dist/css/main.css?${.now?long?c}" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid main" data-m="mobile" style="padding-top:0px;">
+<div class="row">
+<div class="skill-detail">
+<div class="title"><h1>${art.title!}</h1></div>
+<div class="desc">
+<span><#if art.createDate??>${art.createDate?string('yyyy-MM-dd')}</#if></span>
+<span>阅读：${art.hits!}</span>
+<span>来源：<#if art.articleData??>${art.articleData.copyfrom!"网络"}</#if></span>
+</div>
+<div class="content">
+<#if art.articleData??>
+${art.articleData.content!}
+</#if>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

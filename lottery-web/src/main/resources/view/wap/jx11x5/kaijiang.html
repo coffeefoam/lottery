@@ -1,0 +1,144 @@
+<div v-cloak id="kaijContainer" class="lobby-header" data-m="mlobby" data-title="幸运飞艇" data-periods="180" data-id="4" data-url="jx11x5" data-mobile="true">
+<div class="info" data-m="advertisement">
+<div class="name bottom-menu-icon" id="bottom-menu-icon">
+<span class="word">江西11选5</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+</div>
+<a class="live hide" href="/m/jx11x5/shipin">
+<span class="icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></span>开奖直播
+</a>
+</div>
+<div class="content">
+<img data-cfsrc="/static/wap/assets/dist/img/lottery-logo/jx11x5.png" class="logo" 
+style="display:none;visibility:hidden;">
+<noscript><img src="./static/wap/assets/dist/img/lottery-logo/jx11x5.png" class="logo"></noscript>
+<div class="title">
+<span class="period">第<span style="color:red">{{zxkj["ykqs"]}}</span>期</span>
+<span class="time pull-right">下期开奖：
+<span class="num ">{{minite}}:{{seconds}}</span></span>
+</div>
+<div class=" motion-num">
+  <i v-show="timeFlag" v-for="( num,index) in zxkj.dqhm" 
+                    class="no-default">
+       					{{num}}
+                    </i>
+                    <p 
+                    v-show="!timeFlag"
+                    class="flash">正在开奖...</p>
+</div>
+
+</div>
+<div class="lottery-tips" id="j-lottery-tips" style='display: none'>
+<i class="fa fa-volume-up" aria-hidden="true"></i> 温馨提示：<span class="j-periods"></span>开奖结果未获取, 继续等待自动更新或 <a href="javascript:location.reload();">手动刷新</a>
+</div>
+<div class="list">
+<a href="../jiqiao/index.html" class="item col-xs-4"><i class="icp-skill-m icon"></i>玩法技巧</a>
+<a href="../zoushitu/index.html" class="item col-xs-4"><i class="icp-chart-m icon"></i>走势图</a>
+<a href="#" class="item col-xs-4" id="i-am-feeling-lucky"><i class="icp-try-m icon"></i>试试手气</a>
+</div>
+</div>
+<style>
+<!--
+.no-default {
+    float: left;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    background: #3999e3;
+    color: #fff;
+    font-style: normal;
+}
+-->
+</style>
+<script type="text/javascript">
+var kjvm = new Vue({
+    el:'#kaijContainer',
+    data:{
+		zxkj:{},
+		minite: "00",
+        seconds: "00",
+        timeFlag: true,
+        reqCount:0,
+    },
+    methods:{
+        getTerms:function(str){
+            if(str){
+                str = str + "";
+                str = str.substring(str.length -3);
+                return parseInt(str);
+            }else{
+                return "";
+            }						
+        },
+        getNewGame: function() {
+        				SULX.get(apijx11x5.jx11x5_zxkj,function(std,data) {
+                                var result = JSON.parse(data).data;
+                                kjvm.zxkj =result;
+                                var otherClick;
+                                //kjvm.paiming.splice(0); //更新号码存放的数组
+                                var timer = Math.ceil((result.xqkjsj - new Date().getTime())/1000+20); //设置延迟20s
+                                if(timer === 0||timer < 0) {
+                                    kjvm.timeFlag = false;
+                                  	//延时30s,等待开奖,然后在请求最新开奖数据
+                                	if(kjvm.reqCount==0){
+                                		otherClick = setTimeout(function() {
+                                			kjvm.reqCount++;
+                                			kjvm.$options.methods.getNewGame();                    		
+                 	                    },30000);
+                                	}else{//30秒后，每隔5秒请求一次数据
+                                		otherClick = setTimeout(function() { 
+                                			kjvm.reqCount++;
+                                         	kjvm.$options.methods.getNewGame();
+                 	                    },5000);
+                                	}                                  
+                                    
+                                } else {
+                                    kjvm.timeFlag = true;
+                                    try {
+                                        vm.$options.methods.getData();
+                                    }catch(e){}	
+                                    clearTimeout(otherClick);
+                                    kjvm.reqCount=0;
+                                    //kjvm.$options.methods.draw(); //重绘线图 页面没有可注释
+                                    var min = Math.floor(timer/60);
+                                    var scd = Math.ceil(timer%60);
+                                    var click = setInterval(
+                                        function() {
+                                            kjvm.minite = min;
+                                            kjvm.seconds = scd;
+                                            if((min+'').length === 1) {
+                                                kjvm.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                                kjvm.seconds = '0'+scd
+                                            }
+                                            scd --;
+                                            if((min === 0&&scd === 0)||min <0) {
+                                                clearInterval(click);
+                                                kjvm.$options.methods.getNewGame();
+                                                // vm.$options.methods.draw(vm.flag);
+                                            } else {
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                        }
+                                    ,1000)
+                                }
+                                try {
+                                	vm.gameData = result;
+                                }catch(e){}	
+                            }
+                        )
+                    },
+    },	
+    created: function() {
+        this.getNewGame();
+    },
+});
+</script>

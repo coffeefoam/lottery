@@ -1,0 +1,178 @@
+<#include "/tjssc/head.html">
+
+<div v-cloak id="divContainer">
+<div class="container lobby-record" data-job="replace">
+<div class="able-responsive">
+<table class="table table-bordered table-condensed text-center">
+<thead>
+<tr>
+<th width="10%">日期</th>
+<th colspan="4" width="18%">第一球</th>
+<th colspan="4" width="18%">第二球</th>
+<th colspan="4" width="18%">第三球</th>
+<th colspan="4" width="18%">第四球</th>
+<th colspan="4" width="18%">第五球</th>
+</tr>
+</thead>
+<tr>
+<td></td>
+<td style="border-left: 0; border-right: 0;">
+大
+</td>
+<td style="border-left: 0; border-right: 0;">
+小
+</td>
+<td style="border-left: 0; border-right: 0;">
+单
+</td>
+<td style="border-left: none;">
+双
+</td>
+<td style="border-left: 0; border-right: 0;">
+大
+</td>
+<td style="border-left: 0; border-right: 0;">
+小
+</td>
+<td style="border-left: 0; border-right: 0;">
+单
+</td>
+<td style="border-left: none;">
+双
+</td>
+<td style="border-left: 0; border-right: 0;">
+大
+</td>
+<td style="border-left: 0; border-right: 0;">
+小
+</td>
+<td style="border-left: 0; border-right: 0;">
+单
+</td>
+<td style="border-left: none;">
+双
+</td>
+<td style="border-left: 0; border-right: 0;">
+大
+</td>
+<td style="border-left: 0; border-right: 0;">
+小
+</td>
+<td style="border-left: 0; border-right: 0;">
+单
+</td>
+<td style="border-left: none;">
+双
+</td>
+<td style="border-left: 0; border-right: 0;">
+大
+</td>
+<td style="border-left: 0; border-right: 0;">
+小
+</td>
+<td style="border-left: 0; border-right: 0;">
+单
+</td>
+<td style="border-left: none;">
+双
+</td>
+</tr>
+<tr v-for="(item,index) in dateArr" :class="index%2==0?'odd':'even'">
+<td style="padding: 0;">
+{{item}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num1"]["da"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num1"]["xiao"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num1"]["dan"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-right: 1px solid #ececec;border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num1"]["shuang"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num2"]["da"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num2"]["xiao"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num2"]["dan"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-right: 1px solid #ececec;border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num2"]["shuang"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num3"]["da"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num3"]["xiao"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num3"]["dan"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-right: 1px solid #ececec;border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num3"]["shuang"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num4"]["da"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num4"]["xiao"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num4"]["dan"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-right: 1px solid #ececec;border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num4"]["shuang"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num5"]["da"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num5"]["xiao"]}}
+</td>
+<td style="padding: 5px 0;background: #fff; border: none; border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num5"]["dan"]}}
+</td>
+<td style="padding: 5px 0;background: #ececec; border: none; border-right: 1px solid #ececec;border-bottom:1px solid #ddd;">
+{{dsdxls[index][item]["num5"]["shuang"]}}
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			dsdxls:{},
+			dateArr:[],
+		},
+		methods:{
+			getData: function(){
+				SULX.get(apitjssc.tjssc_dsdxls,function(std,data) {
+                    vm.dsdxls = JSON.parse(data).data;
+                    vm.dateArr.splice(0);
+                    for(i=0;i<vm.dsdxls.length;i++) {
+                        for(j in vm.dsdxls[i]) {
+                        	if(JSON.stringify(vm.dsdxls[i][j])!='{}'){
+                        		vm.dateArr.push(j);
+                        	}                            
+                        }
+                    }
+                });
+			}
+		},
+		created:function(){
+			this.getData();			
+		}	
+	});
+</script>
+<#include "/common/foot.html">
+</body>
+</html>

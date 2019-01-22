@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>幸运农场号码统计 - 开奖直播</title>
+<meta name="keywords" content="幸运农场频道提供幸运农场历史走势图表,最新的开奖结果,实用的玩法技巧,完整的历史数据,免费提供软件及投注预测。">
+<meta name="description" content="幸运农场,幸运农场开奖结果,幸运农场投注技巧,幸运农场玩法">
+<#include "/wap/common/header.html">
+<#include "/wap/common/chartcss.html">
+<#include "/wap/common/cssjs.html">
+</head>
+<body>
+<#include "/wap/common/nav.html">
+<#include "/wap/common/leftmenu.html">
+<#include "/wap/common/feedback.html">
+<div class="container-fluid main">
+<div class="row">
+<#include "/wap/xync/kaijiang.html">
+<div class="pay-show" data-pay="Icp_M_Lottery_Top">
+</div>
+<#include "/wap/xync/rightmenu.html">
+<div class="menu-title">
+历史号码统计
+</div>
+<div id="divContainer" class="container lobby-record" v-cloak>
+<div class="table-responsive">
+<table class="table table-bordered table-striped text-center">
+<thead>
+<tr>
+<th width="130">日期</th>
+<th width="50">1</th>
+<th width="50">2</th>
+<th width="50">3</th>
+<th width="50">4</th>
+<th width="50">5</th>
+<th width="50">6</th>
+<th width="50">7</th>
+<th width="50">8</th>
+<th width="50">9</th>
+<th width="50">10</th>
+<th width="50">11</th>
+<th width="50">12</th>
+<th width="50">13</th>
+<th width="50">14</th>
+<th width="50">15</th>
+<th width="50">16</th>
+<th width="50">17</th>
+<th width="50">18</th>
+<th width="50">19</th>
+<th width="50">20</th>
+<th width="50">单</th>
+<th width="50">双</th>
+<th width="50">大</th>
+<th width="50">小</th>
+<th width="50">龙</th>
+<th width="50">虎</th>
+</tr>
+</thead>
+<tr v-for="(item,index) in dateArr" :class="index%2==0?'odd':'even'">
+<td>{{getTerms(item)}}</td>
+<td>{{lshmtj[index][item]["num1"]}}</td>
+<td>{{lshmtj[index][item]["num2"]}}</td>
+<td>{{lshmtj[index][item]["num3"]}}</td>
+<td>{{lshmtj[index][item]["num4"]}}</td>
+<td>{{lshmtj[index][item]["num5"]}}</td>
+<td>{{lshmtj[index][item]["num6"]}}</td>
+<td>{{lshmtj[index][item]["num7"]}}</td>
+ <td>{{lshmtj[index][item]["num8"]}}</td>
+<td>{{lshmtj[index][item]["num9"]}}</td>
+<td>{{lshmtj[index][item]["num10"]}}</td>
+<td>{{lshmtj[index][item]["num11"]}}</td>
+<td>{{lshmtj[index][item]["num12"]}}</td>
+<td>{{lshmtj[index][item]["num13"]}}</td>
+<td>{{lshmtj[index][item]["num14"]}}</td>
+<td>{{lshmtj[index][item]["num15"]}}</td>
+<td>{{lshmtj[index][item]["num16"]}}</td>
+<td>{{lshmtj[index][item]["num17"]}}</td>
+ <td>{{lshmtj[index][item]["num18"]}}</td>
+<td>{{lshmtj[index][item]["num19"]}}</td>
+<td>{{lshmtj[index][item]["num20"]}}</td>
+<td>{{lshmtj[index][item]["dan"]}}</td>
+<td>{{lshmtj[index][item]["shuang"]}}</td>
+<td>{{lshmtj[index][item]["da"]}}</td>
+<td>{{lshmtj[index][item]["xiao"]}}</td>
+<td>{{lshmtj[index][item]["long"]}}</td>
+<td>{{lshmtj[index][item]["hu"]}}</td>
+</tr>
+
+</table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#divContainer',
+		data:{
+			lshmtj:{},
+			dateArr: [],
+			thList:["num1","num2","num3","num4","num5","num6","num7","num8","num9",
+				"num10","num11","num12","num13","num14","num15","num16","num17","num18","num19","num20",
+				"dan","shuang","da","xiao","long","hu"],
+		}, 
+		methods: {
+			getTerms: function(item){
+	    		if(item  ){
+	    			return item.substring(item.length -5);
+	    		}
+	    		return "";
+	    	},
+	    	getData:function(){
+	    		SULX.get(apixync.xync_lshmtj,function(std,data) {
+	                vm.lshmtj = JSON.parse(data).data;
+	               vm.dateArr.splice(0);
+	                for(i=0;i<vm.lshmtj.length;i++) {
+	                    for(j in vm.lshmtj[i]) {
+	                        vm.dateArr.push(j);
+	                    }
+	                }
+	            });	
+	    	},		
+		},
+		created:function(){		
+			this.$options.methods.getData(); 		
+		}	
+	});
+</script>
+<#include "/wap/common/bottommenu.html">
+<#include "/wap/common/foot.html">
+</body>
+</html>

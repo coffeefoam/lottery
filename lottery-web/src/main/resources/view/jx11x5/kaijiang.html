@@ -1,0 +1,147 @@
+<style>
+	[v-cloak] {
+		opacity: 0 !important;
+	}
+</style>
+<div id="kaijContainer">
+    <div class="lottery-result" data-m="lobby" data-title="江西11选5"
+        data-periods="120" data-id="13" data-url="jx11x5" data-count="30">
+        <div class="content-box" id="j-lottery-intro">
+            <div class="logo">
+                <img src="/static/assets/dist/img/lottery-logo/jx11x5.png"
+                    alt="jx11x5">
+            </div>
+            <div class="result" id="j-lottery-info">
+                <div>最新开奖：<span class="total">{{zxkj["ykqs"]}}</span>期 &nbsp; 每日<span
+                        class="daily">{{zxkj["mrqs"]}}</span>期，今日剩余<span
+                        class="daily">{{zxkj["syqs"]}}</span>期</div>
+                <div class="lottery-num">
+                    <i v-show="timeFlag" v-for="num in zxkj.dqhm" class="no-default">{{num}}</i>
+                    <p 
+                    v-show="!timeFlag"
+                    class="flash">正在开奖...</p>
+                </div>
+                <div class="lottery-load" style="height: 24px;"></div>
+            </div>
+            <div class="btns">
+                <a href="/jx11x5/shipin/" class="video">开奖视频</a>
+                <a href="" class="try" id="i-am-feeling-lucky">试试手气</a>
+            </div>
+            <div class="time" id="j-lottery-right">
+                <div class="left">
+                    <div class="first">第<span>{{getTerms(zxkj["xqqs"])}}</span>期</div>
+                    <div>距离下期开奖剩余</div>
+                </div>
+                <div style="display: flex">
+                    <div class="right">
+                        <span class="num"
+                            :class="(parseInt(minite)==0&&parseInt(seconds)<=30
+                            && parseInt(seconds)>0)?'urgent':''">{{minite}}</span><span
+                            class="word">分</span>
+                        <span class="num"
+                            :class="(parseInt(minite)==0&&parseInt(seconds)<=30
+                            && parseInt(seconds)>0)?'urgent':''">{{seconds}}</span><span
+                            class="word">秒</span>
+                    </div>
+                    <!-- <p v-show="!timeFlag" class="flash">正在开奖...</p> -->
+                     
+                </div>
+            </div>
+            <div class="links">
+                <a href="/jx11x5/kaijiang"><i class="fa fa-file-text-o"
+                        aria-hidden="true"></i>开奖结果</a>
+                <a href="#feedBack" class="default" data-toggle="modal"><i
+                        class="fa fa-comments-o" aria-hidden="true"></i>用户反馈</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var kjvm = new Vue({
+	el:'#kaijContainer',
+	data:{
+		zxkj:{},
+		minite: "00",
+        seconds: "00",
+        timeFlag: true,
+        reqCount:0,
+	},
+	methods:{
+		getTerms:function(str){
+			if(str){
+				str = str + "";
+				str = str.substring(str.length -2);
+				return parseInt(str);
+			}else{
+				return "";
+			}						
+		},
+		getNewGame: function() {
+						SULX.get(apijx11x5.jx11x5_zxkj,function(std,data) {
+								var result = JSON.parse(data).data;
+                                var localTimer = JSON.parse(data).timestamp;
+								kjvm.zxkj =result;
+                                var timer = Math.ceil((result.xqkjsj - localTimer)/1000); 
+                                if(timer === 0||timer < 0) {                                    
+                                    kjvm.timeFlag = false; 
+                                    //延时30s,等待开奖,然后在请求最新开奖数据
+                                	if(kjvm.reqCount==0){
+                                		var otherClick = setTimeout(function() {
+                                			kjvm.reqCount++;
+                                			kjvm.$options.methods.getNewGame();                    		
+                 	                    },30000);
+                                	}else{//30秒后，每隔5秒请求一次数据
+                                		var otherClick = setTimeout(function() { 
+                                			kjvm.reqCount++;
+                                         	kjvm.$options.methods.getNewGame();
+                 	                    },5000);
+                                	}                                    
+                                } else {
+                                    kjvm.timeFlag = true;
+                                    try {
+                                        vm.$options.methods.getData();
+                                    }catch(e){}	
+                                    clearTimeout(otherClick);
+                                    kjvm.reqCount=0;
+                                    var min = Math.floor(timer/60);
+                                    var scd = Math.ceil(timer%60);                                    
+                                    var min = Math.floor(timer/60);
+                                    var scd = Math.ceil(timer%60);
+                                    var click = setInterval(
+                                        function() {
+
+                                            scd --;
+                                            if((min === 0&&scd === 0)||min <0) {
+                                                clearInterval(click);
+												kjvm.$options.methods.getNewGame();
+                                                // vm.$options.methods.draw(vm.flag);
+                                            } else {
+                                                if(scd < 0) {
+                                                    min --;
+                                                    scd = 59;
+                                                }
+                                            }
+                                            kjvm.minite = min;
+                                            kjvm.seconds = scd;
+                                            if((min+'').length === 1) {
+                                                kjvm.minite = '0'+min     //加个0
+                                            }
+                                            if((scd+'').length === 1) {
+                                                kjvm.seconds = '0'+scd
+                                            }
+                                        }
+                                    ,1000)
+                                }
+                                try {
+                                	vm.gameData = result;
+                                }catch(e){}	
+                            }
+                        )
+                    },		
+		
+	},	
+	created: function() {
+		this.getNewGame();
+    },
+});
+</script>

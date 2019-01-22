@@ -1,0 +1,1 @@
+var __reflect=this&&this.__reflect||function(_,e,t){_.__class__=e,t?t.push(e):t=[e],_.__types__=_.__types__?t.concat(_.__types__):t},game;!function(_){var e=function(){function _(){}return _.openNewUrl=function(_){window.open(_)},_}();_.WebUtil=e,__reflect(e.prototype,"game.WebUtil")}(game||(game={}));
